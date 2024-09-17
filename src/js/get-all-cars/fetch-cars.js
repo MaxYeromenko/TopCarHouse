@@ -1,0 +1,119 @@
+const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
+const loadMoreButton = document.getElementById('load-more-cars');
+let carsData = [];
+let carsDisplayed = 0;
+const carsPerPage = 12;
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('api/cars')
+        .then(response => response.json())
+        .then(data => {
+            carsData = data;
+            loadMoreCars();
+        })
+        .catch(error => console.error('Error fetching car data:', error));
+});
+
+function loadMoreCars() {
+    const carsContainer = document.getElementById('cars-container');
+    const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
+
+    nextCars.forEach(car => {
+        const carCard = document.createElement('div');
+        carCard.classList.add('car');
+
+        const default_car_URL = `${cloudinaryURL}v1725616540/default_car.jpg`;
+
+        let carImages = car.images && car.images.length > 0
+            ? car.images.map(image => image.startsWith('http') ? image : `${cloudinaryURL}${image}`)
+            : [default_car_URL];
+
+        let currentImageIndex = 0;
+        let imageInterval;
+
+        const carImageElement = document.createElement('img');
+        carImageElement.classList.add('product-image');
+        carImageElement.alt = `${car.brand} ${car.model}`;
+
+        carImageElement.src = default_car_URL;
+
+        carCard.innerHTML = `
+        <div class="product-card">
+            <div class="product-info">
+                <h2 class="product-title">${car.brand} ${car.model}</h2>
+                <p class="product-description">
+                    ${car.year}, ${car.features.engine}, ${car.features.fuel_type}, ${car.features.horsepower} к.с.
+                </p>
+                <div class="product-features">
+                    <div class="feature">
+                        <i class="fa-solid fa-gears"></i>${car.features.transmission}
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-gas-pump"></i> 
+                        ${car.features.fuel_consumption > 0 ? car.features.fuel_consumption + ' л / 100 км' : ' - '} 
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-caravan"></i> ${car.features.horsepower} к.с.
+                    </div>
+                </div>
+                <div class="product-price">Ціна: $${car.price}</div>
+                <a href="/pages/product-info.html?id=${car._id}&brand=${encodeURIComponent(car.brand)}&model=${encodeURIComponent(car.model)}&year=${car.year}" class="product-button" target="_blank">
+                    Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <div class="product-footer">Найкращі умови купівлі!</div>
+            </div>
+        </div>`;
+
+        const checkImageValidity = (imageUrl, successCallback, errorCallback) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = successCallback;
+            img.onerror = errorCallback;
+        };
+
+        const validImages = [];
+
+        carImages.forEach((imageUrl) => {
+            checkImageValidity(
+                imageUrl,
+                () => {
+                    validImages.push(imageUrl);
+                    if (validImages.length === 1) {
+                        carImageElement.src = validImages[0];
+                    }
+                },
+                () => console.warn(`Image ${imageUrl} is broken and will be removed.`)
+            );
+        });
+
+        carCard.querySelector('.product-card').insertBefore(carImageElement, carCard.querySelector('.product-info'));
+
+        const changeImage = () => {
+            currentImageIndex = (currentImageIndex + 1) % validImages.length;
+            carImageElement.src = validImages[currentImageIndex];
+        };
+
+        carCard.addEventListener('mouseenter', () => {
+            if (validImages.length > 1) {
+                imageInterval = setInterval(changeImage, 1500);
+            }
+        });
+
+        carCard.addEventListener('mouseleave', () => {
+            clearInterval(imageInterval);
+            if (validImages.length > 0) {
+                carImageElement.src = validImages[0];
+            }
+        });
+
+        carsContainer.appendChild(carCard);
+    });
+
+    carsDisplayed += nextCars.length;
+
+    if (carsDisplayed >= carsData.length) {
+        loadMoreButton.style.display = 'none';
+    }
+}
+
+loadMoreButton.addEventListener('click', loadMoreCars);

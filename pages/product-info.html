@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформація про продукт | TopCarHouse</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="https://res.cloudinary.com/dukwtlvte/image/upload/v1725910176/logo-no-background_kuzaip.png"
+                alt="Logo">
+        </a>
+        <nav class="horizontal-nav">
+            <a href="#">Каталог</a>
+            <a href="#">Послуги</a>
+            <a href="/pages/about.html">Про нас</a>
+            <a href="#">Блог</a>
+            <a href="#bottom">Контакти</a>
+        </nav>
+        <div class="icon-wrapper">
+            <i class="fa-solid fa-angles-down"></i>
+            <i class="fa-solid fa-angles-up"></i>
+            <nav class="vertical-nav">
+                <a href="#">Каталог</a>
+                <a href="#">Послуги</a>
+                <a href="/pages/about.html">Про нас</a>
+                <a href="#">Блог</a>
+                <a href="#bottom">Контакти</a>
+            </nav>
+        </div>
+        <div class="cta-buttons">
+            <a href="#">Отримати консультацію</a>
+        </div>
+    </header>
+
+    <main class="product-main">
+        <section class="container">
+            <h1 id="product-name-year"></h1>
+            <p id="product-price"></p>
+            <div class="slider-container">
+                <button id="slider-prev" class="slider-button">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="image-container">
+                    <img id="product-image">
+                </div>
+                <button id="slider-next" class="slider-button">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div id="page-tracker"></div>
+            </div>
+            <div id="image-view-bg">
+                <i id="close-button" class="fa-solid fa-xmark"></i>
+                <img id="image-view">
+            </div>
+            <h1 id="product-characteristics-title">Характеристики</h1>
+            <div class="product-info">
+                <p id="product-description"></p>
+                <table>
+                    <colgroup>
+                        <col style="width: 50%;">
+                        <col>
+                    </colgroup>
+                    <tr>
+                        <td><strong>Бренд:</strong></td>
+                        <td id="product-brand"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Модель:</strong></td>
+                        <td id="product-model"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Рік випуску:</strong></td>
+                        <td id="product-year"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Колір:</strong></td>
+                        <td id="product-color"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Коробка передач:</strong></td>
+                        <td id="product-transmission"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Двигун:</strong></td>
+                        <td id="product-engine"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Потужність:</strong></td>
+                        <td id="product-horsepower"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Споживання палива:</strong></td>
+                        <td id="product-fuel-consumption"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Тип палива:</strong></td>
+                        <td id="product-fuel-type"></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer id="bottom">
+        <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
+        <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
+        <p>&copy; 2024 TopCarHouse. Усі права захищені.</p>
+        <p>
+            <a href="#" target="_blank">
+                Facebook
+            </a> |
+            <a href="#" target="_blank">
+                Instagram
+            </a> |
+            <a href="https://youtube.com/@topcarhouse?si=8Oi7ULpXNZvLYfd0" target="_blank">
+                YouTube
+            </a>
+        </p>
+    </footer>
+    <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
+    <script src="/src/js/image-view.js"></script>
+    <script src="/src/js/header-margin.js"></script>
+    <script src="/src/js/get-car-by-id/product-info-load.js"></script>
+    <!-- <script src="/src/js/get-car-by-id/local-product-info-load.js"></script> -->
+</body>
+
+</html>

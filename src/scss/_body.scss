@@ -1,0 +1,134 @@
+$product-white: #fff;
+$product-dark: #333;
+$product-orange: #f60;
+
+body {
+    margin: 0;
+    padding: 0;
+
+    main {
+        min-height: 100vh;
+
+        .info-message {
+            position: fixed;
+            bottom: 3%;
+            right: 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1% 1.5%;
+            background-color: $product-white;
+            z-index: 6;
+            border-radius: 5px;
+            color: $product-orange;
+            gap: 5px;
+            visibility: hidden;
+            opacity: 0;
+
+            .fa-xmark {
+                font-size: 14px;
+                color: lighten($color: $product-dark, $amount: 30%);
+                border-radius: 100%;
+                padding: 2px 3px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: lighten($color: $product-dark, $amount: 70%);
+                }
+            }
+        }
+
+        .error-message,
+        .success-message {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 1s;
+        }
+
+        .error-message {
+            box-shadow: 3px 3px 10px red;
+        }
+
+        .success-message {
+            box-shadow: 3px 3px 10px green;
+        }
+
+        .invisible {
+            opacity: 0;
+        }
+
+        /* Стилі для слайдера */
+        .hero {
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            background-image: url('/src/images/car_pink.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            overflow: hidden;
+            gap: 10px;
+            padding: 10% 15%;
+
+            h1 {
+                font-size: 48px;
+                margin: 0;
+            }
+
+            p {
+                font-size: 24px;
+                margin: 10px 0;
+            }
+
+            a {
+                background-color: #f60;
+                padding: 10px 20px;
+                border-radius: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                transition: all 0.6s;
+            }
+
+            a:hover {
+                background-color: white;
+                color: #f60;
+            }
+        }
+
+        /* Стилі для переваг */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+            background-color: #333;
+            color: white;
+
+            i {
+                font-size: 2em;
+            }
+
+            .feature {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .features {
+                padding: 5% 1%;
+                font-size: small;
+            }
+        }
+
+        @media (max-width: 810px) {
+            .info-message {
+                padding: 1%;
+                gap: 0;
+            }
+        }
+    }
+}

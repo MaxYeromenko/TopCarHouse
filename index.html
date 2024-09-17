@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна | TopCarHouse</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="https://res.cloudinary.com/dukwtlvte/image/upload/v1725910176/logo-no-background_kuzaip.png"
+                alt="Logo">
+        </a>
+        <nav class="horizontal-nav">
+            <a href="#">Каталог</a>
+            <a href="#">Послуги</a>
+            <a href="/pages/about.html">Про нас</a>
+            <a href="#">Блог</a>
+            <a href="#bottom">Контакти</a>
+            <a class="log-button">Увійти</a>
+        </nav>
+        <div class="icon-wrapper">
+            <i class="fa-solid fa-angles-down"></i>
+            <i class="fa-solid fa-angles-up"></i>
+            <nav class="vertical-nav">
+                <a href="#">Каталог</a>
+                <a href="#">Послуги</a>
+                <a href="/pages/about.html">Про нас</a>
+                <a href="#">Блог</a>
+                <a href="#bottom">Контакти</a>
+                <a class="log-button">Увійти</a>
+            </nav>
+        </div>
+        <div class="cta-buttons">
+            <a>Отримати консультацію</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="info-message">
+            <span class="message-text"></span>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <div id="auth-container">
+            <div class="auth-box">
+                <h2>Вхід</h2>
+                <form class="auth-form">
+                    <input type="email" placeholder="Електронна пошта" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <button type="submit">Увійти</button>
+                </form>
+                <p>Немає облікового запису? <a id="toggle-register">Реєстрація</a></p>
+            </div>
+
+            <div class="auth-box hidden" id="register-box">
+                <h2>Реєстрація</h2>
+                <form id="register-form" class="auth-form">
+                    <input id="register-name" type="text" placeholder="Логін">
+                    <input id="register-email" type="email" placeholder="Електронна пошта">
+                    <input id="register-password" type="password" placeholder="Пароль">
+                    <button type="submit">Зареєструватися</button>
+                </form>
+                <p>Вже є обліковий запис? <a id="toggle-login">Увійти</a></p>
+            </div>
+            <i id="close-button" class="fa-solid fa-xmark"></i>
+        </div>
+
+        <section class="hero">
+            <h1>Найкращі автомобілі для вас!</h1>
+            <p>Запишіться на тест-драйв вже сьогодні</p>
+            <a href="#">Дізнатися більше</a>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <i class="fa-solid fa-car-on"></i>
+                <h3>Широкий вибір</h3>
+                <p>Більше 50 моделей авто</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-award"></i>
+                <h3>Гарантія</h3>
+                <p>Офіційне гарантійне обслуговування</p>
+            </div>
+            <div class="feature">
+                <i class="fa-regular fa-newspaper"></i>
+                <h3>Кредитування</h3>
+                <p>Вигідні умови кредитування</p>
+            </div>
+        </section>
+
+        <section id="cards-section">
+            <div class="cars" id="cars-container"></div>
+            <div class="load-more-cars-buttons">
+                <a id="load-more-cars">
+                    Завантажити більше
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="bottom">
+        <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
+        <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
+        <p>&copy; 2024 TopCarHouse. Усі права захищені.</p>
+        <p>
+            <a href="#" target="_blank">
+                Facebook
+            </a> |
+            <a href="#" target="_blank">
+                Instagram
+            </a> |
+            <a href="https://youtube.com/@topcarhouse?si=8Oi7ULpXNZvLYfd0" target="_blank">
+                YouTube
+            </a>
+        </p>
+    </footer>
+    <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
+    <script src="/src/js/header-margin.js"></script>
+    <script src="/src/js/get-all-cars/fetch-cars.js"></script>
+    <!-- <script src="/src/js/get-all-cars/local-fetch-cars.js"></script> -->
+    <script src="/src/js/register-user/add-user.js"></script>
+    <!-- <script src="/src/js/register-user/local-add-user.js"></script> -->
+    <script src="/src/js/log-form.js"></script>
+</body>
+
+</html>

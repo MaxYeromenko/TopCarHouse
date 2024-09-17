@@ -1,0 +1,83 @@
+let hideTimeout;
+let resetTimeout;
+
+const nameRegex = /^[a-zA-Z0-9]{5,}$/;
+const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+const form = document.getElementById('register-form');
+const messageClose = document.querySelector('.info-message .fa-xmark');
+const message = document.querySelector('.info-message');
+
+form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const name = document.getElementById('register-name').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+
+    clearTimeout(hideTimeout);
+    clearTimeout(resetTimeout);
+
+    if (!nameRegex.test(name)) {
+        showMessage('Логін має складатися з 5 цифр або літер!', false);
+        return;
+    }
+
+    if (!emailRegex.test(email)) {
+        showMessage('Неправильний формат електронної пошти!', false);
+        return;
+    }
+
+    if (!passwordRegex.test(password)) {
+        showMessage('Пароль має містити 8 символів, щонайменше 1 велику та маленьку літери та 1 цифру!', false);
+        return;
+    }
+
+    showMessage('Завантаження...', true);
+
+    message.classList.remove('invisible');
+
+    const response = await fetch('api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password })
+    });
+
+    const result = await response.json();
+    showMessage(result.success ? result.message : 'Помилка: ' + result.message, result.success);
+
+    if (result.success) {
+        form.reset();
+        registerBox.classList.add('hidden');
+        loginBox.classList.remove('hidden');
+    }
+
+    messageClose.onclick = () => {
+        message.classList.add('invisible');
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    };
+});
+
+function showMessage(text, isSuccess) {
+    const message = document.querySelector('.info-message');
+    const messageText = document.querySelector('.info-message .message-text');
+
+    messageText.textContent = text;
+    message.classList.toggle('success-message', isSuccess);
+    message.classList.toggle('error-message', !isSuccess);
+
+    message.classList.remove('invisible');
+
+    hideTimeout = setTimeout(() => {
+        message.classList.add('invisible');
+    }, 3000);
+
+    resetTimeout = setTimeout(() => {
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    }, 4000);
+}

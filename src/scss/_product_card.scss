@@ -1,0 +1,144 @@
+$product-white: #fff;
+$product-dark: #333;
+$product-orange: #f60;
+
+/* Стилі для популярних моделей */
+#cards-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 35px;
+
+    .cars {
+        padding: 3%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        justify-items: center;
+
+        .product-card {
+            background-color: $product-dark;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 320px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .product-image {
+                width: 100%;
+                height: 214px;
+                object-fit: cover;
+                border-bottom: 2px solid $product-orange;
+                position: relative;
+            }
+
+            .product-info {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+
+                .product-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: $product-white;
+                }
+
+                .product-description {
+                    font-size: 14px;
+                    color: $product-white;
+                    opacity: 0.8;
+                }
+
+                .product-features {
+                    display: flex;
+                    gap: 10px;
+                    font-size: 14px;
+                    color: $product-white;
+                    justify-content: center;
+
+                    .feature {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+
+                        .icon {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .product-price {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: $product-orange;
+                    margin: 10px;
+                }
+
+                .product-button {
+                    background-color: $product-orange;
+                    color: $product-white;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    transition: background-color 0.3s;
+                    text-decoration: none;
+
+
+                    &:hover {
+                        color: $product-orange;
+                        background-color: $product-white;
+                    }
+
+                    .fa-arrow-up-right-from-square {
+                        font-size: small;
+                    }
+                }
+
+                .product-footer {
+                    font-size: 12px;
+                    color: $product-white;
+                    text-align: center;
+                    margin-top: 10px;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .cars {
+            padding: 3%;
+        }
+    }
+
+    .load-more-cars-buttons {
+        margin: 0 0 35px 0;
+        text-align: center;
+
+        #load-more-cars {
+            background-color: $product-orange;
+            color: $product-white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+
+            &:hover {
+                color: $product-orange;
+                background-color: $product-dark;
+            }
+        }
+    }
+}
