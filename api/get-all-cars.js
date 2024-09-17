@@ -1,3 +1,4 @@
+const { error } = require('console');
 const mongoose = require('../server/db');
 
 const DataSchema = new mongoose.Schema({
@@ -26,6 +27,7 @@ module.exports = async (req, res) => {
             res.status(200).json(data);
         } catch (err) {
             res.status(500).json({ error: 'Error fetching data' });
+            res.status(504).json({ error: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
         res.status(405).json({ error: 'Method Not Allowed' });

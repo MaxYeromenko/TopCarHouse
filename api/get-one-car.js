@@ -46,6 +46,7 @@ module.exports = async (req, res) => {
             res.status(200).json(car);
         } catch (err) {
             res.status(500).json({ error: 'Error fetching car data' });
+            res.status(504).json({ error: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
         res.status(405).json({ error: 'Method Not Allowed' });
