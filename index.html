@@ -34,7 +34,7 @@
                 <a class="log-button">Увійти</a>
             </nav>
         </div>
-        <div class="cta-buttons">
+        <div class="consultation-button">
             <a>Отримати консультацію</a>
         </div>
     </header>
@@ -65,6 +65,19 @@
                     <button type="submit">Зареєструватися</button>
                 </form>
                 <p>Вже є обліковий запис? <a id="toggle-login">Увійти</a></p>
+            </div>
+            <i id="close-button" class="fa-solid fa-xmark"></i>
+        </div>
+
+        <div id="consultation-container">
+            <div class="auth-box">
+                <h2>Заява на отримання консультації</h2>
+                <form id="consultation-form" class="cons-form">
+                    <input id="register-name" type="text" placeholder="Логін">
+                    <input id="register-email" type="email" placeholder="Електронна пошта">
+                    <input id="register-password" type="password" placeholder="Пароль">
+                    <button type="submit">Зареєструватися</button>
+                </form>
             </div>
             <i id="close-button" class="fa-solid fa-xmark"></i>
         </div>
@@ -119,11 +132,13 @@
             </a>
         </p>
     </footer>
+
     <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
     <script src="/src/js/header-margin.js"></script>
     <script src="/src/js/get-all-cars/fetch-cars.js"></script>
     <script src="/src/js/register-user/add-user.js"></script>
     <script src="/src/js/log-form.js"></script>
+    <script src="/src/js/consultation-form.js"></script>
 </body>
 
 </html>

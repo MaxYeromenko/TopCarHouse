@@ -3,7 +3,7 @@ let mainBlock = document.querySelector('main');
 
 function setMargin() {
     let headerBlockHeight = headerBlock.getBoundingClientRect().height;
-    mainBlock.style.marginTop = headerBlockHeight + 'px';
+    mainBlock.style.marginTop = headerBlockHeight - 1 + 'px';
 };
 
 setMargin();
