@@ -247,6 +247,7 @@ header .consultation-button a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  visibility: hidden;
 }
 #consultation-container .auth-box {
   background-color: #fff;

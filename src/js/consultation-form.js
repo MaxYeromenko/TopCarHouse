@@ -42,6 +42,11 @@ consultationForm.addEventListener('submit', async e => {
         return;
     }
 
+    if (isNaN(selectedDateTime.getTime())) {
+        showMessage('Виберіть коректну дату і час!', false);
+        return;
+    }
+
     if (selectedDateTime <= currentDateTime) {
         showMessage('Виберіть дату і час у майбутньому!', false);
         return;
