@@ -1,4 +1,3 @@
-const mongoose = require('/api/post-consultation-request');
 
 const DataSchema = new mongoose.Schema({
     brand: String,
