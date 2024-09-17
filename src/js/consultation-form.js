@@ -16,11 +16,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-let hideTimeout;
-let resetTimeout;
 const consultationForm = document.getElementById('consultation-form');
-const messageClose = document.querySelector('.info-message .fa-xmark');
-const message = document.querySelector('.info-message');
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
 

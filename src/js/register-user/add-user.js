@@ -1,7 +1,7 @@
 let hideTimeout;
 let resetTimeout;
 
-const nameRegex = /^[a-zA-Z0-9]{5,}$/;
+const loginRegex = /^[a-zA-Z0-9]{5,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
@@ -19,7 +19,7 @@ form.addEventListener('submit', async e => {
     clearTimeout(hideTimeout);
     clearTimeout(resetTimeout);
 
-    if (!nameRegex.test(name)) {
+    if (!loginRegex.test(name)) {
         showMessage('Логін має складатися з 5 цифр або літер!', false);
         return;
     }
