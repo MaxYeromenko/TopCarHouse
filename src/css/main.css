@@ -247,7 +247,6 @@ header .consultation-button a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  visibility: hidden;
 }
 #consultation-container .auth-box {
   background-color: #fff;
@@ -278,6 +277,18 @@ header .consultation-button a:hover {
   margin-bottom: 15px;
   border: 1px solid #333;
   border-radius: 5px;
+}
+#consultation-container .cons-form .consultation-alert {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+#consultation-container .cons-form .consultation-alert span {
+  line-height: 0;
+  font-size: 16px;
+  color: red;
 }
 #consultation-container .cons-form button {
   background-color: #f60;
@@ -344,7 +355,6 @@ body main .info-message .fa-xmark {
   color: gray;
   border-radius: 100%;
   padding: 2px 3px;
-  cursor: pointer;
 }
 body main .info-message .fa-xmark:hover {
   background-color: #e6e6e6;
@@ -928,7 +938,8 @@ main.product-main {
   text-align: center;
 }
 
-#close-button {
+#close-button,
+#close-button-second {
   position: inherit;
   top: 0;
   right: 0;
@@ -937,7 +948,8 @@ main.product-main {
   z-index: 1;
   color: #fff;
 }
-#close-button:hover {
+#close-button:hover,
+#close-button-second:hover {
   color: #f60;
   background-color: #fff;
 }

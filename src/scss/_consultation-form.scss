@@ -14,7 +14,7 @@ $product-orange: #f60;
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+    // visibility: hidden;
 
     .auth-box {
         background-color: $product-white;
@@ -41,6 +41,20 @@ $product-orange: #f60;
             margin-bottom: 15px;
             border: 1px solid $product-dark;
             border-radius: 5px;
+        }
+
+        .consultation-alert {
+            font-size: 12px;
+            color: $product-dark;
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0.7;
+
+            span {
+                line-height: 0;
+                font-size: 16px;
+                color: red;
+            }
         }
 
         button {
