@@ -1,3 +1,5 @@
+const mongoose = require('/api/post-consultation-request');
+
 const requestSchema = new mongoose.Schema({
     name: { type: String, required: true },
     phone: { type: String, required: true },
