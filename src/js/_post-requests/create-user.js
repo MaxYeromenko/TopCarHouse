@@ -38,7 +38,7 @@ form.addEventListener('submit', async e => {
 
     message.classList.remove('invisible');
 
-    const response = await fetch('api/register', {
+    const response = await fetch('api/post-user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

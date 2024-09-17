@@ -7,7 +7,7 @@ const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(`/api/get-product-by-id?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`)
+    fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`)
         .then(response => response.json())
         .then(data => {
             productData = data;

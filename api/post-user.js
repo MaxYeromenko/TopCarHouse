@@ -1,11 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('../server/db');
 const bcrypt = require('bcryptjs');
-
-const uri = process.env.MONGODB_URI;
-
-mongoose.connect(uri)
-    .then(() => console.log('Connected to MongoDB Atlas'))
-    .catch(err => console.error('Error connecting to MongoDB:', err));
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
