@@ -508,6 +508,7 @@ body main .features .feature {
 }
 #cards-section .cars .product-card .product-image-container {
   position: relative;
+  width: 100%;
 }
 #cards-section .cars .product-card .product-image-container .product-image {
   width: 100%;
