@@ -530,7 +530,7 @@ body main .features .feature {
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
-#cards-section .cars .product-card .product-image:hover .compare-btn {
+#cards-section .cars .product-card .product-image-container:hover .compare-btn {
   display: block;
   opacity: 1;
 }
