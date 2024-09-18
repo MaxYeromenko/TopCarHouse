@@ -1,5 +1,3 @@
-// const mongoose = require('/api/post-consultation-request');
-
 const mongoose = require('../server/db');
 
 const requestSchema = new mongoose.Schema({
