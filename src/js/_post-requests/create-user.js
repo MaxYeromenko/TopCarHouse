@@ -30,21 +30,29 @@ form.addEventListener('submit', async e => {
 
     message.classList.remove('invisible');
 
-    const response = await fetch('api/post-user', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, password })
-    });
+    let result = null;
 
-    const result = await response.json();
-    showMessage(result.success ? result.message : 'Помилка: ' + result.message, result.success);
+    try {
+        const response = await fetch('api/post-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, password })
+        });
+        result = await response.json();
 
-    if (result.success) {
-        form.reset();
-        registerBox.classList.add('hidden');
-        loginBox.classList.remove('hidden');
+        if (response.ok && result.success) {
+            showMessage(result.message, result.success);
+            form.reset();
+            registerBox.classList.add('hidden');
+            loginBox.classList.remove('hidden');
+        } else {
+            showMessage('Помилка: ' + result.message, false);
+        }
+    } catch (error) {
+        console.error('Error fetching product data:', error);
+        showMessage('Помилка сервера! ' + result.message, result.success);
     }
 
     messageClose.onclick = () => {
