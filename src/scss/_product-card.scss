@@ -38,9 +38,9 @@ $product-orange: #f60;
                 height: 214px;
                 border-bottom: 2px solid $product-orange;
                 position: relative;
+                object-fit: cover;
 
                 .product-image {
-                    object-fit: cover;
                 }
 
                 .compare-btn {
