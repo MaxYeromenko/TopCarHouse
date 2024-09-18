@@ -20,12 +20,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             productData = result;
             loadProductInfo();
             showMessage('Дані успішно завантажені!', true);
-        } else {
-            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
-        showMessage('Помилка сервера!', false);
+        showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
     }
 
     messageClose.onclick = () => {
