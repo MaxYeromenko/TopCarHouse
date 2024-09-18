@@ -19,6 +19,10 @@ document.addEventListener('keydown', (event) => {
 const consultationForm = document.getElementById('consultation-form');
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
+let hideTimeout = null;
+let resetTimeout = null;
+const messageClose = document.querySelector('.info-message .fa-xmark');
+const message = document.querySelector('.info-message');
 
 consultationForm.addEventListener('submit', async e => {
     e.preventDefault();
