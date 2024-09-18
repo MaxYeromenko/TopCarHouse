@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
-        showMessage('Помилка сервера!', false);
+        showMessage('Помилка сервера! ' + result.message, result.success);
     }
 
     messageClose.onclick = () => {
