@@ -519,8 +519,8 @@ body main .features .feature {
 }
 #cards-section .cars .product-card .product-image-container .compare-btn {
   position: absolute;
-  bottom: 10px;
-  left: 0;
+  left: 2%;
+  bottom: 5%;
   padding: 10px 15px;
   background-color: #f60;
   border-radius: 5px;
@@ -530,6 +530,7 @@ body main .features .feature {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+  font-size: 14px;
 }
 #cards-section .cars .product-card .product-image-container:hover .compare-btn {
   display: block;
