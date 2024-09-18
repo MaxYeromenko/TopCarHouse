@@ -34,13 +34,13 @@ $product-orange: #f60;
             }
 
             .product-image-container {
-                border-bottom: 2px solid $product-orange;
                 position: relative;
 
                 .product-image {
                     width: 100%;
                     height: 214px;
                     object-fit: cover;
+                    border-bottom: 2px solid $product-orange;
                 }
 
                 .compare-btn {
