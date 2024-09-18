@@ -41,6 +41,25 @@ $product-orange: #f60;
                 position: relative;
             }
 
+            .compare-btn {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .product-image:hover .compare-btn {
+                display: block;
+                opacity: 1;
+            }
+
             .product-info {
                 padding: 20px;
                 display: flex;

@@ -37,6 +37,12 @@ function loadMoreCars() {
 
         carImageElement.src = default_car_URL;
 
+        const compareButton = document.createElement('button');
+        compareButton.textContent = 'Порівняння <i class="fa-solid fa-scale-unbalanced"></i>';
+        compareButton.classList.add('compare-btn');
+        container.appendChild(carImageElement);
+        container.appendChild(compareButton);
+        
         carCard.innerHTML = `
         <div class="product-card">
             <div class="product-info">
