@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     showMessage('Завантаження...', true);
     message.classList.remove('invisible');
 
+    const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
+    const result = await response.json();
     try {
-        const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
-        const result = await response.json();
-
         if (response.ok) {
             productData = result;
             loadProductInfo();
