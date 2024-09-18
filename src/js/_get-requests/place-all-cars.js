@@ -34,14 +34,17 @@ function loadMoreCars() {
         const carImageElement = document.createElement('img');
         carImageElement.classList.add('product-image');
         carImageElement.alt = `${car.brand} ${car.model}`;
-
         carImageElement.src = default_car_URL;
 
         const compareButton = document.createElement('button');
         compareButton.textContent = 'Порівняння <i class="fa-solid fa-scale-unbalanced"></i>';
         compareButton.classList.add('compare-btn');
-        carImageElement.appendChild(compareButton);
-        
+
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('product-image-container');
+        imageContainer.appendChild(carImageElement);
+        imageContainer.appendChild(compareButton);
+
         carCard.innerHTML = `
         <div class="product-card">
             <div class="product-info">
@@ -91,7 +94,7 @@ function loadMoreCars() {
             );
         });
 
-        carCard.querySelector('.product-card').insertBefore(carImageElement, carCard.querySelector('.product-info'));
+        carCard.querySelector('.product-card').insertBefore(imageContainer, carCard.querySelector('.product-info'));
 
         const changeImage = () => {
             currentImageIndex = (currentImageIndex + 1) % validImages.length;
