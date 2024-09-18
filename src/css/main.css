@@ -532,6 +532,10 @@ body main .features .feature {
   transition: opacity 0.3s ease;
   font-size: 14px;
 }
+#cards-section .cars .product-card .product-image-container .compare-btn:hover {
+  color: #f60;
+  background-color: #fff;
+}
 #cards-section .cars .product-card .product-image-container:hover .compare-btn {
   display: block;
   opacity: 1;
