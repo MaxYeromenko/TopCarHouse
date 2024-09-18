@@ -527,8 +527,8 @@ body main .features .feature {
   color: white;
   border: none;
   opacity: 0;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: all 0.6s, opacity 0.3s;
+  transition: all 0.6s, opacity 0.3s;
   font-size: 14px;
 }
 #cards-section .cars .product-card .product-image-container .compare-btn:hover {
