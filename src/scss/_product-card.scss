@@ -53,6 +53,7 @@ $product-orange: #f60;
                 display: none;
                 opacity: 0;
                 transition: opacity 0.3s ease;
+                z-index: 10;
             }
 
             .product-image:hover .compare-btn {

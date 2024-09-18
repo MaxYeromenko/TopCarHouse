@@ -527,6 +527,7 @@ body main .features .feature {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+  z-index: 10;
 }
 #cards-section .cars .product-card .product-image:hover .compare-btn {
   display: block;
