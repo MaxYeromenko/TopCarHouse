@@ -14,18 +14,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
-        result = await response.json();
+        const result = await response.json();
 
-        if (response.ok) {
+        if (response.ok && result) {
             productData = result;
             loadProductInfo();
             showMessage('Дані успішно завантажені!', true);
         } else {
-            showMessage('Помилка: ' + result.message, false);
+            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
-        showMessage('Помилка сервера! ' + result.message, result.success);
+        showMessage('Помилка сервера!', false);
     }
 
     messageClose.onclick = () => {

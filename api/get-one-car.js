@@ -49,6 +49,6 @@ module.exports = async (req, res) => {
             res.status(504).json({ success: false, message: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
+        res.status(405).json({ success: false, message: 'Method Not Allowed' });
     }
 };
