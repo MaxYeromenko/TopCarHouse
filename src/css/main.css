@@ -511,6 +511,9 @@ body main .features .feature {
   height: 214px;
   border-bottom: 2px solid #f60;
   position: relative;
+}
+#cards-section .cars .product-card .product-image-container .product-image {
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
