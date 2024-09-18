@@ -7,11 +7,12 @@ const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
 
 document.addEventListener("DOMContentLoaded", async () => {
+
     showMessage('Завантаження...', true);
+
     message.classList.remove('invisible');
 
     let result = null;
-
     try {
         const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
         result = await response.json();

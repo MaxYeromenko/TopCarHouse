@@ -57,18 +57,27 @@ consultationForm.addEventListener('submit', async e => {
 
     message.classList.remove('invisible');
 
-    const response = await fetch('api/post-consultation-request', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, phone, datetime: selectedDateTime.toISOString() })
-    });
-    const result = await response.json();
-    showMessage(result.success ? result.message : 'Помилка: ' + result.message, result.success);
+    let result = null;
 
-    if (result.success) {
-        consultationForm.reset();
+    try {
+        const response = await fetch('api/post-consultation-request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, phone, datetime: selectedDateTime.toISOString() })
+        });
+        result = await response.json();
+
+        if (response.ok && result.success) {
+            showMessage(result.message, result.success);
+            consultationForm.reset();
+        } else {
+            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+        }
+    } catch (error) {
+        console.error('Error fetching product data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 
     messageClose.onclick = () => {
