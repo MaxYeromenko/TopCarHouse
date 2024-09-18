@@ -26,10 +26,10 @@ module.exports = async (req, res) => {
             const data = await DataModel.find();
             res.status(200).json(data);
         } catch (err) {
-            res.status(500).json({ error: 'Error fetching data' });
-            res.status(504).json({ error: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
+            res.status(500).json({ success: false, error: 'Error fetching data' });
+            res.status(504).json({ success: false, error: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
-        res.status(405).json({ error: 'Method Not Allowed' });
+        res.status(405).json({ success: false, error: 'Method Not Allowed' });
     }
 };

@@ -29,9 +29,6 @@ consultationForm.addEventListener('submit', async e => {
     const selectedDateTime = new Date(`${dateInput}T${timeInput}`);
     const currentDateTime = new Date();
 
-    clearTimeout(hideTimeout);
-    clearTimeout(resetTimeout);
-
     if (!nameRegex.test(name)) {
         showMessage('Введіть правильне ім’я (тільки букви, мінімум 3 символи)!', false);
         return;
@@ -78,6 +75,13 @@ consultationForm.addEventListener('submit', async e => {
 });
 
 function showMessage(text, isSuccess) {
+    if (hideTimeout) {
+        clearTimeout(hideTimeout);
+    }
+    if (resetTimeout) {
+        clearTimeout(resetTimeout);
+    }
+
     const message = document.querySelector('.info-message');
     const messageText = document.querySelector('.info-message .message-text');
 

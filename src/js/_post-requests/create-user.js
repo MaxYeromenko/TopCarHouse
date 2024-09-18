@@ -16,9 +16,6 @@ form.addEventListener('submit', async e => {
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
 
-    clearTimeout(hideTimeout);
-    clearTimeout(resetTimeout);
-
     if (!loginRegex.test(name)) {
         showMessage('Логін має складатися з 5 цифр або літер!', false);
         return;
@@ -63,6 +60,13 @@ form.addEventListener('submit', async e => {
 });
 
 function showMessage(text, isSuccess) {
+    if (hideTimeout) {
+        clearTimeout(hideTimeout);
+    }
+    if (resetTimeout) {
+        clearTimeout(resetTimeout);
+    }
+
     const message = document.querySelector('.info-message');
     const messageText = document.querySelector('.info-message .message-text');
 

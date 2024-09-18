@@ -5,16 +5,64 @@ const productModel = params.get('model');
 const productYear = params.get('year');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
+let hideTimeout = null;
+let resetTimeout = null;
+const messageClose = document.querySelector('.info-message .fa-xmark');
+const message = document.querySelector('.info-message');
 
-document.addEventListener("DOMContentLoaded", () => {
-    fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`)
-        .then(response => response.json())
-        .then(data => {
-            productData = data;
+document.addEventListener("DOMContentLoaded", async () => {
+    showMessage('Завантаження...', true);
+    message.classList.remove('invisible');
+
+    try {
+        const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
+        const result = await response.json();
+
+        if (response.ok) {
+            productData = result;
             loadProductInfo();
-        })
-        .catch(error => console.error('Error fetching product data:', error));
+            showMessage('Дані успішно завантажені!', true);
+        } else {
+            showMessage('Помилка: ' + result.message, false);
+        }
+    } catch (error) {
+        console.error('Error fetching product data:', error);
+        showMessage('Помилка сервера!', false);
+    }
+
+    messageClose.onclick = () => {
+        message.classList.add('invisible');
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    };
 });
+
+function showMessage(text, isSuccess) {
+    if (hideTimeout) {
+        clearTimeout(hideTimeout);
+    }
+    if (resetTimeout) {
+        clearTimeout(resetTimeout);
+    }
+
+    const message = document.querySelector('.info-message');
+    const messageText = document.querySelector('.info-message .message-text');
+
+    messageText.textContent = text;
+    message.classList.toggle('success-message', isSuccess);
+    message.classList.toggle('error-message', !isSuccess);
+
+    message.classList.remove('invisible');
+
+    hideTimeout = setTimeout(() => {
+        message.classList.add('invisible');
+    }, 3000);
+
+    resetTimeout = setTimeout(() => {
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    }, 4000);
+}
 
 function loadProductInfo() {
     document.title = `${productData.brand} ${productData.model} | TopCarHouse`;
