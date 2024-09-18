@@ -33,7 +33,7 @@ form.addEventListener('submit', async e => {
     let result = null;
 
     try {
-        const response = await fetch('api/post-user', {
+        const response = await fetch('/api/post-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ let carsDisplayed = 0;
 const carsPerPage = 12;
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('api/get-all-cars')
+    fetch('/api/get-all-cars')
         .then(response => response.json())
         .then(data => {
             carsData = data;
