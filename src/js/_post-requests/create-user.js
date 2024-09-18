@@ -47,12 +47,10 @@ form.addEventListener('submit', async e => {
             form.reset();
             registerBox.classList.add('hidden');
             loginBox.classList.remove('hidden');
-        } else {
-            showMessage('Помилка: ' + result.message, false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
-        showMessage('Помилка сервера! ' + result.message, result.success);
+        showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), result.success);
     }
 
     messageClose.onclick = () => {

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
-        const result = await response.json();
+        result = await response.json();
 
         if (response.ok && result) {
             productData = result;
