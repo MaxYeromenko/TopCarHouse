@@ -509,12 +509,12 @@ body main .features .feature {
 #cards-section .cars .product-card .product-image-container {
   width: 100%;
   height: 214px;
+  border-bottom: 2px solid #f60;
+  position: relative;
 }
 #cards-section .cars .product-card .product-image-container .product-image {
   -o-object-fit: cover;
      object-fit: cover;
-  border-bottom: 2px solid #f60;
-  position: relative;
 }
 #cards-section .cars .product-card .product-image-container .compare-btn {
   position: absolute;

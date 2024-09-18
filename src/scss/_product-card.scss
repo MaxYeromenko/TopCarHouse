@@ -36,11 +36,11 @@ $product-orange: #f60;
             .product-image-container {
                 width: 100%;
                 height: 214px;
+                border-bottom: 2px solid $product-orange;
+                position: relative;
 
                 .product-image {
                     object-fit: cover;
-                    border-bottom: 2px solid $product-orange;
-                    position: relative;
                 }
 
                 .compare-btn {
