@@ -5,10 +5,6 @@ const productModel = params.get('model');
 const productYear = params.get('year');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
-let hideTimeout = null;
-let resetTimeout = null;
-const messageClose = document.querySelector('.info-message .fa-xmark');
-const message = document.querySelector('.info-message');
 
 document.addEventListener("DOMContentLoaded", async () => {
     showMessage('Завантаження...', true);
