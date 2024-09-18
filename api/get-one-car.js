@@ -45,10 +45,10 @@ module.exports = async (req, res) => {
             const car = await DataModel.findOne(searchCriteria);
             res.status(200).json(car);
         } catch (err) {
-            res.status(500).json({ success: false, error: 'Помилка сервера під час отримання даних авто!' });
-            res.status(504).json({ success: false, error: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
+            res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
+            res.status(504).json({ success: false, message: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
-        res.status(405).json({ error: 'Method Not Allowed' });
+        res.status(405).json({ message: 'Method Not Allowed' });
     }
 };
