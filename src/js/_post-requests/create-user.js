@@ -1,6 +1,3 @@
-let hideTimeout;
-let resetTimeout;
-
 const loginRegex = /^[a-zA-Z0-9]{5,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
