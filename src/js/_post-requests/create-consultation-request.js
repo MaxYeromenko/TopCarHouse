@@ -17,7 +17,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 const consultationForm = document.getElementById('consultation-form');
-const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ]{3,}$/;
+const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ]{3,}(?:\s[a-zA-Zа-яА-ЯїЇєЄіІґҐ]{3,})*$/;
 const phoneRegex = /^\+380\d{9}$/;
 let hideTimeout = null;
 let resetTimeout = null;
@@ -26,7 +26,7 @@ const message = document.querySelector('.info-message');
 
 consultationForm.addEventListener('submit', async e => {
     e.preventDefault();
-    const name = document.getElementById('consultation-name').value;
+    const name = document.getElementById('consultation-name').value.trim();
     const phone = document.getElementById('consultation-phone').value;
     const dateInput = document.getElementById('consultation-date').value;
     const timeInput = document.getElementById('consultation-time').value;
