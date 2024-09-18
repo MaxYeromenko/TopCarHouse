@@ -60,7 +60,7 @@ consultationForm.addEventListener('submit', async e => {
     let result = null;
 
     try {
-        const response = await fetch('api/post-consultation-request', {
+        const response = await fetch('/api/post-consultation-request', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
