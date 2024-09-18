@@ -3,8 +3,6 @@ const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 const form = document.getElementById('register-form');
-const messageClose = document.querySelector('.info-message .fa-xmark');
-const message = document.querySelector('.info-message');
 
 form.addEventListener('submit', async e => {
     e.preventDefault();
