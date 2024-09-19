@@ -26,6 +26,7 @@ $product-orange: #f60;
             display: inline;
         }
 
+        border: solid 2px $product-orange;
         color: $product-orange;
         background-color: $product-white;
     }

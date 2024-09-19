@@ -474,6 +474,7 @@ body main .features .feature {
   border: solid 2px #fff;
 }
 #compare-section-open:hover {
+  border: solid 2px #f60;
   color: #f60;
   background-color: #fff;
 }
