@@ -114,7 +114,7 @@ header .logo {
 header .logo img {
   width: 100%;
 }
-header .consultation-button {
+header .consultation-button-bg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,14 +123,14 @@ header .consultation-button {
           justify-content: end;
   text-align: center;
 }
-header .consultation-button a {
+header .consultation-button-bg a {
   padding: 10px 20px;
   background-color: #f60;
   border-radius: 5px;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
-header .consultation-button a:hover {
+header .consultation-button-bg a:hover {
   color: #f60;
   background-color: white;
   -webkit-transition: all 0.6s;
