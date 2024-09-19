@@ -470,10 +470,21 @@ body main .features .feature {
   position: fixed;
   right: 2%;
   bottom: 3%;
+  -webkit-transition: color 0.6s, background-color 0.6s;
+  transition: color 0.6s, background-color 0.6s;
 }
 #compare-section-open:hover {
   color: #f60;
   background-color: #fff;
+}
+#compare-section-open:hover .fa-scale-unbalanced {
+  display: none;
+}
+#compare-section-open:hover .fa-scale-unbalanced-flip {
+  display: inline;
+}
+#compare-section-open .fa-scale-unbalanced-flip {
+  display: none;
 }
 
 #compare-section {
@@ -1014,6 +1025,8 @@ main.product-main {
   background-color: #f60;
   z-index: 1;
   color: #fff;
+  -webkit-transition: color 0.6s, background-color 0.6s;
+  transition: color 0.6s, background-color 0.6s;
 }
 #close-button:hover,
 #close-button-second:hover,

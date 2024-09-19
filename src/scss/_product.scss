@@ -167,6 +167,7 @@ main.product-main {
     background-color: $product-orange;
     z-index: 1;
     color: $product-white;
+    transition: color .6s, background-color .6s;
 
     &:hover {
         color: $product-orange;
