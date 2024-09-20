@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             loadMoreCars();
             showMessage('Дані успішно завантажені!', true);
         } else {
-            showMessage('Помилка: Невідома помилка при загрузке данных', false);
+            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching cars data:', error);
@@ -44,6 +44,7 @@ async function fetchWithRetry(url, retries) {
             }
             return await response.json();
         } catch (error) {
+            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
             console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
             await new Promise(resolve => setTimeout(resolve, 1000));

@@ -20,29 +20,11 @@ const DataSchema = new mongoose.Schema({
 const DataModel = mongoose.model('Car', DataSchema);
 
 module.exports = async (req, res) => {
-    const { id, brand, model, year } = req.query;
+    const { id } = req.query;
 
     if (req.method === 'GET') {
         try {
-            const searchCriteria = {};
-
-            if (id) {
-                searchCriteria._id = id;
-            }
-
-            if (brand) {
-                searchCriteria.brand = brand;
-            }
-
-            if (model) {
-                searchCriteria.model = model;
-            }
-
-            if (year) {
-                searchCriteria.year = year;
-            }
-
-            const car = await DataModel.findOne(searchCriteria);
+            const car = await DataModel.findById(id);
             res.status(200).json(car);
         } catch (err) {
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
