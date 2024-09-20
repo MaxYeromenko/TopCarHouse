@@ -80,10 +80,10 @@ function showMessage(text, isSuccess) {
 }
 
 function createCarCard(car) {
-    const carCard = document.createElement('div');
-    carCard.classList.add('car');
+    const carCardToCompare = document.createElement('div');
+    carCardToCompare.classList.add('carToCompare');
 
-    carCard.innerHTML = `
+    carCardToCompare.innerHTML = `
     <div class="compare-item">
         <h2 id="compare-product-title">${car.brand} ${car.model}</h2>
         <div class="compare-product-info">
@@ -98,7 +98,7 @@ function createCarCard(car) {
         </div>
     </div>`;
 
-    return carCard;
+    return carCardToCompare;
 }
 
 async function fetchWithRetry(url, retries) {
