@@ -100,7 +100,7 @@ function createCarCard(car) {
     compareButton.addEventListener('click', function () {
         const carId = this.getAttribute('data-id');
         
-        let carsToCompare = JSON.parse(localStorage.getItem('carToCompare')) || [];
+        let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
         if (carsToCompare.length >= 4) {
             alert('Вы можете сравнить не более 4 машин.');
@@ -109,7 +109,7 @@ function createCarCard(car) {
         
         if (!carsToCompare.includes(carId)) {
             carsToCompare.push(carId);
-            localStorage.setItem('carToCompare', JSON.stringify(carsToCompare));
+            localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
             alert(`Машина с id ${carId} добавлена для сравнения.`);
         } else {
             alert('Эта машина уже добавлена для сравнения.');
