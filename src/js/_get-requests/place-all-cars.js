@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         result = await response.json();
 
         if (response.ok && result) {
-            carsData = data;
+            carsData = result;
             loadMoreCars();
         } else {
             showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
