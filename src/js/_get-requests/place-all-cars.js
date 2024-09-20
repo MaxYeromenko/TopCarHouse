@@ -3,15 +3,24 @@ const loadMoreButton = document.getElementById('load-more-cars');
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
-const retriesLimit = 3;
 
 document.addEventListener("DOMContentLoaded", async () => {
+
     showMessage('Завантаження...', true);
+
     message.classList.remove('invisible');
 
+    let result = null;
     try {
-        carsData = await fetchWithRetry('/api/get-all-cars', retriesLimit);
-        loadMoreCars();
+        const response = await fetch('/api/get-all-cars');
+        result = await response.json();
+
+        if (response.ok && result) {
+            carsData = result;
+            loadMoreCars();
+        } else {
+            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+        }
     } catch (error) {
         console.error('Error fetching cars data:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
@@ -23,25 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         message.classList.remove('success-message');
     };
 });
-
-async function fetchWithRetry(url, retries) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return await response.json();
-        } catch (error) {
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-    }
-}
 
 function loadMoreCars() {
     const carsContainer = document.getElementById('cars-container');
@@ -100,10 +90,47 @@ function loadMoreCars() {
             </div>
         </div>`;
 
-        checkValidImages(carImages, carImageElement, default_car_URL)
-            .then(validImages => {
-                setupImageSlider(validImages, carImageElement, carCard);
-            });
+        const checkImageValidity = (imageUrl, successCallback, errorCallback) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = successCallback;
+            img.onerror = errorCallback;
+        };
+
+        const validImages = [];
+
+        carImages.forEach((imageUrl) => {
+            checkImageValidity(
+                imageUrl,
+                () => {
+                    validImages.push(imageUrl);
+                    if (validImages.length === 1) {
+                        carImageElement.src = validImages[0];
+                    }
+                },
+                () => console.warn(`Image ${imageUrl} is broken and will be removed.`)
+            );
+        });
+
+        carCard.querySelector('.product-card').insertBefore(imageContainer, carCard.querySelector('.product-info'));
+
+        const changeImage = () => {
+            currentImageIndex = (currentImageIndex + 1) % validImages.length;
+            carImageElement.src = validImages[currentImageIndex];
+        };
+
+        carCard.addEventListener('mouseenter', () => {
+            if (validImages.length > 1) {
+                imageInterval = setInterval(changeImage, 1500);
+            }
+        });
+
+        carCard.addEventListener('mouseleave', () => {
+            clearInterval(imageInterval);
+            if (validImages.length > 0) {
+                carImageElement.src = validImages[0];
+            }
+        });
 
         carsContainer.appendChild(carCard);
     });
@@ -116,54 +143,3 @@ function loadMoreCars() {
 }
 
 loadMoreButton.addEventListener('click', loadMoreCars);
-
-function checkValidImages(images, imageElement, defaultImageUrl) {
-    const validImages = [];
-
-    const checkImageValidity = (imageUrl) => {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.src = imageUrl;
-            img.onload = () => resolve(imageUrl);
-            img.onerror = () => resolve(defaultImageUrl);
-        });
-    };
-
-    return Promise.all(images.map(imageUrl =>
-        checkImageValidity(imageUrl)
-    )).then(results => {
-        results.forEach(validImage => {
-            if (!validImages.includes(validImage)) validImages.push(validImage);
-        });
-
-        if (validImages.length > 0) {
-            imageElement.src = validImages[0];
-        } else {
-            imageElement.src = defaultImageUrl;
-        }
-        return validImages;
-    });
-}
-
-function setupImageSlider(validImages, imageElement, carCard) {
-    let currentImageIndex = 0;
-    let imageInterval;
-
-    const changeImage = () => {
-        currentImageIndex = (currentImageIndex + 1) % validImages.length;
-        imageElement.src = validImages[currentImageIndex];
-    };
-
-    carCard.addEventListener('mouseenter', () => {
-        if (validImages.length > 1) {
-            imageInterval = setInterval(changeImage, 1500);
-        }
-    });
-
-    carCard.addEventListener('mouseleave', () => {
-        clearInterval(imageInterval);
-        if (validImages.length > 0) {
-            imageElement.src = validImages[0];
-        }
-    });
-}
