@@ -141,7 +141,15 @@ header .consultation-button-bg a:hover {
     font-size: 80%;
   }
   header .consultation-button-bg a {
-    padding: 7px 10px;
+    padding: 7px 13px;
+  }
+}
+@media (max-width: 420px) {
+  header .consultation-button-bg {
+    font-size: 75%;
+  }
+  header .consultation-button-bg a {
+    padding: 7px 5px;
   }
 }
 
