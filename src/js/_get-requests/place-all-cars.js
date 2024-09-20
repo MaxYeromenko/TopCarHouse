@@ -4,14 +4,33 @@ let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
 
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('/api/get-all-cars')
-        .then(response => response.json())
-        .then(data => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    showMessage('Завантаження...', true);
+
+    message.classList.remove('invisible');
+
+    let result = null;
+    try {
+        const response = await fetch('/api/get-all-cars');
+        result = await response.json();
+
+        if (response.ok && result) {
             carsData = data;
             loadMoreCars();
-        })
-        .catch(error => console.error('Error fetching car data:', error));
+        } else {
+            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+        }
+    } catch (error) {
+        console.error('Error fetching cars data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+
+    messageClose.onclick = () => {
+        message.classList.add('invisible');
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    };
 });
 
 function loadMoreCars() {
