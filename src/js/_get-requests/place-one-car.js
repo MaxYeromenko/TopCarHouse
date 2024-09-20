@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let result = null;
     try {
-        result = await fetchWithRetry(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`, retriesLimit);
+        result = await fetchWithRetry(`/api/get-one-car1?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`, retriesLimit);
 
         if (result) {
             productData = result;

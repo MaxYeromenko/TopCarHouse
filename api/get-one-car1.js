@@ -1,0 +1,36 @@
+const mongoose = require('../server/db');
+
+const DataSchema = new mongoose.Schema({
+    brand: String,
+    model: String,
+    year: Number,
+    price: Number,
+    color: String,
+    description: String,
+    images: [String],
+    features: {
+        transmission: String,
+        engine: String,
+        fuel_type: String,
+        horsepower: Number,
+        fuel_consumption: Number
+    }
+});
+
+const DataModel = mongoose.model('Car', DataSchema);
+
+module.exports = async (req, res) => {
+    const { id } = req.query;
+
+    if (req.method === 'GET') {
+        try {
+            const car = await DataModel.findById(id);
+            res.status(200).json(car);
+        } catch (err) {
+            res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
+            res.status(504).json({ success: false, message: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
+        }
+    } else {
+        res.status(405).json({ success: false, message: 'Method Not Allowed' });
+    }
+};
