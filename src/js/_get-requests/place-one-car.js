@@ -5,6 +5,7 @@ const productModel = params.get('model');
 const productYear = params.get('year');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
+const retriesLimit = 3; // Лимит повторных попыток
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -14,15 +15,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let result = null;
     try {
-        const response = await fetch(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`);
-        result = await response.json();
-    
-        if (response.ok && result) {
+        result = await fetchWithRetry(`/api/get-one-car?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`, retriesLimit);
+
+        if (result) {
             productData = result;
             loadProductInfo();
             showMessage('Дані успішно завантажені!', true);
         } else {
-            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+            showMessage('Помилка: Невідома помилка при загрузке данных', false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
@@ -36,13 +36,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 });
 
+// Функция повторных попыток для fetch
+async function fetchWithRetry(url, retries) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                if (response.status === 504) {
+                    throw new Error('504 Gateway Timeout');
+                }
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
+            if (i === retries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Задержка между попытками
+        }
+    }
+}
+
 function showMessage(text, isSuccess) {
-    if (hideTimeout) {
-        clearTimeout(hideTimeout);
-    }
-    if (resetTimeout) {
-        clearTimeout(resetTimeout);
-    }
+    if (hideTimeout) clearTimeout(hideTimeout);
+    if (resetTimeout) clearTimeout(resetTimeout);
 
     const message = document.querySelector('.info-message');
     const messageText = document.querySelector('.info-message .message-text');
@@ -77,15 +93,7 @@ function loadProductInfo() {
     const productImage = document.getElementById('product-image');
     productImage.loading = "lazy";
 
-    const checkImageValidity = (imageUrl) => {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.src = imageUrl;
-            img.onload = () => resolve(imageUrl);
-            img.onerror = () => reject(imageUrl);
-        });
-    };
-
+    // Проверяем изображения и оставляем только рабочие
     Promise.all(productImages.map(imageUrl =>
         checkImageValidity(imageUrl).catch(() => default_car_URL)
     )).then(validImages => {
@@ -94,6 +102,7 @@ function loadProductInfo() {
             document.getElementById('page-tracker').textContent = `1 / ${validImages.length}`;
         } else {
             productImage.src = default_car_URL;
+            showMessage('Изображения недоступны', false); // Уведомление о недоступности изображений
         }
 
         let currentImageIndex = 0;
@@ -128,4 +137,14 @@ function loadProductInfo() {
     document.getElementById('product-fuel-consumption').textContent =
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
-};
+}
+
+// Проверка валидности изображения
+function checkImageValidity(imageUrl) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = imageUrl;
+        img.onload = () => resolve(imageUrl);
+        img.onerror = () => reject(imageUrl);
+    });
+}
