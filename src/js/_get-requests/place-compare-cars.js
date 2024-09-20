@@ -22,38 +22,38 @@ document.addEventListener('keydown', (event) => {
 
 let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const compareContainer = document.getElementById('compare-container');
+// document.addEventListener("DOMContentLoaded", async () => {
+//     const compareContainer = document.getElementById('compare-container');
 
-    if (carsToCompare.length > 0) {
-        showMessage('Завантаження...', true);
+//     if (carsToCompare.length > 0) {
+//         showMessage('Завантаження...', true);
 
-        // compareContainer.innerHTML = '';
+//         compareContainer.innerHTML = '';
 
-        for (const carId of carsToCompare) {
-            try {
-                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, 3);
+//         for (const carId of carsToCompare) {
+//             try {
+//                 const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, 3);
 
-                if (result) {
-                    const carCard = createCarCard(result);
-                    compareContainer.appendChild(carCard);
-                } else {
-                    showMessage('Помилка: Невідома помилка під час завантаження даних', false);
-                }
-            } catch (error) {
-                console.error('Error fetching product data:', error);
-                showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-            }
-        }
+//                 if (result) {
+//                     const carCard = createCarCard(result);
+//                     compareContainer.appendChild(carCard);
+//                 } else {
+//                     showMessage('Помилка: Невідома помилка під час завантаження даних', false);
+//                 }
+//             } catch (error) {
+//                 console.error('Error fetching product data:', error);
+//                 showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+//             }
+//         }
 
-        showMessage('Дані успішно завантажені!', true);
-    } else {
-        const nothingToCompareMessage = document.createElement('span');
-        nothingToCompareMessage.className = 'nothing-to-compare-message';
-        nothingToCompareMessage.textContent = 'Відсутні авто для порівняння!';
-        compareContainer.appendChild(nothingToCompareMessage);
-    }
-});
+//         showMessage('Дані успішно завантажені!', true);
+//     } else {
+//         const nothingToCompareMessage = document.createElement('span');
+//         nothingToCompareMessage.className = 'nothing-to-compare-message';
+//         nothingToCompareMessage.textContent = 'Відсутні авто для порівняння!';
+//         compareContainer.appendChild(nothingToCompareMessage);
+//     }
+// });
 
 function showMessage(text, isSuccess) {
     if (hideTimeout) clearTimeout(hideTimeout);
