@@ -103,16 +103,15 @@ function createCarCard(car) {
         let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
         if (carsToCompare.length >= 4) {
-            alert('Вы можете сравнить не более 4 машин.');
+            showMessage('Одночасно можна порівнювати лише 4 машини.', false);
             return;
         }
         
         if (!carsToCompare.includes(carId)) {
             carsToCompare.push(carId);
             localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
-            alert(`Машина с id ${carId} добавлена для сравнения.`);
         } else {
-            alert('Эта машина уже добавлена для сравнения.');
+            showMessage('Це авто вже додано до порівняння.', false);
         }
     });
     
