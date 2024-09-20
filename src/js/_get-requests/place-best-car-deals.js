@@ -65,7 +65,7 @@ function loadMoreCars() {
                     </div>
                 </div>
                 <div class="product-price">Ціна: $${car.price}</div>
-                <a href="/pages/product-info.html?id=${car._id}&brand=${encodeURIComponent(car.brand)}&model=${encodeURIComponent(car.model)}&year=${car.year}" class="product-button" target="_blank">
+                <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">
                     Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
                 <div class="product-footer">Найкращі умови купівлі!</div>
