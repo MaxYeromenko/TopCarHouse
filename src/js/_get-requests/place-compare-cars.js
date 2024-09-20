@@ -28,16 +28,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
 
-        compareContainer.innerHTML = '';
+        // compareContainer.innerHTML = '';
 
         for (const carId of carsToCompare) {
-            let result = null;
             try {
-                result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, 3);
+                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, 3);
 
                 if (result) {
                     const carCard = createCarCard(result);
-                    // compareContainer.appendChild(carCard);
+                    compareContainer.appendChild(carCard);
                 } else {
                     showMessage('Помилка: Невідома помилка під час завантаження даних', false);
                 }
