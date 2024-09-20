@@ -92,9 +92,30 @@ function createCarCard(car) {
     imageContainer.appendChild(carImageElement);
 
     const compareButton = document.createElement('button');
+    compareButton.setAttribute('data-id', car._id);
     compareButton.classList.add('compare-btn');
     compareButton.innerHTML = 'Порівняти <i class="fa-solid fa-scale-unbalanced"></i>';
     imageContainer.appendChild(compareButton);
+
+    compareButton.addEventListener('click', function () {
+        const carId = this.getAttribute('data-id');
+        
+        let carsToCompare = JSON.parse(localStorage.getItem('carToCompare')) || [];
+
+        if (carsToCompare.length >= 4) {
+            alert('Вы можете сравнить не более 4 машин.');
+            return;
+        }
+        
+        if (!carsToCompare.includes(carId)) {
+            carsToCompare.push(carId);
+            localStorage.setItem('carToCompare', JSON.stringify(carsToCompare));
+            alert(`Машина с id ${carId} добавлена для сравнения.`);
+        } else {
+            alert('Эта машина уже добавлена для сравнения.');
+        }
+    });
+    
 
     carCard.innerHTML = `
     <div class="product-card">
@@ -109,7 +130,10 @@ function createCarCard(car) {
                 <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
             </div>
             <div class="product-price">Ціна: $${car.price}</div>
-            <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">
+                Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <div class="product-footer">Найкращі умови купівлі!</div>
         </div>
     </div>`;
 
