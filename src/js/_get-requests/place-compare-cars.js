@@ -23,12 +23,12 @@ document.addEventListener('keydown', (event) => {
 let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const carsContainer = document.getElementById('compare-container');
+    const compareContainer = document.getElementById('compare-container');
 
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
 
-        carsContainer.innerHTML = '';
+        compareContainer.innerHTML = '';
 
         for (const carId of carsToCompare) {
             let result = null;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 if (result) {
                     const carCard = createCarCard(result);
-                    carsContainer.appendChild(carCard);
+                    compareContainer.appendChild(carCard);
                 } else {
                     showMessage('Помилка: Невідома помилка під час завантаження даних', false);
                 }
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const nothingToCompareMessage = document.createElement('span');
         nothingToCompareMessage.className = 'nothing-to-compare-message';
         nothingToCompareMessage.textContent = 'Відсутні авто для порівняння!';
-        carsContainer.appendChild(nothingToCompareMessage);
+        compareContainer.appendChild(nothingToCompareMessage);
     }
 });
 
