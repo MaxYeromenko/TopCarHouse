@@ -22,7 +22,23 @@ const DataModel = mongoose.model('Car', DataSchema);
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const data = await DataModel.find();
+            const data = await DataModel.aggregate([
+                {
+                    $sort: { price: 1 }
+                },
+                {
+                    $group: {
+                        _id: { brand: "$brand", year: "$year" },
+                        car: { $first: "$$ROOT" }
+                    }
+                },
+                {
+                    $replaceRoot: { newRoot: "$car" }
+                },
+                {
+                    $sort: { brand: 1, year: -1 }
+                }
+            ]);
             res.status(200).json(data);
         } catch (err) {
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
