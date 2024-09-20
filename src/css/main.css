@@ -467,8 +467,8 @@ body main .features .feature {
   text-decoration: none;
   z-index: 4;
   position: fixed;
-  left: 2%;
-  bottom: 3%;
+  left: 1%;
+  bottom: 2%;
   -webkit-transition: color 0.6s, background-color 0.6s;
   transition: color 0.6s, background-color 0.6s;
   border: solid 2px #fff;
