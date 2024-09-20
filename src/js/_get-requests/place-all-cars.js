@@ -2,7 +2,7 @@ const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 const loadMoreButton = document.getElementById('load-more-cars');
 let carsData = [];
 let carsDisplayed = 0;
-const carsPerPage = 12;
+const carsPerPage = 24;
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch('/api/get-all-cars')
