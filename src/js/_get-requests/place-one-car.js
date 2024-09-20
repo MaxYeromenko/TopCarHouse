@@ -5,7 +5,7 @@ const productModel = params.get('model');
 const productYear = params.get('year');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
-const retriesLimit = 3; // Лимит повторных попыток
+const retriesLimit = 3;
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 });
 
-// Функция повторных попыток для fetch
 async function fetchWithRetry(url, retries) {
     for (let i = 0; i < retries; i++) {
         try {
@@ -51,7 +50,7 @@ async function fetchWithRetry(url, retries) {
         } catch (error) {
             console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Задержка между попытками
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
 }
@@ -93,7 +92,6 @@ function loadProductInfo() {
     const productImage = document.getElementById('product-image');
     productImage.loading = "lazy";
 
-    // Проверяем изображения и оставляем только рабочие
     Promise.all(productImages.map(imageUrl =>
         checkImageValidity(imageUrl).catch(() => default_car_URL)
     )).then(validImages => {
@@ -102,7 +100,7 @@ function loadProductInfo() {
             document.getElementById('page-tracker').textContent = `1 / ${validImages.length}`;
         } else {
             productImage.src = default_car_URL;
-            showMessage('Изображения недоступны', false); // Уведомление о недоступности изображений
+            showMessage('Изображения недоступны', false);
         }
 
         let currentImageIndex = 0;
@@ -139,7 +137,6 @@ function loadProductInfo() {
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
 }
 
-// Проверка валидности изображения
 function checkImageValidity(imageUrl) {
     return new Promise((resolve, reject) => {
         const img = new Image();
