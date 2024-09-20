@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     showMessage('Завантаження...', true);
 
-    message.classList.remove('invisible');
-
     let result = null;
     try {
         result = await fetchWithRetry(`/api/get-one-car?id=${productId}`, retriesLimit);

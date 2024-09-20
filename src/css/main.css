@@ -516,6 +516,51 @@ body main .features .feature {
           align-items: center;
   visibility: hidden;
 }
+#compare-section #compare-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 20px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+}
+#compare-section #compare-container .compare-item {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+#compare-section #compare-container .compare-item:hover {
+  -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+#compare-section #compare-container .compare-item #compare-product-title {
+  color: #f60;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+#compare-section #compare-container .compare-item .compare-product-info div {
+  padding: 10px 15px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: solid 1px #f60;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#compare-section #compare-container .nothing-to-compare-message {
+  text-align: center;
+  color: #f60;
+  font-size: 18px;
+}
 
 /* Стилі для популярних моделей */
 #cards-section {

@@ -28,8 +28,6 @@ form.addEventListener('submit', async e => {
 
     showMessage('Завантаження...', true);
 
-    message.classList.remove('invisible');
-
     let result = null;
 
     try {

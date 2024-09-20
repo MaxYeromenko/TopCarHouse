@@ -49,4 +49,48 @@ $product-orange: #f60;
     justify-content: center;
     align-items: center;
     visibility: hidden;
+
+    #compare-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 20px;
+        background-color: $product-white;
+        width: 100%;
+        border-radius: 10px;
+
+        .compare-item {
+            background-color: $product-dark;
+            color: $product-white;
+            padding: 20px 0;
+            text-align: center;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+
+            #compare-product-title {
+                color: $product-orange;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .compare-product-info {
+                div {
+                    padding: 10px 15px;
+                    text-align: left;
+                    font-size: 1rem;
+                    border-bottom: solid 1px $product-orange;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .nothing-to-compare-message {
+            text-align: center;
+            color: $product-orange;
+            font-size: 18px;
+        }
+    }
 }
