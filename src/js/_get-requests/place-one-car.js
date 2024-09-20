@@ -1,8 +1,5 @@
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
-const productBrand = params.get('brand');
-const productModel = params.get('model');
-const productYear = params.get('year');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
 const retriesLimit = 3;
@@ -15,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let result = null;
     try {
-        result = await fetchWithRetry(`/api/get-one-car1?id=${productId}&brand=${productBrand}&model=${productModel}&year=${productYear}`, retriesLimit);
+        result = await fetchWithRetry(`/api/get-one-car1?id=${productId}`);
 
         if (result) {
             productData = result;
