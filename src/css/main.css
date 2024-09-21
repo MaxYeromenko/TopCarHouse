@@ -541,9 +541,20 @@ body main .features .feature {
           transform: translateY(-10px);
 }
 #compare-section #compare-container .compare-item .remove-car-button {
+  background-color: #f60;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
   position: absolute;
   right: 1%;
   top: 1%;
+}
+#compare-section #compare-container .compare-item .remove-car-button:hover {
+  color: #f60;
+  background-color: #333;
 }
 #compare-section #compare-container .compare-item #compare-product-title {
   color: #f60;

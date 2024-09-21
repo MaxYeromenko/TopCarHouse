@@ -70,10 +70,22 @@ $product-orange: #f60;
                 transform: translateY(-10px);
             }
 
-            .remove-car-button{
+            .remove-car-button {
+                background-color: $product-orange;
+                color: $product-white;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
                 position: absolute;
                 right: 1%;
                 top: 1%;
+
+                &:hover {
+                    color: $product-orange;
+                    background-color: $product-dark;
+                }
             }
 
             #compare-product-title {
