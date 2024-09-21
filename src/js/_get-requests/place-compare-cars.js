@@ -27,12 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function updateCarsToCompare(compareContainer) {
+    compareContainer.innerHTML = '';
     const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
-
-        compareContainer.innerHTML = '';
 
         for (const carId of carsToCompare) {
             try {
