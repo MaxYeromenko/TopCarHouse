@@ -1080,6 +1080,18 @@ main.product-main {
   color: #333;
   text-align: center;
 }
+.container #add-to-compare-button {
+  background-color: #f60;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.container #add-to-compare-button:hover {
+  color: #f60;
+  background-color: #333;
+}
 
 #close-button,
 #close-button-second,
