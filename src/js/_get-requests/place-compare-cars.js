@@ -19,6 +19,7 @@ document.addEventListener('keydown', (event) => {
 
     if (event.code === 'KeyC') {
         compareSection.style.visibility = 'visible';
+        updateCarsToCompare(compareContainer);
     }
 });
 
