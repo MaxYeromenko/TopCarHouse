@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (const carId of carsToCompare) {
             try {
-                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, 3);
+                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
 
                 if (result) {
                     const carCard = createCompareCarCard(result);
@@ -75,24 +75,4 @@ function createCompareCarCard(car) {
     </div>`;
 
     return carCardToCompare;
-}
-
-async function fetchWithRetry(url, retries) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return await response.json();
-        } catch (error) {
-            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-    }
 }

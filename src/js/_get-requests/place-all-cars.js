@@ -3,15 +3,13 @@ const loadMoreButton = document.getElementById('load-more-cars');
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
-const retriesLimit = 3;
 
 document.addEventListener("DOMContentLoaded", async () => {
 
     showMessage('Завантаження...', true);
 
-    let result = null;
     try {
-        result = await fetchWithRetry('/api/get-all-cars', retriesLimit);
+        const result = await fetchWithRetry('/api/get-all-cars', retriesLimit);
 
         if (result) {
             carsData = result;
@@ -31,26 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         message.classList.remove('success-message');
     };
 });
-
-async function fetchWithRetry(url, retries) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return await response.json();
-        } catch (error) {
-            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-    }
-}
 
 function loadMoreCars() {
     const carsContainer = document.getElementById('cars-container');

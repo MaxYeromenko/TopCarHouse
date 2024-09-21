@@ -19,8 +19,6 @@ document.addEventListener('keydown', (event) => {
 const consultationForm = document.getElementById('consultation-form');
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
-let hideTimeout = null;
-let resetTimeout = null;
 const messageClose = document.querySelector('.info-message .fa-xmark');
 const message = document.querySelector('.info-message');
 
@@ -55,23 +53,17 @@ consultationForm.addEventListener('submit', async e => {
 
     showMessage('Завантаження...', true);
 
-    let result = null;
-
     try {
-        const response = await fetch('/api/post-consultation-request', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, phone, datetime: selectedDateTime.toISOString() })
-        });
-        result = await response.json();
+        const result = await fetchWithRetryPost(`/api/post-consultation-request`,
+            {
+                name, phone, datetime: selectedDateTime.toISOString()
+            }, retriesLimit);
 
-        if (response.ok && result.success) {
+        if (result.success) {
             showMessage(result.message, result.success);
             consultationForm.reset();
         } else {
-            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);

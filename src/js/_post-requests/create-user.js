@@ -28,25 +28,17 @@ form.addEventListener('submit', async e => {
 
     showMessage('Завантаження...', true);
 
-    let result = null;
-
     try {
-        const response = await fetch('/api/post-user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, password })
-        });
-        result = await response.json();
+        const result = await fetchWithRetryPost(`/api/post-user`,
+            { name, email, password }, retriesLimit);
 
-        if (response.ok && result.success) {
+        if (result.success) {
             showMessage(result.message, result.success);
             form.reset();
             registerBox.classList.add('hidden');
             loginBox.classList.remove('hidden');
         } else {
-            showMessage('Помилка: ' + (result?.message || 'Невідома помилка'), false);
+            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);

@@ -20,3 +20,53 @@ function showMessage(text, isSuccess) {
         message.classList.remove('success-message');
     }, 4000);
 }
+
+const retriesLimit = 3;
+
+async function fetchWithRetry(url, retries) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                if (response.status === 504) {
+                    throw new Error('504 Gateway Timeout');
+                }
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
+            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
+            if (i === retries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+}
+
+async function fetchWithRetryPost(url, data, retries) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                if (response.status === 504) {
+                    throw new Error('504 Gateway Timeout');
+                }
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (error) {
+            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
+            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
+            if (i === retries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+}

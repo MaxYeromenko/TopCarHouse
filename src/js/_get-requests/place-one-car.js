@@ -8,9 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     showMessage('Завантаження...', true);
 
-    let result = null;
     try {
-        result = await fetchWithRetry(`/api/get-one-car?id=${productId}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/get-one-car?id=${productId}`, retriesLimit);
 
         if (result) {
             productData = result;
