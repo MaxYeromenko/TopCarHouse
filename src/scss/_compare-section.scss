@@ -49,6 +49,7 @@ $product-orange: #f60;
     justify-content: center;
     align-items: center;
     visibility: hidden;
+    overflow-y: auto;
 
     #compare-container {
         display: grid;
@@ -57,7 +58,8 @@ $product-orange: #f60;
         background-color: $product-white;
         width: 100%;
         border-radius: 10px;
-        overflow: scroll;
+        max-height: 90vh;
+        overflow-y: auto;
 
         .compare-item {
             background-color: $product-dark;

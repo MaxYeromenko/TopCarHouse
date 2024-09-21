@@ -515,6 +515,7 @@ body main .features .feature {
       -ms-flex-align: center;
           align-items: center;
   visibility: hidden;
+  overflow-y: auto;
 }
 #compare-section #compare-container {
   display: grid;
@@ -523,7 +524,8 @@ body main .features .feature {
   background-color: #fff;
   width: 100%;
   border-radius: 10px;
-  overflow: scroll;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 #compare-section #compare-container .compare-item {
   background-color: #333;
