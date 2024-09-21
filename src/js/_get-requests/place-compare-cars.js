@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarsToCompare(compareContainer);
 });
 
-function updateCarsToCompare(compareContainer) {
+let isLoading = false;
+
+async function updateCarsToCompare(compareContainer) {
+    if (isLoading) return;
+    isLoading = true;
+
     compareContainer.innerHTML = '';
     const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
@@ -36,7 +41,7 @@ function updateCarsToCompare(compareContainer) {
 
         for (const carId of carsToCompare) {
             try {
-                const result = fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
+                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
 
                 if (result) {
                     const carCard = createCompareCarCard(result);
@@ -57,6 +62,7 @@ function updateCarsToCompare(compareContainer) {
         nothingToCompareMessage.textContent = 'Відсутні авто для порівняння!';
         compareContainer.appendChild(nothingToCompareMessage);
     }
+    isLoading = false;
 }
 
 function createCompareCarCard(car) {
