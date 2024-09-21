@@ -80,7 +80,7 @@ function createCompareCarCard(car) {
             <div>Колір: <span>${car.color}</span></div>
             <div>Коробка передач: <span>${car.features.transmission}</span></div>
             <div>Двигун: <span>${car.features.engine}</span></div>
-            <div>Споживання палива: <span>${car.features.fuel_consumption} л / 100 км</span></div>
+            <div>Споживання палива: <span>${car.features.fuel_consumption} л/100 км</span></div>
             <div>Тип палива: <span>${car.features.fuel_type}</span></div>
         </div>
     </div>`;
