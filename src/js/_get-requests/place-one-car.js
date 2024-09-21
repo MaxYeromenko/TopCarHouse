@@ -2,7 +2,6 @@ const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
-const retriesLimit = 3;
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -29,49 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         message.classList.remove('success-message');
     };
 });
-
-async function fetchWithRetry(url, retries) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return await response.json();
-        } catch (error) {
-            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-    }
-}
-
-function showMessage(text, isSuccess) {
-    if (hideTimeout) clearTimeout(hideTimeout);
-    if (resetTimeout) clearTimeout(resetTimeout);
-
-    const message = document.querySelector('.info-message');
-    const messageText = document.querySelector('.info-message .message-text');
-
-    messageText.textContent = text;
-    message.classList.toggle('success-message', isSuccess);
-    message.classList.toggle('error-message', !isSuccess);
-
-    message.classList.remove('invisible');
-
-    hideTimeout = setTimeout(() => {
-        message.classList.add('invisible');
-    }, 3000);
-
-    resetTimeout = setTimeout(() => {
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    }, 4000);
-}
 
 function loadProductInfo() {
     document.title = `${productData.brand} ${productData.model} | TopCarHouse`;
@@ -130,13 +86,4 @@ function loadProductInfo() {
     document.getElementById('product-fuel-consumption').textContent =
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
-}
-
-function checkImageValidity(imageUrl) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = imageUrl;
-        img.onload = () => resolve(imageUrl);
-        img.onerror = () => reject(imageUrl);
-    });
 }

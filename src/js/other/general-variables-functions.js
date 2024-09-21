@@ -1,3 +1,12 @@
+function checkImageValidity(imageUrl) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = imageUrl;
+        img.onload = () => resolve(imageUrl);
+        img.onerror = () => reject(imageUrl);
+    });
+}
+
 let hideTimeout = null;
 let resetTimeout = null;
 
