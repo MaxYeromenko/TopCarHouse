@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarsToCompare(compareContainer);
 });
 
-async function updateCarsToCompare(compareContainer) {
+function updateCarsToCompare(compareContainer) {
     compareContainer.innerHTML = '';
     const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 
@@ -36,7 +36,7 @@ async function updateCarsToCompare(compareContainer) {
 
         for (const carId of carsToCompare) {
             try {
-                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
+                const result = fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
 
                 if (result) {
                     const carCard = createCompareCarCard(result);
