@@ -76,7 +76,7 @@ function createCompareCarCard(car) {
         <div class="compare-product-info">
             <div>Рік: <span>${car.year}</span></div>
             <div>Потужність: <span>${car.features.horsepower} к.с.</span></div>
-            <div>Ціна: $<span>${car.price}</span></div>
+            <div>Ціна: <span>$${car.price}</span></div>
             <div>Колір: <span>${car.color}</span></div>
             <div>Коробка передач: <span>${car.features.transmission}</span></div>
             <div>Двигун: <span>${car.features.engine}</span></div>
