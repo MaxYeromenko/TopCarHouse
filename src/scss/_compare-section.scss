@@ -106,7 +106,7 @@ $product-orange: #f60;
         }
 
         @media (max-width: 768px) {
-            grid-template-columns: 1fr;
+            grid-template-columns: 2fr;
 
             .compare-item {
                 padding: 15px 0;

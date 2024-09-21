@@ -573,7 +573,7 @@ body main .features .feature {
 }
 @media (max-width: 768px) {
   #compare-section #compare-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
   #compare-section #compare-container .compare-item {
     padding: 15px 0;
