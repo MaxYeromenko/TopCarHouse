@@ -17,10 +17,10 @@ document.addEventListener('keydown', (event) => {
         compareSection.style.visibility = 'hidden';
     }
 
-    if (event.code === 'KeyC') {
-        compareSection.style.visibility = 'visible';
-        updateCarsToCompare(compareContainer);
-    }
+    // if (event.code === 'KeyC') {
+    //     compareSection.style.visibility = 'visible';
+    //     updateCarsToCompare(compareContainer);
+    // }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -79,7 +79,7 @@ function createCompareCarCard(car) {
             <div>Ціна: <span>$${car.price}</span></div>
             <div>Колір: <span>${car.color}</span></div>
             <div>Коробка передач: <span>${car.features.transmission}</span></div>
-            <div>Двигун: <span>${car.features.engine}</span></div>
+            <div>Двигун: <span>${car.features.engine} л</span></div>
             <div>Споживання палива: <span>${car.features.fuel_consumption} л / 100 км</span></div>
             <div>Тип палива: <span>${car.features.fuel_type}</span></div>
         </div>
