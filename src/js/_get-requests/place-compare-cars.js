@@ -1,9 +1,12 @@
 const compareSectionOpen = document.getElementById('compare-section-open');
 const compareSection = document.getElementById('compare-section');
 const compareCloseButton = document.getElementById('compare-close-button');
+const carsToCompareGet = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+const compareContainer = document.getElementById('compare-container');
 
 compareSectionOpen.addEventListener('click', () => {
     compareSection.style.visibility = 'visible';
+    updateCarsToCompare(carsToCompareGet, compareContainer);
 });
 
 compareCloseButton.addEventListener('click', () => {
@@ -20,11 +23,11 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+document.addEventListener("DOMContentLoaded", () => {
+    updateCarsToCompare(carsToCompareGet, compareContainer);
+});
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const compareContainer = document.getElementById('compare-container');
-
+async function updateCarsToCompare(carsToCompare, compareContainer) {
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
 
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         nothingToCompareMessage.textContent = 'Відсутні авто для порівняння!';
         compareContainer.appendChild(nothingToCompareMessage);
     }
-});
+}
 
 function createCompareCarCard(car) {
     const carCardToCompare = document.createElement('div');
