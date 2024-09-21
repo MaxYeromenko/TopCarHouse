@@ -760,6 +760,13 @@ body main .features .feature {
   margin-top: 10px;
   opacity: 0.7;
 }
+@media (max-width: 340px) {
+  #cards-section .cars .product-card:hover {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+}
 @media (max-width: 400px) {
   #cards-section .cars {
     padding: 3%;
