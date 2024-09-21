@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 });
 
-
 function loadMoreCars() {
     const carsContainer = document.getElementById('cars-container');
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
