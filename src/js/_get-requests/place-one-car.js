@@ -87,3 +87,19 @@ function loadProductInfo() {
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
 }
+
+document.getElementById('add-to-compare-button').addEventListener('click', function () {
+    let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+    if (carsToCompare.length >= 4) {
+        showMessage('Одночасно можна порівнювати лише 4 машини.', false);
+        return;
+    }
+
+    if (!carsToCompare.includes(productId)) {
+        carsToCompare.push(productId);
+        localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
+        showMessage('Авто додано до порівняння.', true);
+    } else {
+        showMessage('Це авто вже додано до порівняння.', false);
+    }
+});
