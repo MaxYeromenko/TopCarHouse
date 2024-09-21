@@ -57,6 +57,7 @@ $product-orange: #f60;
         background-color: $product-white;
         width: 100%;
         border-radius: 10px;
+        overflow: scroll;
 
         .compare-item {
             background-color: $product-dark;
@@ -99,6 +100,33 @@ $product-orange: #f60;
                     display: flex;
                     justify-content: space-between;
                 }
+            }
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+
+            .compare-item {
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+
+            .compare-item {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .remove-car-button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .compare-product-info div {
+                font-size: 0.8rem;
+                padding: 8px;
             }
         }
 
