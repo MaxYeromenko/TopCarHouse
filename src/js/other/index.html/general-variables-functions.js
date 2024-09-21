@@ -1,3 +1,6 @@
+let hideTimeout = null;
+let resetTimeout = null;
+
 function showMessage(text, isSuccess) {
     if (hideTimeout) clearTimeout(hideTimeout);
     if (resetTimeout) clearTimeout(resetTimeout);
