@@ -70,9 +70,28 @@ function createCarCard(car) {
     imageContainer.appendChild(carImageElement);
 
     const compareButton = document.createElement('button');
+    compareButton.setAttribute('data-id', car._id);
     compareButton.classList.add('compare-btn');
     compareButton.innerHTML = 'Порівняти <i class="fa-solid fa-scale-unbalanced"></i>';
     imageContainer.appendChild(compareButton);
+
+    compareButton.addEventListener('click', function () {
+        const carId = this.getAttribute('data-id');
+
+        let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+        if (carsToCompare.length >= 4) {
+            showMessage('Одночасно можна порівнювати лише 4 машини.', false);
+            return;
+        }
+
+        if (!carsToCompare.includes(carId)) {
+            carsToCompare.push(carId);
+            localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
+            showMessage('Авто додано до порівняння.', true);
+        } else {
+            showMessage('Це авто вже додано до порівняння.', false);
+        }
+    });
 
     carCard.innerHTML = `
     <div class="product-card">
