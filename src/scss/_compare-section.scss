@@ -64,9 +64,16 @@ $product-orange: #f60;
             padding: 20px 0;
             text-align: center;
             transition: transform 0.2s ease;
+            position: relative;
 
             &:hover {
                 transform: translateY(-10px);
+            }
+
+            .remove-car-button{
+                position: absolute;
+                right: 1%;
+                top: 1%;
             }
 
             #compare-product-title {
