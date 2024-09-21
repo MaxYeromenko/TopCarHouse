@@ -535,11 +535,6 @@ body main .features .feature {
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   position: relative;
 }
-#compare-section #compare-container .compare-item:hover {
-  -webkit-transform: translateY(-10px);
-      -ms-transform: translateY(-10px);
-          transform: translateY(-10px);
-}
 #compare-section #compare-container .compare-item .remove-car-button {
   background-color: #f60;
   color: #fff;

@@ -66,10 +66,6 @@ $product-orange: #f60;
             transition: transform 0.2s ease;
             position: relative;
 
-            &:hover {
-                transform: translateY(-10px);
-            }
-
             .remove-car-button {
                 background-color: $product-orange;
                 color: $product-white;
