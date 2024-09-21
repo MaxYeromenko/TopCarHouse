@@ -1,12 +1,11 @@
 const compareSectionOpen = document.getElementById('compare-section-open');
 const compareSection = document.getElementById('compare-section');
 const compareCloseButton = document.getElementById('compare-close-button');
-const carsToCompareGet = JSON.parse(localStorage.getItem('carsToCompare')) || [];
 const compareContainer = document.getElementById('compare-container');
 
 compareSectionOpen.addEventListener('click', () => {
     compareSection.style.visibility = 'visible';
-    updateCarsToCompare(carsToCompareGet, compareContainer);
+    updateCarsToCompare(compareContainer);
 });
 
 compareCloseButton.addEventListener('click', () => {
@@ -24,10 +23,12 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    updateCarsToCompare(carsToCompareGet, compareContainer);
+    updateCarsToCompare(compareContainer);
 });
 
-async function updateCarsToCompare(carsToCompare, compareContainer) {
+async function updateCarsToCompare(compareContainer) {
+    const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
 
@@ -87,8 +88,11 @@ function createCompareCarCard(car) {
 }
 
 function removeCarFromCompare(carId) {
-    const updatedCarsToCompare = carsToCompareGet.filter(id => id !== carId);
+    const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+
+    const updatedCarsToCompare = carsToCompare.filter(id => id !== carId);
+
     localStorage.setItem('carsToCompare', JSON.stringify(updatedCarsToCompare));
 
-    updateCarsToCompare(updatedCarsToCompare, compareContainer);
+    updateCarsToCompare(compareContainer);
 }

@@ -554,7 +554,7 @@ body main .features .feature {
 }
 #compare-section #compare-container .compare-item .remove-car-button:hover {
   color: #f60;
-  background-color: #333;
+  background-color: #fff;
 }
 #compare-section #compare-container .compare-item #compare-product-title {
   color: #f60;
