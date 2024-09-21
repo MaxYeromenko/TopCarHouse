@@ -7,14 +7,14 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
     try {
         const response = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
-        const data = await response.json();
-
-        if (response.ok) {
+        if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
+            const data = await response.json();
             localStorage.setItem('jwtToken', data.token);
             window.location.href = '/index.html';
         } else {
-            console.error('Ошибка:', data.message);
-            alert('Ошибка входа: ' + data.message);
+            const errorMessage = response.ok ? 'Ответ не в формате JSON' : `Ошибка: ${response.status}`;
+            console.error(errorMessage);
+            alert('Ошибка входа: ' + errorMessage);
         }
     } catch (error) {
         console.error('Ошибка сервера:', error);
