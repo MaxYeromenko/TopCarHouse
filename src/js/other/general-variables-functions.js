@@ -82,3 +82,15 @@ async function fetchWithRetryPost(url, data, retries) {
         }
     }
 }
+
+function checkAuth() {
+    const token = localStorage.getItem('jwtToken');
+
+    if (!token || isTokenExpired(token)) {
+        localStorage.removeItem('jwtToken');
+        window.location.href = '/index.html';
+        registerBox.classList.add('hidden');
+        loginBox.classList.remove('hidden');
+        showMessage('Будь ласка, увійдіть до облікового запису.', false);
+    }
+}
