@@ -8,12 +8,12 @@ const authContainer = document.getElementById('auth-container');
 
 if (isAuthTokenExpired()) {
     localStorage.removeItem('jwtToken');
+    window.location.href = '/index.html';
+    showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
 
-    if (window.location.pathname === '/index.html' || window.location.pathname === '') {
-        showMessage('Будь ласка, увійдіть до облікового запису.', false);
-    } else {
-        showMessage('Будь ласка, увійдіть до облікового запису з головної сторінки.', false);
-    }
+    // if (window.location.pathname !== '/index.html') {
+    //     window.location.href = '/index.html';
+    // }
 
     // authContainer.style.visibility = 'visible';
     // registerBox.classList.add('hidden');
