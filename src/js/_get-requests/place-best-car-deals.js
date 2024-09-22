@@ -5,16 +5,12 @@ let carsDisplayed = 0;
 const carsPerPage = 8;
 
 document.addEventListener("DOMContentLoaded", async () => {
-
-    showMessage('Завантаження...', true);
-
     try {
         const result = await fetchWithRetry('/api/get-best-car-deals', retriesLimit);
 
         if (result) {
             carsData = result;
             loadMoreCars();
-            showMessage('Дані успішно завантажені!', true);
         } else {
             showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }

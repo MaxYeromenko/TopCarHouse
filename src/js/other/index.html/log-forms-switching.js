@@ -6,7 +6,26 @@ const loginBox = document.querySelector('.auth-box');
 const closeButton = document.getElementById('close-button');
 const authContainer = document.getElementById('auth-container');
 
-checkAuth();
+if (isAuthTokenExpired()) {
+    localStorage.removeItem('jwtToken');
+
+    // if (window.location.pathname !== '/index.html') {
+    //     window.location.href = '/index.html';
+    // }
+
+    // authContainer.style.visibility = 'visible';
+    // registerBox.classList.add('hidden');
+    // loginBox.classList.remove('hidden');
+    showMessage('Будь ласка, увійдіть до облікового запису з головної сторінки.', false);
+
+    logButtons.forEach(button => {
+        button.classList.remove('hidden');
+    });
+} else {
+    logButtons.forEach(button => {
+        button.classList.add('hidden');
+    });
+}
 
 logButtons.forEach(button => {
     button.addEventListener('click', () => {

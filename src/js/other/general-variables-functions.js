@@ -83,9 +83,8 @@ async function fetchWithRetryPost(url, data, retries) {
     }
 }
 
-const token = localStorage.getItem('jwtToken');
-
-function isTokenExpired(token) {
+function isAuthTokenExpired() {
+    const token = localStorage.getItem('jwtToken');
     if (!token) return true;
 
     const payloadBase64 = token.split('.')[1];
@@ -93,30 +92,4 @@ function isTokenExpired(token) {
 
     const currentTime = Date.now() / 1000;
     return decodedPayload.exp < currentTime;
-}
-
-function checkAuth() {
-    const currentPage = window.location.pathname;
-
-    if (isTokenExpired(token)) {
-        localStorage.removeItem('jwtToken');
-
-        if (currentPage !== '/index.html') {
-            window.location.href = '/index.html';
-        }
-
-        authContainer.style.visibility = 'visible';
-        registerBox.classList.add('hidden');
-        loginBox.classList.remove('hidden');
-        showMessage('Будь ласка, увійдіть до облікового запису.', false);
-
-        logButtons.forEach(button => {
-            button.classList.remove('hidden');
-        });
-
-    } else {
-        logButtons.forEach(button => {
-            button.classList.add('hidden');
-        });
-    }
 }
