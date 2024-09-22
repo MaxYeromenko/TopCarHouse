@@ -83,10 +83,20 @@ async function fetchWithRetryPost(url, data, retries) {
     }
 }
 
-function checkAuth() {
-    const token = localStorage.getItem('jwtToken');
+const token = localStorage.getItem('jwtToken');
 
-    if (!token || isTokenExpired(token)) {
+function isTokenExpired(token) {
+    if (!token) return true;
+
+    const payloadBase64 = token.split('.')[1];
+    const decodedPayload = JSON.parse(atob(payloadBase64));
+
+    const currentTime = Date.now() / 1000;
+    return decodedPayload.exp < currentTime;
+}
+
+function checkAuth() {
+    if (isTokenExpired(token)) {
         localStorage.removeItem('jwtToken');
         window.location.href = '/index.html';
         authContainer.style.visibility = 'visible';
