@@ -23,9 +23,9 @@ document.addEventListener('keydown', (event) => {
     // }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    updateCarsToCompare(compareContainer);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     updateCarsToCompare(compareContainer);
+// });
 
 let isLoading = false;
 
