@@ -6,6 +6,8 @@ const loginBox = document.querySelector('.auth-box');
 const closeButton = document.getElementById('close-button');
 const authContainer = document.getElementById('auth-container');
 
+checkAuth();
+
 logButtons.forEach(button => {
     button.addEventListener('click', () => {
         authContainer.style.visibility = 'visible';

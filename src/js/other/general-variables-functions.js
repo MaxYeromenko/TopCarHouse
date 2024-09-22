@@ -92,5 +92,13 @@ function checkAuth() {
         registerBox.classList.add('hidden');
         loginBox.classList.remove('hidden');
         showMessage('Будь ласка, увійдіть до облікового запису.', false);
+
+        loginButtons.forEach(button => {
+            button.classList.remove('hidden');
+        });
+    } else {
+        logButtons.forEach(button => {
+            button.classList.add('hidden');
+        });
     }
 }
