@@ -9,14 +9,15 @@ const authContainer = document.getElementById('auth-container');
 if (isAuthTokenExpired()) {
     localStorage.removeItem('jwtToken');
 
-    // if (window.location.pathname !== '/index.html') {
-    //     window.location.href = '/index.html';
-    // }
+    if (window.location.pathname === '/index.html') {
+        showMessage('Будь ласка, увійдіть до облікового запису.', false);
+    } else {
+        showMessage('Будь ласка, увійдіть до облікового запису з головної сторінки.', false);
+    }
 
     // authContainer.style.visibility = 'visible';
     // registerBox.classList.add('hidden');
     // loginBox.classList.remove('hidden');
-    showMessage('Будь ласка, увійдіть до облікового запису з головної сторінки.', false);
 
     logButtons.forEach(button => {
         button.classList.remove('hidden');
