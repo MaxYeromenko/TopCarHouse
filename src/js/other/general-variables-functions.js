@@ -110,7 +110,7 @@ function checkAuth() {
         loginBox.classList.remove('hidden');
         showMessage('Будь ласка, увійдіть до облікового запису.', false);
 
-        loginButtons.forEach(button => {
+        logButtons.forEach(button => {
             button.classList.remove('hidden');
         });
 
