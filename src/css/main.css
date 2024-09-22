@@ -56,6 +56,9 @@ header nav a:hover {
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
+header .hidden {
+  display: none;
+}
 header .icon-wrapper {
   visibility: hidden;
   position: absolute;
