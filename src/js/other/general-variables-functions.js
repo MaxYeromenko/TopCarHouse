@@ -89,6 +89,7 @@ function checkAuth() {
     if (!token || isTokenExpired(token)) {
         localStorage.removeItem('jwtToken');
         window.location.href = '/index.html';
+        authContainer.style.visibility = 'visible';
         registerBox.classList.add('hidden');
         loginBox.classList.remove('hidden');
         showMessage('Будь ласка, увійдіть до облікового запису.', false);
