@@ -5,16 +5,14 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
     const password = event.target.querySelector('input[type="password"]').value;
 
     try {
-        const response = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
+        const data = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
-        if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
-            const data = await response.json();
+        if (data.success) {
             localStorage.setItem('jwtToken', data.token);
             window.location.href = '/index.html';
         } else {
-            const errorMessage = response.ok ? 'Ответ не в формате JSON' : `Ошибка: ${response.status}`;
-            console.error(errorMessage);
-            alert('Ошибка входа: ' + errorMessage);
+            console.error(data.message);
+            alert('Ошибка входа: ' + data.message);
         }
     } catch (error) {
         console.error('Ошибка сервера:', error);
