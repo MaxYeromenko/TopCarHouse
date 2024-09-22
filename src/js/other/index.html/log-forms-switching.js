@@ -8,7 +8,7 @@ const authContainer = document.getElementById('auth-container');
 
 if (isAuthTokenExpired()) {
     localStorage.removeItem('jwtToken');
-    if (currentPage !== '/index.html') {
+    if (window.location.pathname !== '/index.html') {
         window.location.href = '/index.html';
         showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
     }
