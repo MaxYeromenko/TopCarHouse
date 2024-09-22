@@ -10,8 +10,8 @@ if (isAuthTokenExpired()) {
     localStorage.removeItem('jwtToken');
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
 
-    // if (window.location.pathname !== '/index.html') {
-    //     window.location.href = '/index.html';
+    // if (window.location.pathname !== '/') {
+    //     window.location.href = '/';
     // }
 
     // authContainer.style.visibility = 'visible';
