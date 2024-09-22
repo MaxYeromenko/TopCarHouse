@@ -96,9 +96,15 @@ function isTokenExpired(token) {
 }
 
 function checkAuth() {
+    const currentPage = window.location.pathname;
+
     if (isTokenExpired(token)) {
         localStorage.removeItem('jwtToken');
-        window.location.href = '/index.html';
+
+        if (currentPage !== '/index.html') {
+            window.location.href = '/index.html';
+        }
+
         authContainer.style.visibility = 'visible';
         registerBox.classList.add('hidden');
         loginBox.classList.remove('hidden');
@@ -107,6 +113,7 @@ function checkAuth() {
         loginButtons.forEach(button => {
             button.classList.remove('hidden');
         });
+
     } else {
         logButtons.forEach(button => {
             button.classList.add('hidden');
