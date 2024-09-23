@@ -66,22 +66,21 @@ async function fetchWithRetryPost(url, data, retries) {
                 body: JSON.stringify(data),
             });
 
+            const responseData = await response.json();
+
             if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(responseData.message || 'HTTP error!');
             }
 
-            return await response.json();
+            return responseData;
         } catch (error) {
-            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
             console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
 }
+
 
 function isAuthTokenExpired() {
     const token = localStorage.getItem('jwtToken');
