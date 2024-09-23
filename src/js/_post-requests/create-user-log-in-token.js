@@ -10,10 +10,9 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
 
         if (data.success) {
             localStorage.setItem('jwtToken', data.token);
-            location.reload();
-            window.addEventListener('load', () => {
-                showMessage(data.message, true);
-            });
+            // window.location.href = '/';
+            showLogOut();
+            showMessage(data.message, true);
         } else {
             showMessage(`Помилка входу: ${data.message}`, false);
         }

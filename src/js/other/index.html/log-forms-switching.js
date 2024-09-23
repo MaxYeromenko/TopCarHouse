@@ -18,7 +18,12 @@ if (isAuthTokenExpired()) {
     // authContainer.style.visibility = 'visible';
     // registerBox.classList.add('hidden');
     // loginBox.classList.remove('hidden');
+    showLogIn()
+} else {
+    showLogOut()
+}
 
+function showLogIn() {
     logButtons.forEach(button => {
         button.classList.remove('hidden');
     });
@@ -26,7 +31,9 @@ if (isAuthTokenExpired()) {
     logOutButtons.forEach(button => {
         button.classList.add('hidden');
     });
-} else {
+}
+
+function showLogOut() {
     logOutButtons.forEach(button => {
         button.classList.remove('hidden');
     });
@@ -45,10 +52,13 @@ logButtons.forEach(button => {
 logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
-        location.reload();
-        window.addEventListener('load', () => {
-            showMessage('Ви вийшли з облікового запису.', true);
-        });
+        showLogIn();
+        authContainer.style.visibility = 'hidden';
+        showMessage('Ви вийшли з облікового запису.', true);
+        // location.reload();
+        // window.addEventListener('load', () => {
+        //     showMessage('Ви вийшли з облікового запису.', true);
+        // });
     });
 });
 
