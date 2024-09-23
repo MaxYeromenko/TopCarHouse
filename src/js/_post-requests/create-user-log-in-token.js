@@ -15,6 +15,6 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
         }
     } catch (error) {
         console.error('Ошибка сервера:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        showMessage(`Помилка входу: ${error.message}`, false);
     }
 });
