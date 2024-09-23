@@ -26,7 +26,6 @@ if (isAuthTokenExpired()) {
     logOutButtons.forEach(button => {
         button.classList.add('hidden');
     });
-
 } else {
     logOutButtons.forEach(button => {
         button.classList.remove('hidden');
@@ -47,6 +46,7 @@ logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
         location.reload();
+        showMessage('Ви вийшли з облікового запису.', true);
     });
 });
 

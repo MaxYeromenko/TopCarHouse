@@ -11,11 +11,10 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
             localStorage.setItem('jwtToken', data.token);
             window.location.href = '/';
         } else {
-            console.error(data.message);
-            alert('Ошибка входа: ' + data.message);
+            showMessage(`Помилка входу: ${data.message}`, false);
         }
     } catch (error) {
         console.error('Ошибка сервера:', error);
-        alert('Ошибка сервера');
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });

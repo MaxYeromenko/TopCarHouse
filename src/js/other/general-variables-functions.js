@@ -94,6 +94,6 @@ function isAuthTokenExpired() {
     return decodedPayload.exp < currentTime;
 }
 
-function removeToken(name){
+function removeToken(name) {
     localStorage.removeItem(name);
 }
