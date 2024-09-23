@@ -81,7 +81,6 @@ async function fetchWithRetryPost(url, data, retries) {
     }
 }
 
-
 function isAuthTokenExpired() {
     const token = localStorage.getItem('jwtToken');
     if (!token) return true;
