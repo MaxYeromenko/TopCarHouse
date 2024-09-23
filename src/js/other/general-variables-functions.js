@@ -93,3 +93,7 @@ function isAuthTokenExpired() {
     const currentTime = Date.now() / 1000;
     return decodedPayload.exp < currentTime;
 }
+
+function removeToken(name){
+    localStorage.removeItem(name);
+}

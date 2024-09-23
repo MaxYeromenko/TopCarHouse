@@ -1,4 +1,5 @@
 const logButtons = document.querySelectorAll('.log-button');
+const logOutButtons = document.querySelectorAll('.log-out-button');
 const toggleRegister = document.getElementById('toggle-register');
 const toggleLogin = document.getElementById('toggle-login');
 const registerBox = document.getElementById('register-box');
@@ -7,7 +8,7 @@ const closeButton = document.getElementById('close-button');
 const authContainer = document.getElementById('auth-container');
 
 if (isAuthTokenExpired()) {
-    localStorage.removeItem('jwtToken');
+    removeToken('jwtToken');
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
 
     // if (window.location.pathname !== '/') {
@@ -21,7 +22,16 @@ if (isAuthTokenExpired()) {
     logButtons.forEach(button => {
         button.classList.remove('hidden');
     });
+
+    logOutButtons.forEach(button => {
+        button.classList.add('hidden');
+    });
+
 } else {
+    logOutButtons.forEach(button => {
+        button.classList.remove('hidden');
+    });
+
     logButtons.forEach(button => {
         button.classList.add('hidden');
     });
@@ -30,6 +40,13 @@ if (isAuthTokenExpired()) {
 logButtons.forEach(button => {
     button.addEventListener('click', () => {
         authContainer.style.visibility = 'visible';
+    });
+});
+
+logOutButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        removeToken('jwtToken');
+        location.reload();
     });
 });
 
