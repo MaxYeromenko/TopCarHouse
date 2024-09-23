@@ -3,6 +3,7 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
 
     const email = event.target.querySelector('input[type="email"]').value;
     const password = event.target.querySelector('input[type="password"]').value;
+    showMessage('Завантаження...', true);
 
     try {
         const data = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
