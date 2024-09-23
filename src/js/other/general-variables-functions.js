@@ -1,3 +1,5 @@
+const connectionToDB = require('../server/db');
+
 function checkImageValidity(imageUrl) {
     return new Promise((resolve, reject) => {
         const img = new Image();

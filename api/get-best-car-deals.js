@@ -1,6 +1,4 @@
-const mongoose = require('../server/db');
-
-const DataSchema = new mongoose.Schema({
+const DataSchema = new connectionToDB.Schema({
     brand: String,
     model: String,
     year: Number,
@@ -17,7 +15,7 @@ const DataSchema = new mongoose.Schema({
     }
 });
 
-const DataModel = mongoose.model('Car', DataSchema);
+const DataModel = connectionToDB.model('Car', DataSchema);
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
