@@ -6,6 +6,8 @@ mongoose.connect(uri, {
     maxPoolSize: 10,
     socketTimeoutMS: 45000,
     serverSelectionTimeoutMS: 5000
-}).catch(err => console.error('Error connecting to MongoDB:', err));
-
+}).catch(err => {
+    console.error('Error connecting to MongoDB:', err.message);
+    console.error('Stack:', err.stack);
+});
 module.exports = mongoose;
