@@ -31,6 +31,7 @@ function showLogIn() {
     logOutButtons.forEach(button => {
         button.classList.add('hidden');
     });
+    authContainer.style.visibility = 'hidden';
 }
 
 function showLogOut() {
@@ -41,6 +42,7 @@ function showLogOut() {
     logButtons.forEach(button => {
         button.classList.add('hidden');
     });
+    authContainer.style.visibility = 'hidden';
 }
 
 logButtons.forEach(button => {
@@ -53,7 +55,6 @@ logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
         showLogIn();
-        authContainer.style.visibility = 'hidden';
         showMessage('Ви вийшли з облікового запису.', true);
         // location.reload();
         // window.addEventListener('load', () => {
