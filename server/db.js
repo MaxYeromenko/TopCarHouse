@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, {
+const uri = process.env.MONGODB_URI;
+
+mongoose.connect(uri, {
     maxPoolSize: 10,
     socketTimeoutMS: 45000,
     serverSelectionTimeoutMS: 5000
