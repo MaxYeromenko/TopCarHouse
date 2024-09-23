@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const uri = process.env.MONGODB_URI;
 
-mongoose.connect(uri).catch(err => console.error('Error connecting to MongoDB:', err));
+mongoose.connect(uri, {
+    maxPoolSize: 10,
+    socketTimeoutMS: 45000,
+    serverSelectionTimeoutMS: 5000
+}).catch(err => console.error('Error connecting to MongoDB:', err));
 
 module.exports = mongoose;
