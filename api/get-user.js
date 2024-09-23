@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
             const token = jwt.sign({ id: user._id, name: user.name }, secret, { expiresIn: '3d' });
 
-            res.status(200).json({ success: true, token, message: 'Вхід успішний!' });
+            res.status(200).json({ success: true, token, message: 'Ви увійшли до облікового запису!' });
         } catch (err) {
             console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час входу!' });
