@@ -33,21 +33,12 @@ module.exports = async (req, res) => {
                     }
                 },
                 {
-                    $sort: { brand: 1, year: -1 }
+                    $replaceRoot: { newRoot: "$car" }
                 },
                 {
-                    $project: {
-                        images: "$car.images",
-                        brand: "$_id.brand",
-                        model: "$car.model",
-                        _id: "$car._id",
-                        features: "$car.features",
-                        year: "$_id.year",
-                        price: "$car.price"
-                    }
+                    $sort: { brand: 1, year: -1 }
                 }
             ]);
-
             res.status(200).json(data);
         } catch (err) {
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
