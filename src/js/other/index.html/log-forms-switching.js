@@ -10,14 +10,6 @@ const authContainer = document.getElementById('auth-container');
 if (isAuthTokenExpired()) {
     removeToken('jwtToken');
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
-
-    // if (window.location.pathname !== '/') {
-    //     window.location.href = '/';
-    // }
-
-    // authContainer.style.visibility = 'visible';
-    // registerBox.classList.add('hidden');
-    // loginBox.classList.remove('hidden');
     showLogIn()
 } else {
     showLogOut()
@@ -56,10 +48,6 @@ logOutButtons.forEach(button => {
         removeToken('jwtToken');
         showLogIn();
         showMessage('Ви вийшли з облікового запису.', true);
-        // location.reload();
-        // window.addEventListener('load', () => {
-        //     showMessage('Ви вийшли з облікового запису.', true);
-        // });
     });
 });
 
