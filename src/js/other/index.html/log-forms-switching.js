@@ -45,7 +45,7 @@ logButtons.forEach(button => {
 logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
-        location.reload();
+        // location.reload();
         showMessage('Ви вийшли з облікового запису.', true);
     });
 });
