@@ -95,3 +95,24 @@ function isAuthTokenExpired() {
 function removeToken(name) {
     localStorage.removeItem(name);
 }
+
+function addToCarToLocalStorage(carId) {
+    const maxCarsToCompare = isAuthTokenExpired() ? 2 : 8;
+    let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
+
+    if (carsToCompare.length >= maxCarsToCompare) {
+        const message = maxCarsToCompare === 2
+            ? 'Одночасно можна порівнювати лише 2 машини. Увійдіть в обліковий запис щоб порівняти до 8!'
+            : 'Одночасно можна порівнювати 8 машини.';
+        showMessage(message, false);
+        return;
+    }
+
+    if (carsToCompare.includes(carId)) {
+        showMessage('Це авто вже додано до порівняння.', false);
+    } else {
+        carsToCompare.push(carId);
+        localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
+        showMessage('Авто додано до порівняння.', true);
+    }
+}

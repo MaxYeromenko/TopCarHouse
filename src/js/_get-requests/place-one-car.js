@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const productId = params.get('id');
+const carId = params.get('id');
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetry(`/api/get-one-car?id=${productId}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
 
         if (result) {
             productData = result;
@@ -89,17 +89,5 @@ function loadProductInfo() {
 }
 
 document.getElementById('add-to-compare-button').addEventListener('click', function () {
-    let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
-    if (carsToCompare.length >= 4) {
-        showMessage('Одночасно можна порівнювати лише 4 машини.', false);
-        return;
-    }
-
-    if (!carsToCompare.includes(productId)) {
-        carsToCompare.push(productId);
-        localStorage.setItem('carsToCompare', JSON.stringify(carsToCompare));
-        showMessage('Авто додано до порівняння.', true);
-    } else {
-        showMessage('Це авто вже додано до порівняння.', false);
-    }
+    addToCompare(carId);
 });
