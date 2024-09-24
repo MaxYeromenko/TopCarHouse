@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb+srv://user:6GkofFHyMXb1IlfI@topcarhouse.f44si.mongodb.net/topcarhousedb?retryWrites=true&w=majority&appName=TopCarHouse';
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            socketTimeoutMS: 15000,
+            serverSelectionTimeoutMS: 10000
+        });
+        console.log("Connected to MongoDB Atlas!");
+    } catch (err) {
+        console.error("Error connecting to MongoDB Atlas:", err);
+        await mongoose.disconnect(); // Ждем завершения отключения
+        process.exit(1); // Завершаем процесс с кодом 1
+    }
+};
 
-try {
-    mongoose.connect(uri, {
-        socketTimeoutMS: 15000,
-        serverSelectionTimeoutMS: 10000
-    });
-    console.log("Connected to MongoDB Atlas!");
-} catch (err) {
-    console.error("Error connecting to MongoDB Atlas:", err);
-}
-
-module.exports = mongoose;
+module.exports = connectDB;
