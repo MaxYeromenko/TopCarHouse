@@ -1,4 +1,4 @@
-const { mongoose, DataModel } = require('../server/db');
+const DataModel = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
