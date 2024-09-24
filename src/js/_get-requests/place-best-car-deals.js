@@ -18,12 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error('Error fetching cars data:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
-
-    messageClose.onclick = () => {
-        message.classList.add('invisible');
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    };
 });
 
 function loadMoreCars() {
