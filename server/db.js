@@ -4,6 +4,7 @@ let isConnected;
 
 const connectDB = async () => {
     if (isConnected) {
+        console.log("Already connected to MongoDB Atlas.");
         return;
     }
 
