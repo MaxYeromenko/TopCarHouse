@@ -10,7 +10,6 @@ document.querySelector('.auth-form').addEventListener('submit', async (event) =>
 
         if (data.success) {
             localStorage.setItem('jwtToken', data.token);
-            // window.location.href = '/';
             showLogOut();
             showMessage(data.message, true);
         } else {

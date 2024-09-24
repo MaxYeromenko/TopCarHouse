@@ -16,16 +16,7 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         compareSection.style.visibility = 'hidden';
     }
-
-    // if (event.code === 'KeyC') {
-    //     compareSection.style.visibility = 'visible';
-    //     updateCarsToCompare(compareContainer);
-    // }
 });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     updateCarsToCompare(compareContainer);
-// });
 
 let isLoading = false;
 
