@@ -5,10 +5,13 @@ let carsDisplayed = 0;
 const carsPerPage = 24;
 
 if (isAuthTokenExpired()) {
-    showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
-    setTimeout(() => {
+    const toHomePageButton = document.getElementById('to-home-page');
+    toHomePageButton.style.display = 'inline';
+    toHomePageButton.addEventListener('click', () => {
         window.location.pathname = '/'
-    }, 3100);
+    })
+    loadMoreButton.style.display = 'none';
+    showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
 }
 else {
     document.addEventListener("DOMContentLoaded", async () => {

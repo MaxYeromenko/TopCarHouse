@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $product-white: #fff;
 $product-dark: #333;
 $product-orange: #f60;
@@ -46,7 +48,7 @@ main.product-main {
         .image-container {
             position: relative;
             width: 100%;
-            padding-bottom: 10/16*100%;
+            padding-bottom: math.div(10, 16)*100%;
             overflow: hidden;
 
             #product-image {
@@ -60,18 +62,11 @@ main.product-main {
         }
 
         .slider-button {
-            background-color: $product-orange;
-            border: none;
-            color: $product-white;
             font-size: 20px;
             padding: 10px 15px;
             border-radius: 100%;
             transition: background-color 0.3s;
             z-index: 1;
-
-            &:hover {
-                background-color: $product-dark;
-            }
         }
 
         #slider-prev {
@@ -154,27 +149,12 @@ main.product-main {
         color: $product-dark;
         text-align: center;
     }
-
-    #add-to-compare-button {
-        background-color: $product-orange;
-        color: $product-white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-
-        &:hover {
-            color: $product-orange;
-            background-color: $product-dark;
-        }
-    }
-
 }
 
 #close-button,
 #close-button-second,
 #compare-close-button {
-    position: inherit;
+    position: fixed;
     top: 0;
     right: 0;
     padding: 25px;

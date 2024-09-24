@@ -15,7 +15,51 @@ a,
 button {
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: #fff;
+}
+
+.default-button-dark-bg {
+  background-color: #f60;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.default-button-dark-bg:hover {
+  color: #f60;
+  background-color: #333;
+}
+
+.default-button-light-bg {
+  background-color: #f60;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.default-button-light-bg:hover {
+  color: #f60;
+  background-color: #fff;
+}
+
+.close-modal-window-button {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 25px;
+  color: #fff;
+  background-color: #f60;
+  -webkit-transition: color 0.6s, background-color 0.6s;
+  transition: color 0.6s, background-color 0.6s;
+  z-index: 1;
+}
+.close-modal-window-button:hover {
+  color: #f60;
+  background-color: #fff;
 }
 
 body::-webkit-scrollbar {
@@ -303,17 +347,7 @@ header .consultation-button-bg a:hover {
   color: red;
 }
 #consultation-container .cons-form button {
-  background-color: #f60;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
   font-weight: bold;
-}
-#consultation-container .cons-form button:hover {
-  color: #f60;
-  background-color: #333;
 }
 #consultation-container p {
   text-align: center;
@@ -956,6 +990,10 @@ footer a:hover {
   }
 }
 
+#to-home-page {
+  display: none;
+}
+
 main.product-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1030,18 +1068,12 @@ main.product-main {
      object-fit: cover;
 }
 .container .slider-container .slider-button {
-  background-color: #f60;
-  border: none;
-  color: #fff;
   font-size: 20px;
   padding: 10px 15px;
   border-radius: 100%;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
   z-index: 1;
-}
-.container .slider-container .slider-button:hover {
-  background-color: #333;
 }
 .container .slider-container #slider-prev {
   position: absolute;
@@ -1118,23 +1150,11 @@ main.product-main {
   color: #333;
   text-align: center;
 }
-.container #add-to-compare-button {
-  background-color: #f60;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-.container #add-to-compare-button:hover {
-  color: #f60;
-  background-color: #333;
-}
 
 #close-button,
 #close-button-second,
 #compare-close-button {
-  position: inherit;
+  position: fixed;
   top: 0;
   right: 0;
   padding: 25px;

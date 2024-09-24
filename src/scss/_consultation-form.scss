@@ -58,18 +58,7 @@ $product-orange: #f60;
         }
 
         button {
-            background-color: $product-orange;
-            color: $product-white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
             font-weight: bold;
-
-            &:hover {
-                color: $product-orange;
-                background-color: $product-dark;
-            }
         }
     }
 
