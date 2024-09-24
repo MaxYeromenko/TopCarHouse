@@ -1,7 +1,6 @@
 const imageToView = document.getElementById('product-image');
 const viewedImage = document.getElementById('image-view');
 const viewedImageBg = document.getElementById('image-view-bg');
-const closeButton = document.getElementById('close-button');
 
 let currentScale = 1;
 let isDragging = false;
@@ -24,10 +23,6 @@ imageToView.addEventListener('click', (event) => {
 });
 
 viewedImageBg.addEventListener('click', () => {
-    viewedImageBg.style.visibility = 'hidden';
-});
-
-closeButton.addEventListener('click', () => {
     viewedImageBg.style.visibility = 'hidden';
 });
 

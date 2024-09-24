@@ -1,15 +1,10 @@
 const compareSectionOpen = document.getElementById('compare-section-open');
 const compareSection = document.getElementById('compare-section');
-const compareCloseButton = document.getElementById('compare-close-button');
 const compareContainer = document.getElementById('compare-container');
 
 compareSectionOpen.addEventListener('click', () => {
     compareSection.style.visibility = 'visible';
     updateCarsToCompare(compareContainer);
-});
-
-compareCloseButton.addEventListener('click', () => {
-    compareSection.style.visibility = 'hidden';
 });
 
 document.addEventListener('keydown', (event) => {

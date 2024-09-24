@@ -1151,26 +1151,6 @@ main.product-main {
   text-align: center;
 }
 
-#close-button,
-#close-button-second,
-#compare-close-button {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 25px;
-  background-color: #f60;
-  z-index: 1;
-  color: #fff;
-  -webkit-transition: color 0.6s, background-color 0.6s;
-  transition: color 0.6s, background-color 0.6s;
-}
-#close-button:hover,
-#close-button-second:hover,
-#compare-close-button:hover {
-  color: #f60;
-  background-color: #fff;
-}
-
 @media (max-width: 450px) {
   .container {
     width: 100%;

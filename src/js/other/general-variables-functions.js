@@ -1,3 +1,12 @@
+const closeButtons = document.querySelectorAll('.close-modal-window-button');
+
+closeButtons.forEach(element => {
+    element.addEventListener('click', () => {
+        element.parentElement.style.visibility = 'hidden';
+        console.log('its general close button');
+    })
+});
+
 function checkImageValidity(imageUrl) {
     return new Promise((resolve, reject) => {
         const img = new Image();

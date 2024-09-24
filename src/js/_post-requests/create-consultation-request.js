@@ -1,13 +1,8 @@
 const consultationButton = document.querySelector('.consultation-button');
 const consultationContainer = document.getElementById('consultation-container');
-const consCloseButton = document.getElementById('close-button-second');
 
 consultationButton.addEventListener('click', () => {
     consultationContainer.style.visibility = 'visible';
-});
-
-consCloseButton.addEventListener('click', () => {
-    consultationContainer.style.visibility = 'hidden';
 });
 
 document.addEventListener('keydown', (event) => {

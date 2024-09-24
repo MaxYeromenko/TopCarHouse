@@ -4,7 +4,6 @@ const toggleRegister = document.getElementById('toggle-register');
 const toggleLogin = document.getElementById('toggle-login');
 const registerBox = document.getElementById('register-box');
 const loginBox = document.querySelector('.auth-box');
-const closeButton = document.getElementById('close-button');
 const authContainer = document.getElementById('auth-container');
 
 if (isAuthTokenExpired()) {
@@ -50,10 +49,6 @@ logOutButtons.forEach(button => {
         showLogIn();
         showMessage('Ви вийшли з облікового запису.', true);
     });
-});
-
-closeButton.addEventListener('click', () => {
-    authContainer.style.visibility = 'hidden';
 });
 
 toggleRegister.addEventListener('click', (e) => {

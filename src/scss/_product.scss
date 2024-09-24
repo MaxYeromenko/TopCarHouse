@@ -151,24 +151,6 @@ main.product-main {
     }
 }
 
-#close-button,
-#close-button-second,
-#compare-close-button {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 25px;
-    background-color: $product-orange;
-    z-index: 1;
-    color: $product-white;
-    transition: color .6s, background-color .6s;
-
-    &:hover {
-        color: $product-orange;
-        background-color: $product-white;
-    }
-}
-
 @media (max-width: 450px) {
     .container {
         width: 100%;
