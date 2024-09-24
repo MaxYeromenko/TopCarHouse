@@ -1,9 +1,9 @@
-const { DataModel } = require('../server/db');
+const { CarModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const data = await DataModel.aggregate([
+            const data = await CarModel.aggregate([
                 {
                     $sort: { price: 1 }
                 },

@@ -16,7 +16,7 @@ const connectDB = async () => {
 
 connectDB();
 
-const DataSchema = new mongoose.Schema({
+const CarSchema = new mongoose.Schema({
     brand: String,
     model: String,
     year: Number,
@@ -33,6 +33,22 @@ const DataSchema = new mongoose.Schema({
     }
 });
 
-const DataModel = mongoose.model('Car', DataSchema);
+const CarModel = mongoose.model('Car', CarSchema);
 
-module.exports = { mongoose, DataModel };
+const UserSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true, index: true },
+    password: { type: String, required: true }
+});
+
+const UserModel = mongoose.model('User', UserSchema);
+
+const ConsultationSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    phone: { type: String, required: true },
+    datetime: { type: Date, required: true }
+});
+
+const ConsultationModel = mongoose.model('Consultation', ConsultationSchema);
+
+module.exports = { mongoose, CarModel, UserModel, ConsultationModel };

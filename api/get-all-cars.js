@@ -1,12 +1,12 @@
-const { mongoose, DataModel } = require('../server/db');
+const { CarModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const data = await DataModel.find();
+            const data = await CarModel.find();
             res.status(200).json(data);
         } catch (err) {
-            console.error(err); // Рекомендуется логировать ошибку для отладки
+            console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
         }
     } else {

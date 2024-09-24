@@ -1,13 +1,5 @@
-const mongoose = require('../server/db');
+const { UserModel } = require('../server/db');
 const bcrypt = require('bcryptjs');
-
-const UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true, index: true },
-    password: { type: String, required: true }
-});
-
-const UserModel = mongoose.model('User', UserSchema);
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
@@ -31,7 +23,6 @@ module.exports = async (req, res) => {
         } catch (err) {
             console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час реєстрації!' });
-            res.status(504).json({ success: false, message: 'Будь ласка, відправте дані ще раз або перезавантажте сторінку.' })
         }
     } else {
         res.status(405).json({ success: false, message: 'Метод не дозволений' });

@@ -1,14 +1,9 @@
-const mongoose = require('../server/db');
+const { UserModel } = require('../server/db');
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true, index: true },
-    password: { type: String, required: true }
-});
 
-const UserModel = mongoose.model('User', UserSchema);
 const secret = process.env.JWT_SECRET;
 
 module.exports = async (req, res) => {
