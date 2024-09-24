@@ -1,23 +1,4 @@
-const mongoose = require('../server/db');
-
-const DataSchema = new mongoose.Schema({
-    brand: String,
-    model: String,
-    year: Number,
-    price: Number,
-    color: String,
-    description: String,
-    images: [String],
-    features: {
-        transmission: String,
-        engine: String,
-        fuel_type: String,
-        horsepower: Number,
-        fuel_consumption: Number
-    }
-});
-
-const DataModel = mongoose.model('Car', DataSchema);
+const { mongoose, DataModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
