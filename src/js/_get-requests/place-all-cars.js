@@ -4,31 +4,41 @@ let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
 
-document.addEventListener("DOMContentLoaded", async () => {
+if (isAuthTokenExpired()) {
+    showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
+    setTimeout(() => {
+        window.location.pathname = '/'
+    }, 3100);
+}
+else {
+    document.addEventListener("DOMContentLoaded", async () => {
 
-    showMessage('Завантаження...', true);
+        showMessage('Завантаження...', true);
 
-    try {
-        const result = await fetchWithRetry('/api/get-all-cars', retriesLimit);
+        try {
+            const result = await fetchWithRetry('/api/get-all-cars', retriesLimit);
 
-        if (result) {
-            carsData = result;
-            loadMoreCars();
-            showMessage('Дані успішно завантажені!', true);
-        } else {
-            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
+            if (result) {
+                carsData = result;
+                loadMoreCars();
+                showMessage('Дані успішно завантажені!', true);
+            } else {
+                showMessage('Помилка: Невідома помилка під час завантаження даних', false);
+            }
+        } catch (error) {
+            console.error('Error fetching cars data:', error);
+            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
         }
-    } catch (error) {
-        console.error('Error fetching cars data:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-    }
 
-    messageClose.onclick = () => {
-        message.classList.add('invisible');
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    };
-});
+        messageClose.onclick = () => {
+            message.classList.add('invisible');
+            message.classList.remove('error-message');
+            message.classList.remove('success-message');
+        };
+    });
+
+    loadMoreButton.addEventListener('click', loadMoreCars);
+}
 
 function loadMoreCars() {
     const carsContainer = document.getElementById('cars-container');
@@ -81,21 +91,21 @@ function createCarCard(car) {
     });
 
     carCard.innerHTML = `
-    <div class="product-card">
-        <div class="product-info">
-            <h2 class="product-title">${car.brand} ${car.model}</h2>
-            <p class="product-description">
-                ${car.year}, ${car.features.engine}, ${car.features.fuel_type}, ${car.features.horsepower} к.с.
-            </p>
-            <div class="product-features">
-                <div class="feature"><i class="fa-solid fa-gears"></i>${car.features.transmission}</div>
-                <div class="feature"><i class="fa-solid fa-gas-pump"></i>${car.features.fuel_consumption > 0 ? car.features.fuel_consumption + ' л / 100 км' : ' - '}</div>
-                <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
+        <div class="product-card">
+            <div class="product-info">
+                <h2 class="product-title">${car.brand} ${car.model}</h2>
+                <p class="product-description">
+                    ${car.year}, ${car.features.engine}, ${car.features.fuel_type}, ${car.features.horsepower} к.с.
+                </p>
+                <div class="product-features">
+                    <div class="feature"><i class="fa-solid fa-gears"></i>${car.features.transmission}</div>
+                    <div class="feature"><i class="fa-solid fa-gas-pump"></i>${car.features.fuel_consumption > 0 ? car.features.fuel_consumption + ' л / 100 км' : ' - '}</div>
+                    <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
+                </div>
+                <div class="product-price">Ціна: $${car.price}</div>
+                <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="product-price">Ціна: $${car.price}</div>
-            <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-    </div>`;
+        </div>`;
 
     carImages.forEach(imageUrl => {
         checkImageValidity(imageUrl)
@@ -130,5 +140,3 @@ function createCarCard(car) {
 
     return carCard;
 }
-
-loadMoreButton.addEventListener('click', loadMoreCars);
