@@ -46,6 +46,7 @@ logButtons.forEach(button => {
 logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
+        localStorage.removeItem('carsToCompare');
         showLogIn();
         showMessage('Ви вийшли з облікового запису.', true);
     });
