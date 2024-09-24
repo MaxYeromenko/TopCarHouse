@@ -88,6 +88,6 @@ function loadProductInfo() {
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
 }
 
-document.getElementById('add-to-compare-button').addEventListener('click', function () {
-    addToCompare(carId);
+document.getElementById('add-to-compare-button').addEventListener('click', () => {
+    addToCarToLocalStorage(carId);
 });
