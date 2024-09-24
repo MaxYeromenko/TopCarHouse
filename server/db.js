@@ -1,16 +1,22 @@
 const mongoose = require('mongoose');
 
+let isConnected;
+
 const connectDB = async () => {
+    if (isConnected) {
+        return;
+    }
+
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
             socketTimeoutMS: 15000,
             serverSelectionTimeoutMS: 10000,
             maxPoolSize: 10
         });
+        isConnected = true;
         console.log("Connected to MongoDB Atlas!");
     } catch (err) {
         console.error("Error connecting to MongoDB Atlas:", err);
-        await mongoose.disconnect();
         process.exit(1);
     }
 };
