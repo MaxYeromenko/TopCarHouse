@@ -13,5 +13,5 @@ const connectDB = async () => {
         process.exit(1); // Завершаем процесс с кодом 1
     }
 };
-
-module.exports = connectDB;
+connectDB();
+module.exports = mongoose;
