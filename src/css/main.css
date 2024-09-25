@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, #cards-section .load-more-cars-buttons a,
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
@@ -30,12 +30,12 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
-.default-button-dark-bg:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   background-color: #333;
 }
@@ -999,11 +999,9 @@ main.product-main {
      object-fit: cover;
 }
 .container .slider-container .slider-button {
-  font-size: 20px;
-  padding: 10px 15px;
   border-radius: 100%;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  width: 39px;
+  height: 39px;
   z-index: 1;
 }
 .container .slider-container #slider-prev {
@@ -1081,7 +1079,6 @@ main.product-main {
   color: #333;
   text-align: center;
 }
-
 @media (max-width: 450px) {
   .container {
     width: 100%;

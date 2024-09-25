@@ -62,10 +62,10 @@ main.product-main {
         }
 
         .slider-button {
-            font-size: 20px;
-            padding: 10px 15px;
+            @extend .default-button-dark-bg;
             border-radius: 100%;
-            transition: background-color 0.3s;
+            width: 39px;
+            height: 39px;
             z-index: 1;
         }
 
@@ -148,6 +148,10 @@ main.product-main {
         font-size: 24px;
         color: $product-dark;
         text-align: center;
+    }
+
+    #add-to-compare-button {
+        @extend .default-button-dark-bg;
     }
 }
 
