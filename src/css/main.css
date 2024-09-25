@@ -571,6 +571,9 @@ body main .features .feature {
   color: #f60;
   font-size: 18px;
 }
+#compare-section #compare-container::-webkit-scrollbar {
+  display: none;
+}
 
 /* Стилі для популярних моделей */
 #cards-section {

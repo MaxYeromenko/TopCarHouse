@@ -120,4 +120,8 @@ $product-orange: #f60;
             font-size: 18px;
         }
     }
+
+    #compare-container::-webkit-scrollbar {
+        display: none;
+    }
 }
