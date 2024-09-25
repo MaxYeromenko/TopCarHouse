@@ -106,7 +106,7 @@ function createCarCard(car) {
                     <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
                 </div>
                 <div class="product-price">Ціна: $${car.price}</div>
-                <a href="/pages/product-info.html?id=${car._id}" class="product-button" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
         </div>`;
 
