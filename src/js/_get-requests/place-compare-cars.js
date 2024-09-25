@@ -36,14 +36,14 @@ async function updateCarsToCompare(compareContainer) {
                     compareContainer.appendChild(carCard);
                     validCars.push(carId);
                 } else {
-                    showMessage('Помилка: Невідома помилка під час завантаження даних', false);
+                    showMessage('Авто не знайдено.', false);
                 }
             } catch (error) {
                 console.error('Error fetching product data:', error);
                 showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
             }
         }
-        
+
         if (validCars.length !== carsToCompare.length) {
             localStorage.setItem('carsToCompare', JSON.stringify(validCars));
         }
