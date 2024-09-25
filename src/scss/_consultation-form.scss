@@ -32,7 +32,7 @@ $product-orange: #f60;
         text-align: center;
     }
 
-    .cons-form {
+    #consultation-form {
         display: flex;
         flex-direction: column;
 
@@ -41,6 +41,11 @@ $product-orange: #f60;
             margin-bottom: 15px;
             border: 1px solid $product-dark;
             border-radius: 5px;
+        }
+
+        button {
+            @extend .default-button-dark-bg;
+            font-weight: bold;
         }
 
         .consultation-alert {

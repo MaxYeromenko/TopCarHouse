@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, .default-button-dark-bg {
+.default-button, .close-modal-window-button, .default-button-light-bg, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -29,11 +29,11 @@ button {
   -webkit-transition: color 0.6s, background-color 0.6s;
   transition: color 0.6s, background-color 0.6s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, .default-button-dark-bg:hover {
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
-.default-button-dark-bg:hover {
+.default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   background-color: #333;
 }
 
@@ -246,17 +246,7 @@ header .consultation-button-bg a:hover {
   border-radius: 5px;
 }
 #auth-container .auth-form button {
-  background-color: #f60;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
   font-weight: bold;
-}
-#auth-container .auth-form button:hover {
-  color: #f60;
-  background-color: #333;
 }
 #auth-container p {
   text-align: center;
@@ -309,7 +299,7 @@ header .consultation-button-bg a:hover {
   margin-bottom: 20px;
   text-align: center;
 }
-#consultation-container .cons-form {
+#consultation-container #consultation-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -318,25 +308,28 @@ header .consultation-button-bg a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-#consultation-container .cons-form input {
+#consultation-container #consultation-form input {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #333;
   border-radius: 5px;
 }
-#consultation-container .cons-form .consultation-alert {
+#consultation-container #consultation-form button {
+  font-weight: bold;
+}
+#consultation-container #consultation-form .consultation-alert {
   font-size: 12px;
   color: #333;
   text-align: center;
   margin-top: 10px;
   opacity: 0.7;
 }
-#consultation-container .cons-form .consultation-alert span {
+#consultation-container #consultation-form .consultation-alert span {
   line-height: 0;
   font-size: 16px;
   color: red;
 }
-#consultation-container .cons-form button {
+#consultation-container #consultation-form button {
   font-weight: bold;
 }
 #consultation-container p {
