@@ -38,7 +38,6 @@ button {
 
 .default-button-dark-bg {
     @extend .default-button;
-    background-color: $product-orange;
 
     &:hover {
         background-color: $product-dark;
@@ -47,7 +46,6 @@ button {
 
 .default-button-light-bg {
     @extend .default-button;
-    background-color: $product-orange;
 
     &:hover {
         background-color: $product-white;

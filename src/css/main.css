@@ -33,16 +33,10 @@ button {
   color: #f60;
 }
 
-.default-button-dark-bg {
-  background-color: #f60;
-}
 .default-button-dark-bg:hover {
   background-color: #333;
 }
 
-.default-button-light-bg {
-  background-color: #f60;
-}
 .default-button-light-bg:hover {
   background-color: #fff;
 }
