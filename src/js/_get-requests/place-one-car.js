@@ -1,6 +1,5 @@
 const params = new URLSearchParams(window.location.search);
 const carId = params.get('id');
-const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 let productData;
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -35,7 +34,6 @@ function loadProductInfo() {
     document.getElementById('product-name-year').textContent = `${productData.brand} ${productData.model} — ${productData.year}`;
     document.getElementById('product-price').textContent = `$${productData.price}`;
 
-    const default_car_URL = `${cloudinaryURL}v1725616540/default_car.jpg`;
     let productImages = productData.images && productData.images.length > 0
         ? productData.images.map(image => image.startsWith('http') ? image : `${cloudinaryURL}${image}`)
         : [default_car_URL];

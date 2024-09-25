@@ -1,18 +1,6 @@
-const mongoose = require('mongoose');
+const { CarModel } = require('../../../server/db');
 
-const uri = 'mongodb+srv://root:pcvaP59lVECH028k@topcarhouse.f44si.mongodb.net/topcarhousedb?retryWrites=true&w=majority&appName=TopCarHouse';
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
-
-async function connectDB() {
-    try {
-        await mongoose.connect(uri);
-        console.log("Connected to MongoDB Atlas!");
-    } catch (err) {
-        console.error("Error connecting to MongoDB Atlas:", err);
-    }
-}
-
-connectDB();
 
 const cars = [
     {
@@ -237,27 +225,8 @@ const cars = [
     }
 ];
 
-const DataSchema = new mongoose.Schema({
-    brand: String,
-    model: String,
-    year: Number,
-    price: Number,
-    color: String,
-    description: String,
-    images: [String],
-    features: {
-        transmission: String,
-        engine: String,
-        fuel_type: String,
-        horsepower: Number,
-        fuel_consumption: Number
-    }
-});
-
-const DataModel = mongoose.model('Car', DataSchema);
-
 for (const carData of cars) {
-    const car = new DataModel(carData);
+    const car = new CarModel(carData);
     car.save()
         .then(() => console.log('Car added successfully!'))
         .catch((err) => console.log('Error adding car:', err));

@@ -1,4 +1,3 @@
-const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 const loadMoreButton = document.getElementById('load-more-cars');
 let carsData = [];
 let carsDisplayed = 0;
@@ -62,8 +61,6 @@ function loadMoreCars() {
 function createCarCard(car) {
     const carCard = document.createElement('div');
     carCard.classList.add('car');
-
-    const default_car_URL = `${cloudinaryURL}v1725616540/default_car.jpg`;
 
     let carImages = car.images && car.images.length > 0
         ? car.images.map(image => image.startsWith('http') ? image : `${cloudinaryURL}${image}`)
