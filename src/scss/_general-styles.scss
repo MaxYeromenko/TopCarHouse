@@ -21,7 +21,7 @@ button {
     color: $product-white;
 }
 
-.default-button-dark-bg {
+.default-button {
     background-color: $product-orange;
     color: $product-white;
     padding: 10px;
@@ -29,43 +29,44 @@ button {
     border-radius: 5px;
     font-size: 16px;
     text-align: center;
+    transition: color .6s, background-color .6s;
 
     &:hover {
         color: $product-orange;
+    }
+}
+
+.default-button-dark-bg {
+    @extend .default-button;
+    background-color: $product-orange;
+
+    &:hover {
         background-color: $product-dark;
     }
 }
 
 .default-button-light-bg {
+    @extend .default-button;
     background-color: $product-orange;
-    color: $product-white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
 
     &:hover {
-        color: $product-orange;
         background-color: $product-white;
     }
 }
 
 .close-modal-window-button {
+    @extend .default-button;
     position: fixed;
     top: 0;
     right: 0;
     padding: 25px;
-    color: $product-white;
-    background-color: $product-orange;
-    transition: color .6s, background-color .6s;
     z-index: 1;
 
     &:hover {
-        color: $product-orange;
         background-color: $product-white;
     }
 }
+
 
 body::-webkit-scrollbar {
     display: none;

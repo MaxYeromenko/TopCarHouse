@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button-dark-bg {
+.default-button, .close-modal-window-button, .default-button-light-bg, .default-button-dark-bg {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -26,23 +26,24 @@ button {
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
+  -webkit-transition: color 0.6s, background-color 0.6s;
+  transition: color 0.6s, background-color 0.6s;
+}
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, .default-button-dark-bg:hover {
+  color: #f60;
+}
+
+.default-button-dark-bg {
+  background-color: #f60;
 }
 .default-button-dark-bg:hover {
-  color: #f60;
   background-color: #333;
 }
 
 .default-button-light-bg {
   background-color: #f60;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  text-align: center;
 }
 .default-button-light-bg:hover {
-  color: #f60;
   background-color: #fff;
 }
 
@@ -51,14 +52,9 @@ button {
   top: 0;
   right: 0;
   padding: 25px;
-  color: #fff;
-  background-color: #f60;
-  -webkit-transition: color 0.6s, background-color 0.6s;
-  transition: color 0.6s, background-color 0.6s;
   z-index: 1;
 }
 .close-modal-window-button:hover {
-  color: #f60;
   background-color: #fff;
 }
 
@@ -576,20 +572,10 @@ body main .features .feature {
   position: relative;
 }
 #compare-section #compare-container .compare-item .remove-car-button {
-  background-color: #f60;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
   font-weight: bold;
   position: absolute;
   right: 1%;
   top: 1%;
-}
-#compare-section #compare-container .compare-item .remove-car-button:hover {
-  color: #f60;
-  background-color: #fff;
 }
 #compare-section #compare-container .compare-item #compare-product-title {
   color: #f60;
