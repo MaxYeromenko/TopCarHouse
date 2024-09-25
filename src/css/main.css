@@ -502,7 +502,7 @@ body main .features .feature {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 20px;
   background-color: #fff;
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   max-height: 90vh;
   overflow-y: auto;
