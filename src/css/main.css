@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -29,7 +29,7 @@ button {
   -webkit-transition: color 0.6s, background-color 0.6s;
   transition: color 0.6s, background-color 0.6s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
@@ -37,7 +37,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover {
   background-color: #fff;
 }
 
@@ -96,7 +96,7 @@ header .hidden {
 header .icon-wrapper {
   visibility: hidden;
   position: absolute;
-  color: white;
+  color: #fff;
 }
 header .icon-wrapper .fa-angles-down {
   visibility: hidden;
@@ -151,50 +151,38 @@ header .logo {
 header .logo img {
   width: 100%;
 }
+@media (max-width: 545px) {
+  header .consultation-button-bg button {
+    font-size: 80%;
+    padding: 5px;
+  }
+}
+@media (max-width: 545px) {
+  header {
+    padding: 10px 5px;
+  }
+}
 header .consultation-button-bg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
-  text-align: center;
-}
-header .consultation-button-bg a {
-  padding: 10px 20px;
-  background-color: #f60;
-  border-radius: 5px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-header .consultation-button-bg a:hover {
-  color: #f60;
-  background-color: white;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+          justify-content: flex-end;
 }
 @media (max-width: 545px) {
-  header .consultation-button-bg {
+  header .consultation-button-bg button {
     font-size: 80%;
-  }
-  header .consultation-button-bg a {
-    padding: 7px 13px;
+    padding: 5px;
   }
 }
-@media (max-width: 420px) {
-  header .consultation-button-bg {
-    font-size: 75%;
-  }
-  header .consultation-button-bg a {
-    padding: 7px 5px;
+@media (max-width: 340px) {
+  header .consultation-button-bg button {
+    font-size: 70%;
+    padding: 5px;
   }
 }
 
-@media (max-width: 545px) {
-  header {
-    padding: 10px 5px;
-  }
-}
 #auth-container {
   position: fixed;
   top: 0;
@@ -328,9 +316,6 @@ header .consultation-button-bg a:hover {
   line-height: 0;
   font-size: 16px;
   color: red;
-}
-#consultation-container #consultation-form button {
-  font-weight: bold;
 }
 #consultation-container p {
   text-align: center;
