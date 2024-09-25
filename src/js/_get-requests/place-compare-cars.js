@@ -25,6 +25,8 @@ async function updateCarsToCompare(compareContainer) {
     if (carsToCompare.length > 0) {
         showMessage('Завантаження...', true);
 
+        const validCars = [];
+
         for (const carId of carsToCompare) {
             try {
                 const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
@@ -32,6 +34,7 @@ async function updateCarsToCompare(compareContainer) {
                 if (result) {
                     const carCard = createCompareCarCard(result);
                     compareContainer.appendChild(carCard);
+                    validCars.push(carId);
                 } else {
                     showMessage('Помилка: Невідома помилка під час завантаження даних', false);
                 }
@@ -39,6 +42,10 @@ async function updateCarsToCompare(compareContainer) {
                 console.error('Error fetching product data:', error);
                 showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
             }
+        }
+        
+        if (validCars.length !== carsToCompare.length) {
+            localStorage.setItem('carsToCompare', JSON.stringify(validCars));
         }
 
         showMessage('Дані успішно завантажені!', true);
