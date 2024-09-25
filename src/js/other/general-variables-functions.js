@@ -23,16 +23,22 @@ let hideTimeout = null;
 let resetTimeout = null;
 
 function showMessage(text, isSuccess) {
+    const message = document.querySelector('.info-message');
+    const messageText = document.querySelector('.info-message .message-text');
+    const messageCloseButton = document.querySelector('.info-message .fa-xmark');
+
     if (hideTimeout) clearTimeout(hideTimeout);
     if (resetTimeout) clearTimeout(resetTimeout);
 
-    const message = document.querySelector('.info-message');
-    const messageText = document.querySelector('.info-message .message-text');
+    messageCloseButton.addEventListener('click', () => {
+        message.classList.add('invisible');
+        message.classList.remove('error-message');
+        message.classList.remove('success-message');
+    });
 
     messageText.textContent = text;
     message.classList.toggle('success-message', isSuccess);
     message.classList.toggle('error-message', !isSuccess);
-
     message.classList.remove('invisible');
 
     hideTimeout = setTimeout(() => {

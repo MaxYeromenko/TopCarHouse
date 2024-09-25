@@ -16,14 +16,14 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1% 1.5%;
-            background-color: $product-white;
-            z-index: 6;
-            border-radius: 5px;
-            color: $product-orange;
-            gap: 5px;
             visibility: hidden;
+            color: $product-orange;
+            background-color: $product-white;
+            border-radius: 5px;
+            padding: 1% 1.5%;
+            gap: 5px;
             opacity: 0;
+            z-index: 6;
 
             .fa-xmark {
                 font-size: 14px;
@@ -58,20 +58,17 @@ body {
 
         /* Стилі для слайдера */
         .hero {
-            height: fit-content;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-direction: column;
-            color: white;
             text-align: center;
+            color: $product-white;
             background-image: url('/src/images/car_pink.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
             overflow: hidden;
-            gap: 10px;
-            padding: 10% 15%;
+            padding: 10%;
 
             h1 {
                 font-size: 48px;
@@ -80,22 +77,11 @@ body {
 
             p {
                 font-size: 24px;
-                margin: 10px 0;
             }
 
             a {
-                background-color: #f60;
-                padding: 10px 20px;
-                border-radius: 5px;
-                color: white;
-                text-decoration: none;
+                @extend .default-button-light-bg;
                 font-size: 18px;
-                transition: all 0.6s;
-            }
-
-            a:hover {
-                background-color: white;
-                color: #f60;
             }
         }
 
@@ -103,7 +89,7 @@ body {
         .features {
             display: flex;
             justify-content: space-around;
-            padding: 40px;
+            padding: 35px;
             background-color: #333;
             color: white;
 

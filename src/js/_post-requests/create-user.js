@@ -4,7 +4,7 @@ const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 const form = document.getElementById('register-form');
 
-form.addEventListener('submit', async e => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('register-name').value;
@@ -44,10 +44,4 @@ form.addEventListener('submit', async e => {
         console.error('Error fetching product data:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
-
-    messageClose.onclick = () => {
-        message.classList.add('invisible');
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    };
 });

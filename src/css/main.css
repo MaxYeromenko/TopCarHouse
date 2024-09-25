@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, #compare-section-open, body main .hero a, header .consultation-button-bg button, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
@@ -30,7 +30,7 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, #compare-section-open:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
@@ -40,7 +40,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, #compare-section-open:hover, body main .hero a:hover, header .consultation-button-bg button:hover {
   background-color: #fff;
 }
 
@@ -358,14 +358,14 @@ body main .info-message {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1% 1.5%;
-  background-color: #fff;
-  z-index: 6;
-  border-radius: 5px;
-  color: #f60;
-  gap: 5px;
   visibility: hidden;
+  color: #f60;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1% 1.5%;
+  gap: 5px;
   opacity: 0;
+  z-index: 6;
 }
 body main .info-message .fa-xmark {
   font-size: 14px;
@@ -395,15 +395,9 @@ body main .invisible {
   opacity: 0;
 }
 body main .hero {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -411,15 +405,14 @@ body main .hero {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: white;
   text-align: center;
+  color: #fff;
   background-image: url("/src/images/car_pink.png");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   overflow: hidden;
-  gap: 10px;
-  padding: 10% 15%;
+  padding: 10%;
 }
 body main .hero h1 {
   font-size: 48px;
@@ -427,21 +420,9 @@ body main .hero h1 {
 }
 body main .hero p {
   font-size: 24px;
-  margin: 10px 0;
 }
 body main .hero a {
-  background-color: #f60;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
   font-size: 18px;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
-}
-body main .hero a:hover {
-  background-color: white;
-  color: #f60;
 }
 body main .features {
   display: -webkit-box;
@@ -449,7 +430,7 @@ body main .features {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding: 40px;
+  padding: 35px;
   background-color: #333;
   color: white;
 }
@@ -473,26 +454,17 @@ body main .features .feature {
 }
 
 #compare-section-open {
-  background-color: #f60;
-  color: #fff;
   padding: 15px;
   border-radius: 100%;
   font-size: 18px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  z-index: 4;
   position: fixed;
   left: 1%;
   bottom: 2%;
-  -webkit-transition: color 0.6s, background-color 0.6s;
-  transition: color 0.6s, background-color 0.6s;
   border: solid 2px #fff;
+  z-index: 4;
 }
 #compare-section-open:hover {
-  border: solid 2px #f60;
-  color: #f60;
-  background-color: #fff;
+  border-color: #f60;
 }
 #compare-section-open:hover .fa-scale-unbalanced {
   display: none;
@@ -512,7 +484,6 @@ body main .features .feature {
   height: 100%;
   padding: 20px;
   background-color: #333;
-  z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,6 +495,7 @@ body main .features .feature {
           align-items: center;
   visibility: hidden;
   overflow-y: auto;
+  z-index: 5;
 }
 #compare-section #compare-container {
   display: grid;

@@ -14,8 +14,6 @@ document.addEventListener('keydown', (event) => {
 const consultationForm = document.getElementById('consultation-form');
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
-const messageClose = document.querySelector('.info-message .fa-xmark');
-const message = document.querySelector('.info-message');
 
 consultationForm.addEventListener('submit', async e => {
     e.preventDefault();
@@ -64,10 +62,4 @@ consultationForm.addEventListener('submit', async e => {
         console.error('Error fetching product data:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
-
-    messageClose.onclick = () => {
-        message.classList.add('invisible');
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    };
 });

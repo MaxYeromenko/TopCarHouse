@@ -3,21 +3,19 @@ $product-dark: #333;
 $product-orange: #f60;
 
 #compare-section-open {
-    background-color: $product-orange;
-    color: $product-white;
+    @extend .default-button-light-bg;
     padding: 15px;
     border-radius: 100%;
     font-size: 18px;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    z-index: 4;
     position: fixed;
     left: 1%;
     bottom: 2%;
-    transition: color .6s, background-color .6s;
     border: solid 2px $product-white;
+    z-index: 4;
 
     &:hover {
+        border-color: $product-orange;
+
         .fa-scale-unbalanced {
             display: none;
         }
@@ -25,10 +23,6 @@ $product-orange: #f60;
         .fa-scale-unbalanced-flip {
             display: inline;
         }
-
-        border: solid 2px $product-orange;
-        color: $product-orange;
-        background-color: $product-white;
     }
 
     .fa-scale-unbalanced-flip {
@@ -44,12 +38,12 @@ $product-orange: #f60;
     height: 100%;
     padding: 20px;
     background-color: $product-dark;
-    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
     visibility: hidden;
     overflow-y: auto;
+    z-index: 5;
 
     #compare-container {
         display: grid;
@@ -83,15 +77,13 @@ $product-orange: #f60;
                 margin-bottom: 15px;
             }
 
-            .compare-product-info {
-                div {
-                    padding: 10px 15px;
-                    text-align: left;
-                    font-size: 1rem;
-                    border-bottom: solid 1px $product-orange;
-                    display: flex;
-                    justify-content: space-between;
-                }
+            .compare-product-info div {
+                padding: 10px 15px;
+                text-align: left;
+                font-size: 1rem;
+                border-bottom: solid 1px $product-orange;
+                display: flex;
+                justify-content: space-between;
             }
         }
 
