@@ -64,7 +64,7 @@ function createCompareCarCard(car) {
 
     carCardToCompare.innerHTML = `
     <div class="compare-item">
-        <button class="remove-car-button default-button-light-bg"><i class="fa-solid fa-trash-can"></i></button>
+        <button><i class="fa-solid fa-trash-can"></i></button>
         <h2 id="compare-product-title">${car.brand} ${car.model}</h2>
         <div class="compare-product-info">
             <div>Рік: <span>${car.year}</span></div>
@@ -78,8 +78,7 @@ function createCompareCarCard(car) {
         </div>
     </div>`;
 
-    const removeButton = carCardToCompare.querySelector('.remove-car-button');
-    removeButton.addEventListener('click', () => {
+    carCardToCompare.querySelector('button').addEventListener('click', () => {
         removeCarFromCompare(car._id);
     });
 

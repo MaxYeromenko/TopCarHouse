@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -29,7 +29,7 @@ button {
   -webkit-transition: color 0.6s, background-color 0.6s;
   transition: color 0.6s, background-color 0.6s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
@@ -37,7 +37,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover {
   background-color: #fff;
 }
 
@@ -558,7 +558,7 @@ body main .features .feature {
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   position: relative;
 }
-#compare-section #compare-container .compare-item .remove-car-button {
+#compare-section #compare-container .compare-item button {
   font-weight: bold;
   position: absolute;
   right: 1%;
@@ -597,7 +597,7 @@ body main .features .feature {
     padding: 10px;
     font-size: 0.9rem;
   }
-  #compare-section #compare-container .remove-car-button {
+  #compare-section #compare-container button {
     font-size: 14px;
     padding: 8px;
   }

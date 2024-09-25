@@ -69,7 +69,8 @@ $product-orange: #f60;
             transition: transform 0.2s ease;
             position: relative;
 
-            .remove-car-button {
+            button {
+                @extend .default-button-light-bg;
                 font-weight: bold;
                 position: absolute;
                 right: 1%;
@@ -110,7 +111,7 @@ $product-orange: #f60;
                 font-size: 0.9rem;
             }
 
-            .remove-car-button {
+            button {
                 font-size: 14px;
                 padding: 8px;
             }
