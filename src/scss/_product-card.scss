@@ -144,21 +144,15 @@ $product-orange: #f60;
     }
 
     .load-more-cars-buttons {
-        margin: 0 0 35px 0;
-        text-align: center;
+        margin: 15px;
 
-        #load-more-cars {
-            background-color: $product-orange;
-            color: $product-white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        a,
+        button {
+            @extend .default-button-dark-bg;
+        }
 
-            &:hover {
-                color: $product-orange;
-                background-color: $product-dark;
-            }
+        a {
+            display: none;
         }
     }
 }

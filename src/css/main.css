@@ -18,7 +18,8 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, header .consultation-button-bg button, .default-button-dark-bg, #cards-section .load-more-cars-buttons a,
+#cards-section .load-more-cars-buttons button, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -29,11 +30,13 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, #cards-section .load-more-cars-buttons a:hover,
+#cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
-.default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
+.default-button-dark-bg:hover, #cards-section .load-more-cars-buttons a:hover,
+#cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   background-color: #333;
 }
 
@@ -753,21 +756,10 @@ body main .features .feature {
   }
 }
 #cards-section .load-more-cars-buttons {
-  margin: 0 0 35px 0;
-  text-align: center;
+  margin: 15px;
 }
-#cards-section .load-more-cars-buttons #load-more-cars {
-  background-color: #f60;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-#cards-section .load-more-cars-buttons #load-more-cars:hover {
-  color: #f60;
-  background-color: #333;
+#cards-section .load-more-cars-buttons a {
+  display: none;
 }
 
 footer {
@@ -931,10 +923,6 @@ footer a:hover {
   #thank-you-message-bg #thank-you-message {
     width: 85%;
   }
-}
-
-#to-home-page {
-  display: none;
 }
 
 main.product-main {
