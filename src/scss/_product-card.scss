@@ -112,21 +112,8 @@ $product-orange: #f60;
                     margin: 10px;
                 }
 
-                .product-button {
-                    background-color: $product-orange;
-                    color: $product-white;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 5px;
-                    font-size: 14px;
-                    transition: background-color 0.3s;
-                    text-decoration: none;
-
-
-                    &:hover {
-                        color: $product-orange;
-                        background-color: $product-white;
-                    }
+                a {
+                    @extend .default-button-light-bg;
 
                     .fa-arrow-up-right-from-square {
                         font-size: small;

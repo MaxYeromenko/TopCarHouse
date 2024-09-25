@@ -18,7 +18,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
+.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, .default-button-dark-bg, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -29,7 +29,7 @@ button {
   -webkit-transition: color 0.6s, background-color 0.6s;
   transition: color 0.6s, background-color 0.6s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
+.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, .default-button-dark-bg:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
 
@@ -37,7 +37,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover {
   background-color: #fff;
 }
 
@@ -745,22 +745,7 @@ body main .features .feature {
   color: #f60;
   margin: 10px;
 }
-#cards-section .cars .product-card .product-info .product-button {
-  background-color: #f60;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  text-decoration: none;
-}
-#cards-section .cars .product-card .product-info .product-button:hover {
-  color: #f60;
-  background-color: #fff;
-}
-#cards-section .cars .product-card .product-info .product-button .fa-arrow-up-right-from-square {
+#cards-section .cars .product-card .product-info a .fa-arrow-up-right-from-square {
   font-size: small;
 }
 #cards-section .cars .product-card .product-info .product-footer {
