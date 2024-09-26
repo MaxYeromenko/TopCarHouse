@@ -1,4 +1,9 @@
 @charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   margin: 0;
@@ -6,9 +11,8 @@ html {
   font-family: Arial, sans-serif;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a,
@@ -18,7 +22,7 @@ button {
   color: #fff;
 }
 
-.default-button, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, #compare-section-open, body main .hero a, header .consultation-button-bg button, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
+.default-button-template, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .section-open-button-container .section-open-button-template, .section-open-button-container #compare-section-open, .section-open-button-container #calculator-section-open, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
@@ -30,7 +34,7 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, #compare-section-open:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button-template:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
@@ -40,7 +44,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, #compare-section-open:hover, body main .hero a:hover, header .consultation-button-bg button:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover {
   background-color: #fff;
 }
 
@@ -55,8 +59,30 @@ button {
   background-color: #fff;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+.section-open-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+}
+.section-open-button-container .section-open-button-template, .section-open-button-container #compare-section-open, .section-open-button-container #calculator-section-open {
+  font-size: large;
+  border: solid 2px #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+}
+.section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover {
+  border-color: #f60;
 }
 
 header {
@@ -453,19 +479,6 @@ body main .features .feature {
   }
 }
 
-#compare-section-open {
-  padding: 15px;
-  border-radius: 100%;
-  font-size: 18px;
-  position: fixed;
-  left: 1%;
-  bottom: 2%;
-  border: solid 2px #fff;
-  z-index: 4;
-}
-#compare-section-open:hover {
-  border-color: #f60;
-}
 #compare-section-open:hover .fa-scale-unbalanced {
   display: none;
 }

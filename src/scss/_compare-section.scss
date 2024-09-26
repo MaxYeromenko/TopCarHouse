@@ -3,19 +3,9 @@ $product-dark: #333;
 $product-orange: #f60;
 
 #compare-section-open {
-    @extend .default-button-light-bg;
-    padding: 15px;
-    border-radius: 100%;
-    font-size: 18px;
-    position: fixed;
-    left: 1%;
-    bottom: 2%;
-    border: solid 2px $product-white;
-    z-index: 4;
+    @extend .section-open-button-template;
 
     &:hover {
-        border-color: $product-orange;
-
         .fa-scale-unbalanced {
             display: none;
         }
