@@ -5,3 +5,15 @@ $product-orange: #f60;
 #calculator-section-open {
     @extend .section-open-button-template;
 }
+
+#calculator-container {
+    @extend .form-container;
+
+    #leasing-box {
+        display: none;
+    }
+
+    form {
+        @extend .form-template;
+    }
+}

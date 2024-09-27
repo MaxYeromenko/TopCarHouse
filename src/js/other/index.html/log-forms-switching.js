@@ -1,44 +1,26 @@
 const logButtons = document.querySelectorAll('.log-button');
 const logOutButtons = document.querySelectorAll('.log-out-button');
-const toggleRegister = document.getElementById('toggle-register');
-const toggleLogin = document.getElementById('toggle-login');
 const registerBox = document.getElementById('register-box');
-const loginBox = document.querySelector('.auth-box');
+const loginBox = document.getElementById('login-box');
 const authContainer = document.getElementById('auth-container');
+
+const toggleButtonsVisibility = (showLogin) => {
+    toggleElementsVisibility(logButtons, showLogin ? 'inline' : 'none');
+    toggleElementsVisibility(logOutButtons, showLogin ? 'none' : 'inline');
+};
 
 if (isAuthTokenExpired()) {
     removeToken('jwtToken');
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
-    showLogIn()
+    toggleButtonsVisibility(true);
 } else {
-    showLogOut()
-}
-
-function showLogIn() {
-    logButtons.forEach(button => {
-        button.classList.remove('hidden');
-    });
-
-    logOutButtons.forEach(button => {
-        button.classList.add('hidden');
-    });
-    authContainer.style.visibility = 'hidden';
-}
-
-function showLogOut() {
-    logOutButtons.forEach(button => {
-        button.classList.remove('hidden');
-    });
-
-    logButtons.forEach(button => {
-        button.classList.add('hidden');
-    });
-    authContainer.style.visibility = 'hidden';
+    toggleButtonsVisibility(false);
 }
 
 logButtons.forEach(button => {
     button.addEventListener('click', () => {
-        authContainer.style.visibility = 'visible';
+        toggleElementVisibility(modalWindow, 'flex');
+        toggleElementVisibility(authContainer, 'block');
     });
 });
 
@@ -46,25 +28,17 @@ logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
         removeToken('jwtToken');
         localStorage.removeItem('carsToCompare');
-        showLogIn();
+        toggleButtonsVisibility(true);
         showMessage('Ви вийшли з облікового запису.', true);
     });
 });
 
-toggleRegister.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginBox.classList.add('hidden');
-    registerBox.classList.remove('hidden');
+document.getElementById('toggle-register').addEventListener('click', () => {
+    toggleElementVisibility(loginBox, 'none');
+    toggleElementVisibility(registerBox, 'block');
 });
 
-toggleLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    registerBox.classList.add('hidden');
-    loginBox.classList.remove('hidden');
-});
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        authContainer.style.visibility = 'hidden';
-    }
+document.getElementById('toggle-login').addEventListener('click', () => {
+    toggleElementVisibility(registerBox, 'none');
+    toggleElementVisibility(loginBox, 'block');
 });

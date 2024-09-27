@@ -2,7 +2,7 @@ const loginRegex = /^[a-zA-Z0-9]{5,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-const form = document.getElementById('register-form');
+const form = document.querySelector('#register-box form');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -35,8 +35,8 @@ form.addEventListener('submit', async (e) => {
         if (result.success) {
             showMessage(result.message, result.success);
             form.reset();
-            registerBox.classList.add('hidden');
-            loginBox.classList.remove('hidden');
+            toggleElementVisibility(registerBox, 'none');
+            toggleElementVisibility(loginBox, 'block');
         } else {
             showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }

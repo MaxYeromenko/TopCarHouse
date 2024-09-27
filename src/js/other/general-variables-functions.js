@@ -1,14 +1,35 @@
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 const default_car_URL = 'https://res.cloudinary.com/dukwtlvte/image/upload/v1725616540/default_car.jpg';
 
-const closeButtons = document.querySelectorAll('.close-modal-window-button');
+const modalWindow = document.getElementById('modal-window');
 
-closeButtons.forEach(element => {
-    element.addEventListener('click', () => {
-        element.parentElement.style.visibility = 'hidden';
-        console.log('its general close button');
-    })
+modalWindow.querySelector('.fa-xmark').addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        hideAllElementsInModalWindow(modalWindow);
+    }
 });
+
+function toggleElementVisibility(element, displayType) {
+    element.style.display = displayType;
+};
+
+function toggleElementsVisibility(elements, displayType) {
+    elements.forEach(element => {
+        element.style.display = displayType;
+    });
+};
+
+function hideAllElementsInModalWindow(modalWindow) {
+    const modalWindowChildren = modalWindow.querySelectorAll('.modal-window-element');
+
+    toggleElementsVisibility(modalWindowChildren, 'none');
+
+    toggleElementVisibility(modalWindow, 'none');
+}
 
 function checkImageValidity(imageUrl) {
     return new Promise((resolve, reject) => {

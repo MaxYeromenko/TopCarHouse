@@ -20,98 +20,82 @@ $product-orange: #f60;
     }
 }
 
-#compare-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#compare-container {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 20px;
-    background-color: $product-dark;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
+    background-color: $product-white;
+    width: 90%;
+    border-radius: 10px;
+    max-height: 90vh;
     overflow-y: auto;
-    z-index: 5;
 
-    #compare-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        padding: 20px;
-        background-color: $product-white;
-        width: 90%;
-        border-radius: 10px;
-        max-height: 90vh;
-        overflow-y: auto;
+    .compare-item {
+        background-color: $product-dark;
+        color: $product-white;
+        padding: 20px 0;
+        text-align: center;
+        transition: transform 0.2s ease;
+        position: relative;
+
+        button {
+            @extend .default-button-light-bg;
+            font-weight: bold;
+            position: absolute;
+            right: 1%;
+            top: 1%;
+        }
+
+        #compare-product-title {
+            color: $product-orange;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .compare-product-info div {
+            padding: 10px 15px;
+            text-align: left;
+            font-size: 1rem;
+            border-bottom: solid 1px $product-orange;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
 
         .compare-item {
-            background-color: $product-dark;
-            color: $product-white;
-            padding: 20px 0;
-            text-align: center;
-            transition: transform 0.2s ease;
-            position: relative;
-
-            button {
-                @extend .default-button-light-bg;
-                font-weight: bold;
-                position: absolute;
-                right: 1%;
-                top: 1%;
-            }
-
-            #compare-product-title {
-                color: $product-orange;
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-            }
-
-            .compare-product-info div {
-                padding: 10px 15px;
-                text-align: left;
-                font-size: 1rem;
-                border-bottom: solid 1px $product-orange;
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-
-            .compare-item {
-                padding: 15px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            grid-template-columns: 1fr;
-
-            .compare-item {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-
-            button {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .compare-product-info div {
-                font-size: 0.8rem;
-                padding: 8px;
-            }
-        }
-
-        .nothing-to-compare-message {
-            text-align: center;
-            color: $product-orange;
-            font-size: 18px;
+            padding: 15px 0;
         }
     }
 
-    #compare-container::-webkit-scrollbar {
-        display: none;
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+
+        .compare-item {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .compare-product-info div {
+            font-size: 0.8rem;
+            padding: 8px;
+        }
     }
+
+    .nothing-to-compare-message {
+        text-align: center;
+        color: $product-orange;
+        font-size: 18px;
+    }
+}
+
+#compare-container::-webkit-scrollbar {
+    display: none;
 }

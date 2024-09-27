@@ -1,16 +1,10 @@
 const compareSectionOpen = document.getElementById('compare-section-open');
-const compareSection = document.getElementById('compare-section');
 const compareContainer = document.getElementById('compare-container');
 
 compareSectionOpen.addEventListener('click', () => {
-    compareSection.style.visibility = 'visible';
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(compareContainer, 'grid');
     updateCarsToCompare(compareContainer);
-});
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        compareSection.style.visibility = 'hidden';
-    }
 });
 
 let isLoading = false;
@@ -87,10 +81,8 @@ function createCompareCarCard(car) {
 
 function removeCarFromCompare(carId) {
     const carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
-
     const updatedCarsToCompare = carsToCompare.filter(id => id !== carId);
 
     localStorage.setItem('carsToCompare', JSON.stringify(updatedCarsToCompare));
-
     updateCarsToCompare(compareContainer);
 }

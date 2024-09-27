@@ -1,4 +1,4 @@
-document.querySelector('.auth-form').addEventListener('submit', async (event) => {
+document.querySelector('#login-box form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = event.target.querySelector('input[type="email"]').value;

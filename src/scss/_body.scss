@@ -90,8 +90,8 @@ body {
             display: flex;
             justify-content: space-around;
             padding: 35px;
-            background-color: #333;
-            color: white;
+            color: $product-white;
+            background-color: $product-dark;
 
             i {
                 font-size: 2em;

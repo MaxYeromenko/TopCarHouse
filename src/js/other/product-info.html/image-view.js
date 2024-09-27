@@ -23,7 +23,7 @@ imageToView.addEventListener('click', (event) => {
 });
 
 viewedImageBg.addEventListener('click', () => {
-    viewedImageBg.style.visibility = 'hidden';
+    toggleElementVisibility(viewedImageBg,'none');
 });
 
 viewedImage.addEventListener('click', (event) => {
@@ -32,7 +32,7 @@ viewedImage.addEventListener('click', (event) => {
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-        viewedImageBg.style.visibility = 'hidden';
+        toggleElementVisibility(viewedImageBg, 'none');
     }
 });
 

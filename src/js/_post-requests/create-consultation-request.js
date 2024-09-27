@@ -1,19 +1,12 @@
-const consultationButton = document.querySelector('.consultation-button');
 const consultationContainer = document.getElementById('consultation-container');
-
-consultationButton.addEventListener('click', () => {
-    consultationContainer.style.visibility = 'visible';
-});
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        consultationContainer.style.visibility = 'hidden';
-    }
-});
-
-const consultationForm = document.getElementById('consultation-form');
+const consultationForm = consultationContainer.querySelector('form');
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
+
+document.getElementById('consultation-button').addEventListener('click', () => {
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(consultationContainer, 'block');
+});
 
 consultationForm.addEventListener('submit', async e => {
     e.preventDefault();
