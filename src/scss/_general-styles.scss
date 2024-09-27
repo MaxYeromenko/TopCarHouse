@@ -69,26 +69,66 @@ button {
     }
 }
 
-.section-open-button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+.burger-instruments-wrapper {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    left: 1%;
+    bottom: 1%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
     z-index: 4;
 
-    .section-open-button-template {
+    &:hover {
+        .open-section-button-container {
+            display: flex;
+        }
+
+        .burger-open-section-container-buttons {
+            color: $product-orange;
+            background-color: $product-white;
+            border-color: $product-orange;
+
+            .fa-bars {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    .fa-bars {
+        transform: rotate(0deg);
+        transition: transform 0.4s ease;
+    }
+
+    .open-section-button-template {
         @extend .default-button-light-bg;
         font-size: large;
         border: solid 2px $product-white;
+        border-radius: 100%;
         width: 55px;
         height: 55px;
-        border-radius: 100%;
+        transition: border-color 0.4s;
 
         &:hover {
             border-color: $product-orange;
+        }
+    }
+
+    .burger-open-section-container-buttons {
+        @extend .open-section-button-template;
+    }
+
+    .open-section-button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 4;
+        display: none;
+
+        .section-open-button-template {
+            @extend .open-section-button-template;
+            width: 50px;
+            height: 50px;
         }
     }
 }

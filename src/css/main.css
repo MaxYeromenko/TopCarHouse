@@ -22,7 +22,7 @@ button {
   color: #fff;
 }
 
-.default-button-template, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .section-open-button-container .section-open-button-template, .section-open-button-container #compare-section-open, .section-open-button-container #calculator-section-open, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
+.default-button-template, .close-modal-window-button, .default-button-light-bg, #cards-section .cars .product-card .product-info a, #compare-section #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, #consultation-container #consultation-form button, #auth-container .auth-form button {
   background-color: #f60;
   color: #fff;
@@ -34,7 +34,7 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button-template:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button-template:hover, .close-modal-window-button:hover, .default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, #consultation-container #consultation-form button:hover, #auth-container .auth-form button:hover {
   color: #f60;
 }
@@ -44,7 +44,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover {
+.default-button-light-bg:hover, #cards-section .cars .product-card .product-info a:hover, #compare-section #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
   background-color: #fff;
 }
 
@@ -59,7 +59,60 @@ button {
   background-color: #fff;
 }
 
-.section-open-button-container {
+.burger-instruments-wrapper {
+  position: fixed;
+  left: 1%;
+  bottom: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  z-index: 4;
+}
+.burger-instruments-wrapper:hover .open-section-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.burger-instruments-wrapper:hover .burger-open-section-container-buttons {
+  color: #f60;
+  background-color: #fff;
+  border-color: #f60;
+}
+.burger-instruments-wrapper:hover .burger-open-section-container-buttons .fa-bars {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+.burger-instruments-wrapper .fa-bars {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons {
+  font-size: large;
+  border: solid 2px #fff;
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  -webkit-transition: border-color 0.4s;
+  transition: border-color 0.4s;
+}
+.burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
+  border-color: #f60;
+}
+.burger-instruments-wrapper .open-section-button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,21 +121,12 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  padding: 10px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   z-index: 4;
+  display: none;
 }
-.section-open-button-container .section-open-button-template, .section-open-button-container #compare-section-open, .section-open-button-container #calculator-section-open {
-  font-size: large;
-  border: solid 2px #fff;
-  width: 55px;
-  height: 55px;
-  border-radius: 100%;
-}
-.section-open-button-container .section-open-button-template:hover, .section-open-button-container #compare-section-open:hover, .section-open-button-container #calculator-section-open:hover {
-  border-color: #f60;
+.burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open {
+  width: 50px;
+  height: 50px;
 }
 
 header {
