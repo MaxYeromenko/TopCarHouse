@@ -109,8 +109,8 @@ async function fetchWithRetryPost(url, data, retries) {
             const responseData = await response.json();
 
             if (!response.ok) {
-                showMessage(`Помилка: ${error.message}`, false);
-                throw new Error(response.message || 'HTTP error!');
+                showMessage(`Помилка: ${responseData.message}`, false);
+                throw new Error(responseData.message || 'HTTP error!');
             }
 
             return responseData;
