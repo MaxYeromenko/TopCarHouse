@@ -7,6 +7,7 @@ const authContainer = document.getElementById('auth-container');
 const toggleButtonsVisibility = (showLogin) => {
     toggleElementsVisibility(logButtons, showLogin ? 'inline' : 'none');
     toggleElementsVisibility(logOutButtons, showLogin ? 'none' : 'inline');
+    toggleElementsVisibility(modalWindow, 'none')
 };
 
 if (isAuthTokenExpired()) {
