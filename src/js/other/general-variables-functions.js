@@ -86,8 +86,9 @@ async function fetchWithRetry(url, retries) {
             }
             return await response.json();
         } catch (error) {
-            showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
+            // showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
+            showMessage(`Помилка: ${error.message}`, false);
+            console.error(`Спроба ${i + 1} з ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
@@ -113,7 +114,8 @@ async function fetchWithRetryPost(url, data, retries) {
 
             return responseData;
         } catch (error) {
-            console.error(`Попытка ${i + 1} из ${retries}: ${error.message}`);
+            showMessage(`Помилка: ${error.message}`, false);
+            console.error(`Спроба ${i + 1} з ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
