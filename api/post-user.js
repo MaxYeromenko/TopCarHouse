@@ -21,7 +21,6 @@ module.exports = async (req, res) => {
             await newUser.save();
             res.status(201).json({ success: true, message: 'Користувач успішно зареєстрованний!' });
         } catch (err) {
-            console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час реєстрації!' });
         }
     } else {

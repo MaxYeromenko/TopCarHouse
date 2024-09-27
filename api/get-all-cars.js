@@ -6,7 +6,6 @@ module.exports = async (req, res) => {
             const data = await CarModel.find();
             res.status(200).json(data);
         } catch (err) {
-            console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
         }
     } else {

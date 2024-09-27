@@ -73,45 +73,22 @@ function showMessage(text, isSuccess) {
 }
 
 const retriesLimit = 3;
-
-async function fetchWithRetry(url, retries) {
+async function handleRequest(url, options = {}, retries) {
     for (let i = 0; i < retries; i++) {
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, options);
+            const responseData = await response.json();
+
             if (!response.ok) {
+                showMessage(`Помилка: ${responseData.message}`, false);
+
                 if (response.status === 504) {
                     throw new Error('504 Gateway Timeout');
                 }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return await response.json();
-        } catch (error) {
-            // showMessage('Помилка сервера, зачекайте будь ласка, повторна спроба...', false);
-            showMessage(`Помилка: ${error.message}`, false);
-            console.error(`Спроба ${i + 1} з ${retries}: ${error.message}`);
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-    }
-}
 
-async function fetchWithRetryPost(url, data, retries) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            const responseData = await response.json();
-
-            if (!response.ok) {
-                showMessage(`Помилка: ${responseData.message}`, false);
-                throw new Error(responseData.message || 'HTTP error!');
-            }
+            showMessage(responseData.message, true);
 
             return responseData;
         } catch (error) {
@@ -120,6 +97,20 @@ async function fetchWithRetryPost(url, data, retries) {
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
+}
+
+async function fetchWithRetry(url, retries) {
+    return handleRequest(url, {}, retries);
+}
+
+async function fetchWithRetryPost(url, data, retries) {
+    return handleRequest(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    }, retries);
 }
 
 function isAuthTokenExpired() {

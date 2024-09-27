@@ -25,7 +25,6 @@ module.exports = async (req, res) => {
 
             res.status(200).json({ success: true, token, message: 'Ви увійшли до облікового запису!' });
         } catch (err) {
-            console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час входу!' });
         }
     } else {

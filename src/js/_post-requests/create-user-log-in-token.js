@@ -17,6 +17,5 @@ document.querySelector('#login-box form').addEventListener('submit', async (even
         }
     } catch (error) {
         console.error('Ошибка сервера:', error);
-        showMessage(`Помилка входу: ${error.message}`, false);
     }
 });
