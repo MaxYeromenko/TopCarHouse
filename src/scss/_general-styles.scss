@@ -133,7 +133,7 @@ button {
     overflow-y: auto;
     z-index: 5;
 
-    i {
+    i.fa-xmark {
         @extend .default-button-template;
         position: fixed;
         top: 0;
