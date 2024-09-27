@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             productData = result;
             loadProductInfo();
             showMessage('Дані успішно завантажені!', true);
-        } else {
-            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);

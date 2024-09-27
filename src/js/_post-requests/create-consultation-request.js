@@ -48,8 +48,6 @@ consultationForm.addEventListener('submit', async e => {
         if (result.success) {
             showMessage(result.message, result.success);
             consultationForm.reset();
-        } else {
-            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching product data:', error);

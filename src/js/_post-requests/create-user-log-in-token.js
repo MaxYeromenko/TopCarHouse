@@ -6,16 +6,15 @@ document.querySelector('#login-box form').addEventListener('submit', async (even
     showMessage('Завантаження...', true);
 
     try {
-        const data = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
+        const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
-        if (data.success) {
-            localStorage.setItem('jwtToken', data.token);
+        if (result.success) {
+            localStorage.setItem('jwtToken', result.token);
             toggleButtonsVisibility(false);
-            showMessage(data.message, true);
-        } else {
-            showMessage(`Помилка входу: ${data.message}`, false);
+            showMessage(result.message, true);
         }
     } catch (error) {
-        console.error('Ошибка сервера:', error);
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });

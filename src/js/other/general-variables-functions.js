@@ -81,14 +81,12 @@ async function handleRequest(url, options = {}, retries) {
 
             if (!response.ok) {
                 showMessage(`Помилка: ${responseData.message}`, false);
-
-                if (response.status === 504) {
-                    throw new Error('504 Gateway Timeout');
-                }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            showMessage(responseData.message, true);
+            if (responseData.message == '') {
+                showMessage(responseData.message, true);
+            }
 
             return responseData;
         } catch (error) {

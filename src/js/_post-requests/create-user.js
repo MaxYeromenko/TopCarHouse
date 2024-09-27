@@ -37,10 +37,9 @@ form.addEventListener('submit', async (e) => {
             form.reset();
             toggleElementVisibility(registerBox, 'none');
             toggleElementVisibility(loginBox, 'block');
-        } else {
-            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
-        console.error('Error fetching product data:', error);
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });

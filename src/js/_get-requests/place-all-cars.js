@@ -20,8 +20,6 @@ else {
                 carsData = result;
                 loadMoreCars();
                 showMessage('Дані успішно завантажені!', true);
-            } else {
-                showMessage('Помилка: Невідома помилка під час завантаження даних', false);
             }
         } catch (error) {
             console.error('Error fetching cars data:', error);

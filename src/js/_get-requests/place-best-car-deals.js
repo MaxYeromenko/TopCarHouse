@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (result) {
             carsData = result;
             loadMoreCars();
-        } else {
-            showMessage('Помилка: Невідома помилка під час завантаження даних', false);
         }
     } catch (error) {
         console.error('Error fetching cars data:', error);

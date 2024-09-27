@@ -29,8 +29,6 @@ async function updateCarsToCompare(compareContainer) {
                     const carCard = createCompareCarCard(result);
                     compareContainer.appendChild(carCard);
                     validCars.push(carId);
-                } else {
-                    showMessage('Авто не знайдено.', false);
                 }
             } catch (error) {
                 console.error('Error fetching product data:', error);
