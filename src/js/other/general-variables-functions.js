@@ -109,12 +109,12 @@ async function fetchWithRetryPost(url, data, retries) {
             const responseData = await response.json();
 
             if (!response.ok) {
-                throw new Error(responseData.message || 'HTTP error!');
+                showMessage(`Помилка: ${error.message}`, false);
+                throw new Error(response.message || 'HTTP error!');
             }
 
             return responseData;
         } catch (error) {
-            showMessage(`Помилка: ${error.message}`, false);
             console.error(`Спроба ${i + 1} з ${retries}: ${error.message}`);
             if (i === retries - 1) throw error;
             await new Promise(resolve => setTimeout(resolve, 1000));
