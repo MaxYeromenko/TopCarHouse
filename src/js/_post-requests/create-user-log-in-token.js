@@ -10,7 +10,7 @@ document.querySelector('#login-box form').addEventListener('submit', async (even
 
         if (data.success) {
             localStorage.setItem('jwtToken', data.token);
-            showLogOut();
+            toggleButtonsVisibility(false);
             showMessage(data.message, true);
         } else {
             showMessage(`Помилка входу: ${data.message}`, false);
