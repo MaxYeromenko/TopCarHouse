@@ -42,6 +42,5 @@ form.addEventListener('submit', async (e) => {
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });
