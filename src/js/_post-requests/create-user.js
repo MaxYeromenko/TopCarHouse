@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('register-name').value;
-    const email = document.getElementById('register-email').value;
+    const email = String(document.getElementById('register-email').value).toLowerCase();
     const password = document.getElementById('register-password').value;
 
     if (!loginRegex.test(name)) {
