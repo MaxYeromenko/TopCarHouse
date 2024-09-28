@@ -15,15 +15,13 @@ const minScale = 0.5;
 const zoomStep = 0.5;
 
 imageToView.addEventListener('click', (event) => {
+    toggleElementVisibility(modalWindow, 'flex');
+    viewedImage.src = imageToView.src;
     event.stopPropagation();
     currentScale = 1;
+    viewedImage.style.transform = `scale(${currentScale}) translate(0, 0)`;
     currentX = 0;
     currentY = 0;
-
-    toggleElementVisibility(modalWindow, 'flex');
-    toggleElementVisibility(viewedImage, 'flex');
-    viewedImage.src = imageToView.src;
-    viewedImage.style.transform = `scale(${currentScale}) translate(0px, 0px)`;
 });
 
 viewedImage.addEventListener('click', (event) => {
@@ -32,28 +30,19 @@ viewedImage.addEventListener('click', (event) => {
 
 viewedImage.addEventListener('wheel', (event) => {
     event.preventDefault();
-    const prevScale = currentScale;
-
     if (event.deltaY < 0) {
         currentScale = Math.min(maxScale, currentScale + zoomStep);
     } else {
         currentScale = Math.max(minScale, currentScale - zoomStep);
     }
-
-    currentX = (currentX / prevScale) * currentScale;
-    currentY = (currentY / prevScale) * currentScale;
-
     viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
 });
 
 viewedImage.addEventListener('mousedown', (event) => {
     if (event.button !== 0) return;
     isDragging = true;
-
-    const rect = viewedImage.getBoundingClientRect();
-    startX = event.clientX - rect.left - currentX;
-    startY = event.clientY - rect.top - currentY;
-
+    startX = event.clientX - currentX;
+    startY = event.clientY - currentY;
     event.preventDefault();
 });
 
@@ -61,21 +50,10 @@ document.addEventListener('mousemove', (event) => {
     if (isDragging) {
         currentX = event.clientX - startX;
         currentY = event.clientY - startY;
-
-        const maxX = (viewedImage.clientWidth * currentScale - modalWindow.clientWidth) / 2;
-        const maxY = (viewedImage.clientHeight * currentScale - modalWindow.clientHeight) / 2;
-
-        currentX = Math.max(-maxX, Math.min(currentX, maxX));
-        currentY = Math.max(-maxY, Math.min(currentY, maxY));
-
         viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
     }
 });
 
 document.addEventListener('mouseup', () => {
-    isDragging = false;
-});
-
-viewedImage.addEventListener('mouseup', () => {
     isDragging = false;
 });
