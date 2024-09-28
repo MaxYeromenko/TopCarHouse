@@ -130,7 +130,7 @@ button {
     display: none;
     justify-content: center;
     align-items: center;
-    overflow-y: auto;
+    overflow: hidden;
     z-index: 5;
 
     i.fa-xmark {
