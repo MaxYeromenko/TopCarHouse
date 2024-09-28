@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { login, email, password } = req.body;
+        const { name, email, password } = req.body;
 
         try {
             const existingUser = await UserModel.findOne({ email });
@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
 
             const hashedPassword = await bcrypt.hash(password, 10);
             const newUser = new UserModel({
-                login,
+                name,
                 email,
                 password: hashedPassword
             });
@@ -24,6 +24,6 @@ module.exports = async (req, res) => {
             res.status(500).json({ success: false, message: 'Помилка сервера під час реєстрації!' });
         }
     } else {
-        res.status(405).json({ success: false, message: 'Метод не дозволений!' });
+        res.status(405).json({ success: false, message: 'Метод не дозволений' });
     }
 };
