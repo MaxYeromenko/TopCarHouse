@@ -7,11 +7,11 @@ const form = document.querySelector('#register-box form');
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('register-name').value;
+    const login = document.getElementById('register-name').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
 
-    if (!loginRegex.test(name)) {
+    if (!loginRegex.test(login)) {
         showMessage('Логін має складатися з 5 цифр або літер!', false);
         return;
     }
@@ -30,7 +30,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         const result = await fetchWithRetryPost(`/api/post-user`,
-            { name, email, password }, retriesLimit);
+            { login, email, password }, retriesLimit);
 
         if (result.success) {
             showMessage(result.message, result.success);
