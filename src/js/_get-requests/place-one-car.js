@@ -3,7 +3,6 @@ const carId = params.get('id');
 let productData;
 
 document.addEventListener("DOMContentLoaded", async () => {
-
     showMessage('Завантаження...', true);
 
     try {
