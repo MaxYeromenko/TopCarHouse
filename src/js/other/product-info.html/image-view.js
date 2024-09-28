@@ -1,6 +1,7 @@
 const imageToView = document.getElementById('product-image');
 const viewedImage = document.createElement('img');
-viewedImage.className = 'viewed-img';
+viewedImage.classList.add('viewed-img');
+viewedImage.classList.add('modal-window-element');
 modalWindow.appendChild(viewedImage);
 
 let currentScale = 1;
@@ -30,17 +31,11 @@ viewedImage.addEventListener('click', (event) => {
 
 viewedImage.addEventListener('wheel', (event) => {
     event.preventDefault();
-    const prevScale = currentScale;
-
     if (event.deltaY < 0) {
         currentScale = Math.min(maxScale, currentScale + zoomStep);
     } else {
         currentScale = Math.max(minScale, currentScale - zoomStep);
     }
-
-    currentX = (currentX / prevScale) * currentScale;
-    currentY = (currentY / prevScale) * currentScale;
-
     viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
 });
 
@@ -56,13 +51,6 @@ document.addEventListener('mousemove', (event) => {
     if (isDragging) {
         currentX = event.clientX - startX;
         currentY = event.clientY - startY;
-
-        const maxX = (viewedImage.clientWidth * currentScale - modalWindow.clientWidth) / 2;
-        const maxY = (viewedImage.clientHeight * currentScale - modalWindow.clientHeight) / 2;
-
-        currentX = Math.max(-maxX, Math.min(currentX, maxX));
-        currentY = Math.max(-maxY, Math.min(currentY, maxY));
-
         viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
     }
 });
