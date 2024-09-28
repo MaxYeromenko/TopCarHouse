@@ -47,14 +47,39 @@ viewedImage.addEventListener('mousedown', (event) => {
     event.preventDefault();
 });
 
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(value, max));
+}
+
 document.addEventListener('mousemove', (event) => {
     if (isDragging) {
+        const rect = viewedImage.getBoundingClientRect();
+        const containerWidth = window.innerWidth;
+        const containerHeight = window.innerHeight;
+
         currentX = event.clientX - startX;
         currentY = event.clientY - startY;
+
+        const maxX = (rect.width * currentScale - containerWidth) / 2;
+        const maxY = (rect.height * currentScale - containerHeight) / 2;
+
+        currentX = clamp(currentX, -maxX, maxX);
+        currentY = clamp(currentY, -maxY, maxY);
+
         viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
     }
 });
 
+
 document.addEventListener('mouseup', () => {
     isDragging = false;
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Delete') {
+        currentX = 0;
+        currentY = 0;
+        currentScale = 1;
+        viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
+    }
 });
