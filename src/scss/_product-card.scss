@@ -7,14 +7,17 @@ $product-orange: #f60;
     @extend .flex-align-to-center;
     gap: 35px;
 
-    a,
-    button {
-        @extend .default-button-dark-bg;
-        margin-bottom: 35px;
-    }
+    .cards-section-buttons {
 
-    a {
-        display: none;
+        a,
+        button {
+            @extend .default-button-dark-bg;
+            margin-bottom: 35px;
+        }
+
+        a {
+            display: none;
+        }
     }
 
     .cars-container {
