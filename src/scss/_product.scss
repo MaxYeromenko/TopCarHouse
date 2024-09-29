@@ -11,13 +11,11 @@ main.product-main {
 }
 
 .container {
-    padding: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
     background-color: $product-white;
-    width: 70%;
+    width: 60%;
 
     #product-name-year {
         margin: 0;
@@ -40,7 +38,7 @@ main.product-main {
         color: $product-white;
         font-size: 15px;
         width: 100%;
-        border-radius: 10px;
+        border-radius: 10px 10px 0 0;
         position: relative;
         overflow: hidden;
         border: solid 1px $product-orange;
@@ -63,19 +61,19 @@ main.product-main {
 
         .slider-button {
             @extend .default-button-dark-bg;
+
             border-radius: 100%;
             width: 39px;
             height: 39px;
+            position: absolute;
             z-index: 1;
         }
 
         #slider-prev {
-            position: absolute;
             left: 1%;
         }
 
         #slider-next {
-            position: absolute;
             right: 1%;
         }
 
@@ -98,7 +96,7 @@ main.product-main {
     .product-info {
         background-color: $product-dark;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 0 0 10px 10px;
         width: 100%;
 
         p {
@@ -136,6 +134,8 @@ main.product-main {
 
     #add-to-compare-button {
         @extend .default-button-dark-bg;
+
+        margin: 35px;
     }
 }
 
