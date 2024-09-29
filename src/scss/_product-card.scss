@@ -4,9 +4,7 @@ $product-orange: #f60;
 
 /* Стилі для популярних моделей */
 #cards-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    @extend .flex-align-to-center;
     gap: 35px;
 
     .cars {

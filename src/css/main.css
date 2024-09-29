@@ -2,6 +2,7 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: 1px solid red;
 }
 
 html {
@@ -22,7 +23,7 @@ button {
   color: #fff;
 }
 
-.flex-align-to-center {
+.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #cards-section, body main .hero, header .icon-wrapper .vertical-nav, .modal-window-dark-bg-template .form-container .form-template, #thank-you-message-bg .form-container .form-template, #calculator-container .modal-window-dark-bg-template .form-container form, #calculator-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #calculator-container .form-template, #thank-you-message-bg #calculator-container .form-template, .modal-window-dark-bg-template #calculator-container form, #thank-you-message-bg #calculator-container form, #consultation-container .modal-window-dark-bg-template .form-container form, #consultation-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #consultation-container .form-template, #thank-you-message-bg #consultation-container .form-template, .modal-window-dark-bg-template #consultation-container form, #thank-you-message-bg #consultation-container form, #auth-container .modal-window-dark-bg-template .form-container form, #auth-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #auth-container .form-template, #thank-you-message-bg #auth-container .form-template, .modal-window-dark-bg-template #auth-container form, #thank-you-message-bg #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,16 +73,6 @@ button {
   position: fixed;
   left: 1%;
   bottom: 1%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 10px;
   z-index: 4;
 }
@@ -122,16 +113,9 @@ button {
   border-color: #f60;
 }
 .burger-instruments-wrapper .open-section-button-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: none;
   gap: 10px;
   z-index: 4;
-  display: none;
 }
 .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open {
   width: 50px;
@@ -146,13 +130,6 @@ button {
   height: 100%;
   background-color: #333;
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  overflow: hidden;
   z-index: 5;
 }
 .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark {
@@ -200,13 +177,9 @@ button {
   text-decoration: underline;
 }
 .modal-window-dark-bg-template .form-container .form-template, #thank-you-message-bg .form-container .form-template, #calculator-container .modal-window-dark-bg-template .form-container form, #calculator-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #calculator-container .form-template, #thank-you-message-bg #calculator-container .form-template, .modal-window-dark-bg-template #calculator-container form, #thank-you-message-bg #calculator-container form, #consultation-container .modal-window-dark-bg-template .form-container form, #consultation-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #consultation-container .form-template, #thank-you-message-bg #consultation-container .form-template, .modal-window-dark-bg-template #consultation-container form, #thank-you-message-bg #consultation-container form, #auth-container .modal-window-dark-bg-template .form-container form, #auth-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #auth-container .form-template, #thank-you-message-bg #auth-container .form-template, .modal-window-dark-bg-template #auth-container form, #thank-you-message-bg #auth-container form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
   gap: 15px;
 }
 .modal-window-dark-bg-template .form-container .form-template input, #thank-you-message-bg .form-container .form-template input, #calculator-container .modal-window-dark-bg-template .form-container form input, #calculator-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #calculator-container .form-template input, #thank-you-message-bg #calculator-container .form-template input, .modal-window-dark-bg-template #calculator-container form input, #thank-you-message-bg #calculator-container form input, #consultation-container .modal-window-dark-bg-template .form-container form input, #consultation-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #consultation-container .form-template input, #thank-you-message-bg #consultation-container .form-template input, .modal-window-dark-bg-template #consultation-container form input, #thank-you-message-bg #consultation-container form input, #auth-container .modal-window-dark-bg-template .form-container form input, #auth-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #auth-container .form-template input, #thank-you-message-bg #auth-container .form-template input, .modal-window-dark-bg-template #auth-container form input, #thank-you-message-bg #auth-container form input,
@@ -285,20 +258,7 @@ header .icon-wrapper .vertical-nav {
   background-color: #333;
   visibility: hidden;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
+  gap: 15px;
   padding: 10px;
   margin: 0px -50px;
   border: solid 1px black;
@@ -376,8 +336,8 @@ body main {
 }
 body main .info-message {
   position: fixed;
-  bottom: 3%;
-  right: 3%;
+  bottom: 1%;
+  right: 1%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -424,16 +384,6 @@ body main .invisible {
   opacity: 0;
 }
 body main .hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   text-align: center;
   color: #fff;
   background-image: url("/src/images/car_pink.png");
@@ -576,14 +526,6 @@ body main .features .feature {
 
 /* Стилі для популярних моделей */
 #cards-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
   gap: 35px;
 }
 #cards-section .cars {
@@ -795,21 +737,7 @@ footer a:hover {
   }
 }
 .about .title-about {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
+  height: 90vh;
 }
 .about .title-about h1 {
   font-size: 48px;
@@ -851,19 +779,6 @@ footer a:hover {
   background-color: rgba(51, 51, 51, 0);
 }
 #thank-you-message-bg #thank-you-message {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #333;
   width: 40%;
   height: 30%;
@@ -871,7 +786,6 @@ footer a:hover {
   gap: 20px;
   border-radius: 10px;
   opacity: 0;
-  text-align: center;
 }
 #thank-you-message-bg #thank-you-message img {
   width: 100%;

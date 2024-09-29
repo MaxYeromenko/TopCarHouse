@@ -41,14 +41,11 @@ header {
         }
 
         .vertical-nav {
+            @extend .flex-align-to-center;
             background-color: $product-dark;
             visibility: hidden;
             position: absolute;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            gap: 15px;
             padding: 10px;
             margin: 0px -50px;
             border: solid 1px black;

@@ -49,12 +49,8 @@ $product-orange: #f60;
     }
 
     .title-about {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+        @extend .flex-align-to-center;
+        height: 90vh;
 
         h1 {
             font-size: 48px;
@@ -98,10 +94,8 @@ $product-orange: #f60;
     background-color: #33333300;
 
     #thank-you-message {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @extend .flex-align-to-center;
+
         background-color: $product-dark;
         width: 40%;
         height: 30%;
@@ -109,7 +103,6 @@ $product-orange: #f60;
         gap: 20px;
         border-radius: 10px;
         opacity: 0;
-        text-align: center;
 
         img {
             width: 100%;

@@ -4,7 +4,7 @@ $product-orange: #f60;
 
 * {
     box-sizing: border-box;
-    // outline: 1px solid red;
+    outline: 1px solid red;
 }
 
 html {
@@ -66,12 +66,10 @@ button {
 }
 
 .burger-instruments-wrapper {
+    @extend .flex-align-to-center;
     position: fixed;
     left: 1%;
     bottom: 1%;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
     gap: 10px;
     z-index: 4;
 
@@ -115,11 +113,10 @@ button {
     }
 
     .open-section-button-container {
-        display: flex;
-        flex-direction: column;
+        @extend .flex-align-to-center;
+        display: none;
         gap: 10px;
         z-index: 4;
-        display: none;
 
         .section-open-button-template {
             @extend .open-section-button-template;
@@ -130,6 +127,7 @@ button {
 }
 
 .modal-window-dark-bg-template {
+    @extend .flex-align-to-center;
     position: fixed;
     top: 0;
     left: 0;
@@ -137,14 +135,7 @@ button {
     height: 100%;
     background-color: $product-dark;
     display: none;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     z-index: 5;
-
-    // @media (max-width: 1080px) {
-    //     overflow: scroll;
-    // }
 
     i.fa-xmark {
         @extend .default-button-template;
@@ -200,8 +191,8 @@ button {
         }
 
         .form-template {
-            display: flex;
-            flex-direction: column;
+            @extend .flex-align-to-center;
+            align-items: normal;
             gap: 15px;
 
             input,
