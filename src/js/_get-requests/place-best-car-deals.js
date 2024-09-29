@@ -3,7 +3,7 @@ const carsContainer = document.createElement('div');
 carsContainer.className = 'cars-container';
 cardsSection.appendChild(carsContainer);
 const cardsSectionButtons = document.createElement('div');
-cardsSectionButtons.className = '.cards-section-buttons';
+cardsSectionButtons.className = 'cards-section-buttons';
 cardsSection.appendChild(cardsSectionButtons);
 const loadMoreCarsButton = document.createElement('button');
 loadMoreCarsButton.textContent = 'Завантажити більше';
