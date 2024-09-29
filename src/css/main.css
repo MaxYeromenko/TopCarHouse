@@ -999,6 +999,7 @@ main.product-main {
   max-height: 95%;
   max-width: 95%;
   height: 100%;
+  width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
