@@ -1018,11 +1018,11 @@ main.product-main {
 }
 
 @media (max-width: 450px) {
-  .container {
+  .product-container {
     width: 100%;
   }
-  .container .slider-button,
-  .container #page-tracker {
+  .product-container .slider-button,
+  .product-container #page-tracker {
     font-size: 12px;
     padding: 5px 8px;
   }
