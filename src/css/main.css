@@ -155,6 +155,11 @@ button {
   overflow: hidden;
   z-index: 5;
 }
+@media (max-width: 1080px) {
+  .modal-window-dark-bg-template, #thank-you-message-bg {
+    overflow: scroll;
+  }
+}
 .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark {
   position: fixed;
   top: 0;

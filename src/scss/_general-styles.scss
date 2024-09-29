@@ -25,7 +25,7 @@ button {
     color: $product-white;
 }
 
-.flex-align-to-center{
+.flex-align-to-center {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -141,6 +141,10 @@ button {
     align-items: center;
     overflow: hidden;
     z-index: 5;
+
+    @media (max-width: 1080px) {
+        overflow: scroll;
+    }
 
     i.fa-xmark {
         @extend .default-button-template;
