@@ -527,6 +527,13 @@ body main .features .feature {
 .cards-section {
   gap: 35px;
 }
+.cards-section a,
+.cards-section button {
+  margin-bottom: 35px;
+}
+.cards-section a {
+  display: none;
+}
 .cards-section .cars-container {
   width: 100%;
   padding: 3%;
@@ -666,13 +673,6 @@ body main .features .feature {
         -ms-transform: none;
             transform: none;
   }
-}
-.cards-section a,
-.cards-section button {
-  margin-bottom: 35px;
-}
-.cards-section a {
-  display: none;
 }
 
 footer {

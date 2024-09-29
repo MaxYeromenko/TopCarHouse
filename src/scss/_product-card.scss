@@ -7,6 +7,16 @@ $product-orange: #f60;
     @extend .flex-align-to-center;
     gap: 35px;
 
+    a,
+    button {
+        @extend .default-button-dark-bg;
+        margin-bottom: 35px;
+    }
+
+    a {
+        display: none;
+    }
+
     .cars-container {
         width: 100%;
         padding: 3%;
@@ -135,15 +145,5 @@ $product-orange: #f60;
                 transform: none;
             }
         }
-    }
-
-    a,
-    button {
-        @extend .default-button-dark-bg;
-        margin-bottom: 35px;
-    }
-
-    a {
-        display: none;
     }
 }
