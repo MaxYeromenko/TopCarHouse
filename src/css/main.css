@@ -22,7 +22,7 @@ button {
   color: #fff;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, #cards-section .cars .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .container #add-to-compare-button, .container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, #cards-section .cars .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, .modal-window-dark-bg-template .form-container .form-template button, #thank-you-message-bg .form-container .form-template button, #calculator-container .modal-window-dark-bg-template .form-container form button, #calculator-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #calculator-container .form-template button, #thank-you-message-bg #calculator-container .form-template button, .modal-window-dark-bg-template #calculator-container form button, #thank-you-message-bg #calculator-container form button, #consultation-container .modal-window-dark-bg-template .form-container form button, #consultation-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #consultation-container .form-template button, #thank-you-message-bg #consultation-container .form-template button, .modal-window-dark-bg-template #consultation-container form button, #thank-you-message-bg #consultation-container form button, #auth-container .modal-window-dark-bg-template .form-container form button, #auth-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #auth-container .form-template button, #thank-you-message-bg #auth-container .form-template button, .modal-window-dark-bg-template #auth-container form button, #thank-you-message-bg #auth-container form button {
   background-color: #f60;
   color: #fff;
@@ -34,12 +34,12 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, #cards-section .cars .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, #cards-section .cars .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, .modal-window-dark-bg-template .form-container .form-template button:hover, #thank-you-message-bg .form-container .form-template button:hover, #calculator-container .modal-window-dark-bg-template .form-container form button:hover, #calculator-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #calculator-container .form-template button:hover, #thank-you-message-bg #calculator-container .form-template button:hover, .modal-window-dark-bg-template #calculator-container form button:hover, #thank-you-message-bg #calculator-container form button:hover, #consultation-container .modal-window-dark-bg-template .form-container form button:hover, #consultation-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #consultation-container .form-template button:hover, #thank-you-message-bg #consultation-container .form-template button:hover, .modal-window-dark-bg-template #consultation-container form button:hover, #thank-you-message-bg #consultation-container form button:hover, #auth-container .modal-window-dark-bg-template .form-container form button:hover, #auth-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #auth-container .form-template button:hover, #thank-you-message-bg #auth-container .form-template button:hover, .modal-window-dark-bg-template #auth-container form button:hover, #thank-you-message-bg #auth-container form button:hover {
   color: #f60;
 }
 
-.default-button-dark-bg:hover, .container #add-to-compare-button:hover, .container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
+.default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #cards-section .load-more-cars-buttons a:hover,
 #cards-section .load-more-cars-buttons button:hover, .modal-window-dark-bg-template .form-container .form-template button:hover, #thank-you-message-bg .form-container .form-template button:hover, #calculator-container .modal-window-dark-bg-template .form-container form button:hover, #calculator-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #calculator-container .form-template button:hover, #thank-you-message-bg #calculator-container .form-template button:hover, .modal-window-dark-bg-template #calculator-container form button:hover, #thank-you-message-bg #calculator-container form button:hover, #consultation-container .modal-window-dark-bg-template .form-container form button:hover, #consultation-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #consultation-container .form-template button:hover, #thank-you-message-bg #consultation-container .form-template button:hover, .modal-window-dark-bg-template #consultation-container form button:hover, #thank-you-message-bg #consultation-container form button:hover, #auth-container .modal-window-dark-bg-template .form-container form button:hover, #auth-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #auth-container .form-template button:hover, #thank-you-message-bg #auth-container .form-template button:hover, .modal-window-dark-bg-template #auth-container form button:hover, #thank-you-message-bg #auth-container form button:hover {
   background-color: #333;
 }
@@ -878,7 +878,7 @@ main.product-main {
           align-items: center;
 }
 
-.container {
+.product-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -890,21 +890,35 @@ main.product-main {
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
+  gap: 35px;
   width: 60%;
 }
-.container #product-name-year {
+.product-container div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.product-container #product-name-year {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
   color: #333;
   text-align: center;
 }
-.container #product-price {
+.product-container #product-price {
   font-size: 24px;
   margin: 5px 0;
   color: #f60;
 }
-.container .slider-container {
+.product-container .slider-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -922,13 +936,13 @@ main.product-main {
   overflow: hidden;
   border: solid 1px #f60;
 }
-.container .slider-container .image-container {
+.product-container .slider-container .image-container {
   position: relative;
   width: 100%;
   padding-bottom: 62.5%;
   overflow: hidden;
 }
-.container .slider-container .image-container #product-image {
+.product-container .slider-container .image-container #product-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -937,67 +951,70 @@ main.product-main {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.container .slider-container .slider-button {
+.product-container .slider-container .slider-button {
   border-radius: 100%;
   width: 39px;
   height: 39px;
   position: absolute;
   z-index: 1;
 }
-.container .slider-container #slider-prev {
+.product-container .slider-container #slider-prev {
   left: 1%;
 }
-.container .slider-container #slider-next {
+.product-container .slider-container #slider-next {
   right: 1%;
 }
-.container .slider-container #page-tracker {
+.product-container .slider-container #page-tracker {
   background-color: #f60;
   position: absolute;
   bottom: 3%;
   padding: 10px 15px;
-  border-radius: 5%;
+  border-radius: 3px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-.container .viewed-img {
+.product-container .viewed-img {
   max-height: 95%;
   max-width: 95%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.container .product-info {
+.product-container .product-info {
   background-color: #333;
   padding: 20px;
   border-radius: 0 0 10px 10px;
   width: 100%;
 }
-.container .product-info p {
+.product-container .product-info p {
   color: #fff;
   text-align: center;
 }
-.container .product-info table {
+.product-container .product-info table {
   color: #fff;
   width: 100%;
   border-collapse: collapse;
 }
-.container .product-info table tr {
+.product-container .product-info table tr {
   border-bottom: solid 1px #f60;
 }
-.container .product-info table td {
+.product-container .product-info table td {
   padding: 10px;
   border-bottom: 1px solid #f60;
   text-align: left;
 }
-.container .product-info table td strong {
+.product-container .product-info table td strong {
   color: #f60;
 }
-.container h1#product-characteristics-title {
+.product-container h1#product-characteristics-title {
   margin-bottom: 15px;
   font-size: 24px;
   color: #333;
   text-align: center;
 }
-.container #add-to-compare-button {
-  margin: 35px;
+.product-container #add-to-compare-button {
+  margin-bottom: 35px;
 }
 
 @media (max-width: 450px) {
