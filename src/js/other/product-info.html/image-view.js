@@ -40,7 +40,7 @@ viewedImage.addEventListener('wheel', (event) => {
 });
 
 viewedImage.addEventListener('mousedown', (event) => {
-    if (event.button !== 0) return;
+    // if (event.button !== 0) return;
     isDragging = true;
     startX = event.clientX - currentX;
     startY = event.clientY - currentY;
