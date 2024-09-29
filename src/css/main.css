@@ -155,11 +155,6 @@ button {
   overflow: hidden;
   z-index: 5;
 }
-@media (max-width: 1080px) {
-  .modal-window-dark-bg-template, #thank-you-message-bg {
-    overflow: scroll;
-  }
-}
 .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark {
   position: fixed;
   top: 0;
@@ -1000,14 +995,6 @@ main.product-main {
   width: -moz-fit-content;
   width: fit-content;
 }
-.product-container .viewed-img {
-  max-height: 95%;
-  max-width: 95%;
-  height: 100%;
-  width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
 .product-container .product-info {
   background-color: #333;
   padding: 20px;
@@ -1040,6 +1027,15 @@ main.product-main {
   color: #333;
   text-align: center;
 }
+.viewed-img {
+  max-height: 95%;
+  max-width: 95%;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 @media (max-width: 450px) {
   .product-container {
     width: 100%;

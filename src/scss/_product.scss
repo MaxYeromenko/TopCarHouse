@@ -96,14 +96,6 @@ main.product-main {
         }
     }
 
-    .viewed-img {
-        max-height: 95%;
-        max-width: 95%;
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
-
     .product-info {
         background-color: $product-dark;
         padding: 20px;
@@ -146,6 +138,14 @@ main.product-main {
     #add-to-compare-button {
         @extend .default-button-dark-bg;
     }
+}
+
+.viewed-img {
+    max-height: 95%;
+    max-width: 95%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 @media (max-width: 450px) {
