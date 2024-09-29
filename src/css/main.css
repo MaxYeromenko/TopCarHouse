@@ -961,7 +961,6 @@ main.product-main {
   position: relative;
   width: 100%;
   padding-bottom: 62.5%;
-  overflow: hidden;
 }
 .product-container .slider-container .image-container #product-image {
   position: absolute;
