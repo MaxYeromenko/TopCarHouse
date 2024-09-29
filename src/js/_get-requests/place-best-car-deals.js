@@ -1,5 +1,6 @@
 const cardsSection = document.querySelector('.cards-section');
 const carsContainer = document.createElement('div');
+carsContainer.className = 'cars-container';
 cardsSection.appendChild(carsContainer);
 const loadMoreCarsButton = document.createElement('button');
 loadMoreCarsButton.textContent = 'Завантажити більше';
