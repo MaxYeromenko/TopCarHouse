@@ -25,6 +25,15 @@ button {
     color: $product-white;
 }
 
+.flex-align-to-center{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: normal;
+    justify-content: center;
+    align-items: center;
+}
+
 .default-button-template {
     background-color: $product-orange;
     color: $product-white;

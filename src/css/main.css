@@ -22,6 +22,26 @@ button {
   color: #fff;
 }
 
+.flex-align-to-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: normal;
+      align-content: normal;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, #cards-section .cars .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #cards-section .load-more-cars-buttons a,
 #cards-section .load-more-cars-buttons button, .modal-window-dark-bg-template .form-container .form-template button, #thank-you-message-bg .form-container .form-template button, #calculator-container .modal-window-dark-bg-template .form-container form button, #calculator-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #calculator-container .form-template button, #thank-you-message-bg #calculator-container .form-template button, .modal-window-dark-bg-template #calculator-container form button, #thank-you-message-bg #calculator-container form button, #consultation-container .modal-window-dark-bg-template .form-container form button, #consultation-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #consultation-container .form-template button, #thank-you-message-bg #consultation-container .form-template button, .modal-window-dark-bg-template #consultation-container form button, #thank-you-message-bg #consultation-container form button, #auth-container .modal-window-dark-bg-template .form-container form button, #auth-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #auth-container .form-template button, #thank-you-message-bg #auth-container .form-template button, .modal-window-dark-bg-template #auth-container form button, #thank-you-message-bg #auth-container form button {
   background-color: #f60;
@@ -890,6 +910,7 @@ main.product-main {
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
+  padding: 35px 0;
   gap: 35px;
   width: 60%;
 }
@@ -1013,10 +1034,6 @@ main.product-main {
   color: #333;
   text-align: center;
 }
-.product-container #add-to-compare-button {
-  margin-bottom: 35px;
-}
-
 @media (max-width: 450px) {
   .product-container {
     width: 100%;

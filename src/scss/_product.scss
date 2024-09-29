@@ -15,10 +15,11 @@ main.product-main {
     flex-direction: column;
     align-items: center;
     background-color: $product-white;
+    padding: 35px 0;
     gap: 35px;
     width: 60%;
 
-    div{
+    div {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -143,8 +144,6 @@ main.product-main {
 
     #add-to-compare-button {
         @extend .default-button-dark-bg;
-
-        margin-bottom: 35px;
     }
 }
 
