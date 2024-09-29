@@ -529,11 +529,13 @@ body main .features .feature {
   gap: 35px;
 }
 #cards-section .cars {
+  width: 100%;
   padding: 3%;
   display: grid;
+  justify-items: center;
+  text-align: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  justify-items: center;
 }
 #cards-section .cars .product-card {
   background-color: #333;

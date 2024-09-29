@@ -8,11 +8,13 @@ $product-orange: #f60;
     gap: 35px;
 
     .cars {
+        width: 100%;
         padding: 3%;
         display: grid;
+        justify-items: center;
+        text-align: center;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 30px;
-        justify-items: center;
 
         .product-card {
             background-color: $product-dark;
