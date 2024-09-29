@@ -1,4 +1,5 @@
-const loadMoreButton = document.getElementById('load-more-cars');
+const cardsSection = document.querySelector('.cards-section');
+const loadMoreButton = cardsSection.getElementById('load-more-cars');
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;

@@ -1,4 +1,10 @@
-const loadMoreButton = document.getElementById('load-more-cars');
+const cardsSection = document.querySelector('.cards-section');
+const carsContainer = document.createElement('div');
+cardsSection.appendChild(carsContainer);
+const loadMoreCarsButton = document.createElement('button');
+loadMoreCarsButton.textContent = 'Завантажити більше';
+cardsSection.appendChild(loadMoreCarsButton);
+
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 8;
@@ -18,7 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function loadMoreCars() {
-    const carsContainer = document.getElementById('cars-container');
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
     nextCars.forEach(car => {
@@ -28,9 +33,7 @@ function loadMoreCars() {
 
     carsDisplayed += nextCars.length;
 
-    if (carsDisplayed >= carsData.length) {
-        loadMoreButton.style.display = 'none';
-    }
+    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 }
 
 function createCarCard(car) {
@@ -104,19 +107,15 @@ function createCarCard(car) {
     };
 
     carCard.addEventListener('mouseenter', () => {
-        if (validImages.length > 1) {
-            imageInterval = setInterval(changeImage, 1500);
-        }
+        if (validImages.length > 1) imageInterval = setInterval(changeImage, 1500);
     });
 
     carCard.addEventListener('mouseleave', () => {
         clearInterval(imageInterval);
-        if (validImages.length > 0) {
-            carImageElement.src = validImages[0];
-        }
+        if (validImages.length > 0) carImageElement.src = validImages[0];
     });
 
     return carCard;
 }
 
-loadMoreButton.addEventListener('click', loadMoreCars);
+loadMoreCarsButton.addEventListener('click', loadMoreCars);

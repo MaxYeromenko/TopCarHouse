@@ -3,11 +3,11 @@ $product-dark: #333;
 $product-orange: #f60;
 
 /* Стилі для популярних моделей */
-#cards-section {
+.cards-section {
     @extend .flex-align-to-center;
     gap: 35px;
 
-    .cars {
+    div {
         width: 100%;
         padding: 3%;
         display: grid;
@@ -137,22 +137,13 @@ $product-orange: #f60;
         }
     }
 
-    @media (max-width: 400px) {
-        .cars {
-            padding: 3%;
-        }
+    a,
+    button {
+        @extend .default-button-dark-bg;
+        margin-bottom: 35px;
     }
 
-    .load-more-cars-buttons {
-        margin: 15px;
-
-        a,
-        button {
-            @extend .default-button-dark-bg;
-        }
-
-        a {
-            display: none;
-        }
+    a {
+        display: none;
     }
 }
