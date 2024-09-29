@@ -1,12 +1,25 @@
 const cardsSection = document.querySelector('.cards-section');
-const loadMoreButton = cardsSection.getElementById('load-more-cars');
+const carsContainer = document.createElement('div');
+carsContainer.className = 'cars-container';
+cardsSection.appendChild(carsContainer);
+const cardsSectionButtons = document.createElement('div');
+cardsSectionButtons.className = 'cards-section-buttons';
+cardsSection.appendChild(cardsSectionButtons);
+const loadMoreCarsButton = document.createElement('button');
+loadMoreCarsButton.textContent = 'Завантажити більше';
+cardsSectionButtons.appendChild(loadMoreCarsButton);
+const goToHomePage = document.createElement('a');
+goToHomePage.href = '/';
+goToHomePage.textContent = 'На головну';
+cardsSectionButtons.appendChild(goToHomePage);
+
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
 
 if (isAuthTokenExpired()) {
-    document.querySelector('.load-more-cars-buttons a').style.display = 'inline';
-    loadMoreButton.style.display = 'none';
+    toggleElementVisibility(loadMoreCarsButton, 'none');
+    toggleElementVisibility(goToHomePage, 'inline');
     showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
 }
 else {
@@ -28,11 +41,10 @@ else {
         }
     });
 
-    loadMoreButton.addEventListener('click', loadMoreCars);
+    loadMoreCarsButton.addEventListener('click', loadMoreCars);
 }
 
 function loadMoreCars() {
-    const carsContainer = document.getElementById('cars-container');
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
     nextCars.forEach(car => {
@@ -42,9 +54,7 @@ function loadMoreCars() {
 
     carsDisplayed += nextCars.length;
 
-    if (carsDisplayed >= carsData.length) {
-        loadMoreButton.style.display = 'none';
-    }
+    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 }
 
 function createCarCard(car) {
