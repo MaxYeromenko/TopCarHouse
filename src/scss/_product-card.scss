@@ -6,13 +6,12 @@ $product-orange: #f60;
 .cards-section {
     @extend .flex-align-to-center;
     gap: 35px;
-    text-align: center;
 
     div {
         width: 100%;
-        padding: 3%;
         display: grid;
         justify-items: center;
+        text-align: center;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 30px;
 
