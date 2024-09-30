@@ -1,0 +1,26 @@
+$product-white: #fff;
+$product-dark: #333;
+$product-orange: #f60;
+
+#services-container {
+    @extend .form-container;
+    gap: 25px;
+
+    .service {
+        @extend .flex-align-to-center;
+
+        h2 {
+            margin: 10px;
+            line-height: 0;
+        }
+
+        a {
+            @extend .default-button-dark-bg;
+            margin: 10px;
+
+            i {
+                font-size: small;
+            }
+        }
+    }
+}

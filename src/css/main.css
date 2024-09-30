@@ -22,28 +22,24 @@ button {
   color: #fff;
 }
 
-.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .modal-window-dark-bg-template .form-container .form-template, #thank-you-message-bg .form-container .form-template, #calculator-container .modal-window-dark-bg-template .form-container form, #calculator-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #calculator-container .form-template, #thank-you-message-bg #calculator-container .form-template, .modal-window-dark-bg-template #calculator-container form, #thank-you-message-bg #calculator-container form, #consultation-container .modal-window-dark-bg-template .form-container form, #consultation-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #consultation-container .form-template, #thank-you-message-bg #consultation-container .form-template, .modal-window-dark-bg-template #consultation-container form, #thank-you-message-bg #consultation-container form, #auth-container .modal-window-dark-bg-template .form-container form, #auth-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #auth-container .form-template, #thank-you-message-bg #auth-container .form-template, .modal-window-dark-bg-template #auth-container form, #thank-you-message-bg #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #services-container .service, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-line-pack: normal;
-      align-content: normal;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, .cards-section .cards-section-buttons a,
-.cards-section .cards-section-buttons button, .modal-window-dark-bg-template .form-container .form-template button, #thank-you-message-bg .form-container .form-template button, #calculator-container .modal-window-dark-bg-template .form-container form button, #calculator-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #calculator-container .form-template button, #thank-you-message-bg #calculator-container .form-template button, .modal-window-dark-bg-template #calculator-container form button, #thank-you-message-bg #calculator-container form button, #consultation-container .modal-window-dark-bg-template .form-container form button, #consultation-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #consultation-container .form-template button, #thank-you-message-bg #consultation-container .form-template button, .modal-window-dark-bg-template #consultation-container form button, #thank-you-message-bg #consultation-container form button, #auth-container .modal-window-dark-bg-template .form-container form button, #auth-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #auth-container .form-template button, #thank-you-message-bg #auth-container .form-template button, .modal-window-dark-bg-template #auth-container form button, #thank-you-message-bg #auth-container form button {
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container .service a, .cards-section .cards-section-buttons a,
+.cards-section .cards-section-buttons button, .form-container .form-template button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
   background-color: #f60;
   color: #fff;
   padding: 10px;
@@ -54,13 +50,13 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, .modal-window-dark-bg-template .form-container .form-template button:hover, #thank-you-message-bg .form-container .form-template button:hover, #calculator-container .modal-window-dark-bg-template .form-container form button:hover, #calculator-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #calculator-container .form-template button:hover, #thank-you-message-bg #calculator-container .form-template button:hover, .modal-window-dark-bg-template #calculator-container form button:hover, #thank-you-message-bg #calculator-container form button:hover, #consultation-container .modal-window-dark-bg-template .form-container form button:hover, #consultation-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #consultation-container .form-template button:hover, #thank-you-message-bg #consultation-container .form-template button:hover, .modal-window-dark-bg-template #consultation-container form button:hover, #thank-you-message-bg #consultation-container form button:hover, #auth-container .modal-window-dark-bg-template .form-container form button:hover, #auth-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #auth-container .form-template button:hover, #thank-you-message-bg #auth-container .form-template button:hover, .modal-window-dark-bg-template #auth-container form button:hover, #thank-you-message-bg #auth-container form button:hover {
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container .service a:hover, .cards-section .cards-section-buttons a:hover,
+.cards-section .cards-section-buttons button:hover, .form-container .form-template button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
   color: #f60;
 }
 
-.default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, .modal-window-dark-bg-template .form-container .form-template button:hover, #thank-you-message-bg .form-container .form-template button:hover, #calculator-container .modal-window-dark-bg-template .form-container form button:hover, #calculator-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #calculator-container .form-template button:hover, #thank-you-message-bg #calculator-container .form-template button:hover, .modal-window-dark-bg-template #calculator-container form button:hover, #thank-you-message-bg #calculator-container form button:hover, #consultation-container .modal-window-dark-bg-template .form-container form button:hover, #consultation-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #consultation-container .form-template button:hover, #thank-you-message-bg #consultation-container .form-template button:hover, .modal-window-dark-bg-template #consultation-container form button:hover, #thank-you-message-bg #consultation-container form button:hover, #auth-container .modal-window-dark-bg-template .form-container form button:hover, #auth-container #thank-you-message-bg .form-container form button:hover, .modal-window-dark-bg-template #auth-container .form-template button:hover, #thank-you-message-bg #auth-container .form-template button:hover, .modal-window-dark-bg-template #auth-container form button:hover, #thank-you-message-bg #auth-container form button:hover {
+.default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container .service a:hover, .cards-section .cards-section-buttons a:hover,
+.cards-section .cards-section-buttons button:hover, .form-container .form-template button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
   background-color: #333;
 }
 
@@ -122,13 +118,18 @@ button {
 }
 
 .modal-window-dark-bg-template, #thank-you-message-bg {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 10px;
   background-color: #333;
-  display: none;
   z-index: 5;
 }
 .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark {
@@ -144,7 +145,8 @@ button {
 .modal-window-dark-bg-template .modal-window-element, #thank-you-message-bg .modal-window-element {
   display: none;
 }
-.modal-window-dark-bg-template .form-container, #thank-you-message-bg .form-container, .modal-window-dark-bg-template #calculator-container, #thank-you-message-bg #calculator-container, .modal-window-dark-bg-template #consultation-container, #thank-you-message-bg #consultation-container, .modal-window-dark-bg-template #auth-container, #thank-you-message-bg #auth-container {
+
+.form-container, #services-container, #calculator-container, #consultation-container, #auth-container {
   background-color: #fff;
   border: 1px solid #333;
   border-radius: 8px;
@@ -152,61 +154,49 @@ button {
   height: auto;
   padding: 20px;
 }
-.modal-window-dark-bg-template .form-container h2, #thank-you-message-bg .form-container h2, .modal-window-dark-bg-template #calculator-container h2, #thank-you-message-bg #calculator-container h2, .modal-window-dark-bg-template #consultation-container h2, #thank-you-message-bg #consultation-container h2, .modal-window-dark-bg-template #auth-container h2, #thank-you-message-bg #auth-container h2 {
+.form-container h2, #services-container h2, #calculator-container h2, #consultation-container h2, #auth-container h2 {
   color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
-.modal-window-dark-bg-template .form-container p, #thank-you-message-bg .form-container p, .modal-window-dark-bg-template #calculator-container p, #thank-you-message-bg #calculator-container p, .modal-window-dark-bg-template #consultation-container p, #thank-you-message-bg #consultation-container p, .modal-window-dark-bg-template #auth-container p, #thank-you-message-bg #auth-container p {
+.form-container p, #services-container p, #calculator-container p, #consultation-container p, #auth-container p {
   text-align: center;
   margin-top: 10px;
   font-size: small;
   opacity: 0.7;
 }
-.modal-window-dark-bg-template .form-container p span, #thank-you-message-bg .form-container p span, .modal-window-dark-bg-template #calculator-container p span, #thank-you-message-bg #calculator-container p span, .modal-window-dark-bg-template #consultation-container p span, #thank-you-message-bg #consultation-container p span, .modal-window-dark-bg-template #auth-container p span, #thank-you-message-bg #auth-container p span {
+.form-container p span, #services-container p span, #calculator-container p span, #consultation-container p span, #auth-container p span {
   color: #f60;
   font-size: larger;
   font-weight: bold;
 }
-.modal-window-dark-bg-template .form-container p a, #thank-you-message-bg .form-container p a, .modal-window-dark-bg-template #calculator-container p a, #thank-you-message-bg #calculator-container p a, .modal-window-dark-bg-template #consultation-container p a, #thank-you-message-bg #consultation-container p a, .modal-window-dark-bg-template #auth-container p a, #thank-you-message-bg #auth-container p a {
+.form-container p a, #services-container p a, #calculator-container p a, #consultation-container p a, #auth-container p a {
   color: #f60;
   text-decoration: none;
 }
-.modal-window-dark-bg-template .form-container p a:hover, #thank-you-message-bg .form-container p a:hover, .modal-window-dark-bg-template #calculator-container p a:hover, #thank-you-message-bg #calculator-container p a:hover, .modal-window-dark-bg-template #consultation-container p a:hover, #thank-you-message-bg #consultation-container p a:hover, .modal-window-dark-bg-template #auth-container p a:hover, #thank-you-message-bg #auth-container p a:hover {
+.form-container p a:hover, #services-container p a:hover, #calculator-container p a:hover, #consultation-container p a:hover, #auth-container p a:hover {
   text-decoration: underline;
 }
-.modal-window-dark-bg-template .form-container .form-template, #thank-you-message-bg .form-container .form-template, #calculator-container .modal-window-dark-bg-template .form-container form, #calculator-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #calculator-container .form-template, #thank-you-message-bg #calculator-container .form-template, .modal-window-dark-bg-template #calculator-container form, #thank-you-message-bg #calculator-container form, #consultation-container .modal-window-dark-bg-template .form-container form, #consultation-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #consultation-container .form-template, #thank-you-message-bg #consultation-container .form-template, .modal-window-dark-bg-template #consultation-container form, #thank-you-message-bg #consultation-container form, #auth-container .modal-window-dark-bg-template .form-container form, #auth-container #thank-you-message-bg .form-container form, .modal-window-dark-bg-template #auth-container .form-template, #thank-you-message-bg #auth-container .form-template, .modal-window-dark-bg-template #auth-container form, #thank-you-message-bg #auth-container form {
+.form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
   gap: 15px;
 }
-.modal-window-dark-bg-template .form-container .form-template input, #thank-you-message-bg .form-container .form-template input, #calculator-container .modal-window-dark-bg-template .form-container form input, #calculator-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #calculator-container .form-template input, #thank-you-message-bg #calculator-container .form-template input, .modal-window-dark-bg-template #calculator-container form input, #thank-you-message-bg #calculator-container form input, #consultation-container .modal-window-dark-bg-template .form-container form input, #consultation-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #consultation-container .form-template input, #thank-you-message-bg #consultation-container .form-template input, .modal-window-dark-bg-template #consultation-container form input, #thank-you-message-bg #consultation-container form input, #auth-container .modal-window-dark-bg-template .form-container form input, #auth-container #thank-you-message-bg .form-container form input, .modal-window-dark-bg-template #auth-container .form-template input, #thank-you-message-bg #auth-container .form-template input, .modal-window-dark-bg-template #auth-container form input, #thank-you-message-bg #auth-container form input,
-.modal-window-dark-bg-template .form-container .form-template select,
-#thank-you-message-bg .form-container .form-template select,
-#calculator-container .modal-window-dark-bg-template .form-container form select,
-#calculator-container #thank-you-message-bg .form-container form select,
-.modal-window-dark-bg-template #calculator-container .form-template select,
-#thank-you-message-bg #calculator-container .form-template select,
-.modal-window-dark-bg-template #calculator-container form select,
-#thank-you-message-bg #calculator-container form select,
-#consultation-container .modal-window-dark-bg-template .form-container form select,
-#consultation-container #thank-you-message-bg .form-container form select,
-.modal-window-dark-bg-template #consultation-container .form-template select,
-#thank-you-message-bg #consultation-container .form-template select,
-.modal-window-dark-bg-template #consultation-container form select,
-#thank-you-message-bg #consultation-container form select,
-#auth-container .modal-window-dark-bg-template .form-container form select,
-#auth-container #thank-you-message-bg .form-container form select,
-.modal-window-dark-bg-template #auth-container .form-template select,
-#thank-you-message-bg #auth-container .form-template select,
-.modal-window-dark-bg-template #auth-container form select,
-#thank-you-message-bg #auth-container form select {
+.form-container .form-template input, #services-container .form-template input, #calculator-container .form-template input, #calculator-container form input, #consultation-container .form-template input, #consultation-container form input, #auth-container .form-template input, #auth-container form input,
+.form-container .form-template select,
+#services-container .form-template select,
+#calculator-container .form-template select,
+#calculator-container form select,
+#consultation-container .form-template select,
+#consultation-container form select,
+#auth-container .form-template select,
+#auth-container form select {
   padding: 10px;
   border: 1px solid #333;
   border-radius: 5px;
 }
-.modal-window-dark-bg-template .form-container .form-template button, #thank-you-message-bg .form-container .form-template button, #calculator-container .modal-window-dark-bg-template .form-container form button, #calculator-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #calculator-container .form-template button, #thank-you-message-bg #calculator-container .form-template button, .modal-window-dark-bg-template #calculator-container form button, #thank-you-message-bg #calculator-container form button, #consultation-container .modal-window-dark-bg-template .form-container form button, #consultation-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #consultation-container .form-template button, #thank-you-message-bg #consultation-container .form-template button, .modal-window-dark-bg-template #consultation-container form button, #thank-you-message-bg #consultation-container form button, #auth-container .modal-window-dark-bg-template .form-container form button, #auth-container #thank-you-message-bg .form-container form button, .modal-window-dark-bg-template #auth-container .form-template button, #thank-you-message-bg #auth-container .form-template button, .modal-window-dark-bg-template #auth-container form button, #thank-you-message-bg #auth-container form button {
+.form-container .form-template button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
   font-weight: bold;
 }
 
@@ -673,6 +663,20 @@ body main .features .feature {
         -ms-transform: none;
             transform: none;
   }
+}
+
+#services-container {
+  gap: 25px;
+}
+#services-container .service h2 {
+  margin: 10px;
+  line-height: 0;
+}
+#services-container .service a {
+  margin: 10px;
+}
+#services-container .service a i {
+  font-size: small;
 }
 
 footer {
