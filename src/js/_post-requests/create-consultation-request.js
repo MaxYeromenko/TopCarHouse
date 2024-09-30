@@ -8,6 +8,17 @@ document.getElementById('consultation-button').addEventListener('click', () => {
     toggleElementVisibility(consultationContainer, 'block');
 });
 
+document.getElementById('consultation-phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9+]/g, '');
+    if (this.value.indexOf('+') > 0) {
+        this.value = this.value.replace(/\+/g, '');
+    }
+
+    if (this.value.indexOf('+') === 0 && this.value.slice(1).includes('+')) {
+        this.value = '+' + this.value.slice(1).replace(/\+/g, '');
+    }
+});
+
 consultationForm.addEventListener('submit', async e => {
     e.preventDefault();
     const name = document.getElementById('consultation-name').value.trim();
