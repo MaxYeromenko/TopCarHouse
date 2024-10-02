@@ -34,7 +34,6 @@ car_icon.addEventListener("click", () => {
         thank_message_bg.style.transition = 'all 1s';
         thank_message.style.transition = 'opacity 1s';
         thank_message_bg.style.visibility = 'visible';
-        thank_message_bg.style.backgroundColor = '#33333380';
         thank_message.style.opacity = '1';
         car_icon.style.opacity = '0';
     }, 4500);

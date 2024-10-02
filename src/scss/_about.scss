@@ -86,7 +86,7 @@
     @extend .modal-window-dark-bg-template;
     display: flex;
     visibility: hidden;
-    background-color: #33333300;
+    background-color: rgba($product-dark, .8);
 
     #thank-you-message {
         @extend .flex-align-to-center;

@@ -849,7 +849,7 @@ footer a:hover {
   display: -ms-flexbox;
   display: flex;
   visibility: hidden;
-  background-color: rgba(51, 51, 51, 0);
+  background-color: rgba(51, 51, 51, 0.8);
 }
 #thank-you-message-bg #thank-you-message {
   background-color: #333;
