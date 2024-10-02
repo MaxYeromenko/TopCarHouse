@@ -10,7 +10,7 @@ main.product-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $product-white;
+    background-color: rgb(var(--background-color));
     padding: 35px 0;
     gap: 35px;
     width: 60%;
@@ -26,27 +26,27 @@ main.product-main {
         margin: 0;
         font-size: 28px;
         font-weight: bold;
-        color: $product-dark;
+        color: rgb(var(--main-color));
         text-align: center;
     }
 
     #product-price {
         font-size: 24px;
         margin: 5px 0;
-        color: $product-orange;
+        color: rgb(var(--secondary-color));
     }
 
     .slider-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $product-white;
+        color: rgb(var(--background-color));
         font-size: 15px;
         width: 100%;
         border-radius: 10px 10px 0 0;
         position: relative;
         overflow: hidden;
-        border: solid 1px $product-orange;
+        border: solid 1px rgb(var(--secondary-color));
 
         .image-container {
             position: relative;
@@ -83,7 +83,7 @@ main.product-main {
         }
 
         #page-tracker {
-            background-color: $product-orange;
+            background-color: rgb(var(--secondary-color));
             position: absolute;
             bottom: 3%;
             padding: 10px 15px;
@@ -93,32 +93,32 @@ main.product-main {
     }
 
     .product-info {
-        background-color: $product-dark;
+        background-color: rgb(var(--main-color));
         padding: 20px;
         border-radius: 0 0 10px 10px;
         width: 100%;
 
         p {
-            color: $product-white;
+            color: rgb(var(--background-color));
             text-align: center;
         }
 
         table {
-            color: $product-white;
+            color: rgb(var(--background-color));
             width: 100%;
             border-collapse: collapse;
 
             tr {
-                border-bottom: solid 1px $product-orange;
+                border-bottom: solid 1px rgb(var(--secondary-color));
             }
 
             td {
                 padding: 10px;
-                border-bottom: 1px solid $product-orange;
+                border-bottom: 1px solid rgb(var(--secondary-color));
                 text-align: left;
 
                 strong {
-                    color: $product-orange;
+                    color: rgb(var(--secondary-color));
                 }
             }
         }
@@ -127,7 +127,7 @@ main.product-main {
     h1#product-characteristics-title {
         margin-bottom: 15px;
         font-size: 24px;
-        color: $product-dark;
+        color: rgb(var(--main-color));
         text-align: center;
     }
 

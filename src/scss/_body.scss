@@ -13,8 +13,8 @@ body {
             justify-content: center;
             align-items: center;
             visibility: hidden;
-            color: $product-orange;
-            background-color: $product-white;
+            color: rgb(var(--secondary-color));
+            background-color: rgb(var(--background-color));
             border-radius: 5px;
             padding: 1% 1.5%;
             gap: 5px;
@@ -23,12 +23,12 @@ body {
 
             .fa-xmark {
                 font-size: 14px;
-                color: lighten($color: $product-dark, $amount: 30%);
+                color: rgba(var(--main-color), .7);
                 border-radius: 100%;
                 padding: 2px 3px;
 
                 &:hover {
-                    background-color: lighten($color: $product-dark, $amount: 70%);
+                    background-color: rgba(var(--main-color), .1);
                 }
             }
         }
@@ -56,7 +56,7 @@ body {
         .hero {
             @extend .flex-align-to-center;
             text-align: center;
-            color: $product-white;
+            color: rgb(var(--background-color));
             background-image: url('/src/images/car_pink.png');
             background-size: cover;
             background-attachment: fixed;
@@ -84,8 +84,9 @@ body {
             display: flex;
             justify-content: space-around;
             padding: 35px;
-            color: $product-white;
-            background-color: $product-dark;
+            color: rgb(var(--background-color));
+            background-color: rgb(var(--main-color));
+            border-top: solid 2px rgb(var(--secondary-color));
 
             i {
                 font-size: 2em;

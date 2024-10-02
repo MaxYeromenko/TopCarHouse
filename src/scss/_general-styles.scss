@@ -1,18 +1,21 @@
-$product-white: #fff;
-$product-dark: #333;
-$product-orange: #f60;
+:root {
+    --main-color: 33, 37, 41;
+    --secondary-color: 218, 185, 100;
+    --background-color: 255, 255, 255;
+}
 
-// $product-dark: #212529;
-// $product-orange: #dab964;
-// $product-white: #fff;
+[data-theme="red-accent"] {
+    --main-color: 33, 37, 41;
+    --secondary-color: 220, 53, 69;
+    --background-color: 248, 249, 250;
+}
 
-// $product-dark: #212529;
-// $product-orange: #DC3545;
-// $product-white: #F8F9FA;
+[data-theme="vibrant-purple-yellow"] {
+    --main-color: 255, 193, 7;
+    --secondary-color: 111, 66, 193;
+    --background-color: 248, 249, 250;
+}
 
-// $product-dark: #FFC107;
-// $product-orange: #6F42C1;
-// $product-white: #F8F9FA;
 
 * {
     box-sizing: border-box;
@@ -34,7 +37,7 @@ a,
 button {
     cursor: pointer;
     text-decoration: none;
-    color: $product-white;
+    color: rgb(var(--background-color));
 }
 
 .flex-align-to-center {
@@ -45,8 +48,8 @@ button {
 }
 
 .default-button-template {
-    background-color: $product-orange;
-    color: $product-white;
+    background-color: rgb(var(--secondary-color));
+    color: rgb(var(--background-color));
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -55,7 +58,7 @@ button {
     transition: color .4s, background-color .4s;
 
     &:hover {
-        color: $product-orange;
+        color: rgb(var(--secondary-color));
     }
 }
 
@@ -63,7 +66,7 @@ button {
     @extend .default-button-template;
 
     &:hover {
-        background-color: $product-dark;
+        background-color: rgb(var(--main-color));
     }
 }
 
@@ -71,7 +74,7 @@ button {
     @extend .default-button-template;
 
     &:hover {
-        background-color: $product-white;
+        background-color: rgb(var(--background-color));
     }
 }
 
@@ -89,9 +92,9 @@ button {
         }
 
         .burger-open-section-container-buttons {
-            color: $product-orange;
-            background-color: $product-white;
-            border-color: $product-orange;
+            color: rgb(var(--secondary-color));
+            background-color: rgb(var(--background-color));
+            border-color: rgb(var(--secondary-color));
 
             .fa-bars {
                 transform: rotate(-90deg);
@@ -107,14 +110,14 @@ button {
     .open-section-button-template {
         @extend .default-button-light-bg;
         font-size: large;
-        border: solid 2px $product-white;
+        border: solid 2px rgb(var(--background-color));
         border-radius: 100%;
         width: 55px;
         height: 55px;
         transition: border-color 0.4s;
 
         &:hover {
-            border-color: $product-orange;
+            border-color: rgb(var(--secondary-color));
         }
     }
 
@@ -146,7 +149,7 @@ button {
     width: 100%;
     height: 100%;
     padding: 10px;
-    background-color: $product-dark;
+    background-color: rgb(var(--main-color));
     z-index: 5;
 
     i.fa-xmark {
@@ -158,7 +161,7 @@ button {
         z-index: 1;
 
         &:hover {
-            background-color: $product-white;
+            background-color: rgb(var(--background-color));
         }
     }
 
@@ -168,15 +171,15 @@ button {
 }
 
 .form-container {
-    background-color: $product-white;
-    border: 1px solid $product-dark;
+    background-color: rgb(var(--background-color));
+    border: 1px solid rgb(var(--main-color));
     border-radius: 8px;
     width: 400px;
     height: auto;
     padding: 20px;
 
     h2 {
-        color: $product-dark;
+        color: rgb(var(--main-color));
         margin-bottom: 20px;
         text-align: center;
     }
@@ -188,13 +191,13 @@ button {
         opacity: 0.7;
 
         span {
-            color: $product-orange;
+            color: rgb(var(--secondary-color));
             font-size: larger;
             font-weight: bold;
         }
 
         a {
-            color: $product-orange;
+            color: rgb(var(--secondary-color));
             text-decoration: none;
 
             &:hover {
@@ -211,7 +214,7 @@ button {
         input,
         select {
             padding: 10px;
-            border: 1px solid $product-dark;
+            border: 1px solid rgb(var(--main-color));
             border-radius: 5px;
         }
 

@@ -20,15 +20,15 @@
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 20px;
-    background-color: $product-white;
+    background-color: rgb(var(--background-color));
     width: 90%;
     border-radius: 10px;
     max-height: 90vh;
     overflow-y: auto;
 
     .compare-item {
-        background-color: $product-dark;
-        color: $product-white;
+        background-color: rgb(var(--main-color));
+        color: rgb(var(--background-color));
         padding: 20px 0;
         text-align: center;
         position: relative;
@@ -42,7 +42,7 @@
         }
 
         #compare-product-title {
-            color: $product-orange;
+            color: rgb(var(--secondary-color));
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
@@ -51,7 +51,7 @@
             padding: 10px 15px;
             text-align: left;
             font-size: 1rem;
-            border-bottom: solid 1px $product-orange;
+            border-bottom: solid 1px rgb(var(--secondary-color));
             display: flex;
             justify-content: space-between;
         }
@@ -86,7 +86,7 @@
 
     .nothing-to-compare-message {
         text-align: center;
-        color: $product-orange;
+        color: rgb(var(--secondary-color));
         font-size: 18px;
     }
 }

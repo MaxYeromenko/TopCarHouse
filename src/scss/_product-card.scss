@@ -25,7 +25,7 @@
         gap: 30px;
 
         .product-card {
-            background-color: $product-dark;
+            background-color: rgb(var(--main-color));
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -49,7 +49,7 @@
                     width: 100%;
                     height: 214px;
                     object-fit: cover;
-                    border-bottom: 2px solid $product-orange;
+                    border-bottom: 2px solid rgb(var(--secondary-color));
                 }
 
                 .compare-btn {
@@ -57,17 +57,17 @@
                     left: 2%;
                     bottom: 5%;
                     padding: 10px 15px;
-                    background-color: $product-orange;
+                    background-color: rgb(var(--secondary-color));
                     border-radius: 5px;
-                    color: $product-white;
+                    color: rgb(var(--background-color));
                     border: none;
                     opacity: 0;
                     transition: all .6s, opacity .3s;
                     font-size: 14px;
 
                     &:hover {
-                        color: $product-orange;
-                        background-color: $product-white;
+                        color: rgb(var(--secondary-color));
+                        background-color: rgb(var(--background-color));
                     }
                 }
             }
@@ -86,12 +86,12 @@
                 .product-title {
                     font-size: 18px;
                     font-weight: bold;
-                    color: $product-white;
+                    color: rgb(var(--background-color));
                 }
 
                 .product-description {
                     font-size: 14px;
-                    color: $product-white;
+                    color: rgb(var(--background-color));
                     opacity: 0.8;
                 }
 
@@ -99,7 +99,7 @@
                     display: flex;
                     gap: 10px;
                     font-size: 14px;
-                    color: $product-white;
+                    color: rgb(var(--background-color));
                     justify-content: center;
 
                     .feature {
@@ -116,7 +116,7 @@
                 .product-price {
                     font-size: 16px;
                     font-weight: bold;
-                    color: $product-orange;
+                    color: rgb(var(--secondary-color));
                     margin: 10px;
                 }
 
@@ -130,7 +130,7 @@
 
                 .product-footer {
                     font-size: 12px;
-                    color: $product-white;
+                    color: rgb(var(--background-color));
                     text-align: center;
                     margin-top: 10px;
                     opacity: 0.7;

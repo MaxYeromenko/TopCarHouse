@@ -3,7 +3,7 @@ header {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 20px;
-    background-color: darken($product-dark, 5%);
+    background-color: rgb(var(--main-color));
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@ header {
         }
 
         a:hover {
-            color: $product-orange;
+            color: rgb(var(--secondary-color));
             text-decoration: underline;
             transition: all .6s;
         }
@@ -28,7 +28,7 @@ header {
     .icon-wrapper {
         visibility: hidden;
         position: absolute;
-        color: $product-white;
+        color: rgb(var(--background-color));
 
         .fa-angles-down {
             visibility: hidden;
@@ -37,13 +37,13 @@ header {
 
         .vertical-nav {
             @extend .flex-align-to-center;
-            background-color: $product-dark;
+            background-color: rgb(var(--main-color));
             visibility: hidden;
             position: absolute;
             gap: 15px;
             padding: 10px;
             margin: 0px -50px;
-            border: solid 1px $product-dark;
+            border: solid 1px rgb(var(--main-color));
         }
     }
 

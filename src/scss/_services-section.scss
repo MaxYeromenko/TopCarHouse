@@ -6,7 +6,7 @@
         @extend .flex-align-to-center;
         width: 100%;
         padding: 15px;
-        border-bottom: solid 1px $product-orange;
+        border-bottom: solid 1px rgb(var(--secondary-color));
         transition: transform 0.2s ease;
 
         &:hover {

@@ -1,4 +1,22 @@
 @charset "UTF-8";
+:root {
+  --main-color: 33, 37, 41;
+  --secondary-color: 218, 185, 100;
+  --background-color: 255, 255, 255;
+}
+
+[data-theme=red-accent] {
+  --main-color: 33, 37, 41;
+  --secondary-color: 220, 53, 69;
+  --background-color: 248, 249, 250;
+}
+
+[data-theme=vibrant-purple-yellow] {
+  --main-color: 255, 193, 7;
+  --secondary-color: 111, 66, 193;
+  --background-color: 248, 249, 250;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -19,7 +37,7 @@ a,
 button {
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: rgb(var(--background-color));
 }
 
 .flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, .services .title-services, #services-container .service, #services-container, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
@@ -40,8 +58,8 @@ button {
 
 .default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
 .cards-section .cards-section-buttons button, .form-container .form-template button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
-  background-color: #f60;
-  color: #fff;
+  background-color: rgb(var(--secondary-color));
+  color: rgb(var(--background-color));
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -52,16 +70,16 @@ button {
 }
 .default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
 .cards-section .cards-section-buttons button:hover, .form-container .form-template button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
-  color: #f60;
+  color: rgb(var(--secondary-color));
 }
 
 .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
 .cards-section .cards-section-buttons button:hover, .form-container .form-template button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
-  background-color: #333;
+  background-color: rgb(var(--main-color));
 }
 
 .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
-  background-color: #fff;
+  background-color: rgb(var(--background-color));
 }
 
 .burger-instruments-wrapper {
@@ -77,9 +95,9 @@ button {
   display: flex;
 }
 .burger-instruments-wrapper:hover .burger-open-section-container-buttons {
-  color: #f60;
-  background-color: #fff;
-  border-color: #f60;
+  color: rgb(var(--secondary-color));
+  background-color: rgb(var(--background-color));
+  border-color: rgb(var(--secondary-color));
 }
 .burger-instruments-wrapper:hover .burger-open-section-container-buttons .fa-bars {
   -webkit-transform: rotate(-90deg);
@@ -97,7 +115,7 @@ button {
 }
 .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons {
   font-size: large;
-  border: solid 2px #fff;
+  border: solid 2px rgb(var(--background-color));
   border-radius: 100%;
   width: 55px;
   height: 55px;
@@ -105,7 +123,7 @@ button {
   transition: border-color 0.4s;
 }
 .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
-  border-color: #f60;
+  border-color: rgb(var(--secondary-color));
 }
 .burger-instruments-wrapper .open-section-button-container {
   display: none;
@@ -129,7 +147,7 @@ button {
   width: 100%;
   height: 100%;
   padding: 10px;
-  background-color: #333;
+  background-color: rgb(var(--main-color));
   z-index: 5;
 }
 .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark {
@@ -140,22 +158,22 @@ button {
   z-index: 1;
 }
 .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover {
-  background-color: #fff;
+  background-color: rgb(var(--background-color));
 }
 .modal-window-dark-bg-template .modal-window-element, #thank-you-message-bg .modal-window-element {
   display: none;
 }
 
 .form-container, #services-container, #calculator-container, #consultation-container, #auth-container {
-  background-color: #fff;
-  border: 1px solid #333;
+  background-color: rgb(var(--background-color));
+  border: 1px solid rgb(var(--main-color));
   border-radius: 8px;
   width: 400px;
   height: auto;
   padding: 20px;
 }
 .form-container h2, #services-container h2, #calculator-container h2, #consultation-container h2, #auth-container h2 {
-  color: #333;
+  color: rgb(var(--main-color));
   margin-bottom: 20px;
   text-align: center;
 }
@@ -166,12 +184,12 @@ button {
   opacity: 0.7;
 }
 .form-container p span, #services-container p span, #calculator-container p span, #consultation-container p span, #auth-container p span {
-  color: #f60;
+  color: rgb(var(--secondary-color));
   font-size: larger;
   font-weight: bold;
 }
 .form-container p a, #services-container p a, #calculator-container p a, #consultation-container p a, #auth-container p a {
-  color: #f60;
+  color: rgb(var(--secondary-color));
   text-decoration: none;
 }
 .form-container p a:hover, #services-container p a:hover, #calculator-container p a:hover, #consultation-container p a:hover, #auth-container p a:hover {
@@ -193,7 +211,7 @@ button {
 #auth-container .form-template select,
 #auth-container form select {
   padding: 10px;
-  border: 1px solid #333;
+  border: 1px solid rgb(var(--main-color));
   border-radius: 5px;
 }
 .form-container .form-template button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
@@ -207,7 +225,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding: 20px;
-  background-color: #262626;
+  background-color: rgb(var(--main-color));
   position: fixed;
   top: 0;
   left: 0;
@@ -226,7 +244,7 @@ header nav a {
   margin: 0 15px;
 }
 header nav a:hover {
-  color: #f60;
+  color: rgb(var(--secondary-color));
   text-decoration: underline;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
@@ -234,20 +252,20 @@ header nav a:hover {
 header .icon-wrapper {
   visibility: hidden;
   position: absolute;
-  color: #fff;
+  color: rgb(var(--background-color));
 }
 header .icon-wrapper .fa-angles-down {
   visibility: hidden;
   position: absolute;
 }
 header .icon-wrapper .vertical-nav {
-  background-color: #333;
+  background-color: rgb(var(--main-color));
   visibility: hidden;
   position: absolute;
   gap: 15px;
   padding: 10px;
   margin: 0px -50px;
-  border: solid 1px #333;
+  border: solid 1px rgb(var(--main-color));
 }
 header .icon-wrapper:hover .fa-angles-up {
   visibility: hidden;
@@ -334,8 +352,8 @@ body main .info-message {
       -ms-flex-align: center;
           align-items: center;
   visibility: hidden;
-  color: #f60;
-  background-color: #fff;
+  color: rgb(var(--secondary-color));
+  background-color: rgb(var(--background-color));
   border-radius: 5px;
   padding: 1% 1.5%;
   gap: 5px;
@@ -344,12 +362,12 @@ body main .info-message {
 }
 body main .info-message .fa-xmark {
   font-size: 14px;
-  color: gray;
+  color: rgba(var(--main-color), 0.7);
   border-radius: 100%;
   padding: 2px 3px;
 }
 body main .info-message .fa-xmark:hover {
-  background-color: #e6e6e6;
+  background-color: rgba(var(--main-color), 0.1);
 }
 body main .error-message,
 body main .success-message {
@@ -371,7 +389,7 @@ body main .invisible {
 }
 body main .hero {
   text-align: center;
-  color: #fff;
+  color: rgb(var(--background-color));
   background-image: url("/src/images/car_pink.png");
   background-size: cover;
   background-attachment: fixed;
@@ -396,8 +414,9 @@ body main .features {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 35px;
-  color: #fff;
-  background-color: #333;
+  color: rgb(var(--background-color));
+  background-color: rgb(var(--main-color));
+  border-top: solid 2px rgb(var(--secondary-color));
 }
 body main .features i {
   font-size: 2em;
@@ -435,15 +454,15 @@ body main .features .feature {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(var(--background-color));
   width: 90%;
   border-radius: 10px;
   max-height: 90vh;
   overflow-y: auto;
 }
 #compare-container .compare-item {
-  background-color: #333;
-  color: #fff;
+  background-color: rgb(var(--main-color));
+  color: rgb(var(--background-color));
   padding: 20px 0;
   text-align: center;
   position: relative;
@@ -455,7 +474,7 @@ body main .features .feature {
   top: 1%;
 }
 #compare-container .compare-item #compare-product-title {
-  color: #f60;
+  color: rgb(var(--secondary-color));
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
@@ -463,7 +482,7 @@ body main .features .feature {
   padding: 10px 15px;
   text-align: left;
   font-size: 1rem;
-  border-bottom: solid 1px #f60;
+  border-bottom: solid 1px rgb(var(--secondary-color));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -498,7 +517,7 @@ body main .features .feature {
 }
 #compare-container .nothing-to-compare-message {
   text-align: center;
-  color: #f60;
+  color: rgb(var(--secondary-color));
   font-size: 18px;
 }
 
@@ -526,7 +545,7 @@ body main .features .feature {
   gap: 30px;
 }
 .cards-section .cars-container .product-card {
-  background-color: #333;
+  background-color: rgb(var(--main-color));
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -565,16 +584,16 @@ body main .features .feature {
   height: 214px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-bottom: 2px solid #f60;
+  border-bottom: 2px solid rgb(var(--secondary-color));
 }
 .cards-section .cars-container .product-card .product-image-container .compare-btn {
   position: absolute;
   left: 2%;
   bottom: 5%;
   padding: 10px 15px;
-  background-color: #f60;
+  background-color: rgb(var(--secondary-color));
   border-radius: 5px;
-  color: #fff;
+  color: rgb(var(--background-color));
   border: none;
   opacity: 0;
   -webkit-transition: all 0.6s, opacity 0.3s;
@@ -582,8 +601,8 @@ body main .features .feature {
   font-size: 14px;
 }
 .cards-section .cars-container .product-card .product-image-container .compare-btn:hover {
-  color: #f60;
-  background-color: #fff;
+  color: rgb(var(--secondary-color));
+  background-color: rgb(var(--background-color));
 }
 .cards-section .cars-container .product-card .product-image-container:hover .compare-btn {
   opacity: 1;
@@ -603,11 +622,11 @@ body main .features .feature {
 .cards-section .cars-container .product-card .product-info .product-title {
   font-size: 18px;
   font-weight: bold;
-  color: #fff;
+  color: rgb(var(--background-color));
 }
 .cards-section .cars-container .product-card .product-info .product-description {
   font-size: 14px;
-  color: #fff;
+  color: rgb(var(--background-color));
   opacity: 0.8;
 }
 .cards-section .cars-container .product-card .product-info .product-features {
@@ -616,7 +635,7 @@ body main .features .feature {
   display: flex;
   gap: 10px;
   font-size: 14px;
-  color: #fff;
+  color: rgb(var(--background-color));
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -636,7 +655,7 @@ body main .features .feature {
 .cards-section .cars-container .product-card .product-info .product-price {
   font-size: 16px;
   font-weight: bold;
-  color: #f60;
+  color: rgb(var(--secondary-color));
   margin: 10px;
 }
 .cards-section .cars-container .product-card .product-info a .fa-arrow-up-right-from-square {
@@ -644,7 +663,7 @@ body main .features .feature {
 }
 .cards-section .cars-container .product-card .product-info .product-footer {
   font-size: 12px;
-  color: #fff;
+  color: rgb(var(--background-color));
   text-align: center;
   margin-top: 10px;
   opacity: 0.7;
@@ -663,7 +682,7 @@ body main .features .feature {
 #services-container .service {
   width: 100%;
   padding: 15px;
-  border-bottom: solid 1px #f60;
+  border-bottom: solid 1px rgb(var(--secondary-color));
   -webkit-transition: -webkit-transform 0.2s ease;
   transition: -webkit-transform 0.2s ease;
   transition: transform 0.2s ease;
@@ -689,8 +708,8 @@ body main .features .feature {
 
 .services {
   padding: 40px;
-  background-color: #fff;
-  color: #333;
+  background-color: rgb(var(--background-color));
+  color: rgb(var(--main-color));
   text-align: center;
 }
 .services h2 {
@@ -711,7 +730,7 @@ body main .features .feature {
 }
 .services .stage .stage-number {
   font-size: 75px;
-  color: #cccccc;
+  color: rgba(var(--main-color), 0.25);
 }
 .services .stage img {
   border-radius: 3%;
@@ -740,7 +759,7 @@ body main .features .feature {
 }
 .services .title-services #go-to-description {
   font-size: 40px;
-  border: solid 2px #fff;
+  border: solid 2px rgb(var(--background-color));
   border-radius: 100%;
   width: 64px;
   height: 64px;
@@ -749,30 +768,31 @@ body main .features .feature {
   transition: border-color 0.4s;
 }
 .services .title-services #go-to-description:hover {
-  border-color: #f60;
+  border-color: rgb(var(--secondary-color));
 }
 
 footer {
-  background-color: #262626;
-  color: #fff;
+  background-color: rgb(var(--main-color));
+  color: rgb(var(--background-color));
   padding: 20px;
   text-align: center;
   width: 100%;
 }
 footer a {
-  color: #f60;
+  color: rgb(var(--secondary-color));
   text-decoration: none;
 }
 footer a:hover {
   text-decoration: underline;
-  color: #fff;
+  color: rgb(var(--background-color));
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
 
 .about {
   padding: 40px;
-  color: #333;
+  color: rgb(var(--main-color));
+  background-color: rgb(var(--background-color));
   text-align: center;
 }
 .about h2 {
@@ -793,7 +813,7 @@ footer a:hover {
 }
 .about .stage .stage-number {
   font-size: 75px;
-  color: #cccccc;
+  color: rgba(var(--main-color), 0.25);
 }
 .about .stage img {
   border-radius: 3%;
@@ -822,7 +842,7 @@ footer a:hover {
 }
 .about .title-about #go-to-description {
   font-size: 40px;
-  border: solid 2px #fff;
+  border: solid 2px rgb(var(--background-color));
   border-radius: 100%;
   width: 64px;
   height: 64px;
@@ -831,7 +851,7 @@ footer a:hover {
   transition: border-color 0.4s;
 }
 .about .title-about #go-to-description:hover {
-  border-color: #f60;
+  border-color: rgb(var(--secondary-color));
 }
 
 #car {
@@ -849,10 +869,10 @@ footer a:hover {
   display: -ms-flexbox;
   display: flex;
   visibility: hidden;
-  background-color: rgba(51, 51, 51, 0.8);
+  background-color: rgba(var(--main-color), 0.8);
 }
 #thank-you-message-bg #thank-you-message {
-  background-color: #333;
+  background-color: rgb(var(--main-color));
   width: 40%;
   height: 30%;
   padding: 5%;
@@ -865,7 +885,7 @@ footer a:hover {
 }
 #thank-you-message-bg #thank-you-message h3 {
   font-size: 1.5em;
-  color: #fff;
+  color: rgb(var(--background-color));
 }
 @media (max-width: 1000px) {
   #thank-you-message-bg #thank-you-message {
@@ -896,7 +916,7 @@ main.product-main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #fff;
+  background-color: rgb(var(--background-color));
   padding: 35px 0;
   gap: 35px;
   width: 60%;
@@ -918,13 +938,13 @@ main.product-main {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: rgb(var(--main-color));
   text-align: center;
 }
 .product-container #product-price {
   font-size: 24px;
   margin: 5px 0;
-  color: #f60;
+  color: rgb(var(--secondary-color));
 }
 .product-container .slider-container {
   display: -webkit-box;
@@ -936,13 +956,13 @@ main.product-main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #fff;
+  color: rgb(var(--background-color));
   font-size: 15px;
   width: 100%;
   border-radius: 10px 10px 0 0;
   position: relative;
   overflow: hidden;
-  border: solid 1px #f60;
+  border: solid 1px rgb(var(--secondary-color));
 }
 .product-container .slider-container .image-container {
   position: relative;
@@ -973,7 +993,7 @@ main.product-main {
   right: 1%;
 }
 .product-container .slider-container #page-tracker {
-  background-color: #f60;
+  background-color: rgb(var(--secondary-color));
   position: absolute;
   bottom: 3%;
   padding: 10px 15px;
@@ -983,35 +1003,35 @@ main.product-main {
   width: fit-content;
 }
 .product-container .product-info {
-  background-color: #333;
+  background-color: rgb(var(--main-color));
   padding: 20px;
   border-radius: 0 0 10px 10px;
   width: 100%;
 }
 .product-container .product-info p {
-  color: #fff;
+  color: rgb(var(--background-color));
   text-align: center;
 }
 .product-container .product-info table {
-  color: #fff;
+  color: rgb(var(--background-color));
   width: 100%;
   border-collapse: collapse;
 }
 .product-container .product-info table tr {
-  border-bottom: solid 1px #f60;
+  border-bottom: solid 1px rgb(var(--secondary-color));
 }
 .product-container .product-info table td {
   padding: 10px;
-  border-bottom: 1px solid #f60;
+  border-bottom: 1px solid rgb(var(--secondary-color));
   text-align: left;
 }
 .product-container .product-info table td strong {
-  color: #f60;
+  color: rgb(var(--secondary-color));
 }
 .product-container h1#product-characteristics-title {
   margin-bottom: 15px;
   font-size: 24px;
-  color: #333;
+  color: rgb(var(--main-color));
   text-align: center;
 }
 .viewed-img {

@@ -1,6 +1,7 @@
 .about {
     padding: 40px;
-    color: $product-dark;
+    color: rgb(var(--main-color));
+    background-color: rgb(var(--background-color));
     text-align: center;
 
     h2 {
@@ -24,7 +25,7 @@
 
         .stage-number {
             font-size: 75px;
-            color: darken($product-white, 20%);
+            color: rgba(var(--main-color), .25);
         }
 
         img {
@@ -60,7 +61,7 @@
         #go-to-description {
             @extend .default-button-light-bg;
             font-size: 40px;
-            border: solid 2px $product-white;
+            border: solid 2px rgb(var(--background-color));
             border-radius: 100%;
             width: 64px;
             height: 64px;
@@ -68,7 +69,7 @@
             transition: border-color 0.4s;
 
             &:hover {
-                border-color: $product-orange;
+                border-color: rgb(var(--secondary-color));
             }
         }
     }
@@ -86,12 +87,12 @@
     @extend .modal-window-dark-bg-template;
     display: flex;
     visibility: hidden;
-    background-color: rgba($product-dark, .8);
+    background-color: rgba(var(--main-color), .8);
 
     #thank-you-message {
         @extend .flex-align-to-center;
 
-        background-color: $product-dark;
+        background-color: rgb(var(--main-color));
         width: 40%;
         height: 30%;
         padding: 5%;
@@ -105,7 +106,7 @@
 
         h3 {
             font-size: 1.5em;
-            color: $product-white;
+            color: rgb(var(--background-color));
         }
     }
 
