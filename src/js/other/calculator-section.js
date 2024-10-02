@@ -47,3 +47,30 @@ creditForm.addEventListener('submit', e => {
         alert(`Диференційовані платежі:\n${result}`);
     }
 });
+
+const leasingForm = leasingBox.querySelector('form');
+
+leasingForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const contractAmount = parseFloat(leasingForm.querySelector('#contractAmount').value);
+    const interestRate = parseFloat(leasingForm.querySelector('#interestRate').value) / 100;
+    const advancePercentage = parseFloat(leasingForm.querySelector('#advance').value) / 100;
+    const leaseTerm = parseInt(leasingForm.querySelector('#leaseTerm').value);
+    const insuranceMonthly = parseFloat(leasingForm.querySelector('#insurance').value);
+
+    if (isNaN(contractAmount) || isNaN(interestRate) || isNaN(advancePercentage) ||
+        isNaN(leaseTerm) || isNaN(insuranceMonthly)) {
+        alert('Будь ласка, введіть усі дані для розрахунку лізингу.');
+        return;
+    }
+
+    const advancePayment = contractAmount * advancePercentage;
+    const remainingAmount = contractAmount - advancePayment;
+    const interestAmount = remainingAmount * interestRate * (leaseTerm / 12);
+    const totalLeaseAmount = remainingAmount + interestAmount + (remainingAmount + interestAmount) * 0.2;
+    const monthlyPaymentWithoutInsurance = totalLeaseAmount / leaseTerm;
+    const monthlyPayment = monthlyPaymentWithoutInsurance + insuranceMonthly;
+
+    alert(`Вартість договору лізингу: ${totalLeaseAmount.toFixed(2)} \nРозмір авансу: ${advancePayment.toFixed(2)} \nЩомісячний платіж: ${monthlyPayment.toFixed(2)}`);
+});
