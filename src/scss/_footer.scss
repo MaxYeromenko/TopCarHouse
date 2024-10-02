@@ -1,18 +1,18 @@
 footer {
-    background-color: darken(#333, 5%);
-    color: white;
+    background-color: darken($product-dark, 5%);
+    color: $product-white;
     padding: 20px;
     text-align: center;
     width: 100%;
 
     a {
-        color: #f60;
+        color: $product-orange;
         text-decoration: none;
     }
 
     a:hover {
         text-decoration: underline;
-        color: white;
+        color: $product-white;
         transition: all .6s;
     }
 }

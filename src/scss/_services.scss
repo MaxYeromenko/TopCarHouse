@@ -1,39 +1,76 @@
-$product-white: #fff;
-$product-dark: #333;
-$product-orange: #f60;
+.services {
+    padding: 40px;
+    background-color: $product-white;
+    color: $product-dark;
+    text-align: center;
 
-#services-container {
-    @extend .form-container, .flex-align-to-center;
-    gap: 25px;
+    h2 {
+        font-size: 36px;
+    }
 
-    .service {
+    h3 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 2;
+        margin: 0 auto;
+        max-width: 850px;
+    }
+
+    .stage {
+        margin-bottom: 40px;
+        position: relative;
+
+        .stage-number {
+            font-size: 75px;
+            color: darken($product-white, 20%);
+        }
+
+        img {
+            border-radius: 3%;
+            display: block;
+            margin: 20px auto;
+            width: 45%;
+            height: 55%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1000px) {
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .title-services {
         @extend .flex-align-to-center;
-        width: 100%;
-        padding: 15px;
-        border-bottom: solid 1px $product-orange;
-        transition: transform 0.2s ease;
+        height: 90vh;
 
-        &:hover {
-            transform: scale(1.05);
+        h1 {
+            font-size: 48px;
+            margin: 0;
         }
 
-        h2 {
-            margin: 10px;
-            line-height: 0;
+        p {
+            font-size: 24px;
+            margin: 10px 0;
         }
-    }
 
-    @media (max-width: 340px) {
-        h2 {
-            font-size: 22px;
-        }
-    }
+        #go-to-description {
+            @extend .default-button-light-bg;
+            font-size: 40px;
+            border: solid 2px $product-white;
+            border-radius: 100%;
+            width: 64px;
+            height: 64px;
+            margin-top: 10%;
+            transition: border-color 0.4s;
 
-    a {
-        @extend .default-button-dark-bg;
-
-        i {
-            font-size: small;
+            &:hover {
+                border-color: $product-orange;
+            }
         }
     }
 }

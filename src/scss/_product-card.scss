@@ -1,8 +1,3 @@
-$product-white: #fff;
-$product-dark: #333;
-$product-orange: #f60;
-
-/* Стилі для популярних моделей */
 .cards-section {
     @extend .flex-align-to-center;
     gap: 35px;
@@ -64,7 +59,7 @@ $product-orange: #f60;
                     padding: 10px 15px;
                     background-color: $product-orange;
                     border-radius: 5px;
-                    color: white;
+                    color: $product-white;
                     border: none;
                     opacity: 0;
                     transition: all .6s, opacity .3s;

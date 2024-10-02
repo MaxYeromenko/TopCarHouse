@@ -22,7 +22,7 @@ button {
   color: #fff;
 }
 
-.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #services-container .service, #services-container, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, .services .title-services, #services-container .service, #services-container, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +38,7 @@ button {
           justify-content: center;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
 .cards-section .cards-section-buttons button, .form-container .form-template button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
   background-color: #f60;
   color: #fff;
@@ -50,7 +50,7 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
 .cards-section .cards-section-buttons button:hover, .form-container .form-template button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
   color: #f60;
 }
@@ -60,7 +60,7 @@ button {
   background-color: #333;
 }
 
-.default-button-light-bg:hover, .about .title-about #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
+.default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
   background-color: #fff;
 }
 
@@ -203,9 +203,6 @@ button {
 header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -250,7 +247,7 @@ header .icon-wrapper .vertical-nav {
   gap: 15px;
   padding: 10px;
   margin: 0px -50px;
-  border: solid 1px black;
+  border: solid 1px #333;
 }
 header .icon-wrapper:hover .fa-angles-up {
   visibility: hidden;
@@ -509,7 +506,6 @@ body main .features .feature {
   display: none;
 }
 
-/* Стилі для популярних моделей */
 .cards-section {
   gap: 35px;
 }
@@ -578,7 +574,7 @@ body main .features .feature {
   padding: 10px 15px;
   background-color: #f60;
   border-radius: 5px;
-  color: white;
+  color: #fff;
   border: none;
   opacity: 0;
   -webkit-transition: all 0.6s, opacity 0.3s;
@@ -691,9 +687,74 @@ body main .features .feature {
   font-size: small;
 }
 
+.services {
+  padding: 40px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+.services h2 {
+  font-size: 36px;
+}
+.services h3 {
+  font-size: 25px;
+}
+.services p {
+  font-size: 18px;
+  line-height: 2;
+  margin: 0 auto;
+  max-width: 850px;
+}
+.services .stage {
+  margin-bottom: 40px;
+  position: relative;
+}
+.services .stage .stage-number {
+  font-size: 75px;
+  color: #cccccc;
+}
+.services .stage img {
+  border-radius: 3%;
+  display: block;
+  margin: 20px auto;
+  width: 45%;
+  height: 55%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 1000px) {
+  .services .stage img {
+    width: 100%;
+  }
+}
+.services .title-services {
+  height: 90vh;
+}
+.services .title-services h1 {
+  font-size: 48px;
+  margin: 0;
+}
+.services .title-services p {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.services .title-services #go-to-description {
+  font-size: 40px;
+  border: solid 2px #fff;
+  border-radius: 100%;
+  width: 64px;
+  height: 64px;
+  margin-top: 10%;
+  -webkit-transition: border-color 0.4s;
+  transition: border-color 0.4s;
+}
+.services .title-services #go-to-description:hover {
+  border-color: #f60;
+}
+
 footer {
   background-color: #262626;
-  color: white;
+  color: #fff;
   padding: 20px;
   text-align: center;
   width: 100%;
@@ -704,14 +765,13 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
-  color: white;
+  color: #fff;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
 
 .about {
   padding: 40px;
-  background-color: #fff;
   color: #333;
   text-align: center;
 }
