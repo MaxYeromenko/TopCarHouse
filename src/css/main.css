@@ -883,18 +883,19 @@ footer a:hover {
   display: flex;
   visibility: hidden;
   background-color: rgba(var(--main-color), 0.8);
+  text-align: center;
 }
 #thank-you-message-bg #thank-you-message {
   background-color: rgb(var(--main-color));
   width: 40%;
   height: 30%;
-  padding: 5%;
+  padding: 10px;
   gap: 20px;
   border-radius: 10px;
   opacity: 0;
 }
 #thank-you-message-bg #thank-you-message img {
-  width: 100%;
+  width: 80%;
 }
 #thank-you-message-bg #thank-you-message h3 {
   font-size: 1.5em;

@@ -88,6 +88,7 @@
     display: flex;
     visibility: hidden;
     background-color: rgba(var(--main-color), .8);
+    text-align: center;
 
     #thank-you-message {
         @extend .flex-align-to-center;
@@ -95,23 +96,21 @@
         background-color: rgb(var(--main-color));
         width: 40%;
         height: 30%;
-        padding: 5%;
+        padding: 10px;
         gap: 20px;
         border-radius: 10px;
         opacity: 0;
 
         img {
-            width: 100%;
+            width: 80%;
         }
 
         h3 {
             font-size: 1.5em;
             color: rgb(var(--background-color));
         }
-    }
 
-    @media (max-width: 1000px) {
-        #thank-you-message {
+        @media (max-width: 1000px) {
             width: 85%;
         }
     }
