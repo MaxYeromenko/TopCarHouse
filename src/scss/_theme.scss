@@ -1,0 +1,8 @@
+#theme-section-open {
+    @extend .section-open-button-template;
+}
+
+#theme-container {
+    @extend .form-container, .flex-align-to-center;
+
+}

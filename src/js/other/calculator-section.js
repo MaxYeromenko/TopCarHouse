@@ -4,6 +4,7 @@ const creditBox = document.getElementById('credit-box');
 const leasingBox = document.getElementById('leasing-box');
 
 calculatorSectionOpen.addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(calculatorContainer, 'block');
 });

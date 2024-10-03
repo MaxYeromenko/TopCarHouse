@@ -20,6 +20,7 @@ if (isAuthTokenExpired()) {
 
 logButtons.forEach(button => {
     button.addEventListener('click', () => {
+        hideAllElementsInModalWindow(modalWindow);
         toggleElementVisibility(modalWindow, 'flex');
         toggleElementVisibility(authContainer, 'block');
     });

@@ -43,6 +43,10 @@
 
         <div class="burger-instruments-wrapper">
             <div class="open-section-button-container">
+                <button id="theme-section-open" title="Змінити тему">
+                    <i class="fa-solid fa-brush"></i>
+                </button>
+
                 <button id="calculator-section-open" title="Кредитний / лізинговий калькулятор">
                     <i class="fa-solid fa-calculator"></i>
                 </button>
@@ -127,6 +131,13 @@
                     <a href="/pages/services.html">Дізнатися більше</a>
                 </div>
             </div>
+
+            <div id="theme-container" class="modal-window-element">
+                <button data-theme="default-theme">Стандартна тема</button>
+                <button data-theme="golden-accent-theme">Золотий акцент</button>
+                <button data-theme="red-accent-theme">Червоний акцент</button>
+                <button data-theme="vibrant-purple-yellow-theme">Фіолетово-жовта</button>
+            </div>
         </section>
 
         <section class="cards-section"></section>
@@ -152,6 +163,7 @@
     <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
     <script src="/src/js/other/header-margin.js"></script>
     <script src="/src/js/other/general-variables-functions.js"></script>
+    <script src="/src/js/other/themes.js"></script>
     <script src="/src/js/other/services.js"></script>
     <script src="/src/js/other/calculator-section.js"></script>
     <script src="/src/js/_get-requests/place-all-cars.js"></script>

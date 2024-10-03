@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    applySavedTheme();
+
     const head = document.querySelector('head');
 
     const existingIcons = head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
