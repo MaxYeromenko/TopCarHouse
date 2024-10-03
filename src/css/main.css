@@ -278,7 +278,7 @@ header .icon-wrapper .vertical-nav {
   gap: 15px;
   padding: 10px;
   margin: 0px -50px;
-  border: solid 1px rgb(var(--main-color));
+  border: solid 1px rgb(var(--secondary-color));
 }
 header .icon-wrapper:hover .fa-angles-up {
   visibility: hidden;
@@ -301,17 +301,17 @@ header .icon-wrapper:hover .vertical-nav {
     position: relative;
   }
 }
-header .logo {
-  width: 81%;
+header .logo-bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
-header .logo img {
-  width: 100%;
-}
-@media (max-width: 545px) {
-  header .consultation-button-bg button {
-    font-size: 80%;
-    padding: 5px;
-  }
+header .logo-bg a {
+  font-size: 3.5vmax;
+  color: rgb(var(--secondary-color));
 }
 @media (max-width: 545px) {
   header {
