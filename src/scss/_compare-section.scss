@@ -20,15 +20,15 @@
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 20px;
-    background-color: rgb(var(--background-color));
+    // background-color: rgb(var(--background-color));
     width: 90%;
     border-radius: 10px;
     max-height: 90vh;
     overflow-y: auto;
 
     .compare-item {
-        background-color: rgb(var(--main-color));
-        color: rgb(var(--background-color));
+        background-color: rgb(var(--background-color));
+        color: rgb(var(--main-color));
         padding: 20px 0;
         text-align: center;
         position: relative;

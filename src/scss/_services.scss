@@ -20,12 +20,18 @@
     }
 
     .stage {
+        @extend .flex-align-to-center;
         margin-bottom: 40px;
-        position: relative;
 
         .stage-number {
             font-size: 75px;
             color: rgba(var(--main-color), .25);
+        }
+
+        .enumeration-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
         }
 
         img {

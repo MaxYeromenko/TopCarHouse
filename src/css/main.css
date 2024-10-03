@@ -52,7 +52,7 @@ button {
   color: rgb(var(--background-color));
 }
 
-.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #services-container .service, #services-container, .services .title-services, .cards-section, #theme-container, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section, #theme-container, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -467,15 +467,14 @@ body main .features .feature {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 20px;
-  background-color: rgb(var(--background-color));
   width: 90%;
   border-radius: 10px;
   max-height: 90vh;
   overflow-y: auto;
 }
 #compare-container .compare-item {
-  background-color: rgb(var(--main-color));
-  color: rgb(var(--background-color));
+  background-color: rgb(var(--background-color));
+  color: rgb(var(--main-color));
   padding: 20px 0;
   text-align: center;
   position: relative;
@@ -709,11 +708,14 @@ body main .features .feature {
 }
 .services .stage {
   margin-bottom: 40px;
-  position: relative;
 }
 .services .stage .stage-number {
   font-size: 75px;
   color: rgba(var(--main-color), 0.25);
+}
+.services .stage .enumeration-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .services .stage img {
   border-radius: 3%;
