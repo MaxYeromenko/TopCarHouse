@@ -1,10 +1,4 @@
 @charset "UTF-8";
-:root {
-  --main-color: 55, 55, 55;
-  --secondary-color: 255, 102, 0;
-  --background-color: 255, 255, 255;
-}
-
 [data-theme=default-theme] {
   --main-color: 55, 55, 55;
   --secondary-color: 255, 102, 0;

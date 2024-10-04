@@ -6,6 +6,9 @@ function applySavedTheme() {
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
+    else {
+        document.documentElement.setAttribute('data-theme', 'default-theme');
+    }
 }
 
 const modalWindow = document.getElementById('modal-window');
