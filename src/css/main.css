@@ -345,6 +345,7 @@ header .consultation-button-bg {
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(var(--background-color));
 }
 body main {
   min-height: 100vh;
