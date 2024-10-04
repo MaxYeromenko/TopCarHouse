@@ -52,7 +52,7 @@ button {
   color: rgb(var(--background-color));
 }
 
-.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section, #theme-container, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section, #theme-container, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -714,22 +714,61 @@ body main .features .feature {
   font-size: 75px;
   color: rgba(var(--main-color), 0.25);
 }
-.services .stage .enumeration-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.services .stage ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  gap: 15px;
+  padding: 0;
+  margin: 15px;
+  width: 70%;
+  font-size: 1.3rem;
+  color: rgb(var(--secondary-color));
+  list-style-type: none;
 }
-.services .stage img {
-  border-radius: 3%;
-  display: block;
-  margin: 20px auto;
-  width: 45%;
-  height: 55%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.services .stage ul li {
+  line-height: 2;
+  font-size: 1rem;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+.services .stage ul li:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 @media (max-width: 1000px) {
-  .services .stage img {
-    width: 100%;
+  .services .stage ul {
+    width: 90%;
+  }
+}
+.services .stage .image-container {
+  position: relative;
+  width: 55%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.services .stage .image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: solid 1px rgb(var(--secondary-color));
+  border-radius: 5px;
+}
+@media (max-width: 1000px) {
+  .services .stage .image-container {
+    width: 80%;
   }
 }
 .services .title-services {
@@ -825,24 +864,31 @@ footer a:hover {
 }
 .about .stage {
   margin-bottom: 40px;
-  position: relative;
 }
 .about .stage .stage-number {
   font-size: 75px;
   color: rgba(var(--main-color), 0.25);
 }
-.about .stage img {
-  border-radius: 3%;
-  display: block;
-  margin: 20px auto;
-  width: 45%;
-  height: 55%;
+.about .stage .image-container {
+  position: relative;
+  width: 55%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.about .stage .image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border: solid 1px rgb(var(--secondary-color));
+  border-radius: 5px;
 }
 @media (max-width: 1000px) {
-  .about .stage img {
-    width: 100%;
+  .about .stage .image-container {
+    width: 80%;
   }
 }
 .about .title-about {
@@ -984,7 +1030,7 @@ main.product-main {
 .product-container .slider-container .image-container {
   position: relative;
   width: 100%;
-  padding-bottom: 62.5%;
+  aspect-ratio: 16/9;
   overflow: hidden;
 }
 .product-container .slider-container .image-container #product-image {

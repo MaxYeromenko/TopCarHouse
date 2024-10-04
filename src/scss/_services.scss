@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .services {
     padding: 40px;
     background-color: rgb(var(--background-color));
@@ -28,24 +30,52 @@
             color: rgba(var(--main-color), .25);
         }
 
-        .enumeration-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+            padding: 0;
+            margin: 15px;
+            width: 70%;
+            font-size: 1.3rem;
+            color: rgb(var(--secondary-color));
+            list-style-type: none;
 
+            li {
+                line-height: 2;
+                font-size: 1rem;
+                transition: transform .4s;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            @media (max-width:1000px) {
+                width: 90%;
+            }
         }
 
-        img {
-            border-radius: 3%;
-            display: block;
-            margin: 20px auto;
-            width: 45%;
-            height: 55%;
-            object-fit: cover;
-        }
+        .image-container {
+            position: relative;
+            width: 55%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
 
-        @media (max-width: 1000px) {
             img {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border: solid 1px rgb(var(--secondary-color));
+                border-radius: 5px;
+            }
+
+            @media (max-width: 1000px) {
+                width: 80%;
             }
         }
     }
