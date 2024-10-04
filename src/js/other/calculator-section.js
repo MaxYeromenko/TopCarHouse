@@ -1,7 +1,8 @@
 const calculatorSectionOpen = document.getElementById('calculator-section-open');
 const calculatorContainer = document.getElementById('calculator-container');
-const creditBox = document.getElementById('credit-box');
-const leasingBox = document.getElementById('leasing-box');
+const creditBox = calculatorContainer.querySelector('#credit-box');
+const leasingBox = calculatorContainer.querySelector('#leasing-box');
+const resultBox = calculatorContainer.querySelector('result');
 
 calculatorSectionOpen.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
@@ -11,11 +12,15 @@ calculatorSectionOpen.addEventListener('click', () => {
 
 document.getElementById('toggle-leasing').addEventListener('click', () => {
     toggleElementVisibility(creditBox, 'none');
+    toggleElementVisibility(resultBox, 'none');
+    resultBox.innerHTML = '';
     toggleElementVisibility(leasingBox, 'block');
 });
 
 document.getElementById('toggle-credit').addEventListener('click', () => {
     toggleElementVisibility(leasingBox, 'none');
+    toggleElementVisibility(resultBox, 'none');
+    resultBox.innerHTML = '';
     toggleElementVisibility(creditBox, 'block');
 });
 
@@ -30,22 +35,23 @@ creditForm.addEventListener('submit', e => {
     const paymentType = creditForm.querySelector('#paymentType').value;
 
     if (isNaN(amount) || isNaN(term) || isNaN(rate)) {
-        alert('Будь ласка, введіть усі дані для розрахунку кредиту.');
+        showMessage('Будь ласка, введіть усі дані для розрахунку кредиту.', false);
         return;
     }
 
     if (paymentType === 'annuity') {
         const creditPayment = amount * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-        alert(`Щомісячний платіж (Аннуїтетний): ${creditPayment.toFixed(2)} грн`);
+        toggleElementVisibility(resultBox, 'block');
+        resultBox.textContent = `Щомісячний платіж (Аннуїтетний): ${creditPayment.toFixed(2)} грн`;
     } else if (paymentType === 'differentiated') {
-        let result = '';
+        toggleElementVisibility(resultBox, 'block');
+        resultBox.innerHTML = 'Диференційовані платежі:<br>';
         for (let month = 1; month <= term; month++) {
             const monthlyPrincipal = amount / term;
             const interestPayment = (amount - (monthlyPrincipal * (month - 1))) * rate;
             const totalMonthlyPayment = monthlyPrincipal + interestPayment;
-            result += `Місяць ${month}: ${totalMonthlyPayment.toFixed(2)} грн\n`;
+            resultBox.innerHTML += `Місяць ${month}: ${totalMonthlyPayment.toFixed(2)} грн<br>`;
         }
-        alert(`Диференційовані платежі:\n${result}`);
     }
 });
 
@@ -62,7 +68,7 @@ leasingForm.addEventListener('submit', e => {
 
     if (isNaN(contractAmount) || isNaN(interestRate) || isNaN(advancePercentage) ||
         isNaN(leaseTerm) || isNaN(insuranceMonthly)) {
-        alert('Будь ласка, введіть усі дані для розрахунку лізингу.');
+        showMessage('Будь ласка, введіть усі дані для розрахунку лізингу.', false);
         return;
     }
 
@@ -73,5 +79,8 @@ leasingForm.addEventListener('submit', e => {
     const monthlyPaymentWithoutInsurance = totalLeaseAmount / leaseTerm;
     const monthlyPayment = monthlyPaymentWithoutInsurance + insuranceMonthly;
 
-    alert(`Вартість договору лізингу: ${totalLeaseAmount.toFixed(2)} \nРозмір авансу: ${advancePayment.toFixed(2)} \nЩомісячний платіж: ${monthlyPayment.toFixed(2)}`);
+    toggleElementVisibility(resultBox, 'block');
+    resultBox.innerHTML = `Вартість договору лізингу: ${totalLeaseAmount.toFixed(2)}
+    <br>Розмір авансу: ${advancePayment.toFixed(2)} 
+    <br>Щомісячний платіж: ${monthlyPayment.toFixed(2)}`;
 });
