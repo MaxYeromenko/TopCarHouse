@@ -830,11 +830,6 @@ body main .features .feature {
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
 }
-.services .stage ul li:hover {
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
-}
 @media (max-width: 1000px) {
   .services .stage ul {
     width: 90%;
