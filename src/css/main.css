@@ -1072,8 +1072,6 @@ footer a:hover {
           align-items: center;
   gap: 10px;
   border-left: solid 1px rgb(var(--secondary-color));
-}
-.catalog .catalog-grid .column:last-child {
   border-right: solid 1px rgb(var(--secondary-color));
 }
 .catalog .catalog-grid .column list-title {
@@ -1090,6 +1088,12 @@ footer a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+}
+.catalog .catalog-grid .column div a {
+  color: rgb(var(--main-color));
+}
+.catalog .catalog-grid .column div a:hover {
+  color: rgb(var(--secondary-color));
 }
 
 main.product-main {
