@@ -1,9 +1,11 @@
 .catalog {
+    @extend .flex-align-to-center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 40px;
     color: rgb(var(--main-color));
     background-color: rgb(var(--background-color));
-    display: flex;
-    justify-content: space-between;
 
     .column {
         display: flex;

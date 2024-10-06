@@ -46,7 +46,7 @@ button {
   color: rgb(var(--background-color));
 }
 
-.flex-align-to-center, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, .catalog, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1044,15 +1044,16 @@ footer a:hover {
 }
 
 .catalog {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
   padding: 40px;
   color: rgb(var(--main-color));
   background-color: rgb(var(--background-color));
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 .catalog .column {
   display: -webkit-box;
