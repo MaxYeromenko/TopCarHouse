@@ -4,6 +4,7 @@ body {
     background-color: rgb(var(--background-color));
 
     main {
+        min-height: 100vh;
 
         .info-message {
             position: fixed;
