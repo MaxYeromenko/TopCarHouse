@@ -1,8 +1,6 @@
 .catalog {
-    @extend .flex-align-to-center;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
     gap: 20px;
     padding: 40px;
     color: rgb(var(--main-color));
