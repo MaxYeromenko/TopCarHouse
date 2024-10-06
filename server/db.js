@@ -32,13 +32,15 @@ const CarSchema = new mongoose.Schema({
     price: Number,
     color: String,
     description: String,
+    country: String,
     images: [String],
     features: {
         transmission: String,
         engine: String,
         fuel_type: String,
         horsepower: Number,
-        fuel_consumption: Number
+        fuel_consumption: Number,
+        body_type: String
     }
 });
 

@@ -66,6 +66,7 @@ function loadProductInfo() {
     document.getElementById('product-model').textContent = productData.model;
     document.getElementById('product-year').textContent = productData.year;
     document.getElementById('product-color').textContent = productData.color;
+    document.getElementById('product-country').textContent = productData.country;
     document.getElementById('product-transmission').textContent = productData.features.transmission;
 
     const engine = productData.features.engine;
@@ -75,6 +76,7 @@ function loadProductInfo() {
     document.getElementById('product-fuel-consumption').textContent =
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';
     document.getElementById('product-fuel-type').textContent = productData.features.fuel_type;
+    document.getElementById('product-body-type').textContent = productData.features.body_type;
 }
 
 document.getElementById('add-to-compare-button').addEventListener('click', () => {

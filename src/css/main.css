@@ -1042,6 +1042,16 @@ footer a:hover {
   }
 }
 
+.catalog {
+  padding: 40px;
+  color: rgb(var(--main-color));
+  background-color: wheat;
+  text-align: center;
+}
+.catalog .column {
+  background-color: aliceblue;
+}
+
 main.product-main {
   display: -webkit-box;
   display: -ms-flexbox;

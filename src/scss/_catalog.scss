@@ -1,0 +1,11 @@
+.catalog {
+    padding: 40px;
+    color: rgb(var(--main-color));
+    // background-color: rgb(var(--background-color));
+    background-color: wheat;
+    text-align: center;
+
+    .column {
+        background-color: aliceblue;
+    }
+}
