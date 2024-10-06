@@ -21,6 +21,7 @@ if (isAuthTokenExpired()) {
 }
 else
     document.addEventListener("DOMContentLoaded", async () => {
+        showMessage('Завантаження...', true);
 
         try {
             const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
@@ -28,6 +29,7 @@ else
             if (result) {
                 catalogTypes = result;
                 placeCatalogTypes(catalogTypes);
+                showMessage('Дані успішно завантажені!', true);
             }
         } catch (error) {
             console.error('Error fetching cars data:', error);
@@ -39,13 +41,13 @@ function placeCatalogTypes(catalogTypes) {
     for (const brand of catalogTypes.brands) {
         brandList.innerHTML = `<span>${brand}</span>`;
     }
-    for (const country of catalogTypes.brands) {
+    for (const country of catalogTypes.countries) {
         countryList.innerHTML = `<span>${country}</span>`;
     }
-    for (const bodyType of catalogTypes.brands) {
+    for (const bodyType of catalogTypes.bodyTypes) {
         bodyTypeList.innerHTML = `<span>${bodyType}</span>`;
     }
-    for (const transmission of catalogTypes.brands) {
+    for (const transmission of catalogTypes.transmissions) {
         transmissionList.innerHTML = `<span>${transmission}</span>`;
     }
 }
