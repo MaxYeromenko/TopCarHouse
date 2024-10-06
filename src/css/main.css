@@ -1094,6 +1094,7 @@ footer a:hover {
 }
 .catalog .catalog-grid .column div a:hover {
   color: rgb(var(--secondary-color));
+  text-decoration: underline;
 }
 
 main.product-main {

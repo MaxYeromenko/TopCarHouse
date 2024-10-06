@@ -44,18 +44,18 @@ function placeCatalogTypes(catalogTypes) {
     transmissionList.innerHTML = '';
 
     for (const brand of catalogTypes.brands) {
-        brandList.innerHTML += `<a>${brand}</a>`;
+        brandList.innerHTML += `<a data-catalog-type="${brand}">${brand}</a>`;
     }
 
     for (const country of catalogTypes.countries) {
-        countryList.innerHTML += `<a>${country}</a>`;
+        countryList.innerHTML += `<a data-catalog-type="${country}">${country}</a>`;
     }
 
     for (const bodyType of catalogTypes.bodyTypes) {
-        bodyTypeList.innerHTML += `<a>${bodyType}</a>`;
+        bodyTypeList.innerHTML += `<a data-catalog-type="${bodyType}">${bodyType}</a>`;
     }
 
     for (const transmission of catalogTypes.transmissions) {
-        transmissionList.innerHTML += `<a>${transmission}</a>`;
+        transmissionList.innerHTML += `<a data-catalog-type="${transmission}">${transmission}</a>`;
     }
 }
