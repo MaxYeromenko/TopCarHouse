@@ -1044,14 +1044,22 @@ footer a:hover {
 }
 
 .catalog {
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.catalog .catalog-grid {
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
   gap: 20px;
-  padding: 40px;
   color: rgb(var(--main-color));
-  background-color: rgb(var(--background-color));
 }
-.catalog .column {
+.catalog .catalog-grid .column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1061,11 +1069,11 @@ footer a:hover {
           flex-direction: column;
   gap: 10px;
 }
-.catalog .column list-title {
+.catalog .catalog-grid .column list-title {
   font-size: 18px;
   font-weight: bold;
 }
-.catalog .column div {
+.catalog .catalog-grid .column div {
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;

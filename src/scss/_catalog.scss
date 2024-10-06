@@ -1,26 +1,31 @@
 .catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-    gap: 20px;
     padding: 40px;
-    color: rgb(var(--main-color));
-    background-color: rgb(var(--background-color));
+    display: flex;
+    justify-content: center;
 
-    .column {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    .catalog-grid {
+        width: 60%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+        gap: 20px;
+        color: rgb(var(--main-color));
 
-        list-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        div {
-            padding: 10px;
+        .column {
             display: flex;
             flex-direction: column;
             gap: 10px;
+
+            list-title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            div {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     }
 }
