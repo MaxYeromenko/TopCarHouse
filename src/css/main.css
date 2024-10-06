@@ -1067,7 +1067,14 @@ footer a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
+  border-left: solid 1px rgb(var(--secondary-color));
+}
+.catalog .catalog-grid .column:last-child {
+  border-right: solid 1px rgb(var(--secondary-color));
 }
 .catalog .catalog-grid .column list-title {
   font-size: 18px;
