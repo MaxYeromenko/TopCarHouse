@@ -1,6 +1,7 @@
 .catalog {
     @extend .flex-align-to-center;
     flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
     padding: 40px;
