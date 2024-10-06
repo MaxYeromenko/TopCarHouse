@@ -1090,6 +1090,9 @@ footer a:hover {
   gap: 10px;
 }
 .catalog .catalog-grid .column div a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: rgb(var(--main-color));
 }
 .catalog .catalog-grid .column div a:hover {
