@@ -1,11 +1,25 @@
 .catalog {
     padding: 40px;
     color: rgb(var(--main-color));
-    // background-color: rgb(var(--background-color));
-    background-color: wheat;
-    text-align: center;
+    background-color: rgb(var(--background-color));
+    display: flex;
+    justify-content: space-between;
 
     .column {
-        background-color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        list-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        div {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
     }
 }

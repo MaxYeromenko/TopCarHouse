@@ -631,10 +631,7 @@ body main .features .feature {
 
 .cards-section {
   gap: 35px;
-}
-.cards-section .cards-section-buttons a,
-.cards-section .cards-section-buttons button {
-  margin-bottom: 35px;
+  padding: 35px;
 }
 .cards-section .cards-section-buttons a {
   display: none;
@@ -1045,11 +1042,38 @@ footer a:hover {
 .catalog {
   padding: 40px;
   color: rgb(var(--main-color));
-  background-color: wheat;
-  text-align: center;
+  background-color: rgb(var(--background-color));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .catalog .column {
-  background-color: aliceblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.catalog .column list-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.catalog .column div {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
 }
 
 main.product-main {
