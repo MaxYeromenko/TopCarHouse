@@ -3,10 +3,12 @@ const { CarModel } = require('../server/db');
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const brands = await CarModel.distinct('brand');
-            const countries = await CarModel.distinct('country');
-            const bodyTypes = await CarModel.distinct('features.body_type');
-            const transmissions = await CarModel.distinct('features.transmission');
+            const cars = await CarModel.find({}, 'brand country features.body_type features.transmission');
+
+            const brands = [...new Set(cars.map(car => car.brand))];
+            const countries = [...new Set(cars.map(car => car.country))];
+            const bodyTypes = [...new Set(cars.map(car => car.features.body_type))];
+            const transmissions = [...new Set(cars.map(car => car.features.transmission))];
 
             res.status(200).json({
                 brands,
