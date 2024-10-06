@@ -342,7 +342,6 @@ body {
   background-color: rgb(var(--background-color));
 }
 body main {
-  min-height: 100vh;
   /* Стилі для слайдера */
   /* Стилі для переваг */
 }
