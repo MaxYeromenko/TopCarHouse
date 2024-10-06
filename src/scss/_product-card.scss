@@ -1,22 +1,25 @@
 .cards-section {
     @extend .flex-align-to-center;
     gap: 35px;
-    padding: 35px;
 
     .cards-section-buttons {
+        @extend .flex-align-to-center;
 
         a,
         button {
             @extend .default-button-dark-bg;
+            margin-bottom: 35px;
         }
 
         a {
+            margin: 35px;
             display: none;
         }
     }
 
     .cars-container {
         width: 100%;
+        padding: 3%;
         display: grid;
         justify-items: center;
         text-align: center;
