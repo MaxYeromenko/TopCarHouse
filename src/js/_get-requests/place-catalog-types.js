@@ -38,16 +38,24 @@ else
     });
 
 function placeCatalogTypes(catalogTypes) {
+    brandList.innerHTML = '';
+    countryList.innerHTML = '';
+    bodyTypeList.innerHTML = '';
+    transmissionList.innerHTML = '';
+
     for (const brand of catalogTypes.brands) {
-        brandList.innerHTML = `<span>${brand}</span>`;
+        brandList.innerHTML += `<span>${brand}</span>`;
     }
+
     for (const country of catalogTypes.countries) {
-        countryList.innerHTML = `<span>${country}</span>`;
+        countryList.innerHTML += `<span>${country}</span>`;
     }
+
     for (const bodyType of catalogTypes.bodyTypes) {
-        bodyTypeList.innerHTML = `<span>${bodyType}</span>`;
+        bodyTypeList.innerHTML += `<span>${bodyType}</span>`;
     }
+
     for (const transmission of catalogTypes.transmissions) {
-        transmissionList.innerHTML = `<span>${transmission}</span>`;
+        transmissionList.innerHTML += `<span>${transmission}</span>`;
     }
 }
