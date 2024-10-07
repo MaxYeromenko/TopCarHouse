@@ -3,8 +3,9 @@ const { CarModel } = require('../server/db');
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const { brand, country, bodyType, transmission } = req.query;
-            console.log(req.query, 'req.query');
+            const query = { ...req.query };
+            const { brand, country, bodyType, transmission } = query;
+            console.log(query, 'req.query');
 
             const filter = {};
             if (brand) filter.brand = brand;
