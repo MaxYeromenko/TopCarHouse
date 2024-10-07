@@ -13,10 +13,16 @@ cardsSection.appendChild(carsContainer);
 const cardsSectionButtons = document.createElement('div');
 cardsSectionButtons.className = 'cards-section-buttons';
 cardsSection.appendChild(cardsSectionButtons);
+const loadMoreCarsButton = document.createElement('button');
+loadMoreCarsButton.textContent = 'Завантажити більше';
+cardsSectionButtons.appendChild(loadMoreCarsButton);
 const goToHomePage = document.createElement('a');
 goToHomePage.href = '/';
 goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
+
+let carsDisplayed = 0;
+const carsPerPage = 24;
 
 if (isAuthTokenExpired()) {
     toggleElementVisibility(catalogGrid, 'none');
@@ -84,8 +90,9 @@ async function loadCars(filter) {
         const queryParams = new URLSearchParams(filter).toString();
         const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
         if (result) {
+            loadMoreCars(result);
             toggleElementVisibility(catalogGrid, 'none');
-            displayCars(result);
+            toggleElementVisibility(loadMoreCarsButton, 'inline');
             showMessage('Дані успішно завантажені!', true);
         }
     } catch (error) {
@@ -94,13 +101,18 @@ async function loadCars(filter) {
     }
 }
 
-function displayCars(cars) {
-    carsContainer.innerHTML = '';
+function loadMoreCars(carsData) {
+    const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
-    cars.forEach((car) => {
-        carsContainer.appendChild(createCarCard(car));
+    nextCars.forEach(car => {
+        const carCard = createCarCard(car);
+        carsContainer.appendChild(carCard);
     });
-};
+
+    carsDisplayed += nextCars.length;
+
+    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
+}
 
 function createCarCard(car) {
     const carCard = document.createElement('div');
