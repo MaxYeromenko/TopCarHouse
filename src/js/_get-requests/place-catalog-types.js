@@ -5,7 +5,8 @@ const bodyTypeList = catalogSection.querySelector('#body-type-list');
 const transmissionList = catalogSection.querySelector('#transmission-list');
 let catalogTypes = [];
 
-const cardsSection = document.querySelector('.cards-section');
+const catalogGrid = catalogSection.querySelector('.catalog-grid');
+const cardsSection = catalogSection.querySelector('.cards-section');
 const carsContainer = document.createElement('div');
 carsContainer.className = 'cars-container';
 cardsSection.appendChild(carsContainer);
@@ -40,44 +41,56 @@ else
         }
     });
 
+function createLinkElement(text, container, queryParam) {
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = text;
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const filter = {};
+        filter[queryParam] = text;
+        loadCars(filter);
+    });
+    container.appendChild(link);
+}
+
 function placeCatalogTypes(catalogTypes) {
     brandList.innerHTML = '';
     countryList.innerHTML = '';
     bodyTypeList.innerHTML = '';
     transmissionList.innerHTML = '';
 
-    for (const brand of catalogTypes.brands.sort()) {
-        const brandLink = document.createElement('a');
-        brandLink.href = '#';
-        brandLink.textContent = brand;
-        brandLink.addEventListener('click', (e) => {
-            e.preventDefault()
-            loadCars({ brand });
-        });
-        brandList.appendChild(brandLink);
-    }
+    catalogTypes.brands.sort().forEach(brand => {
+        createLinkElement(brand, brandList, 'brand');
+    });
 
-    for (const country of catalogTypes.countries.sort()) {
-        countryList.innerHTML += `<a href="/cars?country=${encodeURIComponent(country)}">${country}</a>`;
-    }
+    catalogTypes.countries.sort().forEach(country => {
+        createLinkElement(country, countryList, 'country');
+    });
 
-    for (const bodyType of catalogTypes.bodyTypes.sort()) {
-        bodyTypeList.innerHTML += `<a href="/cars?bodyType=${encodeURIComponent(bodyType)}">${bodyType}</a>`;
-    }
+    catalogTypes.bodyTypes.sort().forEach(bodyType => {
+        createLinkElement(bodyType, bodyTypeList, 'features.body_type');
+    });
 
-    for (const transmission of catalogTypes.transmissions.sort()) {
-        transmissionList.innerHTML += `<a href="/cars?transmission=${encodeURIComponent(transmission)}">${transmission}</a>`;
-    }
+    catalogTypes.transmissions.sort().forEach(transmission => {
+        createLinkElement(transmission, transmissionList, 'features.transmission');
+    });
 }
 
 async function loadCars(filter) {
+    showMessage('Завантаження...', true);
+
     try {
         const queryParams = new URLSearchParams(filter).toString();
         const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
-
-        displayCars(result);
+        if (result) {
+            toggleElementVisibility(catalogGrid, 'none');
+            displayCars(result);
+            showMessage('Дані успішно завантажені!', true);
+        }
     } catch (error) {
         console.error('Error fetching cars:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
 
