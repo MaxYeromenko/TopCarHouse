@@ -22,6 +22,7 @@ goToHomePage.href = '/';
 goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
 
+let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 24;
 
@@ -91,7 +92,7 @@ async function loadCars(filter) {
         const queryParams = new URLSearchParams(filter).toString();
         const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
         if (result) {
-            loadMoreCars(result);
+            carsData = result;
             toggleElementVisibility(catalogGrid, 'none');
             toggleElementVisibility(loadMoreCarsButton, 'inline');
             showMessage('Дані успішно завантажені!', true);
@@ -102,7 +103,7 @@ async function loadCars(filter) {
     }
 }
 
-function loadMoreCars(carsData) {
+function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
     nextCars.forEach(car => {
