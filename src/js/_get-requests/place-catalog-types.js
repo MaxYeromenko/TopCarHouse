@@ -48,7 +48,6 @@ function placeCatalogTypes(catalogTypes) {
 
     for (const brand of catalogTypes.brands.sort()) {
         const brandLink = document.createElement('a');
-        brandLink.href = '#';
         brandLink.textContent = brand;
         brandLink.addEventListener('click', (e) => {
             e.preventDefault()
