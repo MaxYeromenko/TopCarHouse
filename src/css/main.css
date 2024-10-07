@@ -1066,6 +1066,9 @@ footer a:hover {
   color: rgb(var(--main-color));
 }
 .catalog .catalog-grid .column {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   gap: 10px;
   border-left: solid 1px rgb(var(--secondary-color));
   border-right: solid 1px rgb(var(--secondary-color));
