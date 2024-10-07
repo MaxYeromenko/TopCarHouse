@@ -31,7 +31,7 @@ if (isAuthTokenExpired()) {
     toggleElementVisibility(goToHomePage, 'inline');
     showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
 }
-else
+else {
     document.addEventListener("DOMContentLoaded", async () => {
         showMessage('Завантаження...', true);
 
@@ -48,6 +48,9 @@ else
             showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
         }
     });
+
+    loadMoreCarsButton.addEventListener('click', loadMoreCars);
+}
 
 function createLinkElement(text, container, queryParam) {
     const link = document.createElement('a');
@@ -93,6 +96,7 @@ async function loadCars(filter) {
         const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
         if (result) {
             carsData = result;
+            loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             toggleElementVisibility(loadMoreCarsButton, 'inline');
             showMessage('Дані успішно завантажені!', true);
