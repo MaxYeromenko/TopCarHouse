@@ -6,6 +6,9 @@ const transmissionList = catalogSection.querySelector('#transmission-list');
 let catalogTypes = [];
 
 const cardsSection = document.querySelector('.cards-section');
+const carsContainer = document.createElement('div');
+carsContainer.className = 'cars-container';
+cardsSection.appendChild(carsContainer);
 const cardsSectionButtons = document.createElement('div');
 cardsSectionButtons.className = 'cards-section-buttons';
 cardsSection.appendChild(cardsSectionButtons);
@@ -32,7 +35,7 @@ else
                 showMessage('Дані успішно завантажені!', true);
             }
         } catch (error) {
-            console.error('Error fetching cars data:', error);
+            console.error('Error fetching data:', error);
             showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
         }
     });
@@ -44,18 +47,52 @@ function placeCatalogTypes(catalogTypes) {
     transmissionList.innerHTML = '';
 
     for (const brand of catalogTypes.brands.sort()) {
-        brandList.innerHTML += `<a data-catalog-type="${brand}">${brand}</a>`;
+        const brandLink = document.createElement('a');
+        brandLink.href = '#';
+        brandLink.textContent = brand;
+        brandLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            loadCars({ brand });
+        });
+        brandList.appendChild(brandLink);
     }
 
     for (const country of catalogTypes.countries.sort()) {
-        countryList.innerHTML += `<a data-catalog-type="${country}">${country}</a>`;
+        countryList.innerHTML += `<a href="/cars?country=${encodeURIComponent(country)}">${country}</a>`;
     }
 
     for (const bodyType of catalogTypes.bodyTypes.sort()) {
-        bodyTypeList.innerHTML += `<a data-catalog-type="${bodyType}">${bodyType}</a>`;
+        bodyTypeList.innerHTML += `<a href="/cars?bodyType=${encodeURIComponent(bodyType)}">${bodyType}</a>`;
     }
 
     for (const transmission of catalogTypes.transmissions.sort()) {
-        transmissionList.innerHTML += `<a data-catalog-type="${transmission}">${transmission}</a>`;
+        transmissionList.innerHTML += `<a href="/cars?transmission=${encodeURIComponent(transmission)}">${transmission}</a>`;
     }
+}
+
+async function loadCars(filter) {
+    try {
+        const queryParams = new URLSearchParams(filter).toString();
+        const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
+
+        displayCars(result);
+    } catch (error) {
+        console.error('Error fetching cars:', error);
+    }
+}
+
+function displayCars(cars) {
+    carsContainer.innerHTML = '';
+
+    cars.forEach((car) => {
+        const carElement = document.createElement('div');
+        carElement.classList.add('car-card');
+        carElement.innerHTML = `
+            <h3>${car.brand} ${car.model}</h3>
+            <p>Year: ${car.year}</p>
+            <p>Price: ${car.price}</p>
+            <img src="${car.images[0] || '/default-car-image.jpg'}" alt="${car.model}">
+        `;
+        carsContainer.appendChild(carElement);
+    });
 }
