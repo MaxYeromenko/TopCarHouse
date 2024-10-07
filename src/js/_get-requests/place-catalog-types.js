@@ -109,15 +109,15 @@ async function loadCars(filter) {
 
 function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
+
+    carsDisplayed += nextCars.length;
+
     if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 
     nextCars.forEach(car => {
         const carCard = createCarCard(car);
         carsContainer.appendChild(carCard);
-    });
-
-    carsDisplayed += nextCars.length;
-
+    });    
 }
 
 function createCarCard(car) {
