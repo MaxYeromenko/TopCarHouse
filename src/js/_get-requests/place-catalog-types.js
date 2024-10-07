@@ -109,6 +109,7 @@ async function loadCars(filter) {
 
 function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
+    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 
     nextCars.forEach(car => {
         const carCard = createCarCard(car);
@@ -117,7 +118,6 @@ function loadMoreCars() {
 
     carsDisplayed += nextCars.length;
 
-    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 }
 
 function createCarCard(car) {

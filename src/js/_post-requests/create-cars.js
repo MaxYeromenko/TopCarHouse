@@ -242,6 +242,222 @@ const cars = [
             fuel_consumption: 13,
             body_type: "Позашляховик"
         }
+    },
+    {
+        brand: "Toyota",
+        model: "Camry",
+        year: 2023,
+        price: 30000,
+        color: "Чорний",
+        description: "Седан з надійністю і комфортом",
+        country: "Японія",
+        images: [
+            `${cloudinaryURL}v1725889799/TOYOTA_CAMRY_FRONT.jpg`,
+            `${cloudinaryURL}v1725889801/TOYOTA_CAMRY_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889800/TOYOTA_CAMRY_SIDE.jpg`,
+            `${cloudinaryURL}v1725889800/TOYOTA_CAMRY_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889801/TOYOTA_CAMRY_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Автоматична",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 203,
+            fuel_consumption: 7,
+            body_type: "Седан"
+        }
+    },
+    {
+        brand: "Honda",
+        model: "Civic",
+        year: 2022,
+        price: 24000,
+        color: "Червоний",
+        description: "Економічний та стильний хетчбек",
+        country: "Японія",
+        images: [
+            `${cloudinaryURL}v1725889795/HONDA_CIVIC_FRONT.jpg`,
+            `${cloudinaryURL}v1725889796/HONDA_CIVIC_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889797/HONDA_CIVIC_SIDE.jpg`,
+            `${cloudinaryURL}v1725889798/HONDA_CIVIC_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889799/HONDA_CIVIC_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Механічна",
+            engine: "1.5",
+            fuel_type: "Бензин",
+            horsepower: 180,
+            fuel_consumption: 6,
+            body_type: "Хетчбек"
+        }
+    },
+    {
+        brand: "Chevrolet",
+        model: "Tahoe",
+        year: 2023,
+        price: 67000,
+        color: "Білий",
+        description: "Повнорозмірний позашляховик з потужним двигуном",
+        country: "США",
+        images: [
+            `${cloudinaryURL}v1725889911/CHEVROLET_TAHOE_FRONT.jpg`,
+            `${cloudinaryURL}v1725889913/CHEVROLET_TAHOE_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889912/CHEVROLET_TAHOE_SIDE.jpg`,
+            `${cloudinaryURL}v1725889914/CHEVROLET_TAHOE_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889915/CHEVROLET_TAHOE_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Автоматична",
+            engine: "6.2",
+            fuel_type: "Бензин",
+            horsepower: 420,
+            fuel_consumption: 14,
+            body_type: "Позашляховик"
+        }
+    },
+    {
+        brand: "Volkswagen",
+        model: "Golf",
+        year: 2022,
+        price: 27000,
+        color: "Синій",
+        description: "Компактний хетчбек з відмінною економією пального",
+        country: "Німеччина",
+        images: [
+            `${cloudinaryURL}v1725889811/VOLKSWAGEN_GOLF_FRONT.jpg`,
+            `${cloudinaryURL}v1725889812/VOLKSWAGEN_GOLF_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889813/VOLKSWAGEN_GOLF_SIDE.jpg`,
+            `${cloudinaryURL}v1725889814/VOLKSWAGEN_GOLF_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889815/VOLKSWAGEN_GOLF_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Механічна",
+            engine: "1.4",
+            fuel_type: "Бензин",
+            horsepower: 147,
+            fuel_consumption: 5,
+            body_type: "Хетчбек"
+        }
+    },
+    {
+        brand: "Mazda",
+        model: "CX-5",
+        year: 2023,
+        price: 40000,
+        color: "Сірий",
+        description: "Компактний кросовер з відмінною керованістю",
+        country: "Японія",
+        images: [
+            `${cloudinaryURL}v1725889871/MAZDA_CX5_FRONT.jpg`,
+            `${cloudinaryURL}v1725889872/MAZDA_CX5_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889873/MAZDA_CX5_SIDE.jpg`,
+            `${cloudinaryURL}v1725889874/MAZDA_CX5_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889875/MAZDA_CX5_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Автоматична",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 187,
+            fuel_consumption: 8,
+            body_type: "Кросовер"
+        }
+    },
+    {
+        brand: "Hyundai",
+        model: "Sonata",
+        year: 2022,
+        price: 27000,
+        color: "Синій",
+        description: "Місткий седан з сучасним дизайном",
+        country: "Південна Корея",
+        images: [
+            `${cloudinaryURL}v1725889955/HYUNDAI_SONATA_FRONT.jpg`,
+            `${cloudinaryURL}v1725889957/HYUNDAI_SONATA_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725889956/HYUNDAI_SONATA_SIDE.jpg`,
+            `${cloudinaryURL}v1725889958/HYUNDAI_SONATA_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725889959/HYUNDAI_SONATA_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Автоматична",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 191,
+            fuel_consumption: 7,
+            body_type: "Седан"
+        }
+    },
+    {
+        brand: "Subaru",
+        model: "Outback",
+        year: 2023,
+        price: 39000,
+        color: "Зелений",
+        description: "Універсал з можливостями для бездоріжжя",
+        country: "Японія",
+        images: [
+            `${cloudinaryURL}v1725890032/SUBARU_OUTBACK_FRONT.jpg`,
+            `${cloudinaryURL}v1725890033/SUBARU_OUTBACK_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725890034/SUBARU_OUTBACK_SIDE.jpg`,
+            `${cloudinaryURL}v1725890035/SUBARU_OUTBACK_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725890036/SUBARU_OUTBACK_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Варіатор",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 182,
+            fuel_consumption: 8,
+            body_type: "Універсал"
+        }
+    },
+    {
+        brand: "Kia",
+        model: "Sorento",
+        year: 2023,
+        price: 42000,
+        color: "Сірий",
+        description: "Сімейний кросовер з простором для 7 пасажирів",
+        country: "Південна Корея",
+        images: [
+            `${cloudinaryURL}v1725890071/KIA_SORENTO_FRONT.jpg`,
+            `${cloudinaryURL}v1725890072/KIA_SORENTO_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725890073/KIA_SORENTO_SIDE.jpg`,
+            `${cloudinaryURL}v1725890074/KIA_SORENTO_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725890075/KIA_SORENTO_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Автоматична",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 281,
+            fuel_consumption: 9,
+            body_type: "Кросовер"
+        }
+    },
+    {
+        brand: "Nissan",
+        model: "Altima",
+        year: 2023,
+        price: 29000,
+        color: "Чорний",
+        description: "Стильний седан з високим рівнем комфорту",
+        country: "Японія",
+        images: [
+            `${cloudinaryURL}v1725890155/NISSAN_ALTIMA_FRONT.jpg`,
+            `${cloudinaryURL}v1725890156/NISSAN_ALTIMA_FRONT_LEFT.jpg`,
+            `${cloudinaryURL}v1725890157/NISSAN_ALTIMA_SIDE.jpg`,
+            `${cloudinaryURL}v1725890158/NISSAN_ALTIMA_BACK_LEFT.jpg`,
+            `${cloudinaryURL}v1725890159/NISSAN_ALTIMA_BACK.jpg`,
+        ],
+        features: {
+            transmission: "Варіатор",
+            engine: "2.5",
+            fuel_type: "Бензин",
+            horsepower: 188,
+            fuel_consumption: 8,
+            body_type: "Седан"
+        }
     }
 ];
 
