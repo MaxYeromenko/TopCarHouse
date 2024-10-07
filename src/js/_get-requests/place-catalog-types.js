@@ -98,7 +98,6 @@ async function loadCars(filter) {
             carsData = result;
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
-            toggleElementVisibility(loadMoreCarsButton, 'inline');
             showMessage('Дані успішно завантажені!', true);
         }
     } catch (error) {
@@ -110,14 +109,14 @@ async function loadCars(filter) {
 function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
-    carsDisplayed += nextCars.length;
-
-    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
-
     nextCars.forEach(car => {
         const carCard = createCarCard(car);
         carsContainer.appendChild(carCard);
-    });    
+    });
+
+    carsDisplayed += nextCars.length;
+
+    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
 }
 
 function createCarCard(car) {
