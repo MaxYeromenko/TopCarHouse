@@ -24,7 +24,7 @@ cardsSectionButtons.appendChild(goToHomePage);
 
 let carsData = [];
 let carsDisplayed = 0;
-const carsPerPage = 24;
+const carsPerPage = 12;
 
 if (isAuthTokenExpired()) {
     toggleElementVisibility(catalogGrid, 'none');
