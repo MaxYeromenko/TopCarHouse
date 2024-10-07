@@ -46,7 +46,7 @@ button {
   color: rgb(var(--background-color));
 }
 
-.flex-align-to-center, .catalog .catalog-grid .column, .catalog, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1044,9 +1044,19 @@ footer a:hover {
 }
 
 .catalog {
-  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
 }
 .catalog .catalog-grid {
   width: 60%;

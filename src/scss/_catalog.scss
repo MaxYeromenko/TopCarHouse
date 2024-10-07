@@ -1,7 +1,9 @@
 .catalog {
-    padding: 40px;
-    @extend .flex-align-to-center;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
+    padding: 40px;
 
     .catalog-grid {
         width: 60%;
