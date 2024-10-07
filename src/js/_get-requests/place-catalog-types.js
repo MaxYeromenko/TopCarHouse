@@ -15,6 +15,7 @@ cardsSectionButtons.className = 'cards-section-buttons';
 cardsSection.appendChild(cardsSectionButtons);
 const loadMoreCarsButton = document.createElement('button');
 loadMoreCarsButton.textContent = 'Завантажити більше';
+loadMoreCarsButton.style.display = 'none';
 cardsSectionButtons.appendChild(loadMoreCarsButton);
 const goToHomePage = document.createElement('a');
 goToHomePage.href = '/';
