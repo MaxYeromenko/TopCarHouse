@@ -19,7 +19,7 @@ goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
 
 if (isAuthTokenExpired()) {
-    toggleElementVisibility(catalogSection, 'none');
+    toggleElementVisibility(catalogGrid, 'none');
     toggleElementVisibility(goToHomePage, 'inline');
     showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
 }
