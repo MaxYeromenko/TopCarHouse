@@ -1,5 +1,6 @@
 .cards-section {
     @extend .flex-align-to-center;
+    width: 100%;
     gap: 35px;
 
     .cards-section-buttons {
