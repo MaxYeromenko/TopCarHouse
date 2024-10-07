@@ -116,7 +116,12 @@ function loadMoreCars() {
 
     carsDisplayed += nextCars.length;
 
-    if (carsDisplayed >= carsData.length) toggleElementVisibility(loadMoreCarsButton, 'none');
+    if (carsDisplayed >= carsData.length) {
+        toggleElementVisibility(loadMoreCarsButton, 'none');
+    }
+    else {
+        toggleElementVisibility(loadMoreCarsButton, 'inline');
+    }
 }
 
 function createCarCard(car) {
