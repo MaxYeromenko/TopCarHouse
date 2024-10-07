@@ -4,12 +4,14 @@ module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
             const { brand, country, bodyType, transmission } = req.query;
+            console.log(req.query);
 
             const filter = {};
             if (brand) filter.brand = brand;
             if (country) filter.country = country;
             if (bodyType) filter['features.body_type'] = bodyType;
             if (transmission) filter['features.transmission'] = transmission;
+            console.log(filter);
 
             const cars = await CarModel.find(filter);
 
