@@ -6,6 +6,7 @@
 
     .catalog-grid {
         width: 60%;
+        padding: 3%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
         gap: 20px;
