@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/get-cars-filter?id=${carId}`, retriesLimit);
 
         if (result) {
             productData = result;

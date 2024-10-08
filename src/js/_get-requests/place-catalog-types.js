@@ -99,7 +99,7 @@ async function loadCars(filter) {
 
     try {
         const queryParams = new URLSearchParams(filter).toString();
-        const result = await fetchWithRetry(`/api/get-cars-by-type?${queryParams}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
         if (result) {
             carsData = result;
             loadMoreCars();

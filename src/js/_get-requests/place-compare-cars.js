@@ -24,7 +24,7 @@ async function updateCarsToCompare(compareContainer) {
 
         for (const carId of carsToCompare) {
             try {
-                const result = await fetchWithRetry(`/api/get-one-car?id=${carId}`, retriesLimit);
+                const result = await fetchWithRetry(`/api/get-cars-filter?id=${carId}`, retriesLimit);
 
                 if (result) {
                     const carCard = createCompareCarCard(result);
