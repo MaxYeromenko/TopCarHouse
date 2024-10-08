@@ -1,4 +1,5 @@
 const catalogSection = document.querySelector('.catalog');
+const carFilterForm = catalogSection.querySelector('#car-filter-form');
 const countryList = catalogSection.querySelector('#country-list');
 const brandList = catalogSection.querySelector('#brand-list');
 const bodyTypeList = catalogSection.querySelector('#body-type-list');
@@ -38,8 +39,11 @@ function createLinkElement(text, container, queryParam) {
     link.textContent = text;
     link.addEventListener('click', (e) => {
         e.preventDefault();
+        carFilterForm.reset();
+
         const filter = {};
         filter[queryParam] = text;
+
         loadCars(filter);
     });
     container.appendChild(link);
@@ -112,7 +116,7 @@ function loadMoreCars() {
     }
 }
 
-document.getElementById('car-filter-form').addEventListener('submit', (event) => {
+carFilterForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -128,18 +132,25 @@ async function loadCars(filter) {
         const queryParams = new URLSearchParams(filter).toString();
 
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
+
         if (result) {
             carsData = result;
+            carsDisplayed = 0;
             carsContainer.innerHTML = '';
+
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
+        } else {
+            carsContainer.innerHTML = '';
+            showMessage('Авто за обраними фільтрами не знайдено.', false);
         }
     } catch (error) {
         console.error('Error fetching cars:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
+
 
 function createCarCard(car) {
     const carCard = document.createElement('div');
