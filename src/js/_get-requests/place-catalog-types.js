@@ -26,6 +26,12 @@ let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 12;
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' || event.code === 'KeyR') {
+        location.reload();
+    }
+});
+
 if (isAuthTokenExpired()) {
     toggleElementVisibility(catalogGrid, 'none');
     toggleElementVisibility(goToHomePage, 'inline');
