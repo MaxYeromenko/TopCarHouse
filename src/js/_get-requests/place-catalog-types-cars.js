@@ -95,7 +95,6 @@ else {
 }
 
 function loadMoreCars() {
-    carsContainer.innerHTML = '';
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
     nextCars.forEach(car => {
@@ -127,10 +126,11 @@ async function loadCars(filter) {
 
     try {
         const queryParams = new URLSearchParams(filter).toString();
-        
+
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
         if (result) {
             carsData = result;
+            carsContainer.innerHTML = '';
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
