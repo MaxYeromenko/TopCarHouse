@@ -1,5 +1,6 @@
 const catalogSection = document.querySelector('.catalog');
-const carFilterForm = catalogSection.querySelector('#car-filter-form');
+const filterContainer = document.getElementById('filter-container');
+const carFilterForm = filterContainer.querySelector('form');
 const countryList = catalogSection.querySelector('#country-list');
 const brandList = catalogSection.querySelector('#brand-list');
 const bodyTypeList = catalogSection.querySelector('#body-type-list');
@@ -150,7 +151,6 @@ async function loadCars(filter) {
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
-
 
 function createCarCard(car) {
     const carCard = document.createElement('div');

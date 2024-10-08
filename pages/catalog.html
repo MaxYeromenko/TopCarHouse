@@ -42,6 +42,10 @@
 
         <div class="burger-instruments-wrapper">
             <div class="open-section-button-container">
+                <button id="filter-section-open" title="Відфільтрувати авто">
+                    <i class="fa-solid fa-filter"></i>
+                </button>
+
                 <button id="theme-section-open" title="Змінити тему">
                     <i class="fa-solid fa-brush"></i>
                 </button>
@@ -179,11 +183,9 @@
                     </container>
                 </div>
             </div>
-        </section>
 
-        <section class="catalog">
-            <section class="filter-section">
-                <form id="car-filter-form" class="car-filter-form">
+            <div id="filter-container" class="modal-window-element">
+                <form>
                     <div class="filter-group">
                         <label for="brand">Марка:</label>
                         <input type="text" id="brand" name="brand">
@@ -230,11 +232,10 @@
                     </div>
                     <button type="submit">Поиск</button>
                 </form>
-            </section>
-            <section class="cards-section">
-                <div class="cars-container"></div>
-            </section>
+            </div>
+        </section>
 
+        <section class="catalog">
             <div class="catalog-grid">
                 <div class="column">
                     <list-title>Країна-виробник</list-title>
@@ -281,7 +282,6 @@
     <script src="/src/js/other/themes.js"></script>
     <script src="/src/js/other/services.js"></script>
     <script src="/src/js/other/calculator-section.js"></script>
-    <!-- <script src="/src/js/_get-requests/place-all-cars.js"></script> -->
     <script src="/src/js/_get-requests/place-catalog-types-cars.js"></script>
     <script src="/src/js/_get-requests/place-compare-cars.js"></script>
     <script src="/src/js/_post-requests/create-consultation-request.js"></script>

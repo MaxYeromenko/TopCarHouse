@@ -1,3 +1,11 @@
+#filter-section-open {
+    @extend .section-open-button-template;
+}
+
+#filter-container {
+    @extend .form-container;
+}
+
 .catalog {
     display: flex;
     flex-direction: column;
