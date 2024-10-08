@@ -32,32 +32,6 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-if (isAuthTokenExpired()) {
-    toggleElementVisibility(catalogGrid, 'none');
-    toggleElementVisibility(goToHomePage, 'inline');
-    showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
-}
-else {
-    document.addEventListener("DOMContentLoaded", async () => {
-        showMessage('Завантаження...', true);
-
-        try {
-            const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
-
-            if (result) {
-                catalogTypes = result;
-                placeCatalogTypes(catalogTypes);
-                showMessage('Дані успішно завантажені!', true);
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
-        }
-    });
-
-    loadMoreCarsButton.addEventListener('click', loadMoreCars);
-}
-
 function createLinkElement(text, container, queryParam) {
     const link = document.createElement('a');
     link.href = '#';
@@ -94,25 +68,34 @@ function placeCatalogTypes(catalogTypes) {
     });
 }
 
-async function loadCars(filter) {
-    showMessage('Завантаження...', true);
+if (isAuthTokenExpired()) {
+    toggleElementVisibility(catalogGrid, 'none');
+    toggleElementVisibility(goToHomePage, 'inline');
+    showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
+}
+else {
+    document.addEventListener("DOMContentLoaded", async () => {
+        showMessage('Завантаження...', true);
 
-    try {
-        const queryParams = new URLSearchParams(filter).toString();
-        const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
-        if (result) {
-            carsData = result;
-            loadMoreCars();
-            toggleElementVisibility(catalogGrid, 'none');
-            showMessage('Дані успішно завантажені!', true);
+        try {
+            const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
+
+            if (result) {
+                catalogTypes = result;
+                placeCatalogTypes(catalogTypes);
+                showMessage('Дані успішно завантажені!', true);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
         }
-    } catch (error) {
-        console.error('Error fetching cars:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-    }
+    });
+
+    loadMoreCarsButton.addEventListener('click', loadMoreCars);
 }
 
 function loadMoreCars() {
+    carsContainer.innerHTML = '';
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
     nextCars.forEach(car => {
@@ -127,6 +110,34 @@ function loadMoreCars() {
     }
     else {
         toggleElementVisibility(loadMoreCarsButton, 'inline');
+    }
+}
+
+document.getElementById('car-filter-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const filter = Object.fromEntries(formData.entries());
+
+    loadCars(filter);
+});
+
+async function loadCars(filter) {
+    showMessage('Завантаження...', true);
+
+    try {
+        const queryParams = new URLSearchParams(filter).toString();
+        
+        const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
+        if (result) {
+            carsData = result;
+            loadMoreCars();
+            toggleElementVisibility(catalogGrid, 'none');
+            showMessage('Дані успішно завантажені!', true);
+        }
+    } catch (error) {
+        console.error('Error fetching cars:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
 
