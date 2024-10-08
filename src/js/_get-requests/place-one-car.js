@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const result = await fetchWithRetry(`/api/get-cars-filter?id=${carId}`, retriesLimit);
 
         if (result) {
-            productData = result;
+            productData = result[0];
             loadProductInfo();
             showMessage('Дані успішно завантажені!', true);
         }
