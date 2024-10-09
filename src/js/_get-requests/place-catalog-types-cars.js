@@ -130,14 +130,13 @@ async function loadCars(filter) {
         const queryParams = new URLSearchParams(filter).toString();
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
 
-        if (result != []) {
+        if (result !== Array[0]) {
             carsData = result;
             carsDisplayed = 0;
             carsContainer.innerHTML = '';
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
-            console.log(result);
             
         } else {
             carsContainer.innerHTML = '';
