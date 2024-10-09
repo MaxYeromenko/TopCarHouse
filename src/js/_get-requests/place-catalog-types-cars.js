@@ -12,13 +12,16 @@ const cardsSection = catalogSection.querySelector('.cards-section');
 const carsContainer = document.createElement('div');
 carsContainer.className = 'cars-container';
 cardsSection.appendChild(carsContainer);
+
 const cardsSectionButtons = document.createElement('div');
 cardsSectionButtons.className = 'cards-section-buttons';
 cardsSection.appendChild(cardsSectionButtons);
+
 const loadMoreCarsButton = document.createElement('button');
 loadMoreCarsButton.textContent = 'Завантажити більше';
 loadMoreCarsButton.style.display = 'none';
 cardsSectionButtons.appendChild(loadMoreCarsButton);
+
 const goToHomePage = document.createElement('a');
 goToHomePage.href = '/';
 goToHomePage.textContent = 'На головну';
@@ -35,10 +38,7 @@ filterSectionOpen.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.code === 'KeyR') {
-        location.reload();
-    }
-
+    if (event.code === 'KeyR') location.reload();
     if (event.code === 'KeyF') {
         toggleElementVisibility(modalWindow, 'flex');
         toggleElementVisibility(filterContainer, 'block');
@@ -52,11 +52,7 @@ function createLinkElement(text, container, queryParam) {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         carFilterForm.reset();
-
-        const filter = {};
-        filter[queryParam] = text;
-
-        loadCars(filter);
+        loadCars({ [queryParam]: text });
     });
     container.appendChild(link);
 }
@@ -67,25 +63,19 @@ function placeCatalogTypes(catalogTypes) {
     bodyTypeList.innerHTML = '';
     transmissionList.innerHTML = '';
 
-    catalogTypes.brands.sort().forEach(brand => {
-        createLinkElement(brand, brandList, 'brand');
-    });
+    const sortedBrands = [...catalogTypes.brands].sort();
+    const sortedCountries = [...catalogTypes.countries].sort();
+    const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
+    const sortedTransmissions = [...catalogTypes.transmissions].sort();
 
-    catalogTypes.countries.sort().forEach(country => {
-        createLinkElement(country, countryList, 'country');
-    });
-
-    catalogTypes.bodyTypes.sort().forEach(bodyType => {
-        createLinkElement(bodyType, bodyTypeList, 'features.body_type');
-    });
-
-    catalogTypes.transmissions.sort().forEach(transmission => {
-        createLinkElement(transmission, transmissionList, 'features.transmission');
-    });
+    sortedBrands.forEach(brand => createLinkElement(brand, brandList, 'brand'));
+    sortedCountries.forEach(country => createLinkElement(country, countryList, 'country'));
+    sortedBodyTypes.forEach(bodyType => createLinkElement(bodyType, bodyTypeList, 'features.body_type'));
+    sortedTransmissions.forEach(transmission => createLinkElement(transmission, transmissionList, 'features.transmission'));
 
     const bodyTypeOptions = document.getElementById('body-type-options');
     bodyTypeOptions.innerHTML = '';
-    catalogTypes.bodyTypes.sort().forEach(bodyType => {
+    sortedBodyTypes.forEach(bodyType => {
         const option = document.createElement('option');
         option.value = bodyType;
         bodyTypeOptions.appendChild(option);
@@ -104,7 +94,6 @@ else {
 
         try {
             const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
-
             if (result) {
                 catalogTypes = result;
                 placeCatalogTypes(catalogTypes);
@@ -122,28 +111,15 @@ else {
 function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
-    nextCars.forEach(car => {
-        const carCard = createCarCard(car);
-        carsContainer.appendChild(carCard);
-    });
-
+    nextCars.forEach(car => carsContainer.appendChild(createCarCard(car)));
     carsDisplayed += nextCars.length;
-
-    if (carsDisplayed >= carsData.length) {
-        toggleElementVisibility(loadMoreCarsButton, 'none');
-    }
-    else {
-        toggleElementVisibility(loadMoreCarsButton, 'inline');
-    }
+    toggleElementVisibility(loadMoreCarsButton, carsDisplayed >= carsData.length ? 'none' : 'inline');
 }
 
 carFilterForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
     const formData = new FormData(event.target);
-    const filter = Object.fromEntries(formData.entries());
-
-    loadCars(filter);
+    loadCars(Object.fromEntries(formData.entries()));
     hideAllElementsInModalWindow(modalWindow);
 });
 
@@ -152,14 +128,12 @@ async function loadCars(filter) {
 
     try {
         const queryParams = new URLSearchParams(filter).toString();
-
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
 
-        if (result) {
+        if (result != []) {
             carsData = result;
             carsDisplayed = 0;
             carsContainer.innerHTML = '';
-
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
