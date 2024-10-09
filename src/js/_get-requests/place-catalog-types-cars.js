@@ -144,6 +144,7 @@ carFilterForm.addEventListener('submit', (event) => {
     const filter = Object.fromEntries(formData.entries());
 
     loadCars(filter);
+    hideAllElementsInModalWindow(modalWindow);
 });
 
 async function loadCars(filter) {
