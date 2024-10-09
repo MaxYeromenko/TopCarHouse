@@ -186,12 +186,14 @@
             <div id="filter-container" class="modal-window-element">
                 <h2>Фільтри авто</h2>
                 <form>
-                    <input type="text" id="brand" name="brand" placeholder="Марка">
+                    <input type="text" id="brand" name="brand" placeholder="Бренд" list="brand-options">
+                    <datalist id="brand-options"></datalist>
                     <input type="text" id="model" name="model" placeholder="Модель">
                     <input type="number" id="year" name="year" placeholder="Рік випуску">
                     <input type="number" id="price" name="price" placeholder="Вартість до">
                     <input type="text" id="color" name="color" placeholder="Колір">
-                    <input type="text" id="country" name="country" placeholder="Країна-виробник">
+                    <input type="text" id="country" name="country" placeholder="Країна-виробник" list="country-options">
+                    <datalist id="country-options"></datalist>
                     <input type="text" id="transmission" name="features.transmission" placeholder="Коробка передач">
                     <input type="text" id="engine" name="features.engine" placeholder="Об'єм двигуна">
                     <input type="text" id="fuel_type" name="features.fuel_type" placeholder="Тип палива"

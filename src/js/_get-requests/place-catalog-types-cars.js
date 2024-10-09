@@ -65,21 +65,29 @@ function placeCatalogTypes(catalogTypes) {
 
     const sortedBrands = [...catalogTypes.brands].sort();
     const sortedCountries = [...catalogTypes.countries].sort();
-    const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
     const sortedTransmissions = [...catalogTypes.transmissions].sort();
     const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
+    const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
 
     sortedBrands.forEach(brand => createLinkElement(brand, brandList, 'brand'));
     sortedCountries.forEach(country => createLinkElement(country, countryList, 'country'));
     sortedBodyTypes.forEach(bodyType => createLinkElement(bodyType, bodyTypeList, 'features.body_type'));
     sortedTransmissions.forEach(transmission => createLinkElement(transmission, transmissionList, 'features.transmission'));
 
-    const bodyTypeOptions = document.getElementById('body-type-options');
-    bodyTypeOptions.innerHTML = '';
-    sortedBodyTypes.forEach(bodyType => {
+    const brandOptions = document.getElementById('brand-options');
+    brandOptions.innerHTML = '';
+    sortedBrands.forEach(brandType => {
         const option = document.createElement('option');
-        option.value = bodyType;
-        bodyTypeOptions.appendChild(option);
+        option.value = brandType;
+        brandOptions.appendChild(option);
+    });
+
+    const countryOptions = document.getElementById('country-options');
+    countryOptions.innerHTML = '';
+    sortedCountries.forEach(countryType => {
+        const option = document.createElement('option');
+        option.value = countryType;
+        countryOptions.appendChild(option);
     });
 
     const fuelTypeOptions = document.getElementById('fuel-type-options');
@@ -90,6 +98,13 @@ function placeCatalogTypes(catalogTypes) {
         fuelTypeOptions.appendChild(option);
     });
 
+    const bodyTypeOptions = document.getElementById('body-type-options');
+    bodyTypeOptions.innerHTML = '';
+    sortedBodyTypes.forEach(bodyType => {
+        const option = document.createElement('option');
+        option.value = bodyType;
+        bodyTypeOptions.appendChild(option);
+    });
 }
 
 if (isAuthTokenExpired()) {
