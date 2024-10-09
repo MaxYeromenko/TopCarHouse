@@ -1050,6 +1050,13 @@ footer a:hover {
 #filter-container::-webkit-scrollbar {
   display: none;
 }
+datalist {
+  background-color: antiquewhite;
+}
+datalist option {
+  background-color: beige;
+}
+
 .catalog {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -66,6 +66,7 @@ function placeCatalogTypes(catalogTypes) {
     const sortedBrands = [...catalogTypes.brands].sort();
     const sortedCountries = [...catalogTypes.countries].sort();
     const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
+    const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
     const sortedTransmissions = [...catalogTypes.transmissions].sort();
 
     sortedBrands.forEach(brand => createLinkElement(brand, brandList, 'brand'));
@@ -80,6 +81,15 @@ function placeCatalogTypes(catalogTypes) {
         option.value = bodyType;
         bodyTypeOptions.appendChild(option);
     });
+
+    const fuelTypeOptions = document.getElementById('fuel-type-options');
+    fuelTypeOptions.innerHTML = '';
+    sortedFuelTypes.forEach(fuelType => {
+        const option = document.createElement('option');
+        option.value = fuelType;
+        fuelTypeOptions.appendChild(option);
+    });
+
 }
 
 if (isAuthTokenExpired()) {

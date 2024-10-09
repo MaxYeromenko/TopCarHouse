@@ -8,12 +8,14 @@ module.exports = async (req, res) => {
             const brands = [...new Set(cars.map(car => car.brand))];
             const countries = [...new Set(cars.map(car => car.country))];
             const bodyTypes = [...new Set(cars.map(car => car.features.body_type))];
+            const fuelTypes = [...new Set(cars.map(car => car.features.fuel_type))];
             const transmissions = [...new Set(cars.map(car => car.features.transmission))];
 
             res.status(200).json({
                 brands,
                 countries,
                 bodyTypes,
+                fuelTypes,
                 transmissions
             });
         } catch (err) {

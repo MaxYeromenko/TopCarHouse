@@ -16,6 +16,14 @@
     }
 }
 
+datalist {
+    background-color: antiquewhite;
+
+    option {
+        background-color: beige;
+    }
+}
+
 .catalog {
     display: flex;
     flex-direction: column;
