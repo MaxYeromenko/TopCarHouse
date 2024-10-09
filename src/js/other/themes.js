@@ -5,7 +5,7 @@ const themeContainerButtons = themeContainer.querySelectorAll('button');
 themeSectionOpen.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
-    toggleElementVisibility(themeContainer, 'flex');
+    toggleElementVisibility(themeContainer, 'block');
 });
 
 themeContainerButtons.forEach(button => {

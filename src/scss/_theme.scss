@@ -4,8 +4,6 @@
 
 #theme-container {
     @extend .form-container;
-    flex-direction: column;
-    gap: 5px;
     max-height: 95%;
     overflow-y: scroll;
 

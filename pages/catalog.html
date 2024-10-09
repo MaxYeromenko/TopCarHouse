@@ -61,7 +61,7 @@
             </div>
 
             <button class="burger-open-section-container-buttons" title="Інструменти">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-gear"></i>
             </button>
         </div>
 
@@ -185,52 +185,26 @@
             </div>
 
             <div id="filter-container" class="modal-window-element">
+                <h2>Фільтри авто</h2>
                 <form>
-                    <div class="filter-group">
-                        <label for="brand">Марка:</label>
-                        <input type="text" id="brand" name="brand">
-                    </div>
-                    <div class="filter-group">
-                        <label for="model">Модель:</label>
-                        <input type="text" id="model" name="model">
-                    </div>
-                    <div class="filter-group">
-                        <label for="year">Год:</label>
-                        <input type="number" id="year" name="year">
-                    </div>
-                    <div class="filter-group">
-                        <label for="price">Цена до:</label>
-                        <input type="number" id="price" name="price">
-                    </div>
-                    <div class="filter-group">
-                        <label for="color">Цвет:</label>
-                        <input type="text" id="color" name="color">
-                    </div>
-                    <div class="filter-group">
-                        <label for="country">Страна:</label>
-                        <input type="text" id="country" name="country">
-                    </div>
-                    <div class="filter-group">
-                        <label for="transmission">Трансмиссия:</label>
-                        <input type="text" id="transmission" name="features.transmission">
-                    </div>
-                    <div class="filter-group">
-                        <label for="engine">Двигатель:</label>
-                        <input type="text" id="engine" name="features.engine">
-                    </div>
-                    <div class="filter-group">
-                        <label for="fuel_type">Тип топлива:</label>
-                        <input type="text" id="fuel_type" name="features.fuel_type">
-                    </div>
-                    <div class="filter-group">
-                        <label for="horsepower">Лошадиные силы:</label>
-                        <input type="number" id="horsepower" name="features.horsepower">
-                    </div>
-                    <div class="filter-group">
-                        <label for="body_type">Тип кузова:</label>
-                        <input type="text" id="body_type" name="features.body_type">
-                    </div>
-                    <button type="submit">Поиск</button>
+                    <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова"
+                        list="body-type-options">
+                    <datalist id="body-type-options">
+                        <!-- Динамическое добавление опций -->
+                    </datalist>
+
+                    <input type="text" id="brand" name="brand" placeholder="Марка">
+                    <input type="text" id="model" name="model" placeholder="Модель">
+                    <input type="number" id="year" name="year" placeholder="Рік випуску">
+                    <input type="number" id="price" name="price" placeholder="Вартість до">
+                    <input type="text" id="color" name="color" placeholder="Колір">
+                    <input type="text" id="country" name="country" placeholder="Країна-виробник">
+                    <input type="text" id="transmission" name="features.transmission" placeholder="Коробка передач">
+                    <input type="text" id="engine" name="features.engine" placeholder="Об'єм двигуна">
+                    <input type="text" id="fuel_type" name="features.fuel_type" placeholder="Тип палива">
+                    <input type="number" id="horsepower" name="features.horsepower" placeholder="Потужність до">
+                    <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова">
+                    <button type="submit">Використати фільтри</button>
                 </form>
             </div>
         </section>

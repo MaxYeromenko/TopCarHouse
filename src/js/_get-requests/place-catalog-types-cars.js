@@ -1,11 +1,11 @@
 const catalogSection = document.querySelector('.catalog');
+const filterSectionOpen = document.getElementById('filter-section-open');
 const filterContainer = document.getElementById('filter-container');
 const carFilterForm = filterContainer.querySelector('form');
 const countryList = catalogSection.querySelector('#country-list');
 const brandList = catalogSection.querySelector('#brand-list');
 const bodyTypeList = catalogSection.querySelector('#body-type-list');
 const transmissionList = catalogSection.querySelector('#transmission-list');
-let catalogTypes = [];
 
 const catalogGrid = catalogSection.querySelector('.catalog-grid');
 const cardsSection = catalogSection.querySelector('.cards-section');
@@ -24,9 +24,16 @@ goToHomePage.href = '/';
 goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
 
+let catalogTypes = [];
 let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 12;
+
+filterSectionOpen.addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(filterContainer, 'block');
+});
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.code === 'KeyR') {
@@ -71,10 +78,19 @@ function placeCatalogTypes(catalogTypes) {
     catalogTypes.transmissions.sort().forEach(transmission => {
         createLinkElement(transmission, transmissionList, 'features.transmission');
     });
+
+    const bodyTypeOptions = document.getElementById('body-type-options');
+    bodyTypeOptions.innerHTML = '';
+    catalogTypes.bodyTypes.sort().forEach(bodyType => {
+        const option = document.createElement('option');
+        option.value = bodyType;
+        bodyTypeOptions.appendChild(option);
+    });
 }
 
 if (isAuthTokenExpired()) {
     toggleElementVisibility(catalogGrid, 'none');
+    toggleElementVisibility(filterSectionOpen, 'none');
     toggleElementVisibility(goToHomePage, 'inline');
     showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
 }

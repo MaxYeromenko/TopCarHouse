@@ -4,6 +4,16 @@
 
 #filter-container {
     @extend .form-container;
+    max-height: 95%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    form {
+        @extend .form-template;
+    }
 }
 
 .catalog {
