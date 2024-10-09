@@ -137,6 +137,8 @@ async function loadCars(filter) {
             loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
+            console.log(result);
+            
         } else {
             carsContainer.innerHTML = '';
             showMessage('Авто за обраними фільтрами не знайдено.', false);
