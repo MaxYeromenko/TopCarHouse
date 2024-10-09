@@ -36,7 +36,7 @@ filterSectionOpen.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' || event.code === 'KeyR') {
+    if (event.code === 'KeyR') {
         location.reload();
     }
 });
