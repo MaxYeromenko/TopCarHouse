@@ -541,14 +541,10 @@ body main .features .feature {
   font-size: smaller;
 }
 
-#compare-section-open:hover .fa-scale-unbalanced {
-  display: none;
-}
-#compare-section-open:hover .fa-scale-unbalanced-flip {
-  display: inline;
-}
-#compare-section-open .fa-scale-unbalanced-flip {
-  display: none;
+#compare-section-open:hover i {
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
 }
 
 #compare-container {

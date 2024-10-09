@@ -1,18 +1,8 @@
 #compare-section-open {
     @extend .section-open-button-template;
 
-    &:hover {
-        .fa-scale-unbalanced {
-            display: none;
-        }
-
-        .fa-scale-unbalanced-flip {
-            display: inline;
-        }
-    }
-
-    .fa-scale-unbalanced-flip {
-        display: none;
+    &:hover i {
+        transform: scaleX(-1);
     }
 }
 
