@@ -66,8 +66,8 @@ function placeCatalogTypes(catalogTypes) {
     const sortedBrands = [...catalogTypes.brands].sort();
     const sortedCountries = [...catalogTypes.countries].sort();
     const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
-    const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
     const sortedTransmissions = [...catalogTypes.transmissions].sort();
+    const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
 
     sortedBrands.forEach(brand => createLinkElement(brand, brandList, 'brand'));
     sortedCountries.forEach(country => createLinkElement(country, countryList, 'country'));
