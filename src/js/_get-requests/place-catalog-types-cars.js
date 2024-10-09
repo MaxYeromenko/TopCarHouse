@@ -30,7 +30,6 @@ let carsDisplayed = 0;
 const carsPerPage = 12;
 
 filterSectionOpen.addEventListener('click', () => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(filterContainer, 'block');
 });
@@ -38,6 +37,11 @@ filterSectionOpen.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyR') {
         location.reload();
+    }
+
+    if (event.code === 'KeyF') {
+        toggleElementVisibility(modalWindow, 'flex');
+        toggleElementVisibility(filterContainer, 'block');
     }
 });
 

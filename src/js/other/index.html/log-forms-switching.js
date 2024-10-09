@@ -7,7 +7,6 @@ const authContainer = document.getElementById('auth-container');
 const toggleButtonsVisibility = (showLogin) => {
     toggleElementsVisibility(logButtons, showLogin ? 'inline' : 'none');
     toggleElementsVisibility(logOutButtons, showLogin ? 'none' : 'inline');
-    hideAllElementsInModalWindow(modalWindow);
 };
 
 if (isAuthTokenExpired()) {
@@ -20,7 +19,6 @@ if (isAuthTokenExpired()) {
 
 logButtons.forEach(button => {
     button.addEventListener('click', () => {
-        hideAllElementsInModalWindow(modalWindow);
         toggleElementVisibility(modalWindow, 'flex');
         toggleElementVisibility(authContainer, 'block');
     });

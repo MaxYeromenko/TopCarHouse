@@ -17,6 +17,8 @@ modalWindow.querySelector('.fa-xmark').addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
 })
 
+document.addEventListener('DOMContentLoaded', () => hideAllElementsInModalWindow(modalWindow));
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         hideAllElementsInModalWindow(modalWindow);

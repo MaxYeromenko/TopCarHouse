@@ -4,7 +4,6 @@ const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
 const phoneRegex = /^\+380\d{9}$/;
 
 document.getElementById('consultation-button').addEventListener('click', () => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(consultationContainer, 'block');
 });

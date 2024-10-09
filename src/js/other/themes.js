@@ -3,7 +3,6 @@ const themeContainer = document.getElementById('theme-container');
 const themeContainerButtons = themeContainer.querySelectorAll('button');
 
 themeSectionOpen.addEventListener('click', () => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(themeContainer, 'block');
 });

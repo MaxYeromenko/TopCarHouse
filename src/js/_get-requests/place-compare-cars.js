@@ -2,7 +2,6 @@ const compareSectionOpen = document.getElementById('compare-section-open');
 const compareContainer = document.getElementById('compare-container');
 
 compareSectionOpen.addEventListener('click', () => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(compareContainer, 'grid');
     updateCarsToCompare(compareContainer);

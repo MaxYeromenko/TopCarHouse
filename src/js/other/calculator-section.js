@@ -5,7 +5,6 @@ const leasingBox = calculatorContainer.querySelector('#leasing-box');
 const resultBox = calculatorContainer.querySelector('result');
 
 calculatorSectionOpen.addEventListener('click', () => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(calculatorContainer, 'block');
 });

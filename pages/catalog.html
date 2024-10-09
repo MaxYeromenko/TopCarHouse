@@ -42,10 +42,6 @@
 
         <div class="burger-instruments-wrapper">
             <div class="open-section-button-container">
-                <button id="filter-section-open" title="Відфільтрувати авто">
-                    <i class="fa-solid fa-filter"></i>
-                </button>
-
                 <button id="theme-section-open" title="Змінити тему">
                     <i class="fa-solid fa-brush"></i>
                 </button>
@@ -57,6 +53,10 @@
                 <button id="compare-section-open" title="Порівняти авто">
                     <i class="fa-solid fa-scale-unbalanced"></i>
                     <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                </button>
+
+                <button id="filter-section-open" title="Відфільтрувати авто">
+                    <i class="fa-solid fa-filter"></i>
                 </button>
             </div>
 
@@ -189,9 +189,6 @@
                 <form>
                     <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова"
                         list="body-type-options">
-                    <datalist id="body-type-options">
-                        <!-- Динамическое добавление опций -->
-                    </datalist>
 
                     <input type="text" id="brand" name="brand" placeholder="Марка">
                     <input type="text" id="model" name="model" placeholder="Модель">
@@ -203,7 +200,9 @@
                     <input type="text" id="engine" name="features.engine" placeholder="Об'єм двигуна">
                     <input type="text" id="fuel_type" name="features.fuel_type" placeholder="Тип палива">
                     <input type="number" id="horsepower" name="features.horsepower" placeholder="Потужність до">
-                    <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова">
+                    <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова"
+                        list="body-type-options">
+                    <datalist id="body-type-options"></datalist>
                     <button type="submit">Використати фільтри</button>
                 </form>
             </div>

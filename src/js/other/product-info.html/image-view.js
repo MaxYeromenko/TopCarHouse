@@ -15,7 +15,6 @@ const minScale = 0.5;
 const zoomStep = 0.5;
 
 imageToView.addEventListener('click', (event) => {
-    hideAllElementsInModalWindow(modalWindow);
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(viewedImage, 'inline');
     viewedImage.src = imageToView.src;
