@@ -71,8 +71,8 @@ function placeCatalogTypes(catalogTypes) {
 
     sortedBrands.forEach(brand => createLinkElement(brand, brandList, 'brand'));
     sortedCountries.forEach(country => createLinkElement(country, countryList, 'country'));
-    sortedBodyTypes.forEach(bodyType => createLinkElement(bodyType, bodyTypeList, 'features.body_type'));
     sortedTransmissions.forEach(transmission => createLinkElement(transmission, transmissionList, 'features.transmission'));
+    sortedBodyTypes.forEach(bodyType => createLinkElement(bodyType, bodyTypeList, 'features.body_type'));
 
     const brandOptions = document.getElementById('brand-options');
     brandOptions.innerHTML = '';
@@ -88,6 +88,14 @@ function placeCatalogTypes(catalogTypes) {
         const option = document.createElement('option');
         option.value = countryType;
         countryOptions.appendChild(option);
+    });
+
+    const transmissionOptions = document.getElementById('transmission-options');
+    transmissionOptions.innerHTML = '';
+    sortedTransmissions.forEach(transmissionType => {
+        const option = document.createElement('option');
+        option.value = transmissionType;
+        transmissionOptions.appendChild(option);
     });
 
     const fuelTypeOptions = document.getElementById('fuel-type-options');
