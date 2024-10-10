@@ -64,6 +64,7 @@ function placeCatalogTypes(catalogTypes) {
     transmissionList.innerHTML = '';
 
     const sortedBrands = [...catalogTypes.brands].sort();
+    const sortedModels = [...catalogTypes.models].sort();
     const sortedColors = [...catalogTypes.colors].sort();
     const sortedCountries = [...catalogTypes.countries].sort();
     const sortedTransmissions = [...catalogTypes.transmissions].sort();
@@ -81,6 +82,14 @@ function placeCatalogTypes(catalogTypes) {
         const option = document.createElement('option');
         option.value = brandType;
         brandOptions.appendChild(option);
+    });
+
+    const modelOptions = document.getElementById('model-options');
+    modelOptions.innerHTML = '';
+    sortedModels.forEach(modelType => {
+        const option = document.createElement('option');
+        option.value = modelType;
+        modelOptions.appendChild(option);
     });
 
     const colorOptions = document.getElementById('color-options');

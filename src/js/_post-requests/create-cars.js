@@ -104,7 +104,7 @@ const cars = [
         model: "GLE",
         year: 2023,
         price: 62000,
-        color: "Сріблястий",
+        color: "Срібний",
         description: "Розкішний позашляховик з комфортним інтер'єром",
         country: "Німеччина",
         images: [

@@ -3,9 +3,10 @@ const { CarModel } = require('../server/db');
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
         try {
-            const cars = await CarModel.find({}, 'brand color country features.body_type features.transmission features.fuel_type');
+            const cars = await CarModel.find({}, 'brand model color country features.body_type features.transmission features.fuel_type');
 
             const brands = [...new Set(cars.map(car => car.brand))];
+            const models = [...new Set(cars.map(car => car.model))];
             const colors = [...new Set(cars.map(car => car.color))]; 
             const countries = [...new Set(cars.map(car => car.country))]; 
             const bodyTypes = [...new Set(cars.map(car => car.features.body_type))];
@@ -14,6 +15,7 @@ module.exports = async (req, res) => {
 
             res.status(200).json({
                 brands,
+                models,
                 colors,
                 countries,
                 bodyTypes,
