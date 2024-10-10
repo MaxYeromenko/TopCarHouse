@@ -64,6 +64,7 @@ function placeCatalogTypes(catalogTypes) {
     transmissionList.innerHTML = '';
 
     const sortedBrands = [...catalogTypes.brands].sort();
+    const sortedColors = [...catalogTypes.colors].sort();
     const sortedCountries = [...catalogTypes.countries].sort();
     const sortedTransmissions = [...catalogTypes.transmissions].sort();
     const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
@@ -80,6 +81,14 @@ function placeCatalogTypes(catalogTypes) {
         const option = document.createElement('option');
         option.value = brandType;
         brandOptions.appendChild(option);
+    });
+
+    const colorOptions = document.getElementById('color-options');
+    colorOptions.innerHTML = '';
+    sortedColors.forEach(colorType => {
+        const option = document.createElement('option');
+        option.value = colorType;
+        colorOptions.appendChild(option);
     });
 
     const countryOptions = document.getElementById('country-options');
