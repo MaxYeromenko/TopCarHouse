@@ -39,8 +39,8 @@ function openAdminPanel() {
         const title = document.getElementById('post-title').value;
         const content = document.getElementById('post-content').value;
         const author = document.getElementById('post-author').value;
-        const images = document.getElementById('post-images').value.split(',');
-        const tags = document.getElementById('post-tags').value.split(',');
+        const images = document.getElementById('post-images').value.split(',').map(image => image.trim());
+        const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
 
         try {
             const result = await fetchWithRetryPost('/api/api-blog-post-control',
