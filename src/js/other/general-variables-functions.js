@@ -125,13 +125,19 @@ async function fetchWithRetryPost(url, data, retries) {
 
 function isAuthTokenExpired() {
     const token = localStorage.getItem('jwtToken');
+    const currentTime = Date.now() / 1000;
+
     if (!token) return true;
 
-    const payloadBase64 = token.split('.')[1];
-    const decodedPayload = JSON.parse(atob(payloadBase64));
+    let decodedPayload;
 
-    const currentTime = Date.now() / 1000;
-    return decodedPayload.exp < currentTime;
+    try {
+        decodedPayload = JSON.parse(atob(token.split('.')[1]));
+        return decodedPayload.exp < currentTime;
+    } catch (error) {
+        removeToken('jwtToken');
+    }
+    return true;
 }
 
 function removeToken(name) {

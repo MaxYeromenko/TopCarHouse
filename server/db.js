@@ -62,4 +62,16 @@ const ConsultationSchema = new mongoose.Schema({
 
 const ConsultationModel = mongoose.model('Consultation', ConsultationSchema);
 
-module.exports = { mongoose, CarModel, UserModel, ConsultationModel };
+const BlogPostSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    author: { type: String, required: true },
+    publishedDate: Date,
+    images: [String],
+    tags: [{ type: String }]
+});
+
+const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
+
+
+module.exports = { mongoose, CarModel, UserModel, ConsultationModel, BlogPostModel };
