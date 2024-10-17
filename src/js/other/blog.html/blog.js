@@ -28,7 +28,7 @@ function addPostElement(type) {
             break;
     }
 
-    document.getElementById('post-title').insertAdjacentHTML('afterend', elementHtml);
+    document.getElementById('add-element-btn').insertAdjacentHTML('beforestart', elementHtml);
 }
 
 function openAdminPanel() {
