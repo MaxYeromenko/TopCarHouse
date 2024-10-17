@@ -50,7 +50,7 @@ function openAdminPanel() {
 
             if (result.success) {
                 showMessage(result.message, result.success);
-                hideAllElementsInModalWindow(modalWindow);
+                window.location.reload();
             }
         } catch (error) {
             console.error('Error:', error);
