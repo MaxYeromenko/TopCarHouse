@@ -28,7 +28,7 @@ function addPostElement(type) {
             break;
     }
 
-    document.getElementById('add-element-btn').insertAdjacentHTML('beforestart', elementHtml);
+    document.getElementById('add-element-btn').insertAdjacentHTML('beforebegin', elementHtml);
 }
 
 function openAdminPanel() {
