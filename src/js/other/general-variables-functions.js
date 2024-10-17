@@ -123,22 +123,35 @@ async function fetchWithRetryPost(url, data, retries) {
     }, retries);
 }
 
-function isAuthTokenExpired() {
+async function isAuthTokenExpired() {
     const token = localStorage.getItem('jwtToken');
-    const currentTime = Date.now() / 1000;
 
-    if (!token) return true;
-
-    let decodedPayload;
+    if (!token) return false;
 
     try {
-        decodedPayload = JSON.parse(atob(token.split('.')[1]));
+        const result = await handleRequest('/api/protected-route', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }, retriesLimit);
+
+        if (!result.success) {
+            removeToken('jwtToken');
+            return false;
+        }
+
+        const currentTime = Date.now() / 1000;
+        const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+
         return decodedPayload.exp < currentTime;
     } catch (error) {
-        removeToken('jwtToken');
+        console.error('Ошибка проверки токена:', error);
+        return false;
     }
-    return true;
 }
+
+
 
 function removeToken(name) {
     localStorage.removeItem(name);
