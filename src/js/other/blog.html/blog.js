@@ -47,11 +47,14 @@ function openAdminPanel() {
 
     modalWindow.insertAdjacentHTML('beforeend', adminPanelContent);
 
-    document.getElementById('add-element-btn').addEventListener('click', (e) => {
+    const addElementBtn = document.getElementById('add-element-btn');
+    addElementBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const type = prompt('Введите тип элемента (title, text, image)');
         addPostElement(type);
     });
+
+    addElementBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
     const adminPanel = modalWindow.querySelector('#admin-container');
     toggleElementVisibility(modalWindow, 'flex');
