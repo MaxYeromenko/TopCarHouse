@@ -2,20 +2,19 @@ const { BlogPostModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { title, content, author, images, tags } = req.body;
+        const { title, structure, author, tags } = req.body;
 
-        if (!title || !content || !author) {
+        if (!title || !structure || !author) {
             return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
         }
 
         try {
             const newPost = new BlogPostModel({
                 title,
-                content,
+                structure,
                 author,
-                publishedDate: Date.now(),
-                images: images || [],
-                tags: tags || []
+                tags: tags || [],
+                publishedDate: Date.now()
             });
 
             await newPost.save();
@@ -34,4 +33,4 @@ module.exports = async (req, res) => {
     } else {
         res.status(405).json({ success: false, message: 'Метод не дозволений!' });
     }
-}
+};
