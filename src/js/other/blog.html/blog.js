@@ -37,17 +37,18 @@ function openAdminPanel() {
             <h2>Конструктор статті</h2>
             <form id="create-post-form">
                 <input type="text" id="post-title" placeholder="Заголовок" required>
+                <button id="add-element-btn">Додати елемент</button>
                 <input type="text" id="post-author" placeholder="Автор" required>
                 <input type="text" id="post-tags" placeholder="Теги через кому">
                 <button type="submit">Опублікувати статтю</button>
             </form>
-            <button id="add-element-btn">Додати елемент</button>
         </div>
     `;
 
     modalWindow.insertAdjacentHTML('beforeend', adminPanelContent);
 
-    document.getElementById('add-element-btn').addEventListener('click', () => {
+    document.getElementById('add-element-btn').addEventListener('click', (e) => {
+        e.preventDefault();
         const type = prompt('Введите тип элемента (title, text, image)');
         addPostElement(type);
     });
@@ -59,8 +60,8 @@ function openAdminPanel() {
     document.getElementById('create-post-form').addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const title = document.getElementById('post-title').value;
-        const author = document.getElementById('post-author').value;
+        const title = document.getElementById('post-title').value.trim();
+        const author = document.getElementById('post-author').value.trim();
         const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
 
         const elements = Array.from(document.querySelectorAll('.post-element')).map(el => {
