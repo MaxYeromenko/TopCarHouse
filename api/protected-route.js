@@ -3,9 +3,9 @@ module.exports = (req, res) => {
         try {
             const { token } = req.query;
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            console.log(token);
-            console.log(process.env.JWT_SECRET);
-            console.log(decoded);
+            console.log('1'+token);
+            console.log('2'+process.env.JWT_SECRET);
+            console.log('3'+decoded);
             
 
             if (!decoded) {
