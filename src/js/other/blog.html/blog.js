@@ -73,6 +73,8 @@ function openAdminPanel() {
             return { type, content };
         });
 
+        console.log(elements);
+
         try {
             const result = await fetchWithRetryPost('/api/api-blog-post-control', {
                 title, structure: elements, author, tags
