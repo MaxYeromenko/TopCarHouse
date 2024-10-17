@@ -46,7 +46,7 @@ button {
   color: rgb(var(--background-color));
 }
 
-.flex-align-to-center, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #filter-container .form-template, #filter-container form, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container .form-template, #admin-container .form-template, #admin-container form, #filter-container .form-template, #filter-container form, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,8 +62,8 @@ button {
           justify-content: center;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
-.cards-section .cards-section-buttons button, #theme-container .theme-block container button, .form-container .form-template button, #filter-container .form-template button, #filter-container form button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #theme-container .form-template button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
+.cards-section .cards-section-buttons button, #theme-container .theme-block container button, .form-container .form-template button, #admin-container .form-template button, #admin-container form button, #filter-container .form-template button, #filter-container form button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #theme-container .form-template button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
   background-color: rgb(var(--secondary-color));
   color: rgb(var(--background-color));
   padding: 10px;
@@ -74,17 +74,17 @@ button {
   -webkit-transition: color 0.4s, background-color 0.4s;
   transition: color 0.4s, background-color 0.4s;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container .form-template button:hover, #filter-container .form-template button:hover, #filter-container form button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #theme-container .form-template button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
+.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container .form-template button:hover, #admin-container .form-template button:hover, #admin-container form button:hover, #filter-container .form-template button:hover, #filter-container form button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #theme-container .form-template button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
   color: rgb(var(--secondary-color));
 }
 
 .default-button-dark-bg:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container .form-template button:hover, #filter-container .form-template button:hover, #filter-container form button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #theme-container .form-template button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
+.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container .form-template button:hover, #admin-container .form-template button:hover, #admin-container form button:hover, #filter-container .form-template button:hover, #filter-container form button:hover, #services-container .form-template button:hover, #calculator-container .form-template button:hover, #calculator-container form button:hover, #theme-container .form-template button:hover, #consultation-container .form-template button:hover, #consultation-container form button:hover, #auth-container .form-template button:hover, #auth-container form button:hover {
   background-color: rgb(var(--main-color));
 }
 
-.default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
+.default-button-light-bg:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
   background-color: rgb(var(--background-color));
 }
 
@@ -110,7 +110,7 @@ button {
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
-.burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons {
+.burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons {
   font-size: large;
   border: solid 2px rgb(var(--background-color));
   border-radius: 100%;
@@ -119,7 +119,7 @@ button {
   -webkit-transition: border-color 0.4s;
   transition: border-color 0.4s;
 }
-.burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
+.burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
   border-color: rgb(var(--secondary-color));
 }
 .burger-instruments-wrapper .burger-open-section-container-buttons i {
@@ -136,7 +136,7 @@ button {
   gap: 10px;
   z-index: 4;
 }
-.burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open {
+.burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open {
   width: 50px;
   height: 50px;
 }
@@ -170,7 +170,7 @@ button {
   display: none;
 }
 
-.form-container, #filter-container, #services-container, #calculator-container, #theme-container, #consultation-container, #auth-container {
+.form-container, #admin-container, #filter-container, #services-container, #calculator-container, #theme-container, #consultation-container, #auth-container {
   background-color: rgb(var(--background-color));
   border: 1px solid rgb(var(--main-color));
   border-radius: 8px;
@@ -178,37 +178,39 @@ button {
   height: auto;
   padding: 20px;
 }
-.form-container h2, #filter-container h2, #services-container h2, #calculator-container h2, #theme-container h2, #consultation-container h2, #auth-container h2 {
+.form-container h2, #admin-container h2, #filter-container h2, #services-container h2, #calculator-container h2, #theme-container h2, #consultation-container h2, #auth-container h2 {
   color: rgb(var(--main-color));
   margin-bottom: 20px;
   text-align: center;
 }
-.form-container p, #filter-container p, #services-container p, #calculator-container p, #theme-container p, #consultation-container p, #auth-container p {
+.form-container p, #admin-container p, #filter-container p, #services-container p, #calculator-container p, #theme-container p, #consultation-container p, #auth-container p {
   text-align: center;
   margin-top: 10px;
   font-size: small;
   opacity: 0.7;
 }
-.form-container p span, #filter-container p span, #services-container p span, #calculator-container p span, #theme-container p span, #consultation-container p span, #auth-container p span {
+.form-container p span, #admin-container p span, #filter-container p span, #services-container p span, #calculator-container p span, #theme-container p span, #consultation-container p span, #auth-container p span {
   color: rgb(var(--secondary-color));
   font-size: larger;
   font-weight: bold;
 }
-.form-container p a, #filter-container p a, #services-container p a, #calculator-container p a, #theme-container p a, #consultation-container p a, #auth-container p a {
+.form-container p a, #admin-container p a, #filter-container p a, #services-container p a, #calculator-container p a, #theme-container p a, #consultation-container p a, #auth-container p a {
   color: rgb(var(--secondary-color));
   text-decoration: none;
 }
-.form-container p a:hover, #filter-container p a:hover, #services-container p a:hover, #calculator-container p a:hover, #theme-container p a:hover, #consultation-container p a:hover, #auth-container p a:hover {
+.form-container p a:hover, #admin-container p a:hover, #filter-container p a:hover, #services-container p a:hover, #calculator-container p a:hover, #theme-container p a:hover, #consultation-container p a:hover, #auth-container p a:hover {
   text-decoration: underline;
 }
-.form-container .form-template, #filter-container .form-template, #filter-container form, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form {
+.form-container .form-template, #admin-container .form-template, #admin-container form, #filter-container .form-template, #filter-container form, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
   gap: 15px;
 }
-.form-container .form-template input, #filter-container .form-template input, #filter-container form input, #services-container .form-template input, #calculator-container .form-template input, #calculator-container form input, #theme-container .form-template input, #consultation-container .form-template input, #consultation-container form input, #auth-container .form-template input, #auth-container form input,
+.form-container .form-template input, #admin-container .form-template input, #admin-container form input, #filter-container .form-template input, #filter-container form input, #services-container .form-template input, #calculator-container .form-template input, #calculator-container form input, #theme-container .form-template input, #consultation-container .form-template input, #consultation-container form input, #auth-container .form-template input, #auth-container form input,
 .form-container .form-template select,
+#admin-container .form-template select,
+#admin-container form select,
 #filter-container .form-template select,
 #filter-container form select,
 #services-container .form-template select,
@@ -218,12 +220,33 @@ button {
 #consultation-container .form-template select,
 #consultation-container form select,
 #auth-container .form-template select,
-#auth-container form select {
+#auth-container form select,
+.form-container .form-template textarea,
+#admin-container .form-template textarea,
+#admin-container form textarea,
+#filter-container .form-template textarea,
+#filter-container form textarea,
+#services-container .form-template textarea,
+#calculator-container .form-template textarea,
+#calculator-container form textarea,
+#theme-container .form-template textarea,
+#consultation-container .form-template textarea,
+#consultation-container form textarea,
+#auth-container .form-template textarea,
+#auth-container form textarea {
+  max-width: 100%;
   padding: 10px;
   border: 1px solid rgb(var(--main-color));
   border-radius: 5px;
 }
-.form-container .form-template button, #filter-container .form-template button, #filter-container form button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #theme-container .form-template button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
+.form-container .form-template textarea, #admin-container .form-template textarea, #admin-container form textarea, #filter-container .form-template textarea, #filter-container form textarea, #services-container .form-template textarea, #calculator-container .form-template textarea, #calculator-container form textarea, #theme-container .form-template textarea, #consultation-container .form-template textarea, #consultation-container form textarea, #auth-container .form-template textarea, #auth-container form textarea {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  max-height: 100px;
+}
+.form-container .form-template button, #admin-container .form-template button, #admin-container form button, #filter-container .form-template button, #filter-container form button, #services-container .form-template button, #calculator-container .form-template button, #calculator-container form button, #theme-container .form-template button, #consultation-container .form-template button, #consultation-container form button, #auth-container .form-template button, #auth-container form button {
   font-weight: bold;
 }
 

@@ -1,5 +1,6 @@
 if (!isAuthTokenExpired()) {
     const adminButton = document.createElement('button');
+    adminButton.id = 'admin-section-open';
     adminButton.title = 'Відкрити адмін панель';
     adminButton.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
 
@@ -14,10 +15,8 @@ else {
 }
 
 function openAdminPanel() {
-    toggleElementVisibility(modalWindow, 'flex');
-
     const adminPanelContent = `
-        <div class="modal-window-element">
+        <div id="admin-container" class="modal-window-element">
             <h2>Створити нову статтю</h2>
             <form id="create-post-form">
                 <input type="text" id="post-title" placeholder="Заголовок" required>
@@ -29,8 +28,10 @@ function openAdminPanel() {
             </form>
         </div>
     `;
-
     modalWindow.insertAdjacentHTML('beforeend', adminPanelContent);
+    const adminPanel = modalWindow.querySelector('#admin-container');
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(adminPanel, 'block');
 
     document.getElementById('create-post-form').addEventListener('submit', async (e) => {
         e.preventDefault();

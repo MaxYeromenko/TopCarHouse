@@ -218,10 +218,18 @@ button {
         gap: 15px;
 
         input,
-        select {
+        select,
+        textarea {
+            max-width: 100%;
             padding: 10px;
             border: 1px solid rgb(var(--main-color));
             border-radius: 5px;
+        }
+
+        textarea {
+            height: fit-content;
+            font-family: Arial, Helvetica, sans-serif;
+            max-height: 100px
         }
 
         button {
