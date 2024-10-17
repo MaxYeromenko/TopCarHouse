@@ -1,12 +1,10 @@
+const jwt = require('jsonwebtoken');
+
 module.exports = (req, res) => {
     if (req.method === 'GET') {
         try {
             const { token } = req.query;
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            console.log('1'+token);
-            console.log('2'+process.env.JWT_SECRET);
-            console.log('3'+decoded);
-            
 
             if (!decoded) {
                 return res.status(401).json({ success: false, message: ' ' });
