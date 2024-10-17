@@ -129,12 +129,7 @@ async function isAuthTokenExpired() {
     if (!token) return false;
 
     try {
-        const result = await handleRequest('/api/protected-route', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        }, retriesLimit);
+        const result = await fetchWithRetry(`/api/protected-route?token=${token}`, retriesLimit);
 
         if (!result.success) {
             removeToken('jwtToken');

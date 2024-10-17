@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
     if (req.method === 'GET') {
         try {
-            const token = req.headers['Authorization']?.split(' ')[1];
+            const { token } = req.query;
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
             if (!decoded) {
