@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
                 structure,
                 author,
                 tags: tags || [],
-                publishedDate: Date.now()
+                publishedDate: new Date().toISOString()
             });
 
             await newPost.save();
