@@ -64,11 +64,15 @@ const ConsultationModel = mongoose.model('Consultation', ConsultationSchema);
 
 const BlogPostSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    content: { type: String, required: true },
+    structure: [
+        {
+            type: String,
+            content: String
+        }
+    ],
     author: { type: String, required: true },
-    publishedDate: Date,
-    images: [String],
-    tags: [{ type: String }]
+    tags: [{ type: String }],
+    publishedDate: Date
 });
 
 const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
