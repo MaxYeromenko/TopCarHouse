@@ -66,8 +66,8 @@ const BlogPostSchema = new mongoose.Schema({
     title: { type: String, required: true },
     structure: [
         {
-            type: String,
-            content: String
+            elementType: String,
+            elementContent: String
         }
     ],
     author: { type: String, required: true },

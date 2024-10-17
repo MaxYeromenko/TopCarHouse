@@ -68,9 +68,9 @@ function openAdminPanel() {
         const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
 
         const elements = Array.from(document.querySelectorAll('.post-element')).map(el => {
-            const type = el.getAttribute('data-post-element-type');
-            const content = el.value;
-            return { type, content };
+            const elementType = el.getAttribute('data-post-element-type');
+            const elementContent = el.value;
+            return { elementType, elementContent };
         });
 
         console.log({
