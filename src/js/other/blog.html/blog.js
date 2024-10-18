@@ -163,7 +163,7 @@ function initializeFormSubmission() {
         const elements = Array.from(postElements)
             .map(el => {
                 const elementType = el.getAttribute('data-post-element-type');
-                const elementContent = el.value;
+                const elementContent = el.value.trim();
                 return { elementType, elementContent };
             })
             .filter(el => el.elementContent !== '');
