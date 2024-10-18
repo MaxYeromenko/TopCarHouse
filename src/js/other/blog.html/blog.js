@@ -62,10 +62,11 @@ function openAdminPanel() {
     addElementBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
     const adminPanel = modalWindow.querySelector('#admin-container');
+    const constructorForm = adminPanel.querySelector('form');
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(adminPanel, 'block');
 
-    adminPanel.querySelector('form').addEventListener('submit', async (e) => {
+    constructorForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const title = document.getElementById('post-title').value.trim();
@@ -79,6 +80,7 @@ function openAdminPanel() {
             return { elementType, elementContent };
         });
 
+        showMessage('Завантаження...', true);
         try {
             const result = await fetchWithRetryPost('/api/api-blog-post-control', {
                 title, structure: elements, author, tags, commentsEnabled
@@ -86,7 +88,8 @@ function openAdminPanel() {
 
             if (result.success) {
                 showMessage(result.message, result.success);
-                window.location.reload();
+                constructorForm.reset();
+                hideAllElementsInModalWindow(modalWindow);
             }
         } catch (error) {
             console.error('Error:', error);
