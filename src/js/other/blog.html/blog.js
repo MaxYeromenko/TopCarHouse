@@ -93,6 +93,7 @@ function openAdminPanel() {
                 showMessage(result.message, result.success);
                 constructorForm.reset();
                 hideAllElementsInModalWindow(modalWindow);
+                elements.forEach(element => element.remove());
             }
         } catch (error) {
             console.error('Error:', error);
