@@ -72,8 +72,15 @@ const BlogPostSchema = new mongoose.Schema({
     ],
     author: { type: String, required: true },
     tags: [{ type: String }],
-    publishedDate: Date
+    commentsEnabled: { type: Boolean, default: false },
+    comments: [{
+        commentator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        commentText: String,
+        createdAt: { type: Date, default: Date.now }
+    }],
+    publishedDate: { type: Date, default: Date.now }
 });
+
 
 const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
 

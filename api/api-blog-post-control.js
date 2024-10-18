@@ -2,7 +2,7 @@ const { BlogPostModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { title, structure, author, tags } = req.body;
+        const { title, structure, author, tags, commentsEnabled } = req.body;
 
         if (!title || !structure || !author) {
             return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
                 structure,
                 author,
                 tags: tags || [],
+                commentsEnabled,
                 publishedDate: new Date().toISOString()
             });
 
