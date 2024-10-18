@@ -13,6 +13,56 @@ if (!isAuthTokenExpired()) {
     removeToken('jwtToken');
 }
 
+function openAdminPanel() {
+    if (!document.getElementById('admin-container')) {
+        const adminPanelContent = `
+        <div id="admin-container" class="modal-window-element">
+            <h2>Конструктор статті</h2>
+            <form>
+                <input type="text" id="post-title" placeholder="Заголовок статті" required>
+                <button id="add-element-btn"></button>
+                <button id="remove-element-btn"></button>
+                <input type="text" id="post-author" placeholder="Автор" required>
+                <input type="text" id="post-tags" placeholder="Теги через кому">
+                <label>
+                    <input type="checkbox" id="post-comments-enabled">
+                    <span class="checkbox-button"></span>
+                    Увімкнути коментарі
+                </label>
+                <button type="submit">Опублікувати статтю</button>
+            </form>
+            <div id="element-type-select">
+                <h2>Оберіть тип елемента</h2>
+                <div class="element-type-list">
+                    <div class="element-type" data-element-type="title">
+                        <i class="fa-solid fa-heading"></i>
+                        <span>Заголовок</span>
+                    </div>
+                    <div class="element-type" data-element-type="text">
+                        <i class="fa-solid fa-align-center"></i>
+                        <span>Текст</span>
+                    </div>
+                    <div class="element-type" data-element-type="image">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Зображення</span>
+                    </div>
+                </div>
+                <button>Закрити</button>
+            </div>
+        </div>`;
+        modalWindow.insertAdjacentHTML('beforeend', adminPanelContent);
+
+        initializeElementTypeSelection();
+        initializeAddElementButton();
+        initializeRemoveElementButton();
+        initializeFormSubmission();
+    }
+
+    const adminPanel = modalWindow.querySelector('#admin-container');
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(adminPanel, 'block');
+}
+
 function addPostElement(type) {
     let elementHtml = '';
 
@@ -31,40 +81,75 @@ function addPostElement(type) {
     document.getElementById('add-element-btn').insertAdjacentHTML('beforebegin', elementHtml);
 }
 
-function openAdminPanel() {
-    const adminPanelContent = `
-        <div id="admin-container" class="modal-window-element">
-            <h2>Конструктор статті</h2>
-            <form>
-                <input type="text" id="post-title" placeholder="Заголовок" required>
-                <button id="add-element-btn">Додати елемент</button>
-                <input type="text" id="post-author" placeholder="Автор" required>
-                <input type="text" id="post-tags" placeholder="Теги через кому">
-                <label>
-                    <input type="checkbox" id="post-comments-enabled">
-                    <span class="checkbox-button"></span>
-                    Увімкнути коментарі
-                </label>
-                <button type="submit">Опублікувати статтю</button>
-            </form>
-        </div>
-    `;
+function initializeElementTypeSelection() {
+    const elementTypeSelect = document.getElementById('element-type-select');
 
-    modalWindow.insertAdjacentHTML('beforeend', adminPanelContent);
-
-    const addElementBtn = document.getElementById('add-element-btn');
-    addElementBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const type = prompt('Введите тип элемента (title, text, image)');
-        addPostElement(type);
+    elementTypeSelect.querySelector('button').addEventListener('click', () => {
+        toggleElementVisibility(elementTypeSelect, 'none');
     });
 
-    addElementBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    elementTypeSelect.querySelectorAll('.element-type').forEach(element => {
+        element.addEventListener('click', () => {
+            const elementType = element.getAttribute('data-element-type');
+            addPostElement(elementType);
+        });
+    });
+}
 
+function initializeAddElementButton() {
+    const addElementBtn = document.getElementById('add-element-btn');
+    addElementBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    addElementBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleElementVisibility(document.getElementById('element-type-select'), 'flex');
+    });
+}
+
+function initializeRemoveElementButton() {
+    const removeElementBtn = document.getElementById('remove-element-btn');
+    const addElementBtn = document.getElementById('add-element-btn');
+    let isDeleteMode = false;
+
+    removeElementBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+    removeElementBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        isDeleteMode = !isDeleteMode;
+
+        if (isDeleteMode) {
+            removeElementBtn.classList.add('delete-button-active');
+            addElementBtn.disabled = true;
+            enableDeleteMode();
+        } else {
+            removeElementBtn.classList.remove('delete-button-active');
+            addElementBtn.disabled = false;
+            disableDeleteMode();
+        }
+    });
+}
+
+function enableDeleteMode() {
+    const postElements = document.querySelectorAll('.post-element');
+    postElements.forEach(element => {
+        element.classList.add('delete-mode');
+        element.addEventListener('click', deleteElement);
+    });
+}
+
+function disableDeleteMode() {
+    const postElements = document.querySelectorAll('.post-element');
+    postElements.forEach(element => {
+        element.classList.remove('delete-mode');
+        element.removeEventListener('click', deleteElement);
+    });
+}
+
+function deleteElement(e) {
+    e.target.remove();
+}
+
+function initializeFormSubmission() {
     const adminPanel = modalWindow.querySelector('#admin-container');
     const constructorForm = adminPanel.querySelector('form');
-    toggleElementVisibility(modalWindow, 'flex');
-    toggleElementVisibility(adminPanel, 'block');
 
     constructorForm.addEventListener('submit', async (e) => {
         e.preventDefault();

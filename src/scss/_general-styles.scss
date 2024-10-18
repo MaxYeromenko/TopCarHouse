@@ -227,7 +227,6 @@ button {
         }
 
         textarea {
-            height: fit-content;
             font-family: Arial, Helvetica, sans-serif;
             max-height: 100px
         }
@@ -235,6 +234,11 @@ button {
         button {
             @extend .default-button-dark-bg;
             font-weight: bold;
+
+            &:disabled {
+                color: rgba(var(--secondary-color), .7);
+                background-color: rgba(var(--main-color), .7);
+            }
         }
     }
 }

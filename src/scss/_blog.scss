@@ -4,6 +4,63 @@
 
 #admin-container {
     @extend .form-container;
+    position: relative;
+    max-height: 95%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    #element-type-select {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 15px;
+        background-color: rgb(var(--background-color));
+        border-radius: 5px;
+        padding: 15px;
+        font-size: smaller;
+
+        button {
+            @extend .default-button-dark-bg;
+        }
+
+        .element-type-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            gap: 15px;
+
+            .element-type {
+                @extend .flex-align-to-center;
+                color: rgb(var(--background-color));
+                background-color: rgb(var(--secondary-color));
+                gap: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                flex: 1;
+                min-width: 90px;
+                text-align: center;
+                cursor: pointer;
+                transition: all .4s;
+
+                &:hover {
+                    color: rgb(var(--secondary-color));
+                    background-color: rgb(var(--main-color));
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
 
     form {
         @extend .form-template;
@@ -45,4 +102,13 @@
             }
         }
     }
+}
+
+.delete-button-active {
+    color: rgb(var(--secondary-color)) !important;
+    background-color: rgb(var(--main-color)) !important;
+}
+
+.delete-mode {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>'), auto;
 }
