@@ -82,7 +82,6 @@ function openAdminPanel() {
             })
             .filter(el => el.elementContent !== '');
 
-
         showMessage('Завантаження...', true);
         try {
             const result = await fetchWithRetryPost('/api/api-blog-post-control', {
@@ -93,7 +92,7 @@ function openAdminPanel() {
                 showMessage(result.message, result.success);
                 constructorForm.reset();
                 hideAllElementsInModalWindow(modalWindow);
-                elements.forEach(element => element.remove());
+                document.querySelectorAll('.post-element').forEach(element => element.remove());
             }
         } catch (error) {
             console.error('Error:', error);
