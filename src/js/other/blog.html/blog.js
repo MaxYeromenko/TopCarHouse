@@ -73,8 +73,9 @@ function openAdminPanel() {
         const author = document.getElementById('post-author').value.trim();
         const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
         const commentsEnabled = document.getElementById('post-comments-enabled').checked;
+        const postElements = document.querySelectorAll('.post-element');
 
-        const elements = Array.from(document.querySelectorAll('.post-element'))
+        const elements = Array.from(postElements)
             .map(el => {
                 const elementType = el.getAttribute('data-post-element-type');
                 const elementContent = el.value;
@@ -92,7 +93,7 @@ function openAdminPanel() {
                 showMessage(result.message, result.success);
                 constructorForm.reset();
                 hideAllElementsInModalWindow(modalWindow);
-                document.querySelectorAll('.post-element').forEach(element => element.remove());
+                postElements.forEach(element => element.remove());
             }
         } catch (error) {
             console.error('Error:', error);
