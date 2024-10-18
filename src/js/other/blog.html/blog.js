@@ -74,11 +74,14 @@ function openAdminPanel() {
         const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
         const commentsEnabled = document.getElementById('post-comments-enabled').checked;
 
-        const elements = Array.from(document.querySelectorAll('.post-element')).map(el => {
-            const elementType = el.getAttribute('data-post-element-type');
-            const elementContent = el.value;
-            return { elementType, elementContent };
-        });
+        const elements = Array.from(document.querySelectorAll('.post-element'))
+            .map(el => {
+                const elementType = el.getAttribute('data-post-element-type');
+                const elementContent = el.value;
+                return { elementType, elementContent };
+            })
+            .filter(el => el.elementContent !== '');
+
 
         showMessage('Завантаження...', true);
         try {
