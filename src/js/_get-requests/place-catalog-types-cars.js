@@ -178,7 +178,11 @@ async function loadCars(filter) {
     showMessage('Завантаження...', true);
 
     try {
-        const queryParams = new URLSearchParams(filter).toString();
+        const queryParams = new URLSearchParams(
+            Object.fromEntries(
+                Object.entries(filter)
+                    .map(([key, value]) => [key, value.trim()])
+            )).toString();
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
 
         carsContainer.innerHTML = '';

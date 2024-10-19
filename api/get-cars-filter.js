@@ -10,19 +10,19 @@ module.exports = async (req, res) => {
             if (id) {
                 filter._id = id;
             } else {
-                if (query.brand) filter.brand = query.brand.trim();
-                if (query.model) filter.model = query.model.trim();
+                if (query.brand) filter.brand = query.brand;
+                if (query.model) filter.model = query.model;
                 if (query.year) filter.year = Math.abs(Number(query.year));
                 if (query.price) filter.price = { $lte: Math.abs(Number(query.price)) };
-                if (query.color) filter.color = query.color.trim();
-                if (query.country) filter.country = query.country.trim();
+                if (query.color) filter.color = query.color;
+                if (query.country) filter.country = query.country;
 
                 if (query['features.horsepower']) filter['features.horsepower'] = { $lte: Math.abs(Number(query['features.horsepower'])) };
-                if (query['features.transmission']) filter['features.transmission'] = query['features.transmission'].trim();
+                if (query['features.transmission']) filter['features.transmission'] = query['features.transmission'];
                 if (query['features.engine']) filter['features.engine'] = { $lte: Math.abs(Number(query['features.engine'])) };
-                if (query['features.fuel_type']) filter['features.fuel_type'] = query['features.fuel_type'].trim();
+                if (query['features.fuel_type']) filter['features.fuel_type'] = query['features.fuel_type'];
                 if (query['features.fuel_consumption']) filter['features.fuel_consumption'] = { $lte: Math.abs(Number(query['features.fuel_consumption'])) };
-                if (query['features.body_type']) filter['features.body_type'] = query['features.body_type'].trim();
+                if (query['features.body_type']) filter['features.body_type'] = query['features.body_type'];
             }
 
             const cars = await CarModel.find(filter);
