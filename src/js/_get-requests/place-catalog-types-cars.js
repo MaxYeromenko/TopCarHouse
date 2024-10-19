@@ -32,10 +32,10 @@ let carsData = [];
 let carsDisplayed = 0;
 const carsPerPage = 12;
 
-filterSectionOpen.addEventListener('click', () => {
+filterSectionOpen.addEventListener('click', debounce(() => {
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(filterContainer, 'block');
-});
+}, 300));
 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyR') location.reload();
@@ -44,6 +44,14 @@ document.addEventListener('keydown', (event) => {
         toggleElementVisibility(filterContainer, 'block');
     }
 });
+
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}
 
 function createLinkElement(text, container, queryParam) {
     const link = document.createElement('a');
@@ -76,60 +84,22 @@ function placeCatalogTypes(catalogTypes) {
     sortedTransmissions.forEach(transmission => createLinkElement(transmission, transmissionList, 'features.transmission'));
     sortedBodyTypes.forEach(bodyType => createLinkElement(bodyType, bodyTypeList, 'features.body_type'));
 
-    const brandOptions = document.getElementById('brand-options');
-    brandOptions.innerHTML = '';
-    sortedBrands.forEach(brandType => {
-        const option = document.createElement('option');
-        option.value = brandType;
-        brandOptions.appendChild(option);
-    });
+    populateOptions('brand-options', sortedBrands);
+    populateOptions('model-options', sortedModels);
+    populateOptions('color-options', sortedColors);
+    populateOptions('country-options', sortedCountries);
+    populateOptions('transmission-options', sortedTransmissions);
+    populateOptions('fuel-type-options', sortedFuelTypes);
+    populateOptions('body-type-options', sortedBodyTypes);
+}
 
-    const modelOptions = document.getElementById('model-options');
-    modelOptions.innerHTML = '';
-    sortedModels.forEach(modelType => {
+function populateOptions(elementId, optionsList) {
+    const element = document.getElementById(elementId);
+    element.innerHTML = '';
+    optionsList.forEach(optionValue => {
         const option = document.createElement('option');
-        option.value = modelType;
-        modelOptions.appendChild(option);
-    });
-
-    const colorOptions = document.getElementById('color-options');
-    colorOptions.innerHTML = '';
-    sortedColors.forEach(colorType => {
-        const option = document.createElement('option');
-        option.value = colorType;
-        colorOptions.appendChild(option);
-    });
-
-    const countryOptions = document.getElementById('country-options');
-    countryOptions.innerHTML = '';
-    sortedCountries.forEach(countryType => {
-        const option = document.createElement('option');
-        option.value = countryType;
-        countryOptions.appendChild(option);
-    });
-
-    const transmissionOptions = document.getElementById('transmission-options');
-    transmissionOptions.innerHTML = '';
-    sortedTransmissions.forEach(transmissionType => {
-        const option = document.createElement('option');
-        option.value = transmissionType;
-        transmissionOptions.appendChild(option);
-    });
-
-    const fuelTypeOptions = document.getElementById('fuel-type-options');
-    fuelTypeOptions.innerHTML = '';
-    sortedFuelTypes.forEach(fuelType => {
-        const option = document.createElement('option');
-        option.value = fuelType;
-        fuelTypeOptions.appendChild(option);
-    });
-
-    const bodyTypeOptions = document.getElementById('body-type-options');
-    bodyTypeOptions.innerHTML = '';
-    sortedBodyTypes.forEach(bodyType => {
-        const option = document.createElement('option');
-        option.value = bodyType;
-        bodyTypeOptions.appendChild(option);
+        option.value = optionValue;
+        element.appendChild(option);
     });
 }
 
@@ -138,18 +108,14 @@ if (isAuthTokenExpired()) {
     toggleElementVisibility(filterSectionOpen, 'none');
     toggleElementVisibility(goToHomePage, 'inline');
     showMessage('Для отримання доступу до катологу, необхідно увійти до облікового запису!', false);
-}
-else {
+} else {
     document.addEventListener("DOMContentLoaded", async () => {
         showMessage('Завантаження...', true);
 
         try {
-            const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
-            if (result) {
-                catalogTypes = result;
-                placeCatalogTypes(catalogTypes);
-                showMessage('Дані успішно завантажені!', true);
-            }
+            const catalogTypes = await loadCatalogTypes();
+            placeCatalogTypes(catalogTypes);
+            showMessage('Дані успішно завантажені!', true);
         } catch (error) {
             console.error('Error fetching data:', error);
             showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
@@ -159,10 +125,24 @@ else {
     loadMoreCarsButton.addEventListener('click', loadMoreCars);
 }
 
+async function loadCatalogTypes() {
+    const cachedCatalogTypes = localStorage.getItem('catalogTypes');
+    if (cachedCatalogTypes) {
+        return JSON.parse(cachedCatalogTypes);
+    }
+
+    const result = await fetchWithRetry('/api/get-catalog-types', retriesLimit);
+    localStorage.setItem('catalogTypes', JSON.stringify(result));
+    return result;
+}
+
 function loadMoreCars() {
+    const fragment = document.createDocumentFragment();
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
-    nextCars.forEach(car => carsContainer.appendChild(createCarCard(car)));
+    nextCars.forEach(car => fragment.appendChild(createCarCard(car)));
+    carsContainer.appendChild(fragment);
+
     carsDisplayed += nextCars.length;
     toggleElementVisibility(loadMoreCarsButton, carsDisplayed >= carsData.length ? 'none' : 'inline');
 }
@@ -178,7 +158,8 @@ async function loadCars(filter) {
     showMessage('Завантаження...', true);
 
     try {
-        const queryParams = new URLSearchParams(filter).toString();
+        const cleanedFilter = cleanFilterParams(filter);
+        const queryParams = new URLSearchParams(cleanedFilter).toString();
         const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
 
         carsContainer.innerHTML = '';
@@ -198,21 +179,25 @@ async function loadCars(filter) {
     }
 }
 
+function cleanFilterParams(filter) {
+    return Object.fromEntries(
+        Object.entries(filter).filter(([key, value]) => value !== '' && value !== 'default')
+    );
+}
+
 function createCarCard(car) {
     const carCard = document.createElement('div');
+    carCard.classList.add('product-card');
 
-    let carImages = car.images && car.images.length > 0
+    const carImages = car.images && car.images.length > 0
         ? car.images.map(image => image.startsWith('http') ? image : `${cloudinaryURL}${image}`)
         : [default_car_URL];
-
-    let currentImageIndex = 0;
-    let validImages = [];
-    let imageInterval;
 
     const carImageElement = document.createElement('img');
     carImageElement.classList.add('product-image');
     carImageElement.alt = `${car.brand} ${car.model}`;
     carImageElement.src = default_car_URL;
+    carImageElement.loading = 'lazy'; // Ленивая загрузка изображений
 
     const imageContainer = document.createElement('div');
     imageContainer.classList.add('product-image-container');
@@ -230,52 +215,54 @@ function createCarCard(car) {
     });
 
     carCard.innerHTML = `
-        <div class="product-card">
-            <div class="product-info">
-                <h2 class="product-title">${car.brand} ${car.model}</h2>
-                <p class="product-description">
-                    ${car.year}, ${car.features.engine}, ${car.features.fuel_type}, ${car.features.horsepower} к.с.
-                </p>
-                <div class="product-features">
-                    <div class="feature"><i class="fa-solid fa-gears"></i>${car.features.transmission}</div>
-                    <div class="feature"><i class="fa-solid fa-gas-pump"></i>${car.features.fuel_consumption > 0 ? car.features.fuel_consumption + ' л / 100 км' : ' - '}</div>
-                    <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
-                </div>
-                <div class="product-price">Ціна: $${car.price}</div>
-                <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <div class="product-info">
+            <h2 class="product-title">${car.brand} ${car.model}</h2>
+            <p class="product-description">
+                ${car.year}, ${car.features.engine}, ${car.features.fuel_type}, ${car.features.horsepower} к.с.
+            </p>
+            <div class="product-features">
+                <div class="feature"><i class="fa-solid fa-gears"></i>${car.features.transmission}</div>
+                <div class="feature"><i class="fa-solid fa-gas-pump"></i>${car.features.fuel_consumption > 0 ? car.features.fuel_consumption + ' л / 100 км' : ' - '}</div>
+                <div class="feature"><i class="fa-solid fa-caravan"></i>${car.features.horsepower} к.с.</div>
             </div>
-        </div>`;
+            <div class="product-price">Ціна: $${car.price}</div>
+            <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+    `;
 
-    carImages.forEach(imageUrl => {
-        checkImageValidity(imageUrl)
-            .then(validImageUrl => {
-                validImages.push(validImageUrl);
-                if (validImages.length === 1) {
-                    carImageElement.src = validImages[0];
-                }
-            })
-            .catch(() => console.warn(`Image ${imageUrl} is broken and will be removed.`));
-    });
+    checkAllImages(carImages, carImageElement);
 
     carCard.querySelector('.product-card').insertBefore(imageContainer, carCard.querySelector('.product-info'));
+
+    return carCard;
+}
+
+async function checkAllImages(carImages, carImageElement) {
+    let validImages = await Promise.all(carImages.map(checkImageValidity));
+    validImages = validImages.filter(Boolean);
+
+    if (validImages.length > 0) {
+        carImageElement.src = validImages[0];
+    }
+
+    let imageInterval;
+    let currentImageIndex = 0;
 
     const changeImage = () => {
         currentImageIndex = (currentImageIndex + 1) % validImages.length;
         carImageElement.src = validImages[currentImageIndex];
     };
 
-    carCard.addEventListener('mouseenter', () => {
+    carImageElement.closest('.product-card').addEventListener('mouseenter', () => {
         if (validImages.length > 1) {
             imageInterval = setInterval(changeImage, 1500);
         }
     });
 
-    carCard.addEventListener('mouseleave', () => {
+    carImageElement.closest('.product-card').addEventListener('mouseleave', () => {
         clearInterval(imageInterval);
         if (validImages.length > 0) {
             carImageElement.src = validImages[0];
         }
     });
-
-    return carCard;
-};
+}
