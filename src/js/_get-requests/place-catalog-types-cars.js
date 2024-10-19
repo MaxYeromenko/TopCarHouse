@@ -184,14 +184,13 @@ async function loadCars(filter) {
         if (result && result.length > 0) {
             carsData = result;
             carsDisplayed = 0;
-            carsContainer.innerHTML = '';
-            loadMoreCars();
             toggleElementVisibility(catalogGrid, 'none');
             showMessage('Дані успішно завантажені!', true);
         } else {
-            carsContainer.innerHTML = '';
             showMessage('Авто за обраними фільтрами не знайдено.', false);
         }
+        carsContainer.innerHTML = '';
+        loadMoreCars();
     } catch (error) {
         console.error('Error fetching cars:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
