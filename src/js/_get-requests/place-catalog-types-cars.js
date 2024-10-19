@@ -190,7 +190,7 @@ async function loadCars(filter) {
             showMessage('Дані успішно завантажені!', true);
         } else {
             showMessage('Авто за обраними фільтрами не знайдено.', false);
-            toggleElementVisibility(loadMoreCarsButton, carsDisplayed >= carsData.length ? 'none' : 'inline');
+            toggleElementVisibility(loadMoreCarsButton, 'none');
         }
     } catch (error) {
         console.error('Error fetching cars:', error);
