@@ -200,7 +200,6 @@ async function loadCars(filter) {
 
 function createCarCard(car) {
     const carCard = document.createElement('div');
-    carCard.classList.add('car');
 
     let carImages = car.images && car.images.length > 0
         ? car.images.map(image => image.startsWith('http') ? image : `${cloudinaryURL}${image}`)
