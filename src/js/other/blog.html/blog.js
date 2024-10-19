@@ -186,3 +186,40 @@ function initializeFormSubmission() {
         }
     });
 }
+
+const blogSection = document.querySelector('.blog-section');
+const postsContainer = document.createElement('div');
+postsContainer.className = 'posts-container';
+blogSection.appendChild(postsContainer);
+
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+postsContainer.appendChild(createPostCard(1));
+
+function createPostCard(post) {
+    const card = document.createElement('div');
+
+    card.innerHTML = `
+    <div class="blog-post-card">
+        <div class="blog-post-image-container">
+            <img class="blog-post-image"
+                src="https://res.cloudinary.com/dukwtlvte/image/upload/v1725910177/logo-white_cd9dhs.png"
+                alt="Заголовок поста">
+        </div>
+        <div class="blog-post-info">
+            <h2 class="blog-post-title">Заголовок поста</h2>
+            <p class="blog-post-date">Дата публикации</p>
+            <p class="blog-post-description">Краткое описание поста или вводная часть</p>
+            <a href="post-url" target="_blank" class="blog-post-read-more">
+                Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+    </div>`;
+
+    return card;
+}

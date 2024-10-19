@@ -43,7 +43,7 @@ main.product-main {
         color: rgb(var(--background-color));
         font-size: 15px;
         width: 100%;
-        border-radius: 10px 10px 0 0;
+        border-radius: 5px 5px 0 0;
         position: relative;
         overflow: hidden;
         border: solid 1px rgb(var(--secondary-color));
@@ -87,7 +87,7 @@ main.product-main {
             position: absolute;
             bottom: 3%;
             padding: 10px 15px;
-            border-radius: 3px;
+            border-radius: 5px;
             width: fit-content;
         }
     }
@@ -95,7 +95,7 @@ main.product-main {
     .product-info {
         background-color: rgb(var(--main-color));
         padding: 20px;
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 5px 5px;
         width: 100%;
 
         p {

@@ -29,7 +29,7 @@
 
         .product-card {
             background-color: rgb(var(--main-color));
-            border-radius: 10px;
+            border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             width: 320px;
@@ -44,9 +44,19 @@
                 transform: scale(1.05);
             }
 
+            @media (max-width: 340px) {
+                &:hover {
+                    transform: none;
+                }
+            }
+
             .product-image-container {
                 position: relative;
                 width: 100%;
+
+                &:hover .compare-btn {
+                    opacity: 1;
+                }
 
                 .product-image {
                     width: 100%;
@@ -75,10 +85,6 @@
                 }
             }
 
-            .product-image-container:hover .compare-btn {
-                opacity: 1;
-            }
-
             .product-info {
                 padding: 20px;
                 display: flex;
@@ -87,25 +93,22 @@
                 flex-grow: 1;
                 gap: 10px;
                 width: 100%;
+                color: rgb(var(--background-color));
+                font-size: 14px;
 
                 .product-title {
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: bold;
-                    color: rgb(var(--background-color));
                 }
 
                 .product-description {
-                    font-size: 14px;
-                    color: rgb(var(--background-color));
                     opacity: 0.8;
                 }
 
                 .product-features {
                     display: flex;
-                    gap: 10px;
-                    font-size: 14px;
-                    color: rgb(var(--background-color));
                     justify-content: center;
+                    gap: 10px;
 
                     .feature {
                         display: flex;
@@ -121,7 +124,6 @@
                 .product-price {
                     font-size: 16px;
                     font-weight: bold;
-                    color: rgb(var(--secondary-color));
                     margin: 10px;
                 }
 
@@ -140,12 +142,6 @@
                     margin-top: 10px;
                     opacity: 0.7;
                 }
-            }
-        }
-
-        @media (max-width: 340px) {
-            .product-card:hover {
-                transform: none;
             }
         }
     }
