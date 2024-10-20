@@ -1470,16 +1470,6 @@ main.product-main {
             transform: none;
   }
 }
-.blog-section .posts-container .blog-post-card .blog-post-image-container {
-  width: 100%;
-}
-.blog-section .posts-container .blog-post-card .blog-post-image-container .blog-post-image {
-  width: 100%;
-  height: 214px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-bottom: 2px solid rgb(var(--secondary-color));
-}
 .blog-section .posts-container .blog-post-card .blog-post-info {
   padding: 20px;
   display: -webkit-box;

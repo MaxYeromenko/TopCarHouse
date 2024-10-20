@@ -191,31 +191,72 @@ const blogSection = document.querySelector('.blog-section');
 const postsContainer = document.createElement('div');
 postsContainer.className = 'posts-container';
 blogSection.appendChild(postsContainer);
+const loadMorePostsButton = document.createElement('button');
+loadMorePostsButton.textContent = 'Завантажити більше';
+cardsSectionButtons.appendChild(loadMorePostsButton);
 
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
-postsContainer.appendChild(createPostCard(1));
+let postsData = [];
+let postsDisplayed = 0;
+const postsPerPage = 20;
+
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+// postsContainer.appendChild(createPostCard(1));
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const result = await fetchWithRetry('/api/api-blog-post-control', retriesLimit);
+
+        if (result) {
+            postsData = result;
+            loadMorePosts();
+        }
+    } catch (error) {
+        console.error('Error fetching posts data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+});
+
+function loadMorePosts() {
+    const nextPosts = postsData.slice(postsDisplayed, postsDisplayed + postsPerPage);
+
+    nextPosts.forEach(post => {
+        postsContainer.appendChild(createPostCard(post));
+    });
+
+    postsDisplayed += nextPosts.length;
+
+    if (postsDisplayed >= postsData.length) toggleElementVisibility(loadMorePostsButton, 'none');
+}
 
 function createPostCard(post) {
     const card = document.createElement('div');
 
+    let description = 'Опис статті відсутній.';
+
+    for (const element of post.structure) {
+        if (element.elementType === 'text' && element.elementContent.trim() !== '') {
+            description = element.elementContent.substring(0, 100) + '...';
+            break;
+        }
+    }
+
     card.innerHTML = `
     <div class="blog-post-card">
-        <div class="blog-post-image-container">
-            <img class="blog-post-image"
-                src="https://res.cloudinary.com/dukwtlvte/image/upload/v1725910177/logo-white_cd9dhs.png"
-                alt="Заголовок поста">
-        </div>
         <div class="blog-post-info">
-            <h2 class="blog-post-title">Заголовок поста</h2>
-            <p class="blog-post-date">Дата публикации</p>
-            <p class="blog-post-description">Краткое описание поста или вводная часть</p>
-            <a href="post-url" target="_blank" class="blog-post-read-more">
+            <h2 class="blog-post-title">${post.title}</h2>
+            <p class="blog-post-date">Дата публікації: 
+                <span>
+                ${new Date(post.publishedDate).toLocaleDateString('uk-UA', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </span>
+            </p>
+            <p class="blog-post-description">${description}</p>
+            <a href="/pages/post-info.html?id=${post._id}" target="_blank" class="blog-post-read-more">
                 Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
         </div>
@@ -223,3 +264,5 @@ function createPostCard(post) {
 
     return card;
 }
+
+loadMorePostsButton.addEventListener('click', loadMoreCars);

@@ -25,7 +25,44 @@ module.exports = async (req, res) => {
         }
     } else if (req.method === 'GET') {
         try {
-            const posts = await BlogPostModel.find();
+            const { sortByDate, searchQuery, author, tags } = req.query;
+
+            let filter = {};
+
+            if (author) {
+                const trimmedAuthor = author.trim();
+                if (trimmedAuthor.length > 0) {
+                    filter.author = trimmedAuthor;
+                }
+            }
+
+            if (tags) {
+                const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+                if (tagArray.length > 0) {
+                    filter.tags = { $in: tagArray };
+                }
+            }
+
+            if (searchQuery) {
+                const searchRegex = new RegExp(searchQuery.trim(), 'i');
+                filter.$or = [
+                    { title: searchRegex },
+                    { 'structure.elementContent': searchRegex }
+                ];
+            }
+
+            let sortOptions = {};
+
+            if (sortByDate) {
+                if (sortByDate === true) {
+                    sortOptions = { createdAt: 1 };
+                } else {
+                    sortOptions = { createdAt: -1 };
+                }
+            }
+
+            const posts = await BlogPostModel.find(filter).sort(sortOptions);
+
             res.status(200).json({ success: true, data: posts });
         } catch (err) {
             console.error(err);
