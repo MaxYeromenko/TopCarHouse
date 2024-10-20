@@ -191,6 +191,9 @@ const blogSection = document.querySelector('.blog-section');
 const postsContainer = document.createElement('div');
 postsContainer.className = 'posts-container';
 blogSection.appendChild(postsContainer);
+const cardsSectionButtons = document.createElement('div');
+cardsSectionButtons.className = 'cards-section-buttons';
+cardsSection.appendChild(cardsSectionButtons);
 const loadMorePostsButton = document.createElement('button');
 loadMorePostsButton.textContent = 'Завантажити більше';
 cardsSectionButtons.appendChild(loadMorePostsButton);
@@ -198,15 +201,6 @@ cardsSectionButtons.appendChild(loadMorePostsButton);
 let postsData = [];
 let postsDisplayed = 0;
 const postsPerPage = 20;
-
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
-// postsContainer.appendChild(createPostCard(1));
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
