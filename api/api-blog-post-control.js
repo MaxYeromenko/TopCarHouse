@@ -63,7 +63,7 @@ module.exports = async (req, res) => {
 
             const posts = await BlogPostModel.find(filter).sort(sortOptions);
 
-            res.status(200).json({ success: true, data: posts });
+            res.status(200).json(posts);
         } catch (err) {
             console.error(err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання статей!' });
