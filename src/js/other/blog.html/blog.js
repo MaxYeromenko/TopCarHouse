@@ -259,4 +259,4 @@ function createPostCard(post) {
     return card;
 }
 
-loadMorePostsButton.addEventListener('click', loadMoreCars);
+loadMorePostsButton.addEventListener('click', loadMorePosts);
