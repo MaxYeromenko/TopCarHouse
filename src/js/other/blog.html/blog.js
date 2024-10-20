@@ -193,7 +193,7 @@ postsContainer.className = 'posts-container';
 blogSection.appendChild(postsContainer);
 const cardsSectionButtons = document.createElement('div');
 cardsSectionButtons.className = 'cards-section-buttons';
-cardsSection.appendChild(cardsSectionButtons);
+blogSection.appendChild(cardsSectionButtons);
 const loadMorePostsButton = document.createElement('button');
 loadMorePostsButton.textContent = 'Завантажити більше';
 cardsSectionButtons.appendChild(loadMorePostsButton);
