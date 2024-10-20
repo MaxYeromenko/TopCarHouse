@@ -1,3 +1,15 @@
+const carMarkUp =
+    `<img id="car" src="/src/images/icons/topcarhouse-favicon-black.png" alt="Автомобіль">
+    <div id="thank-you-message-bg">
+        <div id="thank-you-message">
+            <img src="https://res.cloudinary.com/dukwtlvte/image/upload/v1725910176/logo-no-background_kuzaip.png"
+                alt="Логотип">
+            <h3>Щиро дякуємо за підтримку!</h3>
+        </div>
+    </div>`;
+
+document.querySelector('footer').insertAdjacentHTML('beforebegin', carMarkUp);
+
 const car_icon = document.getElementById('car');
 
 car_icon.addEventListener("click", () => {
