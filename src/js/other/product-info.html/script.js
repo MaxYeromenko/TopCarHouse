@@ -1,3 +1,17 @@
+import {
+    createConsultationRequest,
+    themeApplication,
+    showServicesModalWindow,
+    calculatorIntegration,
+    compareCarsIntegration
+} from '../_general-functions-module/script.js';
+
+showServicesModalWindow();
+themeApplication();
+createConsultationRequest();
+calculatorIntegration();
+compareCarsIntegration();
+
 const imageToView = document.getElementById('product-image');
 const viewedImage = document.createElement('img');
 viewedImage.classList.add('viewed-img');

@@ -1,3 +1,17 @@
+import {
+    createConsultationRequest,
+    themeApplication,
+    showServicesModalWindow,
+    calculatorIntegration,
+    compareCarsIntegration
+} from '../_general-functions-module/script.js';
+
+showServicesModalWindow();
+themeApplication();
+createConsultationRequest();
+calculatorIntegration();
+compareCarsIntegration();
+
 const catalogSection = document.querySelector('.catalog');
 const filterSectionOpen = document.getElementById('filter-section-open');
 const filterContainer = document.getElementById('filter-container');

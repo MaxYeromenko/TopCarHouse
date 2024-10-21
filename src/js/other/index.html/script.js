@@ -1,3 +1,17 @@
+import {
+    createConsultationRequest,
+    themeApplication,
+    showServicesModalWindow,
+    calculatorIntegration,
+    compareCarsIntegration
+} from '../_general-functions-module/script.js';
+
+showServicesModalWindow();
+themeApplication();
+createConsultationRequest();
+calculatorIntegration();
+compareCarsIntegration();
+
 const logButtons = document.querySelectorAll('.log-button');
 const logOutButtons = document.querySelectorAll('.log-out-button');
 const registerBox = document.getElementById('register-box');

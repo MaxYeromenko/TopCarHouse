@@ -4,6 +4,6 @@ import {
     showServicesModalWindow
 } from '../_general-functions-module/script.js';
 
-showServicesModalWindow();
-themeApplication();
 createConsultationRequest();
+themeApplication();
+showServicesModalWindow();
