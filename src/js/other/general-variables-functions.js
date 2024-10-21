@@ -56,32 +56,34 @@ let hideTimeout = null;
 let resetTimeout = null;
 
 function showMessage(text, isSuccess) {
-    const message = document.querySelector('.info-message');
-    const messageText = document.querySelector('.info-message .message-text');
-    const messageCloseButton = document.querySelector('.info-message .fa-xmark');
+    document.addEventListener('DOMContentLoaded', () => {
+        const message = document.querySelector('.info-message');
+        const messageText = document.querySelector('.info-message .message-text');
+        const messageCloseButton = document.querySelector('.info-message .fa-xmark');
 
-    if (hideTimeout) clearTimeout(hideTimeout);
-    if (resetTimeout) clearTimeout(resetTimeout);
+        if (hideTimeout) clearTimeout(hideTimeout);
+        if (resetTimeout) clearTimeout(resetTimeout);
 
-    messageCloseButton.addEventListener('click', () => {
-        message.classList.add('invisible');
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
+        messageCloseButton.addEventListener('click', () => {
+            message.classList.add('invisible');
+            message.classList.remove('error-message');
+            message.classList.remove('success-message');
+        });
+
+        messageText.textContent = text;
+        message.classList.toggle('success-message', isSuccess);
+        message.classList.toggle('error-message', !isSuccess);
+        message.classList.remove('invisible');
+
+        hideTimeout = setTimeout(() => {
+            message.classList.add('invisible');
+        }, 3000);
+
+        resetTimeout = setTimeout(() => {
+            message.classList.remove('error-message');
+            message.classList.remove('success-message');
+        }, 4000);
     });
-
-    messageText.textContent = text;
-    message.classList.toggle('success-message', isSuccess);
-    message.classList.toggle('error-message', !isSuccess);
-    message.classList.remove('invisible');
-
-    hideTimeout = setTimeout(() => {
-        message.classList.add('invisible');
-    }, 3000);
-
-    resetTimeout = setTimeout(() => {
-        message.classList.remove('error-message');
-        message.classList.remove('success-message');
-    }, 4000);
 }
 
 const retriesLimit = 3;

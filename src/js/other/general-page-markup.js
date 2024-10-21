@@ -60,6 +60,12 @@ const pageHeader = `<header>
     </header>`;
 document.body.insertAdjacentHTML('afterbegin', document.location.pathname === '/' ? indexHeader : pageHeader);
 
+const messageMarkUp = `<div class="info-message">
+        <span class="message-text"></span>
+        <i class="fa-solid fa-xmark"></i>
+    </div>`;
+document.querySelector('main').insertAdjacentHTML('afterbegin', messageMarkUp);
+
 const pageFooter = `<footer id="bottom">
         <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
         <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
