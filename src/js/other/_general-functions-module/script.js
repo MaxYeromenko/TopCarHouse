@@ -67,3 +67,34 @@ export function createConsultationRequest() {
         }
     });
 };
+
+export function themeApplication() {
+    const themeSectionOpen = document.getElementById('theme-section-open');
+    const themeContainer = document.getElementById('theme-container');
+    const themeContainerButtons = themeContainer.querySelectorAll('button');
+
+    themeSectionOpen.addEventListener('click', () => {
+        toggleElementVisibility(modalWindow, 'flex');
+        toggleElementVisibility(themeContainer, 'block');
+    });
+
+    themeContainerButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const theme = button.parentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('selected-theme', theme);
+        })
+    });
+};
+
+export function showServicesModalWindow() {
+    const servicesButtons = document.querySelectorAll('.services-button');
+    const servicesContainer = document.getElementById('services-container');
+
+    servicesButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            toggleElementVisibility(modalWindow, 'flex');
+            toggleElementVisibility(servicesContainer, 'flex');
+        });
+    });
+};

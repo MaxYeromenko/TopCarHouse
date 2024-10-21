@@ -1,3 +1,9 @@
+import { createConsultationRequest, themeApplication, showServicesModalWindow } from '../_general-functions-module/script.js';
+
+showServicesModalWindow();
+themeApplication();
+createConsultationRequest();
+
 if (!isAuthTokenExpired()) {
     const adminButton = document.createElement('button');
     adminButton.id = 'admin-section-open';
