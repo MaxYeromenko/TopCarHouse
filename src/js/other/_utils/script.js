@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export function createConsultationRequest() {
     const consultationContainer = document.getElementById('consultation-container');
     const consultationForm = consultationContainer.querySelector('form');
