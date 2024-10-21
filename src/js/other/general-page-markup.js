@@ -1,5 +1,3 @@
-applySavedTheme();
-
 const indexHeader = `<header>
         <div class="logo-bg">
             <a href="/">TopCarHouse</a>
