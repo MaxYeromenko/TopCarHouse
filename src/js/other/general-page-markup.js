@@ -60,11 +60,13 @@ const pageHeader = `<header>
     </header>`;
 document.body.insertAdjacentHTML('afterbegin', document.location.pathname === '/' ? indexHeader : pageHeader);
 
+const mainBlock = document.querySelector('main');
+
 const messageMarkUp = `<div class="info-message">
         <span class="message-text"></span>
         <i class="fa-solid fa-xmark"></i>
     </div>`;
-document.querySelector('main').insertAdjacentHTML('afterbegin', messageMarkUp);
+mainBlock.insertAdjacentHTML('afterbegin', messageMarkUp);
 
 const pageFooter = `<footer id="bottom">
         <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
@@ -82,8 +84,7 @@ const pageFooter = `<footer id="bottom">
             </a>
         </p>
     </footer>`;
-
-document.querySelector('main').insertAdjacentHTML('afterend', pageFooter);
+mainBlock.insertAdjacentHTML('afterend', pageFooter);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -101,12 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
     head.appendChild(pageIcon);
 });
 
-let headerBlock = document.querySelector('header');
-let mainBlock = document.querySelector('main');
+const headerBlock = document.querySelector('header');
 
 function setMargin() {
-    let headerBlockHeight = headerBlock.getBoundingClientRect().height;
-    mainBlock.style.marginTop = headerBlockHeight - 1 + 'px';
+    mainBlock.style.marginTop = headerBlock.getBoundingClientRect().height - 1 + 'px';
 };
 
 setMargin();
