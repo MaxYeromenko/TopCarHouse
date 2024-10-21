@@ -4,7 +4,7 @@ import {
     showServicesModalWindow,
     calculatorIntegration,
     compareCarsIntegration
-} from '../_general-functions-module/script.js';
+} from '../_utils/script.js';
 
 showServicesModalWindow();
 themeApplication();

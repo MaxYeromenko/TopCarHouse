@@ -2,7 +2,7 @@ import {
     createConsultationRequest,
     themeApplication,
     showServicesModalWindow
-} from '../_general-functions-module/script.js';
+} from '../_utils/script.js';
 
 createConsultationRequest();
 themeApplication();

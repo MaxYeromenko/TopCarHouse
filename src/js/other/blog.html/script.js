@@ -1,4 +1,4 @@
-import { createConsultationRequest, themeApplication, showServicesModalWindow } from '../_general-functions-module/script.js';
+import { createConsultationRequest, themeApplication, showServicesModalWindow } from '../_utils/script.js';
 
 showServicesModalWindow();
 themeApplication();
