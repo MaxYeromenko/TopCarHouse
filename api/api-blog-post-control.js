@@ -25,39 +25,42 @@ module.exports = async (req, res) => {
         }
     } else if (req.method === 'GET') {
         try {
-            const { sortByDate, searchQuery, author, tags } = req.query;
+            const { id, sortByDate, searchQuery, author, tags } = req.query;
 
             let filter = {};
-
-            if (author) {
-                const trimmedAuthor = author.trim();
-                if (trimmedAuthor.length > 0) {
-                    filter.author = trimmedAuthor;
-                }
-            }
-
-            if (tags) {
-                const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-                if (tagArray.length > 0) {
-                    filter.tags = { $in: tagArray };
-                }
-            }
-
-            if (searchQuery) {
-                const searchRegex = new RegExp(searchQuery.trim(), 'i');
-                filter.$or = [
-                    { title: searchRegex },
-                    { 'structure.elementContent': searchRegex }
-                ];
-            }
-
             let sortOptions = {};
 
-            if (sortByDate) {
-                if (sortByDate === true) {
-                    sortOptions = { createdAt: 1 };
-                } else {
-                    sortOptions = { createdAt: -1 };
+            if (id) {
+                filter._id = id;
+            } else {
+                if (author) {
+                    const trimmedAuthor = author.trim();
+                    if (trimmedAuthor.length > 0) {
+                        filter.author = trimmedAuthor;
+                    }
+                }
+
+                if (tags) {
+                    const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+                    if (tagArray.length > 0) {
+                        filter.tags = { $in: tagArray };
+                    }
+                }
+
+                if (searchQuery) {
+                    const searchRegex = new RegExp(searchQuery.trim(), 'i');
+                    filter.$or = [
+                        { title: searchRegex },
+                        { 'structure.elementContent': searchRegex }
+                    ];
+                }
+
+                if (sortByDate) {
+                    if (sortByDate === true) {
+                        sortOptions = { createdAt: 1 };
+                    } else {
+                        sortOptions = { createdAt: -1 };
+                    }
                 }
             }
 
