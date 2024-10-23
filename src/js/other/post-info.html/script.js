@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function loadPostInfo() {
     document.title = `${postData.title} | TopCarHouse`;
-    const postContainer = document.getElementById('post-container');
+    const postContainer = document.querySelector('.post-container');
     postContainer.innerHTML = '';
 
     const titleElement = document.createElement('h1');
