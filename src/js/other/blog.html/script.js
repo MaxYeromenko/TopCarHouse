@@ -206,7 +206,7 @@ cardsSectionButtons.appendChild(loadMorePostsButton);
 
 let postsData = [];
 let postsDisplayed = 0;
-const postsPerPage = 1;
+const postsPerPage = 10;
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
