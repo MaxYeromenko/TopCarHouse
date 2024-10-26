@@ -55,9 +55,13 @@ function loadPostInfo() {
                 element.textContent = item.elementContent;
                 break;
             case 'image':
-                element = document.createElement('img');
-                element.src = item.elementContent;
-                element.alt = 'Изображение статьи';
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'image-container';
+                const image = document.createElement('img');
+                image.src = item.elementContent;
+                image.alt = 'Изображение статьи';
+                imageContainer.appendChild(image);
+                element = imageContainer;
                 break;
             default:
                 element = document.createElement('p');
