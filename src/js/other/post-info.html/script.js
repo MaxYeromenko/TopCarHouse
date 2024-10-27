@@ -160,6 +160,6 @@ async function submitComment(postId) {
         }
     } catch (error) {
         console.error('Error:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        showMessage(error, false);
     }
 }
