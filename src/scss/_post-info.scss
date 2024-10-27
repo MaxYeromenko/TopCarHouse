@@ -41,4 +41,13 @@
             width: 80%;
         }
     }
+
+    .comments-section {
+        #add-comment-section {
+            textarea {
+                width: 100%;
+                resize: vertical;
+            }
+        }
+    }
 }

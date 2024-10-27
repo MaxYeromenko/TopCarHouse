@@ -1336,6 +1336,10 @@ main.product-main {
     width: 80%;
   }
 }
+.post-container .comments-section #add-comment-section textarea {
+  width: 100%;
+  resize: vertical;
+}
 
 #admin-container {
   position: relative;

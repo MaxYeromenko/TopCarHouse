@@ -134,6 +134,15 @@ function isAuthTokenExpired() {
     return decodedPayload.exp < currentTime;
 }
 
+function getUserIdFromToken() {
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+        const { userId } = JSON.parse(atob(token.split('.')[1]));
+        return userId;
+    }
+    return null;
+}
+
 function removeToken(name) {
     localStorage.removeItem(name);
 }

@@ -85,6 +85,13 @@ function loadPostInfo() {
         commentsTitle.textContent = 'Коментарі:';
         commentsSection.appendChild(commentsTitle);
 
+        const addCommentSection = `<div id="add-comment-section">
+                <h2>Додати коментар</h2>
+                <textarea id="comment-text" placeholder="Напишіть свій коментар..." required></textarea>
+                <button id="submit-comment">Додати коментар</button>
+            </div>`;
+        commentsSection.insertAdjacentHTML('beforeend', addCommentSection);
+
         postData.comments.forEach(comment => {
             const commentElement = document.createElement('div');
             commentElement.classList.add('comment');
@@ -107,3 +114,52 @@ function loadPostInfo() {
         postContainer.appendChild(commentsSection);
     }
 };
+
+async function submitComment(postId) {
+    const commentText = document.getElementById('comment-text').value.trim();
+
+    if (!commentText) {
+        showMessage('Коментар не може бути порожнім!', false);
+        return;
+    }
+
+    if (isAuthTokenExpired()) {
+        showMessage('Увійдіть до облікового запису, щоб мати змогу коментувати!', false);
+        return;
+    }
+
+    const userId = getUserIdFromToken();
+    if (!userId) {
+        showMessage('Помилка, перезайдіть до облікового запису!', false);
+        return;
+    }
+
+    try {
+        const result = await handleRequest(`/api/add-post-comment`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                },
+                body: JSON.stringify({
+                    postId,
+                    userId,
+                    commentText
+                })
+            }, retries);
+
+        if (result.success) {
+            showMessage('Коментар успішно опубліковано!', true);
+            document.getElementById('comment-text').value = '';
+            loadPostInfo();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+}
+
+document.getElementById('submit-comment').addEventListener('click', () => {
+    submitComment(postId);
+});
