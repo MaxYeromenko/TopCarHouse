@@ -26,6 +26,7 @@ module.exports = async (req, res) => {
             await post.save();
             res.json({ success: true, message: 'Коментар успішно опубліковано!' });
         } catch (error) {
+            console.log(error);
             res.status(500).json({ success: false, message: 'Помилка сервера під час публікації!' });
         }
     } else {
