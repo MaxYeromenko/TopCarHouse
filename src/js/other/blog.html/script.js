@@ -174,7 +174,7 @@ function initializeFormSubmission() {
             })
             .filter(el => el.elementContent !== '');
 
-        showMessage('Завантаження...', true);
+        showMessage('Публікація...', true)
         try {
             const result = await fetchWithRetryPost('/api/api-blog-post-control', {
                 title, structure: elements, author, tags, commentsEnabled

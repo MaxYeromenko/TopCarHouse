@@ -109,7 +109,7 @@ function loadPostInfo() {
             commentElement.appendChild(commentText);
 
             const commentDate = document.createElement('p');
-            commentDate.textContent = `Дата: ${new Date(comment.createdAt).toLocaleDateString()}`;
+            commentDate.textContent = `Дата: ${new Date(comment.createdAt).toLocaleString()}`;
             commentElement.appendChild(commentDate);
 
             commentsSection.appendChild(commentElement);
@@ -138,6 +138,7 @@ async function submitComment(postId) {
         return;
     }
 
+    showMessage('Публікація...', true)
     try {
         const result = await handleRequest(`/api/add-post-comment`,
             {
