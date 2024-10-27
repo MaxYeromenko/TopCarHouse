@@ -137,8 +137,8 @@ function isAuthTokenExpired() {
 function getUserIdFromToken() {
     const token = localStorage.getItem('jwtToken');
     if (token) {
-        const { userId } = JSON.parse(atob(token.split('.')[1]));
-        return userId;
+        const { id } = JSON.parse(atob(token.split('.')[1]));
+        return id;
     }
     return null;
 }
