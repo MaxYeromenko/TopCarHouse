@@ -40,7 +40,7 @@ function loadPostInfo() {
 
     const authorElement = document.createElement('p');
     const publishedDate = new Date(postData.publishedDate).toLocaleDateString();
-    authorElement.textContent = `Автор: ${postData.author} | Опубликовано: ${publishedDate}`;
+    authorElement.textContent = `Автор: ${postData.author} | Дата публікації: ${publishedDate}`;
     postContainer.appendChild(authorElement);
 
     postData.structure.forEach(item => {
@@ -59,7 +59,7 @@ function loadPostInfo() {
                 imageContainer.className = 'image-container';
                 const image = document.createElement('img');
                 image.src = item.elementContent;
-                image.alt = 'Изображение статьи';
+                image.alt = 'Зображення статті';
                 imageContainer.appendChild(image);
                 element = imageContainer;
                 break;
@@ -81,8 +81,8 @@ function loadPostInfo() {
         const commentsSection = document.createElement('section');
         commentsSection.classList.add('comments-section');
 
-        const commentsTitle = document.createElement('h2');
-        commentsTitle.textContent = 'Комментарии:';
+        const commentsTitle = document.createElement('h1');
+        commentsTitle.textContent = 'Коментарі:';
         commentsSection.appendChild(commentsTitle);
 
         postData.comments.forEach(comment => {
@@ -90,7 +90,7 @@ function loadPostInfo() {
             commentElement.classList.add('comment');
 
             const commentator = document.createElement('p');
-            commentator.textContent = `Комментатор: ${comment.commentator}`;
+            commentator.textContent = `Коментатор: ${comment.commentator}`;
             commentElement.appendChild(commentator);
 
             const commentText = document.createElement('p');
