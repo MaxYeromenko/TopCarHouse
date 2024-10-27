@@ -1,4 +1,4 @@
-const { mongoose } = require('../server/db');
+const { mongoose, BlogPostModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
         }
 
         try {
-            const post = await BlogPost.findById(postId);
+            const post = await BlogPostModel.findById(postId);
             if (!post) {
                 return res.status(404).json({ success: false, message: 'Пост не знайдено!' });
             }
