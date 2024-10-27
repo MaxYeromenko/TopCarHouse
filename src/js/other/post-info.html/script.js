@@ -92,7 +92,7 @@ function loadPostInfo() {
             </div>`;
         commentsSection.insertAdjacentHTML('beforeend', addCommentSection);
 
-        document.getElementById('submit-comment').addEventListener('click', () => {
+        commentsSection.querySelector('#submit-comment').addEventListener('click', () => {
             submitComment(postId);
         });
 
