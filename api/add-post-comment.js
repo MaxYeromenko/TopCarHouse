@@ -1,3 +1,5 @@
+const { mongoose } = require('../server/db');
+
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
         const { postId, userId, commentText } = req.body;
@@ -12,8 +14,12 @@ module.exports = async (req, res) => {
                 return res.status(404).json({ success: false, message: 'Пост не знайдено!' });
             }
 
+            if (!mongoose.Types.ObjectId.isValid(userId)) {
+                return res.status(400).json({ success: false, message: 'Помилка, перезайдіть до облікового запису!' });
+            }
+
             post.comments.push({
-                commentator: userId,
+                commentator: mongoose.Types.ObjectId(userId),
                 commentText
             });
 
