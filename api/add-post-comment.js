@@ -2,7 +2,7 @@ module.exports = async (req, res) => {
     if (req.method === 'POST') {
         const { postId, userId, commentText } = req.body;
 
-        if (!title || !structure || !author) {
+        if (!postId || !userId || !commentText) {
             return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
         }
 
