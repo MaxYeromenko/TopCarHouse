@@ -92,6 +92,10 @@ function loadPostInfo() {
             </div>`;
         commentsSection.insertAdjacentHTML('beforeend', addCommentSection);
 
+        document.getElementById('submit-comment').addEventListener('click', () => {
+            submitComment(postId);
+        });
+
         postData.comments.forEach(comment => {
             const commentElement = document.createElement('div');
             commentElement.classList.add('comment');
@@ -159,7 +163,3 @@ async function submitComment(postId) {
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
-
-document.getElementById('submit-comment').addEventListener('click', () => {
-    submitComment(postId);
-});
