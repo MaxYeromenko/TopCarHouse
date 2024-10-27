@@ -81,7 +81,7 @@ function loadPostInfo() {
         const commentsSection = document.createElement('section');
         commentsSection.classList.add('comments-section');
 
-        const commentsTitle = document.createElement('h1');
+        const commentsTitle = document.createElement('h3');
         commentsTitle.textContent = 'Коментарі:';
         commentsSection.appendChild(commentsTitle);
 
