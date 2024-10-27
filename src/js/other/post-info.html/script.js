@@ -151,7 +151,7 @@ async function submitComment(postId) {
                     userId,
                     commentText
                 })
-            }, retries);
+            }, retriesLimit);
 
         if (result.success) {
             showMessage('Коментар успішно опубліковано!', true);
