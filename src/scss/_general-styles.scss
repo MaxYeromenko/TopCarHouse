@@ -46,6 +46,22 @@ button {
     color: rgb(var(--background-color));
 }
 
+input,
+select,
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(var(--main-color));
+    border-radius: 5px;
+}
+
+textarea {
+    max-height: 100px;
+    resize: vertical;
+}
+
 .flex-align-to-center {
     display: flex;
     flex-direction: column;
@@ -216,20 +232,6 @@ button {
         @extend .flex-align-to-center;
         align-items: normal;
         gap: 15px;
-
-        input,
-        select,
-        textarea {
-            max-width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(var(--main-color));
-            border-radius: 5px;
-        }
-
-        textarea {
-            font-family: Arial, Helvetica, sans-serif;
-            max-height: 100px
-        }
 
         button {
             @extend .default-button-dark-bg;

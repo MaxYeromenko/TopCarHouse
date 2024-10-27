@@ -82,11 +82,11 @@ function loadPostInfo() {
         commentsSection.classList.add('comments-section');
 
         const commentsTitle = document.createElement('h3');
-        commentsTitle.textContent = 'Коментарі:';
+        commentsTitle.textContent = 'Коментарі';
         commentsSection.appendChild(commentsTitle);
 
         const addCommentSection = `<div id="add-comment-section">
-                <h2>Додати коментар</h2>
+                <h4>Додати коментар</h4>
                 <textarea id="comment-text" placeholder="Напишіть свій коментар..." required></textarea>
                 <button id="submit-comment">Додати коментар</button>
             </div>`;

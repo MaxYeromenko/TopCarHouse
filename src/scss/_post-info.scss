@@ -44,9 +44,8 @@
 
     .comments-section {
         #add-comment-section {
-            textarea {
-                width: 100%;
-                resize: vertical;
+            button {
+                @extend .default-button-dark-bg;
             }
         }
     }
