@@ -72,6 +72,10 @@
             gap: 15px;
             width: 500px;
 
+            textarea {
+                height: 150px
+            }
+
             button {
                 @extend .default-button-dark-bg;
             }
@@ -93,6 +97,7 @@
 
             .comment-text {
                 padding: 10px;
+                text-align: center;
             }
         }
     }
