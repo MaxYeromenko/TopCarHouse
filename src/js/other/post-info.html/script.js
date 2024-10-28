@@ -55,7 +55,7 @@ function loadPostInfo() {
                 break;
             case 'text':
                 element = document.createElement('p');
-                element.textContent = item.elementContent;
+                element.innerHTML = item.elementContent;
                 break;
             case 'image':
                 const imageContainer = document.createElement('div');
