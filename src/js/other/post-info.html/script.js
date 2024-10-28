@@ -33,15 +33,18 @@ function loadPostInfo() {
     document.title = `${postData.title} | TopCarHouse`;
     const postContainer = document.querySelector('.post-container');
     postContainer.innerHTML = '';
+    const postContentContainer = document.createElement('section');
+    postContentContainer.className = 'post-content-container';
+    postContainer.appendChild(postContentContainer);
 
     const titleElement = document.createElement('h1');
     titleElement.textContent = postData.title;
-    postContainer.appendChild(titleElement);
+    postContentContainer.appendChild(titleElement);
 
     const authorElement = document.createElement('p');
     const publishedDate = new Date(postData.publishedDate).toLocaleDateString();
     authorElement.textContent = `Автор: ${postData.author} | Дата публікації: ${publishedDate}`;
-    postContainer.appendChild(authorElement);
+    postContentContainer.appendChild(authorElement);
 
     postData.structure.forEach(item => {
         let element;
@@ -68,13 +71,13 @@ function loadPostInfo() {
                 element.textContent = item.elementContent;
         }
 
-        postContainer.appendChild(element);
+        postContentContainer.appendChild(element);
     });
 
     if (postData.tags.length > 0) {
         const tagsElement = document.createElement('p');
         tagsElement.textContent = `Теги: ${postData.tags.join(', ')}`;
-        postContainer.appendChild(tagsElement);
+        postContentContainer.appendChild(tagsElement);
     }
 
     if (postData.commentsEnabled) {
