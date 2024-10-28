@@ -57,9 +57,9 @@ module.exports = async (req, res) => {
 
                 if (sortByDate) {
                     if (sortByDate === true) {
-                        sortOptions = { createdAt: 1 };
-                    } else {
                         sortOptions = { createdAt: -1 };
+                    } else {
+                        sortOptions = { createdAt: 1 };
                     }
                 }
             }
