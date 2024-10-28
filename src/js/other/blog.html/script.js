@@ -162,7 +162,8 @@ function initializeFormSubmission() {
 
         const title = document.getElementById('post-title').value.trim();
         const author = document.getElementById('post-author').value.trim();
-        const tags = document.getElementById('post-tags').value.split(',').map(tag => tag.trim());
+        const tagsInput = document.getElementById('post-tags').value.trim();
+        const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0) : [];
         const commentsEnabled = document.getElementById('post-comments-enabled').checked;
         const postElements = document.querySelectorAll('.post-element');
 
