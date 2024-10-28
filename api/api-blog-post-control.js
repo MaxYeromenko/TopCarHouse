@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
             const { id, sortByDate, searchQuery, author, tags } = req.query;
 
             let filter = {};
-            let sortOptions = { createdAt: 1 };
+            let sortOptions = { publishedDate: -1 };
 
             if (id) {
                 filter._id = id;
@@ -57,9 +57,9 @@ module.exports = async (req, res) => {
 
                 if (sortByDate) {
                     if (sortByDate === true) {
-                        sortOptions = { createdAt: 1 };
+                        sortOptions = { publishedDate: 1 };
                     } else {
-                        sortOptions = { createdAt: -1 };
+                        sortOptions = { publishedDate: -1 };
                     }
                 }
             }
