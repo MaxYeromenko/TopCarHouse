@@ -1380,7 +1380,7 @@ main.product-main {
   display: none;
 }
 #admin-container #element-type-select {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -1390,8 +1390,9 @@ main.product-main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1400,6 +1401,7 @@ main.product-main {
   border-radius: 5px;
   padding: 15px;
   font-size: smaller;
+  z-index: 1;
 }
 #admin-container #element-type-select .element-type-list {
   display: -webkit-box;
