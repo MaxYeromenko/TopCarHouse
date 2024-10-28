@@ -46,6 +46,10 @@ button {
   color: rgb(var(--background-color));
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 input,
 select,
 textarea {
@@ -215,10 +219,6 @@ textarea {
 }
 .form-container p a, #admin-container p a, #filter-container p a, #services-container p a, #calculator-container p a, #theme-container p a, #consultation-container p a, #auth-container p a {
   color: rgb(var(--secondary-color));
-  text-decoration: none;
-}
-.form-container p a:hover, #admin-container p a:hover, #filter-container p a:hover, #services-container p a:hover, #calculator-container p a:hover, #theme-container p a:hover, #consultation-container p a:hover, #auth-container p a:hover {
-  text-decoration: underline;
 }
 .form-container .form-template, #admin-container .form-template, #admin-container form, #filter-container .form-template, #filter-container form, #services-container .form-template, #calculator-container .form-template, #calculator-container form, #theme-container .form-template, #consultation-container .form-template, #consultation-container form, #auth-container .form-template, #auth-container form {
   -webkit-box-align: normal;
@@ -261,9 +261,8 @@ header nav a {
 }
 header nav a:hover {
   color: rgb(var(--secondary-color));
-  text-decoration: underline;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 header .icon-wrapper {
   visibility: hidden;
@@ -928,10 +927,9 @@ footer a {
   text-decoration: none;
 }
 footer a:hover {
-  text-decoration: underline;
   color: rgb(var(--background-color));
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .about {
@@ -1113,7 +1111,6 @@ datalist option {
 }
 .catalog .catalog-grid .column div a:hover {
   color: rgb(var(--secondary-color));
-  text-decoration: underline;
 }
 
 main.product-main {

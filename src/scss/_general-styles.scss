@@ -46,6 +46,10 @@ button {
     color: rgb(var(--background-color));
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 input,
 select,
 textarea {
@@ -220,11 +224,6 @@ textarea {
 
         a {
             color: rgb(var(--secondary-color));
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
         }
     }
 

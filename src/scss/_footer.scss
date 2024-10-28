@@ -8,11 +8,10 @@ footer {
     a {
         color: rgb(var(--secondary-color));
         text-decoration: none;
-    }
 
-    a:hover {
-        text-decoration: underline;
-        color: rgb(var(--background-color));
-        transition: all .6s;
+        &:hover {
+            color: rgb(var(--background-color));
+            transition: all .4s;
+        }
     }
 }

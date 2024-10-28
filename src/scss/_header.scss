@@ -16,12 +16,11 @@ header {
 
         a {
             margin: 0 15px;
-        }
 
-        a:hover {
-            color: rgb(var(--secondary-color));
-            text-decoration: underline;
-            transition: all .6s;
+            &:hover {
+                color: rgb(var(--secondary-color));
+                transition: all .4s;
+            }
         }
     }
 
