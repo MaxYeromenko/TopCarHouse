@@ -101,16 +101,14 @@ function loadPostInfo() {
             commentElement.classList.add('comment');
 
             const commentator = document.createElement('p');
-            commentator.textContent = `Коментатор: ${comment.commentator}`;
+            commentator.className = 'commentator-name';
+            commentator.innerHTML = `${comment.commentator}, <span>${new Date(comment.createdAt).toLocaleString()}</span>`;
             commentElement.appendChild(commentator);
 
             const commentText = document.createElement('p');
+            commentText.className = 'comment-text';
             commentText.textContent = comment.commentText;
             commentElement.appendChild(commentText);
-
-            const commentDate = document.createElement('p');
-            commentDate.textContent = `Дата: ${new Date(comment.createdAt).toLocaleString()}`;
-            commentElement.appendChild(commentDate);
 
             commentsSection.appendChild(commentElement);
         });
