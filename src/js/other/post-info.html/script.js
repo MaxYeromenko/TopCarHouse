@@ -74,7 +74,7 @@ function loadPostInfo() {
         postContentContainer.appendChild(element);
     });
 
-    if (postData.tags.length > 0) {
+    if (postData.tags.length) {
         const tagsElement = document.createElement('p');
         tagsElement.textContent = `Теги: ${postData.tags.join(', ')}`;
         postContentContainer.appendChild(tagsElement);
