@@ -87,6 +87,8 @@
 
             .commentator-name {
                 font-weight: 700;
+                display: flex;
+                justify-content: space-between;
 
                 span {
                     font-weight: normal;

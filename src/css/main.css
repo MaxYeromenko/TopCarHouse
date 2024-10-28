@@ -1350,6 +1350,12 @@ main.product-main {
 }
 .post-container .comments-section .comment .commentator-name {
   font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .post-container .comments-section .comment .commentator-name span {
   font-weight: normal;
