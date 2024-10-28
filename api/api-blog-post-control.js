@@ -60,7 +60,10 @@ module.exports = async (req, res) => {
                 }
             }
 
-            const posts = await BlogPostModel.find(filter).sort(sortOptions).lean();
+            const posts = await BlogPostModel.find(filter).sort(sortOptions).populate({
+                path: 'comments.commentator',
+                select: 'name'
+            }).lean();
 
             posts.forEach(post => {
                 if (post.comments && post.comments.length > 0) {
