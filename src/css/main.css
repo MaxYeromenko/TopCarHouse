@@ -1359,6 +1359,7 @@ main.product-main {
 .post-container .comments-section .comment .comment-text {
   padding: 10px;
   text-align: center;
+  margin: 0;
 }
 
 #admin-container {
