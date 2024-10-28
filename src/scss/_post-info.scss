@@ -25,6 +25,14 @@
             line-height: 2;
             margin: 0 auto 40px auto;
             max-width: 850px;
+
+            a {
+                color: rgb(var(--secondary-color));
+
+                &:hover {
+                    color: rgb(var(--main-color));
+                }
+            }
         }
 
         .image-container {

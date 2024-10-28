@@ -1300,6 +1300,12 @@ main.product-main {
   margin: 0 auto 40px auto;
   max-width: 850px;
 }
+.post-container .post-content-container p a {
+  color: rgb(var(--secondary-color));
+}
+.post-container .post-content-container p a:hover {
+  color: rgb(var(--main-color));
+}
 .post-container .post-content-container .image-container {
   position: relative;
   width: 55%;
