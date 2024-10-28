@@ -56,15 +56,17 @@ module.exports = async (req, res) => {
                 }
 
                 if (sortByDate) {
-                    if (sortByDate === true) {
-                        sortOptions = { publishedDate: 1 };
-                    } else {
-                        sortOptions = { publishedDate: -1 };
-                    }
+                    sortOptions.publishedDate = sortByDate === 'true' ? 1 : -1;
                 }
             }
 
-            const posts = await BlogPostModel.find(filter).sort(sortOptions);
+            const posts = await BlogPostModel.find(filter).sort(sortOptions).lean();
+
+            posts.forEach(post => {
+                if (post.comments && post.comments.length > 0) {
+                    post.comments = post.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                }
+            });
 
             res.status(200).json(posts);
         } catch (err) {
