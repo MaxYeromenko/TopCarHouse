@@ -128,12 +128,15 @@ const authTokenName = 'jwtToken';
 function isAuthTokenExpired() {
     const token = localStorage.getItem(authTokenName);
     if (!token) return true;
+    try {
+        const payloadBase64 = token.split('.')[1];
+        const decodedPayload = JSON.parse(atob(payloadBase64));
 
-    const payloadBase64 = token.split('.')[1];
-    const decodedPayload = JSON.parse(atob(payloadBase64));
-
-    const currentTime = Date.now() / 1000;
-    return decodedPayload.exp < currentTime;
+        const currentTime = Date.now() / 1000;
+        return decodedPayload.exp < currentTime;
+    } catch (error) {
+        return true;
+    }
 }
 
 function getUserIdRoleFromToken() {
@@ -143,7 +146,7 @@ function getUserIdRoleFromToken() {
             const { id, role } = JSON.parse(atob(token.split('.')[1]));
             return { id, role };
         } catch (error) {
-            console.error('Ошибка при декодировании токена:', error);
+            console.error('Помилка під час декодування токену:', error);
             showMessage('Помилка, перезайдіть до облікового запису!', false);
             return null;
         }
