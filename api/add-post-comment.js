@@ -2,9 +2,9 @@ const { mongoose, BlogPostModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { postId, userId, commentText } = req.body;
+        const { postId, id, commentText } = req.body;
 
-        if (!postId || !userId || !commentText) {
+        if (!postId || !id || !commentText) {
             return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
         }
 
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
             }
 
             post.comments.push({
-                commentator: userId,
+                commentator: id,
                 commentText
             });
 
