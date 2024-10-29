@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
 
         try {
             const existingUser = await UserModel.findOne({ email });
@@ -15,7 +15,8 @@ module.exports = async (req, res) => {
             const newUser = new UserModel({
                 name,
                 email,
-                password: hashedPassword
+                password: hashedPassword,
+                role
             });
 
             await newUser.save();

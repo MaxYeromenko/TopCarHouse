@@ -43,15 +43,14 @@ const CarSchema = new mongoose.Schema({
         body_type: String
     }
 });
-
 const CarModel = mongoose.model('Car', CarSchema);
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true, index: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true }, 
+    role: { type: String, enum: ['user', 'admin'], default: 'user' }
 });
-
 const UserModel = mongoose.model('User', UserSchema);
 
 const ConsultationSchema = new mongoose.Schema({
@@ -59,7 +58,6 @@ const ConsultationSchema = new mongoose.Schema({
     phone: { type: String, required: true },
     datetime: { type: Date, required: true }
 });
-
 const ConsultationModel = mongoose.model('Consultation', ConsultationSchema);
 
 const BlogPostSchema = new mongoose.Schema({
@@ -80,8 +78,6 @@ const BlogPostSchema = new mongoose.Schema({
     }],
     publishedDate: { type: Date, default: Date.now }
 });
-
-
 const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
 
 
