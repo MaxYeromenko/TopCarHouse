@@ -44,6 +44,7 @@ button {
     cursor: pointer;
     text-decoration: none;
     color: rgb(var(--background-color));
+    transition: all 0.4s;
 }
 
 a:hover {
