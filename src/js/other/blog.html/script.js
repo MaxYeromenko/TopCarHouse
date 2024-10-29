@@ -16,7 +16,7 @@ if (!isAuthTokenExpired()) {
 
     document.querySelector('.open-section-button-container').appendChild(adminButton);
 } else {
-    removeToken('jwtToken');
+    removeToken(authTokenName);
 }
 
 function openAdminPanel() {

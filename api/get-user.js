@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
                 return res.status(400).json({ success: false, message: 'Неправильний email або пароль' });
             }
 
-            const token = jwt.sign({ id: user._id, name: user.name }, secret, { expiresIn: '3d' });
+            const token = jwt.sign({ id: user._id, name: user.name, role: user.role }, secret, { expiresIn: '3d' });
 
             res.status(200).json({ success: true, token, message: 'Ви увійшли до облікового запису!' });
         } catch (err) {

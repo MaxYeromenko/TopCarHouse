@@ -132,8 +132,8 @@ async function submitComment(postId) {
         return;
     }
 
-    const userId = getUserIdFromToken();
-    if (!userId) {
+    const { id } = getUserIdRoleFromToken();
+    if (!id) {
         showMessage('Помилка, перезайдіть до облікового запису!', false);
         return;
     }
@@ -145,11 +145,11 @@ async function submitComment(postId) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    'Authorization': `Bearer ${localStorage.getItem(authTokenName)}`
                 },
                 body: JSON.stringify({
                     postId,
-                    userId,
+                    id,
                     commentText
                 })
             }, retriesLimit);

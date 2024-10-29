@@ -25,7 +25,7 @@ const toggleButtonsVisibility = (showLogin) => {
 };
 
 if (isAuthTokenExpired()) {
-    removeToken('jwtToken');
+    removeToken(authTokenName);
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
     toggleButtonsVisibility(true);
 } else {
@@ -41,7 +41,7 @@ logButtons.forEach(button => {
 
 logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
-        removeToken('jwtToken');
+        removeToken(authTokenName);
         localStorage.removeItem('carsToCompare');
         toggleButtonsVisibility(true);
         showMessage('Ви вийшли з облікового запису.', true);
@@ -116,7 +116,7 @@ document.querySelector('#login-box form').addEventListener('submit', async (even
         const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
         if (result.success) {
-            localStorage.setItem('jwtToken', result.token);
+            localStorage.setItem(authTokenName, result.token);
             toggleButtonsVisibility(false);
             showMessage(result.message, true);
         }

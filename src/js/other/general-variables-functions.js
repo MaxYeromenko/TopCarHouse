@@ -123,8 +123,10 @@ async function fetchWithRetryPost(url, data, retries) {
     }, retries);
 }
 
+const authTokenName = 'jwtToken';
+
 function isAuthTokenExpired() {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem(authTokenName);
     if (!token) return true;
 
     const payloadBase64 = token.split('.')[1];
@@ -134,11 +136,17 @@ function isAuthTokenExpired() {
     return decodedPayload.exp < currentTime;
 }
 
-function getUserIdFromToken() {
-    const token = localStorage.getItem('jwtToken');
+function getUserIdRoleFromToken() {
+    const token = localStorage.getItem(authTokenName);
     if (token) {
-        const { id } = JSON.parse(atob(token.split('.')[1]));
-        return id;
+        try {
+            const { id, role } = JSON.parse(atob(token.split('.')[1]));
+            return { id, role };
+        } catch (error) {
+            console.error('Ошибка при декодировании токена:', error);
+            showMessage('Помилка, перезайдіть до облікового запису!', false);
+            return null;
+        }
     }
     return null;
 }
