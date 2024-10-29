@@ -93,19 +93,24 @@
             width: 500px;
             padding: 10px;
 
-            .commentator-name {
+            .comment-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                commentator-name {
+                .commentator-name {
                     font-weight: 700;
                 }
 
-                comment-publication-date,
-                commentator-role {
+                .comment-publication-date,
+                .commentator-role {
                     font-size: smaller;
                     color: rgba(var(--main-color), 0.7);
+                }
+
+                .admin-role {
+                    font-size: smaller;
+                    color: rgba(var(--secondary-color), 0.7);
                 }
             }
 

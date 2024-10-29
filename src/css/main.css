@@ -1351,7 +1351,7 @@ main.product-main {
   width: 500px;
   padding: 10px;
 }
-.post-container .comments-section .comment .commentator-name {
+.post-container .comments-section .comment .comment-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1362,13 +1362,17 @@ main.product-main {
       -ms-flex-align: center;
           align-items: center;
 }
-.post-container .comments-section .comment .commentator-name commentator-name {
+.post-container .comments-section .comment .comment-header .commentator-name {
   font-weight: 700;
 }
-.post-container .comments-section .comment .commentator-name comment-publication-date,
-.post-container .comments-section .comment .commentator-name commentator-role {
+.post-container .comments-section .comment .comment-header .comment-publication-date,
+.post-container .comments-section .comment .comment-header .commentator-role {
   font-size: smaller;
   color: rgba(var(--main-color), 0.7);
+}
+.post-container .comments-section .comment .comment-header .admin-role {
+  font-size: smaller;
+  color: rgba(var(--secondary-color), 0.7);
 }
 .post-container .comments-section .comment .comment-text {
   padding: 10px;
