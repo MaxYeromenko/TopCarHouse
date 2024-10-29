@@ -1,4 +1,4 @@
-const { mongoose, BlogPostModel } = require('../server/db');
+const { BlogPostModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {

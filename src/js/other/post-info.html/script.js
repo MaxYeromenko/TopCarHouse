@@ -104,7 +104,10 @@ function loadPostInfo() {
 
             const commentator = document.createElement('p');
             commentator.className = 'commentator-name';
-            commentator.innerHTML = `${comment.commentator.name} <span>${new Date(comment.createdAt).toLocaleString()}</span>`;
+            commentator.innerHTML = `
+                <commentator-name>${comment.commentator.name}</commentator-name> 
+                <comment-publication-date>${new Date(comment.createdAt).toLocaleString()}</comment-publication-date> 
+                <commentator-role>${comment.commentator.role}</commentator-role>`;
             commentElement.appendChild(commentator);
 
             const commentText = document.createElement('p');

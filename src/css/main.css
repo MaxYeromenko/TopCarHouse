@@ -1352,7 +1352,6 @@ main.product-main {
   padding: 10px;
 }
 .post-container .comments-section .comment .commentator-name {
-  font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1363,8 +1362,11 @@ main.product-main {
       -ms-flex-align: center;
           align-items: center;
 }
-.post-container .comments-section .comment .commentator-name span {
-  font-weight: normal;
+.post-container .comments-section .comment .commentator-name commentator-name {
+  font-weight: 700;
+}
+.post-container .comments-section .comment .commentator-name comment-publication-date,
+.post-container .comments-section .comment .commentator-name commentator-role {
   font-size: smaller;
   color: rgba(var(--main-color), 0.7);
 }

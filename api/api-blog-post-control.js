@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
 
             const posts = await BlogPostModel.find(filter).sort(sortOptions).populate({
                 path: 'comments.commentator',
-                select: 'name'
+                select: 'name role'
             }).lean();
 
             posts.forEach(post => {

@@ -94,13 +94,16 @@
             padding: 10px;
 
             .commentator-name {
-                font-weight: 700;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                span {
-                    font-weight: normal;
+                commentator-name {
+                    font-weight: 700;
+                }
+
+                comment-publication-date,
+                commentator-role {
                     font-size: smaller;
                     color: rgba(var(--main-color), 0.7);
                 }
