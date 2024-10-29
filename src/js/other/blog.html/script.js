@@ -4,19 +4,19 @@ showServicesModalWindow();
 themeApplication();
 createConsultationRequest();
 
-if (!isAuthTokenExpired()) {
-    const adminButton = document.createElement('button');
-    adminButton.id = 'admin-section-open';
-    adminButton.title = 'Відкрити адмін панель';
-    adminButton.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
-
-    adminButton.addEventListener('click', () => {
-        openAdminPanel();
-    });
-
-    document.querySelector('.open-section-button-container').appendChild(adminButton);
-} else {
+if (isAuthTokenExpired()) {
     removeToken(authTokenName);
+} else {
+    const { role } = getUserIdRoleFromToken();
+    if (role === 'admin') {
+        const adminButton = document.createElement('button');
+        adminButton.id = 'admin-section-open';
+        adminButton.title = 'Відкрити адмін панель';
+        adminButton.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
+
+        adminButton.addEventListener('click', openAdminPanel);
+        document.querySelector('.open-section-button-container').appendChild(adminButton);
+    }
 }
 
 function openAdminPanel() {
