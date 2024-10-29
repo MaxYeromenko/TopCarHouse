@@ -61,12 +61,12 @@ module.exports = async (req, res) => {
 
             const posts = await BlogPostModel.find(filter).sort(sortOptions).populate({
                 path: 'comments.commentator',
-                select: 'name role',
-                match: { _id: { $ne: null } }
+                select: 'name role'
             }).lean();
 
             posts.forEach(post => {
                 if (post.comments && post.comments.length > 0) {
+                    post.comments = post.comments.filter(comment => comment.commentator);
                     post.comments = post.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 }
             });
