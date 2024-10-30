@@ -1381,7 +1381,6 @@ main.product-main {
 }
 
 #admin-container {
-  position: relative;
   max-height: 95%;
   overflow-y: scroll;
 }
@@ -1451,6 +1450,9 @@ main.product-main {
           transform: scale(1.05);
 }
 
+form {
+  position: relative;
+}
 form label {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -1461,6 +1463,9 @@ form label {
 }
 form label input[type=checkbox] {
   position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   opacity: 0;
 }
 form label input[type=checkbox]:checked + .checkbox-button {
