@@ -277,7 +277,7 @@ filterSectionOpen.addEventListener('click', () => {
     toggleElementVisibility(filterContainer, 'block');
 });
 
-postFilterForm.addEventListener('load', getBlogTypes);
+document.addEventListener('DOMContentLoaded', getBlogTypes);
 
 async function getBlogTypes() {
     try {
@@ -292,8 +292,8 @@ async function getBlogTypes() {
 }
 
 function inputHints(blogTypes) {
-    const sortedAuthors = [...blogTypes.authors].sort();
-    const sortedTags = [...blogTypes.tags].sort();
+    const sortedAuthors = [...blogTypes.authors];
+    const sortedTags = [...blogTypes.tags];
 
     const authorOptions = document.getElementById('author-options');
     authorOptions.innerHTML = '';
