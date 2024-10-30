@@ -48,7 +48,11 @@ module.exports = async (req, res) => {
                     ];
                 }
 
-                if (query.sortByDate) sortOptions.publishedDate = query.sortByDate ? 1 : -1;
+                if (query.sortByDate === true) {
+                    sortOptions.publishedDate = 1;
+                } else {
+                    sortOptions.publishedDate = -1;
+                }
             }
 
             const posts = await BlogPostModel.find(filter).sort(sortOptions).populate({

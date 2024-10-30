@@ -315,6 +315,8 @@ function inputHints(blogTypes) {
 postFilterForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    formData.append('sortByDate', document.getElementById('date-sort-enabled').checked);
+
     loadPosts(Object.fromEntries(formData.entries()));
     hideAllElementsInModalWindow(modalWindow);
 });
