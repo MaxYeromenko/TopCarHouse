@@ -135,13 +135,17 @@ export function calculatorIntegration() {
         const rate = Math.abs(parseFloat(creditForm.querySelector('#creditRate').value) / 100 / 12);
         const paymentType = creditForm.querySelector('#paymentType').value;
 
-        if (isNaN(amount) || isNaN(term) || isNaN(rate)) {
+        if (isNaN(amount) || isNaN(term) || isNaN(rate) || amount === 0 || term === 0 || rate === 0) {
             showMessage('Будь ласка, введіть усі дані для розрахунку кредиту.', false);
             return;
         }
 
         if (paymentType === 'annuity') {
             const creditPayment = amount * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+            if (!isFinite(creditPayment)) {
+                showMessage('Введені значення призводять до некоректного результату. Будь ласка, перевірте дані.', false);
+                return;
+            }
             toggleElementVisibility(resultBox, 'block');
             resultBox.textContent = `Щомісячний платіж (Аннуїтетний): ${creditPayment.toFixed(2)} грн`;
         } else if (paymentType === 'differentiated') {
@@ -151,6 +155,11 @@ export function calculatorIntegration() {
                 const monthlyPrincipal = amount / term;
                 const interestPayment = (amount - (monthlyPrincipal * (month - 1))) * rate;
                 const totalMonthlyPayment = monthlyPrincipal + interestPayment;
+                if (!isFinite(totalMonthlyPayment)) {
+                    showMessage('Некорректний результат. Перевірте введені дані.', false);
+                    resultBox.innerHTML = '';
+                    return;
+                }
                 resultBox.innerHTML += `Місяць ${month}: ${totalMonthlyPayment.toFixed(2)} грн<br>`;
             }
         }
@@ -168,7 +177,7 @@ export function calculatorIntegration() {
         const insuranceMonthly = parseFloat(leasingForm.querySelector('#insurance').value);
 
         if (isNaN(contractAmount) || isNaN(interestRate) || isNaN(advancePercentage) ||
-            isNaN(leaseTerm) || isNaN(insuranceMonthly)) {
+            isNaN(leaseTerm) || isNaN(insuranceMonthly) || contractAmount === 0 || leaseTerm === 0) {
             showMessage('Будь ласка, введіть усі дані для розрахунку лізингу.', false);
             return;
         }
@@ -180,10 +189,15 @@ export function calculatorIntegration() {
         const monthlyPaymentWithoutInsurance = totalLeaseAmount / leaseTerm;
         const monthlyPayment = monthlyPaymentWithoutInsurance + insuranceMonthly;
 
+        if (!isFinite(totalLeaseAmount) || !isFinite(monthlyPayment)) {
+            showMessage('Некорректний результат. Перевірте введені дані.', false);
+            return;
+        }
+
         toggleElementVisibility(resultBox, 'block');
         resultBox.innerHTML = `Вартість договору лізингу: ${totalLeaseAmount.toFixed(2)}
-    <br>Розмір авансу: ${advancePayment.toFixed(2)} 
-    <br>Щомісячний платіж: ${monthlyPayment.toFixed(2)}`;
+        <br>Розмір авансу: ${advancePayment.toFixed(2)} 
+        <br>Щомісячний платіж: ${monthlyPayment.toFixed(2)}`;
     });
 };
 
