@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
                     ];
                 }
 
-                if (query.sortByDate == true) {
+                if (query.sortByDate === 'true') {
                     sortOptions.publishedDate = 1;
                 } else {
                     sortOptions.publishedDate = -1;
