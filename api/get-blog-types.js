@@ -5,8 +5,8 @@ module.exports = async (req, res) => {
         try {
             const posts = await BlogPostModel.find({}, 'author tags');
 
-            const authors = [...new Set(posts.map(post => post.author))];
-            const tags = [...new Set(posts.flatMap(post => post.tags))];
+            const authors = [...new Set(posts.map(post => post.author))].sort();
+            const tags = [...new Set(posts.flatMap(post => post.tags))].sort();
 
             res.status(200).json({ authors, tags });
         } catch (err) {
