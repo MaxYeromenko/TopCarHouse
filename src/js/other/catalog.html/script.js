@@ -54,6 +54,7 @@ filterSectionOpen.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyR') location.reload();
     if (event.code === 'KeyF') {
+        hideAllElementsInModalWindow(modalWindow);
         toggleElementVisibility(modalWindow, 'flex');
         toggleElementVisibility(filterContainer, 'block');
     }
