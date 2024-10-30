@@ -15,6 +15,9 @@
                 <button id="theme-section-open" title="Змінити тему">
                     <i class="fa-solid fa-brush"></i>
                 </button>
+                <button id="filter-section-open" title="Відфільтрувати авто">
+                    <i class="fa-solid fa-filter"></i>
+                </button>
             </div>
 
             <button class="burger-open-section-container-buttons" title="Інструменти">
@@ -104,6 +107,23 @@
                         </div>
                     </container>
                 </div>
+            </div>
+
+            <div id="filter-container" class="modal-window-element">
+                <h2>Фільтри постів</h2>
+                <form>
+                    <input type="text" id="author" name="author" placeholder="Автор" list="author-options">
+                    <datalist id="author-options"></datalist>
+                    <input type="text" id="tags" name="tags" placeholder="Теги через кому" list="tags-options">
+                    <datalist id="tags-options"></datalist>
+                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Ключові слова">
+                    <label>
+                        <input type="checkbox" id="date-sort-enabled">
+                        <span class="checkbox-button"></span>
+                        Увімкнути коментарі
+                    </label>
+                    <button type="submit">Використати фільтри</button>
+                </form>
             </div>
         </section>
 

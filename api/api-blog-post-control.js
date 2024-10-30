@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
         }
     } else if (req.method === 'GET') {
         try {
-            const { id, sortByDate, searchQuery, author, tags } = req.query;
+            const { id, ...query } = req.query;
 
             let filter = {};
             let sortOptions = { publishedDate: -1 };
@@ -32,31 +32,23 @@ module.exports = async (req, res) => {
             if (id) {
                 filter._id = id;
             } else {
-                if (author) {
-                    const trimmedAuthor = author.trim();
-                    if (trimmedAuthor.length > 0) {
-                        filter.author = trimmedAuthor;
-                    }
+                if (query.author && query.author.trim()) {
+                    filter.author = query.author.trim();
                 }
 
-                if (tags) {
-                    const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-                    if (tagArray.length > 0) {
-                        filter.tags = { $in: tagArray };
-                    }
+                if (query.tags && query.tags.trim()) {
+                    filter.tags = { $in: query.tags.split(',').map(tag => tag.trim()).filter(Boolean) };
                 }
 
-                if (searchQuery) {
-                    const searchRegex = new RegExp(searchQuery.trim(), 'i');
+                if (query.searchQuery) {
+                    const searchRegex = new RegExp(query.searchQuery.trim(), 'i');
                     filter.$or = [
                         { title: searchRegex },
                         { 'structure.elementContent': searchRegex }
                     ];
                 }
 
-                if (sortByDate) {
-                    sortOptions.publishedDate = sortByDate === 'true' ? 1 : -1;
-                }
+                if (query.sortByDate) sortOptions.publishedDate = query.sortByDate ? 1 : -1;
             }
 
             const posts = await BlogPostModel.find(filter).sort(sortOptions).populate({
@@ -65,9 +57,10 @@ module.exports = async (req, res) => {
             }).lean();
 
             posts.forEach(post => {
-                if (post.comments && post.comments.length > 0) {
-                    post.comments = post.comments.filter(comment => comment.commentator);
-                    post.comments = post.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                if (post.comments) {
+                    post.comments = post.comments
+                        .filter(comment => comment.commentator)
+                        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 }
             });
 

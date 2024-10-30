@@ -2,13 +2,7 @@ const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
 const default_car_URL = 'https://res.cloudinary.com/dukwtlvte/image/upload/v1725616540/default_car.jpg';
 
 function applySavedTheme() {
-    const savedTheme = localStorage.getItem('selected-theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'default-theme');
-    }
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('selected-theme') || 'default-theme');
 }
 
 const modalWindow = document.getElementById('modal-window');

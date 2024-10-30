@@ -267,3 +267,81 @@ function createPostCard(post) {
 }
 
 loadMorePostsButton.addEventListener('click', loadMorePosts);
+
+const filterSectionOpen = document.getElementById('filter-section-open');
+const filterContainer = document.getElementById('filter-container');
+const postFilterForm = filterContainer.querySelector('form');
+
+filterSectionOpen.addEventListener('click', () => {
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(filterContainer, 'block');
+});
+
+postFilterForm.addEventListener('load', getBlogTypes);
+
+async function getBlogTypes() {
+    try {
+        const result = await fetchWithRetry('/api/get-blog-types', retriesLimit);
+        if (result) {
+            inputHints(result);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
+    }
+}
+
+function inputHints(blogTypes) {
+    const sortedAuthors = [...blogTypes.authors].sort();
+    const sortedTags = [...blogTypes.tags].sort();
+
+    const authorOptions = document.getElementById('author-options');
+    authorOptions.innerHTML = '';
+    sortedAuthors.forEach(authorType => {
+        const option = document.createElement('option');
+        option.value = authorType;
+        authorOptions.appendChild(option);
+    });
+
+    const tagsOptions = document.getElementById('tags-options');
+    tagsOptions.innerHTML = '';
+    sortedTags.forEach(tagType => {
+        const option = document.createElement('option');
+        option.value = tagType;
+        tagsOptions.appendChild(option);
+    });
+}
+
+postFilterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    loadPosts(Object.fromEntries(formData.entries()));
+    hideAllElementsInModalWindow(modalWindow);
+});
+
+async function loadPosts(filter) {
+    showMessage('Завантаження...', true);
+
+    try {
+        const queryParams = new URLSearchParams(
+            Object.fromEntries(
+                Object.entries(filter)
+                    .map(([key, value]) => [key, value.trim()])
+            )).toString();
+        const result = await fetchWithRetry(`/api/api-blog-post-control?${queryParams}`, retriesLimit);
+
+        postsContainer.innerHTML = '';
+        if (result && result.length > 0) {
+            postsData = result;
+            postsDisplayed = 0;
+            loadMorePosts();
+            showMessage('Дані успішно завантажені!', true);
+        } else {
+            showMessage('Постів за обраними фільтрами не знайдено.', false);
+            toggleElementVisibility(loadMorePostsButton, 'none');
+        }
+    } catch (error) {
+        console.error('Error fetching cars:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+}
