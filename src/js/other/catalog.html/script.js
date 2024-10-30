@@ -51,10 +51,6 @@ filterSectionOpen.addEventListener('click', () => {
     toggleElementVisibility(filterContainer, 'block');
 });
 
-document.addEventListener('keydown', (event) => {
-    if (event.code === 'KeyR') location.reload();
-});
-
 function createLinkElement(text, container, queryParam) {
     const link = document.createElement('a');
     link.href = '#';
