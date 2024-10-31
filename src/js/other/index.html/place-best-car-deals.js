@@ -27,6 +27,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+    const cacheKey = 'bestCarDealsCache';
+    const cacheExpiration = 3600000;
+    const cachedData = JSON.parse(localStorage.getItem(cacheKey));
+    const isCacheValid = cachedData && (Date.now() - cachedData.timestamp < cacheExpiration);
+
+    if (isCacheValid) {
+        carsData = cachedData.data;
+        loadMoreCars();
+        alert('Авто завантажено з кешу.')
+    } else {
+        try {
+            const result = await fetchWithRetry('/api/get-best-car-deals', retriesLimit);
+
+            if (result) {
+                carsData = result;
+                loadMoreCars();
+                localStorage.setItem(cacheKey, JSON.stringify({ data: result, timestamp: Date.now() }));
+            }
+        } catch (error) {
+            console.error('Error fetching cars data:', error);
+            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        }
+    }
+});
+
 function loadMoreCars() {
     const nextCars = carsData.slice(carsDisplayed, carsDisplayed + carsPerPage);
 
