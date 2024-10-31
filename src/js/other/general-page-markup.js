@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pageIcon = document.createElement('link');
     pageIcon.setAttribute('rel', 'icon');
-    pageIcon.setAttribute('type', 'image/png');
-    pageIcon.setAttribute('sizes', '256x256');
-    pageIcon.setAttribute('href', 'https://res.cloudinary.com/dukwtlvte/image/upload/v1727693527/topcarhouse-favicon-color-256x256_mf8lcb.png');
+    pageIcon.setAttribute('type', 'image/x-icon');
+    pageIcon.setAttribute('sizes', '32x32');
+    pageIcon.setAttribute('href', 'https://res.cloudinary.com/dukwtlvte/image/upload/v1730384189/topcarhouse-favicon-color-256x256_qtte9v.ico');
 
     head.appendChild(pageIcon);
 });
