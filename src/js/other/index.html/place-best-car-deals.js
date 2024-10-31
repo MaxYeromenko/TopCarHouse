@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (result) {
             carsData = result;
             loadMoreCars();
-            alert(result === cachedData?.data ? 'Авто завантажено з кешу.' : 'Авто завантажено з БД.');
         }
     } catch (error) {
         showMessage(error.message, false);
