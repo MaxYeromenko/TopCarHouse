@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadMoreCars();
         alert('Авто завантажено з кешу.')
     } else {
+        alert('Авто завантажено з БД.')
         try {
             const result = await fetchWithRetry('/api/get-best-car-deals', retriesLimit);
 
