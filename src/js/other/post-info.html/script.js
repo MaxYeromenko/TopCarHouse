@@ -184,17 +184,17 @@ async function formatLinks() {
         link.insertAdjacentElement('afterbegin', linkLogo);
 
         const domain = new URL(link.getAttribute('href')).hostname;
-        const googleFaviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
-        const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
         try {
-            const response = await fetch(googleFaviconUrl);
+            const response = await fetch(`/api/get-site-icon?domain=${domain}`);
             if (response.ok) {
-                linkLogo.src = googleFaviconUrl;
+                const faviconBlob = await response.blob();
+                linkLogo.src = URL.createObjectURL(faviconBlob);
                 continue;
             }
         } catch { }
 
+        const defaultFaviconUrl = `https://${domain}/favicon.ico`;
         try {
             const response = await fetch(defaultFaviconUrl);
             if (response.ok) {
