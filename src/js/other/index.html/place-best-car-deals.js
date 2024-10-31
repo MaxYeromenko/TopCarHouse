@@ -15,42 +15,16 @@ const carsPerPage = 8;
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const result = await fetchWithRetry('/api/get-best-car-deals', retriesLimit);
+        const cacheKey = 'bestCarDealsCache';
+        const result = await fetchWithCache('/api/get-best-car-deals', cacheKey, cacheExpiration, retriesLimit);
 
         if (result) {
             carsData = result;
             loadMoreCars();
+            alert(result === cachedData?.data ? 'Авто завантажено з кешу.' : 'Авто завантажено з БД.');
         }
     } catch (error) {
-        console.error('Error fetching cars data:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-    }
-});
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const cacheKey = 'bestCarDealsCache';
-    const cacheExpiration = 3600000;
-    const cachedData = JSON.parse(localStorage.getItem(cacheKey));
-    const isCacheValid = cachedData && (Date.now() - cachedData.timestamp < cacheExpiration);
-
-    if (isCacheValid) {
-        carsData = cachedData.data;
-        loadMoreCars();
-        alert('Авто завантажено з кешу.')
-    } else {
-        alert('Авто завантажено з БД.')
-        try {
-            const result = await fetchWithRetry('/api/get-best-car-deals', retriesLimit);
-
-            if (result) {
-                carsData = result;
-                loadMoreCars();
-                localStorage.setItem(cacheKey, JSON.stringify({ data: result, timestamp: Date.now() }));
-            }
-        } catch (error) {
-            console.error('Error fetching cars data:', error);
-            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-        }
+        showMessage(error.message, false);
     }
 });
 

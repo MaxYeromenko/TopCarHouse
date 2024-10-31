@@ -79,6 +79,8 @@ function showMessage(text, isSuccess) {
 }
 
 const retriesLimit = 3;
+const cacheExpiration = 3600000;
+
 async function handleRequest(url, options = {}, retries) {
     for (let i = 0; i < retries; i++) {
         try {
@@ -115,6 +117,26 @@ async function fetchWithRetryPost(url, data, retries) {
         },
         body: JSON.stringify(data),
     }, retries);
+}
+
+async function fetchWithCache(url, cacheKey, cacheExpiration, retries) {
+    const cachedData = JSON.parse(localStorage.getItem(cacheKey));
+    const isCacheValid = cachedData && (Date.now() - cachedData.timestamp < cacheExpiration);
+
+    if (isCacheValid) {
+        return cachedData.data;
+    }
+
+    try {
+        const result = await fetchWithRetry(url, retries);
+        if (result) {
+            localStorage.setItem(cacheKey, JSON.stringify({ data: result, timestamp: Date.now() }));
+            return result;
+        }
+    } catch (error) {
+        console.error(`Error fetching data from ${url}:`, error);
+        throw new Error('Помилка сервера, будь ласка, перезавантажте сторінку!');
+    }
 }
 
 const authTokenName = 'jwtToken';

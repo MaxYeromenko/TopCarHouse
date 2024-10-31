@@ -277,19 +277,18 @@ filterSectionOpen.addEventListener('click', () => {
     toggleElementVisibility(filterContainer, 'block');
 });
 
-document.addEventListener('DOMContentLoaded', getBlogTypes);
-
-async function getBlogTypes() {
+document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const result = await fetchWithRetry('/api/get-blog-types', retriesLimit);
+        const cacheKey = 'blogTypesCache';
+        const result = await fetchWithCache('/api/get-blog-types', cacheKey, cacheExpiration, retriesLimit);
+
         if (result) {
             inputHints(result);
         }
     } catch (error) {
-        console.error('Error fetching data:', error);
-        showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
+        showMessage(error.message, false);
     }
-}
+});
 
 function inputHints(blogTypes) {
     const sortedAuthors = [...blogTypes.authors];
