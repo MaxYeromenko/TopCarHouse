@@ -184,7 +184,7 @@ async function formatLinks() {
         link.insertAdjacentElement('afterbegin', linkLogo);
 
         const domain = new URL(link.getAttribute('href')).hostname;
-        const googleFaviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+        const googleFaviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
         const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
         try {
