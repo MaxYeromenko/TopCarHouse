@@ -170,29 +170,6 @@ async function submitComment(postId) {
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
-async function fetchFavicon(domain) {
-    const apiUrl = `/api/fetch-favicon?domain=${encodeURIComponent(domain)}`;
-    const linkLogo = document.createElement('img');
-    linkLogo.alt = 'logo';
-
-    try {
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch favicon');
-        }
-
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        linkLogo.src = url;
-
-    } catch (error) {
-        console.error('Error fetching favicon:', error);
-        linkLogo.src = '/broken-image.png'; 
-    }
-
-    return linkLogo;
-}
 
 async function formatLinks() {
     const postContentContainer = document.querySelector('.post-content-container');
@@ -202,11 +179,20 @@ async function formatLinks() {
         link.className = 'link-box';
         link.setAttribute('target', '_blank');
 
-        const domain = new URL(link.getAttribute('href')).hostname;
-
-        const linkLogo = await fetchFavicon(domain);
+        const linkLogo = document.createElement('img');
+        linkLogo.alt = 'logo';
         link.insertAdjacentElement('afterbegin', linkLogo);
+
+        const href = link.getAttribute('href');
+
+        try {
+            const response = await fetch(`/api/favicon?url=${encodeURIComponent(href)}`);
+            if (response.ok) {
+                linkLogo.src = response.url;
+                continue;
+            }
+        } catch {
+            linkLogo.src = '/broken-image.png';
+        }
     }
 }
-
-formatLinks();
