@@ -186,7 +186,7 @@ async function formatLinks() {
         const href = link.getAttribute('href');
 
         try {
-            const response = await fetch(`/api/favicon?url=${encodeURIComponent(href)}`);
+            const response = await fetch(`/api/get-site-icon?url=${encodeURIComponent(href)}`);
             if (response.ok) {
                 linkLogo.src = response.url;
                 continue;
