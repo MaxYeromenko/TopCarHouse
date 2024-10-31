@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pageIcon.setAttribute('rel', 'icon');
     pageIcon.setAttribute('type', 'image/x-icon');
     pageIcon.setAttribute('sizes', '32x32');
-    pageIcon.setAttribute('href', '/favicon.ico');
+    pageIcon.setAttribute('href', 'favicon.ico');
 
     head.appendChild(pageIcon);
 });
