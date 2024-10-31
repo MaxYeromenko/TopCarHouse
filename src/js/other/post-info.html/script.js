@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error('Error fetching post data:', error);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
+    formatLinks();
 });
 
 function loadPostInfo() {
@@ -205,4 +206,3 @@ async function formatLinks() {
         linkLogo.src = '/broken-image.png';
     }
 }
-formatLinks();
