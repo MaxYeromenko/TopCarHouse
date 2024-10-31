@@ -79,7 +79,7 @@ function showMessage(text, isSuccess) {
 }
 
 const retriesLimit = 3;
-const cacheExpiration = 3600000;
+const cacheExpiration = 600000;
 
 async function handleRequest(url, options = {}, retries) {
     for (let i = 0; i < retries; i++) {
