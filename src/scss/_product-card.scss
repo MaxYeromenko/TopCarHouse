@@ -38,7 +38,6 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.3s ease;
 
             &:hover {
                 transform: scale(1.05);
@@ -75,7 +74,6 @@
                     color: rgb(var(--background-color));
                     border: none;
                     opacity: 0;
-                    transition: all .6s, opacity .3s;
                     font-size: 14px;
 
                     &:hover {

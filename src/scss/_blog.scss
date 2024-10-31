@@ -51,7 +51,6 @@
                 min-width: 90px;
                 text-align: center;
                 cursor: pointer;
-                transition: all .4s;
 
                 &:hover {
                     color: rgb(var(--secondary-color));
@@ -91,7 +90,6 @@ form {
         .checkbox-button {
             display: flex;
             border-radius: 5px;
-            transition: color 0.4s, background-color 0.4s;
         }
 
         .checkbox-button::before {
@@ -100,7 +98,6 @@ form {
             height: 14px;
             border-radius: 3px;
             margin-right: 10px;
-            transition: background-color 0.4s;
             border: solid 1px rgb(var(--main-color));
         }
     }
@@ -155,7 +152,6 @@ form {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.3s ease;
 
             &:hover {
                 transform: scale(1.05);

@@ -45,7 +45,6 @@
             li {
                 line-height: 2;
                 font-size: 1rem;
-                transition: transform .4s;
             }
 
             @media (max-width:1000px) {
@@ -98,7 +97,6 @@
             width: 64px;
             height: 64px;
             margin-top: 10%;
-            transition: border-color 0.4s;
 
             &:hover {
                 border-color: rgb(var(--secondary-color));
@@ -116,7 +114,6 @@
         width: 100%;
         padding: 15px;
         border-bottom: solid 1px rgb(var(--secondary-color));
-        transition: transform 0.2s ease;
 
         &:hover {
             transform: scale(1.05);

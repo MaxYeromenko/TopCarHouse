@@ -58,7 +58,7 @@ body {
             @extend .flex-align-to-center;
             text-align: center;
             color: rgb(var(--background-color));
-            background-image: url('/src/images/car_pink.png');
+            background-image: var(--hero-image);
             background-size: cover;
             background-attachment: fixed;
             background-position: center;

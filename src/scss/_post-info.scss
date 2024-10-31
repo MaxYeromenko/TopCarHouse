@@ -21,16 +21,35 @@
         }
 
         p {
+            position: relative;
             font-size: 18px;
             line-height: 2;
             margin: 0 auto 40px auto;
             max-width: 850px;
 
-            a {
-                color: rgb(var(--secondary-color));
+            .link-box {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+                font-size: small;
+                color: rgb(var(--background-color));
+                background-color: rgb(var(--secondary-color));
+                border-radius: 5px;
+                padding: 0px 5px;
+                position: relative;
+                top: 3px;
 
                 &:hover {
-                    color: rgb(var(--main-color));
+                    color: rgb(var(--secondary-color));
+                    background-color: rgb(var(--main-color));
+                }
+
+                img {
+                    padding: 1px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 5px;
                 }
             }
         }

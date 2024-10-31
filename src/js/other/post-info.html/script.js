@@ -169,3 +169,40 @@ async function submitComment(postId) {
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 }
+
+async function formatLinks() {
+    const postContentContainer = document.querySelector('.post-content-container');
+    const links = postContentContainer.querySelectorAll('a');
+
+    for (const link of links) {
+        link.className = 'link-box';
+        link.setAttribute('target', '_blank');
+
+        const linkLogo = document.createElement('img');
+        linkLogo.alt = 'logo';
+        link.insertAdjacentElement('afterbegin', linkLogo);
+
+        const domain = new URL(link.getAttribute('href')).hostname;
+        const googleFaviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+        const defaultFaviconUrl = `https://${domain}/favicon.ico`;
+
+        try {
+            const response = await fetch(googleFaviconUrl);
+            if (response.ok) {
+                linkLogo.src = googleFaviconUrl;
+                continue;
+            }
+        } catch { }
+
+        try {
+            const response = await fetch(defaultFaviconUrl);
+            if (response.ok) {
+                linkLogo.src = defaultFaviconUrl;
+                continue;
+            }
+        } catch { }
+
+        linkLogo.src = '/broken-image.png';
+    }
+}
+formatLinks();
