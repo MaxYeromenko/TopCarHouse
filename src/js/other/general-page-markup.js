@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pageIcon.setAttribute('rel', 'icon');
     pageIcon.setAttribute('type', 'image/x-icon');
     pageIcon.setAttribute('sizes', '32x32');
-    pageIcon.setAttribute('href', 'favicon.ico');
+    pageIcon.setAttribute('href', 'https://res.cloudinary.com/dukwtlvte/image/upload/v1730384189/topcarhouse-favicon-color-256x256_qtte9v.ico');
 
     head.appendChild(pageIcon);
 });
