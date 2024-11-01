@@ -90,10 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const existingIcons = head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
     existingIcons.forEach(icon => head.removeChild(icon));
-    const faviconsMarkUp = `<link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.png" type="image/png">
-    `;
-    head.insertAdjacentElement('beforeend', faviconsMarkUp);
+
+    const faviconIco = document.createElement('link');
+    faviconIco.setAttribute('rel', 'icon');
+    faviconIco.setAttribute('href', '/favicon.ico');
+    faviconIco.setAttribute('type', 'image/x-icon');
+    head.appendChild(faviconIco);
+
+    const faviconPng = document.createElement('link');
+    faviconPng.setAttribute('rel', 'icon');
+    faviconPng.setAttribute('href', '/favicon.png');
+    faviconPng.setAttribute('type', 'image/png');
+    head.appendChild(faviconPng);
+
     const pageIcon = document.createElement('link');
     pageIcon.setAttribute('rel', 'icon');
     pageIcon.setAttribute('type', 'image/x-icon');
