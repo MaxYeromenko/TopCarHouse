@@ -786,7 +786,7 @@ body main .features .feature {
   padding: 40px;
   background-color: rgb(var(--background-color));
   color: rgb(var(--main-color));
-  text-align: center;
+  text-align: justify;
 }
 .services h2 {
   font-size: 36px;
@@ -923,7 +923,7 @@ footer a:hover {
   padding: 40px;
   color: rgb(var(--main-color));
   background-color: rgb(var(--background-color));
-  text-align: center;
+  text-align: justify;
 }
 .about h2 {
   font-size: 36px;
@@ -1282,6 +1282,7 @@ main.product-main {
   line-height: 2;
   margin: 0 auto 40px auto;
   max-width: 850px;
+  text-align: justify;
 }
 .post-container .post-content-container p .link-box {
   display: -webkit-inline-box;
