@@ -188,14 +188,7 @@ async function formatLinks() {
         const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
         try {
-            fetch('/api/fetch-google-favicon?domain=example.com')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.domain) {
-                        linkLogo.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${data.domain}&size=64`;
-                    }
-                })
-                .catch(error => console.error('Error fetching favicon:', error));
+            linkLogo.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
             continue;
         } catch { }
 
