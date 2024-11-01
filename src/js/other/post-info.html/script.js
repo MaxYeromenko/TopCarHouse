@@ -188,7 +188,7 @@ async function formatLinks() {
         const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
         try {
-            fetch('/api/fetch-domain?domain=example.com')
+            fetch('/api/fetch-google-favicon?domain=example.com')
                 .then(response => response.json())
                 .then(data => {
                     if (data.domain) {
