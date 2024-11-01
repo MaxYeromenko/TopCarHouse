@@ -85,32 +85,32 @@ const pageFooter = `<footer id="bottom">
 mainBlock.insertAdjacentHTML('afterend', pageFooter);
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-    // const head = document.querySelector('head');
+document.addEventListener('DOMContentLoaded', () => {
+    const head = document.querySelector('head');
 
-    // const existingIcons = head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
-    // existingIcons.forEach(icon => head.removeChild(icon));
+    const existingIcons = head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+    existingIcons.forEach(icon => head.removeChild(icon));
 
-    // const faviconIco = document.createElement('link');
-    // faviconIco.setAttribute('rel', 'icon');
-    // faviconIco.setAttribute('href', '/favicon.ico');
-    // faviconIco.setAttribute('type', 'image/x-icon');
-    // head.appendChild(faviconIco);
+    const faviconIco = document.createElement('link');
+    faviconIco.setAttribute('rel', 'icon');
+    faviconIco.setAttribute('href', '/favicon.ico');
+    faviconIco.setAttribute('type', 'image/x-icon');
+    head.appendChild(faviconIco);
 
-    // const faviconPng = document.createElement('link');
-    // faviconPng.setAttribute('rel', 'icon');
-    // faviconPng.setAttribute('href', '/favicon.png');
-    // faviconPng.setAttribute('type', 'image/png');
-    // head.appendChild(faviconPng);
+    const faviconPng = document.createElement('link');
+    faviconPng.setAttribute('rel', 'icon');
+    faviconPng.setAttribute('href', '/favicon.png');
+    faviconPng.setAttribute('type', 'image/png');
+    head.appendChild(faviconPng);
 
-    // // const pageIcon = document.createElement('link');
-    // // pageIcon.setAttribute('rel', 'icon');
-    // // pageIcon.setAttribute('type', 'image/x-icon');
-    // // pageIcon.setAttribute('sizes', '32x32');
-    // // pageIcon.setAttribute('href', 'https://res.cloudinary.com/dukwtlvte/image/upload/v1730384189/topcarhouse-favicon-color-256x256_qtte9v.ico');
+    const pageIcon = document.createElement('link');
+    pageIcon.setAttribute('rel', 'icon');
+    pageIcon.setAttribute('type', 'image/x-icon');
+    pageIcon.setAttribute('sizes', '32x32');
+    pageIcon.setAttribute('href', 'https://res.cloudinary.com/dukwtlvte/image/upload/v1730384189/topcarhouse-favicon-color-256x256_qtte9v.ico');
 
-    // // head.appendChild(pageIcon);
-// });
+    head.appendChild(pageIcon);
+});
 
 const headerBlock = document.querySelector('header');
 
