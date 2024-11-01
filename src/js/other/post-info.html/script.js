@@ -191,15 +191,9 @@ async function formatLinks() {
             fetch('/api/fetch-domain?domain=example.com')
                 .then(response => response.json())
                 .then(data => {
-                    const img = document.createElement('img');
-
                     if (data.domain) {
-                        img.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${data.domain}&size=64`;
-                    } else {
-                        img.src = '/path/to/fallback-icon.png';
+                        linkLogo.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${data.domain}&size=64`;
                     }
-
-                    document.body.appendChild(img);
                 })
                 .catch(error => console.error('Error fetching favicon:', error));
             continue;
