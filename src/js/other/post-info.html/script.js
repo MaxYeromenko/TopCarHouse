@@ -171,38 +171,48 @@ async function submitComment(postId) {
     }
 }
 
-// async function formatLinks() {
-//     const postContentContainer = document.querySelector('.post-content-container');
-//     const links = postContentContainer.querySelectorAll('a');
+async function formatLinks() {
+    const postContentContainer = document.querySelector('.post-content-container');
+    const links = postContentContainer.querySelectorAll('a');
 
-//     for (const link of links) {
-//         link.className = 'link-box';
-//         link.setAttribute('target', '_blank');
+    for (const link of links) {
+        link.className = 'link-box';
+        link.setAttribute('target', '_blank');
 
-//         const linkLogo = document.createElement('img');
-//         linkLogo.alt = 'logo';
-//         link.insertAdjacentElement('afterbegin', linkLogo);
+        const linkLogo = document.createElement('img');
+        linkLogo.alt = 'logo';
+        link.insertAdjacentElement('afterbegin', linkLogo);
 
-//         const domain = new URL(link.getAttribute('href')).hostname;
-//         const googleFaviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
-//         const defaultFaviconUrl = `https://${domain}/favicon.ico`;
+        const domain = new URL(link.getAttribute('href')).hostname;
+        const googleFaviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
+        const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
-//         try {
-//             const response = await fetch(googleFaviconUrl);
-//             if (response.ok) {
-//                 linkLogo.src = googleFaviconUrl;
-//                 continue;
-//             }
-//         } catch { }
+        try {
+            fetch('/api/fetch-domain?domain=example.com')
+                .then(response => response.json())
+                .then(data => {
+                    const img = document.createElement('img');
 
-//         try {
-//             const response = await fetch(defaultFaviconUrl);
-//             if (response.ok) {
-//                 linkLogo.src = defaultFaviconUrl;
-//                 continue;
-//             }
-//         } catch { }
+                    if (data.domain) {
+                        img.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${data.domain}&size=64`;
+                    } else {
+                        img.src = '/path/to/fallback-icon.png';
+                    }
 
-//         linkLogo.src = '/broken-image.png';
-//     }
-// }
+                    document.body.appendChild(img);
+                })
+                .catch(error => console.error('Error fetching favicon:', error));
+            continue;
+        } catch { }
+
+        try {
+            const response = await fetch(defaultFaviconUrl);
+            if (response.ok) {
+                linkLogo.src = defaultFaviconUrl;
+                continue;
+            }
+        } catch { }
+
+        linkLogo.src = '/broken-image.png';
+    }
+}
