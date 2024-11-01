@@ -1346,18 +1346,13 @@ main.product-main {
 .post-container .comments-section h2 {
   margin: 0;
 }
-@media (max-width: 480px) {
-  .post-container .comments-section #add-comment-section,
-  .post-container .comments-section .comment {
-    max-width: 100%;
-  }
-}
 .post-container .comments-section #add-comment-section {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
   gap: 15px;
   width: 500px;
+  max-width: 100%;
 }
 .post-container .comments-section #add-comment-section textarea {
   height: 150px;
@@ -1365,6 +1360,7 @@ main.product-main {
 .post-container .comments-section .comment {
   width: 500px;
   padding: 10px;
+  max-width: 100%;
 }
 .post-container .comments-section .comment .comment-header {
   display: -webkit-box;

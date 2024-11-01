@@ -92,19 +92,12 @@
             margin: 0;
         }
 
-        @media (max-width:480px) {
-
-            #add-comment-section,
-            .comment {
-                max-width: 100%;
-            }
-        }
-
         #add-comment-section {
             @extend .flex-align-to-center;
             align-items: normal;
             gap: 15px;
             width: 500px;
+            max-width: 100%;
 
             textarea {
                 height: 150px
@@ -118,6 +111,7 @@
         .comment {
             width: 500px;
             padding: 10px;
+            max-width: 100%;
 
             .comment-header {
                 display: flex;
