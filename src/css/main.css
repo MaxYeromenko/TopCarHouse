@@ -1377,6 +1377,9 @@ main.product-main {
 .post-container .comments-section .comment .comment-header .commentator-name {
   font-weight: 700;
 }
+.post-container .comments-section .comment .comment-header .comment-publication-date {
+  text-align: center;
+}
 .post-container .comments-section .comment .comment-header .comment-publication-date,
 .post-container .comments-section .comment .comment-header .commentator-role {
   font-size: smaller;
