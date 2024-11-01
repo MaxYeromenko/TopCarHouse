@@ -1337,6 +1337,7 @@ main.product-main {
       -ms-flex-pack: normal;
           justify-content: normal;
   width: 600px;
+  max-width: 100%;
   height: 500px;
   gap: 15px;
   overflow-y: scroll;
