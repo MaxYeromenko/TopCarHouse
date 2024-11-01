@@ -102,8 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
     faviconPng.setAttribute('href', '/favicon.png');
     faviconPng.setAttribute('type', 'image/png');
     head.appendChild(faviconPng);
-
-    head.appendChild(pageIcon);
 });
 
 const headerBlock = document.querySelector('header');
