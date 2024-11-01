@@ -78,10 +78,13 @@
     }
 
     .comments-section {
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(var(--secondary-color)) rgb(var(--main-color));
+
         @extend .flex-align-to-center;
         justify-content: normal;
         height: 500px;
-        overflow-y: scroll;
         gap: 15px;
 
         h2 {
