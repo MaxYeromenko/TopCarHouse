@@ -86,10 +86,6 @@
         scrollbar-width: thin;
         scrollbar-color: rgb(var(--secondary-color)) rgb(var(--main-color));
 
-        &::-webkit-scrollbar {
-            width: 8px;
-        }
-
         h2 {
             margin: 0;
         }
