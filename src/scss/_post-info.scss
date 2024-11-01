@@ -86,12 +86,8 @@
         scrollbar-width: thin;
         scrollbar-color: rgb(var(--secondary-color)) rgb(var(--main-color));
 
-
-        &::-webkit-scrollbar-button,
-        &::-webkit-scrollbar-button:single-button,
-        &::-webkit-scrollbar-button:double-button {
-            display: none;
-            /* Скрываем кнопки */
+        &::-webkit-scrollbar {
+            width: 8px;
         }
 
         h2 {
