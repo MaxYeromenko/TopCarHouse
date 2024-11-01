@@ -1,4 +1,5 @@
 .post-container {
+    @extend .flex-align-to-center;
     padding: 40px;
     color: rgb(var(--main-color));
     background-color: rgb(var(--background-color));
@@ -80,6 +81,7 @@
     .comments-section {
         @extend .flex-align-to-center;
         justify-content: normal;
+        width: 600px;
         height: 500px;
         gap: 15px;
         overflow-y: scroll;
