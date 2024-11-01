@@ -186,7 +186,7 @@ async function formatLinks() {
         const domain = new URL(link.getAttribute('href')).hostname;
 
         try {
-            linkLogo.src = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64` || `https://${domain}/favicon.ico`;
+            linkLogo.src = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
         } catch {
             linkLogo.src = `https://${domain}/favicon.ico`
         }
