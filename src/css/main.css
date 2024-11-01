@@ -1333,7 +1333,14 @@ main.product-main {
   }
 }
 .post-container .comments-section {
+  -webkit-box-pack: normal;
+      -ms-flex-pack: normal;
+          justify-content: normal;
+  height: 500px;
   gap: 15px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--secondary-color)) rgb(var(--main-color));
 }
 .post-container .comments-section h2 {
   margin: 0;
