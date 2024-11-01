@@ -1342,6 +1342,9 @@ main.product-main {
   scrollbar-width: thin;
   scrollbar-color: rgb(var(--secondary-color)) rgb(var(--main-color));
 }
+.post-container .comments-section::-webkit-scrollbar-button {
+  display: none;
+}
 .post-container .comments-section h2 {
   margin: 0;
 }
