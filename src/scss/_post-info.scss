@@ -79,6 +79,9 @@
 
     .comments-section {
         @extend .flex-align-to-center;
+        justify-content: normal;
+        height: 500px;
+        overflow-y: scroll;
         gap: 15px;
 
         h2 {
