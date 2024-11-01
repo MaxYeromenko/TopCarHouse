@@ -171,28 +171,38 @@ async function submitComment(postId) {
     }
 }
 
-async function formatLinks() {
-    const postContentContainer = document.querySelector('.post-content-container');
-    const links = postContentContainer.querySelectorAll('a');
+// async function formatLinks() {
+//     const postContentContainer = document.querySelector('.post-content-container');
+//     const links = postContentContainer.querySelectorAll('a');
 
-    for (const link of links) {
-        link.className = 'link-box';
-        link.setAttribute('target', '_blank');
+//     for (const link of links) {
+//         link.className = 'link-box';
+//         link.setAttribute('target', '_blank');
 
-        const linkLogo = document.createElement('img');
-        linkLogo.alt = 'logo';
-        link.insertAdjacentElement('afterbegin', linkLogo);
+//         const linkLogo = document.createElement('img');
+//         linkLogo.alt = 'logo';
+//         link.insertAdjacentElement('afterbegin', linkLogo);
 
-        const href = link.getAttribute('href');
+//         const domain = new URL(link.getAttribute('href')).hostname;
+//         const googleFaviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=64`;
+//         const defaultFaviconUrl = `https://${domain}/favicon.ico`;
 
-        try {
-            const response = await fetch(`/api/get-site-icon?url=${encodeURIComponent(href)}`);
-            if (response.ok) {
-                linkLogo.src = response.url;
-                continue;
-            }
-        } catch {
-            linkLogo.src = '/broken-image.png';
-        }
-    }
-}
+//         try {
+//             const response = await fetch(googleFaviconUrl);
+//             if (response.ok) {
+//                 linkLogo.src = googleFaviconUrl;
+//                 continue;
+//             }
+//         } catch { }
+
+//         try {
+//             const response = await fetch(defaultFaviconUrl);
+//             if (response.ok) {
+//                 linkLogo.src = defaultFaviconUrl;
+//                 continue;
+//             }
+//         } catch { }
+
+//         linkLogo.src = '/broken-image.png';
+//     }
+// }
