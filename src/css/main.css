@@ -912,8 +912,11 @@ footer {
   width: 100%;
 }
 footer a {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: rgb(var(--secondary-color));
-  text-decoration: none;
 }
 footer a:hover {
   color: rgb(var(--background-color));
@@ -1292,7 +1295,6 @@ main.product-main {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  text-decoration: none;
   font-size: small;
   color: rgb(var(--background-color));
   background-color: rgb(var(--secondary-color));

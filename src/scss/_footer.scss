@@ -6,8 +6,9 @@ footer {
     width: 100%;
 
     a {
+        display: inline-block;
+        width: fit-content;
         color: rgb(var(--secondary-color));
-        text-decoration: none;
 
         &:hover {
             color: rgb(var(--background-color));
