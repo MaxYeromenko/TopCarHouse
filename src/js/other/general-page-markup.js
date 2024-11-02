@@ -66,6 +66,63 @@ const messageMarkUp = `<div class="info-message">
     </div>`;
 mainBlock.insertAdjacentHTML('afterbegin', messageMarkUp);
 
+document.getElementById('theme-container').insertAdjacentHTML('afterbegin', `
+    <div class="theme-block">
+        <span>Стандартна тема</span>
+        <container data-theme="default-theme">
+            <button>Застосувати</button>
+            <div class="colors">
+                <main-color>Головний</main-color>
+                <secondary-color>Другорядний</secondary-color>
+                <background-color>Фоновий</background-color>
+            </div>
+        </container>
+    </div>
+    <div class="theme-block">
+        <span>Золотий акцент</span>
+        <container data-theme="golden-accent-theme">
+            <button>Застосувати</button>
+            <div class="colors">
+                <main-color>Головний</main-color>
+                <secondary-color>Другорядний</secondary-color>
+                <background-color>Фоновий</background-color>
+            </div>
+        </container>
+    </div>
+    <div class="theme-block">
+        <span>Червоний акцент</span>
+        <container data-theme="red-accent-theme">
+            <button>Застосувати</button>
+            <div class="colors">
+                <main-color>Головний</main-color>
+                <secondary-color>Другорядний</secondary-color>
+                <background-color>Фоновий</background-color>
+            </div>
+        </container>
+    </div>
+    <div class="theme-block">
+        <span>Фіолетово-жовта</span>
+        <container data-theme="vibrant-purple-yellow-theme">
+            <button>Застосувати</button>
+            <div class="colors">
+                <main-color>Головний</main-color>
+                <secondary-color>Другорядний</secondary-color>
+                <background-color>Фоновий</background-color>
+            </div>
+        </container>
+    </div>
+    <div class="theme-block">
+        <span>Сіра тема</span>
+        <container data-theme="gray-tone-theme">
+            <button>Застосувати</button>
+            <div class="colors">
+                <main-color>Головний</main-color>
+                <secondary-color>Другорядний</secondary-color>
+                <background-color>Фоновий</background-color>
+            </div>
+        </container>
+    </div>`);
+
 const pageFooter = `<footer id="bottom">
         <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
         <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
