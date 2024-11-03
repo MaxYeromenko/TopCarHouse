@@ -1269,6 +1269,7 @@ main.product-main {
 .post-container .post-content-container {
   text-align: center;
   gap: 10px;
+  width: 100%;
 }
 .post-container .post-content-container h1 {
   font-size: 2rem;
