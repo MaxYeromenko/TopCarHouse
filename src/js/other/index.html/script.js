@@ -87,9 +87,9 @@ function initializeFormSubmission() {
             const formDataCloudinary = new FormData();
             formDataCloudinary.append('file', image);
             formDataCloudinary.append('upload_preset', 'ml_default');
+            formDataCloudinary.append('folder', 'cars');
 
             try {
-
                 const response = await fetch(`https://api.cloudinary.com/v1_1/dukwtlvte/image/upload`, {
                     method: 'POST',
                     body: formDataCloudinary
