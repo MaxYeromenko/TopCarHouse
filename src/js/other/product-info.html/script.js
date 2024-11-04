@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetry(`/api/get-cars-filter?id=${carId}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/api-cars-control?id=${carId}`, retriesLimit);
 
         if (result) {
             productData = result[0];
@@ -152,10 +152,9 @@ function loadProductInfo() {
     document.getElementById('product-color').textContent = productData.color;
     document.getElementById('product-country').textContent = productData.country;
     document.getElementById('product-transmission').textContent = productData.features.transmission;
-
     const engine = productData.features.engine;
-    document.getElementById('product-engine').textContent = !isNaN(parseFloat(engine)) ? `${engine} л` : engine;
-
+    document.getElementById('product-engine').textContent =
+        (typeof engine === 'number' && !isNaN(engine)) ? `${engine} л` : engine;
     document.getElementById('product-horsepower').textContent = `${productData.features.horsepower} к. с.`;
     document.getElementById('product-fuel-consumption').textContent =
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';

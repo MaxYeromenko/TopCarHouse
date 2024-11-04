@@ -190,7 +190,7 @@ async function loadCars(filter) {
                 Object.entries(filter)
                     .map(([key, value]) => [key, value.trim()])
             )).toString();
-        const result = await fetchWithRetry(`/api/get-cars-filter?${queryParams}`, retriesLimit);
+        const result = await fetchWithRetry(`/api/api-cars-control?${queryParams}`, retriesLimit);
 
         carsContainer.innerHTML = '';
         if (result && result.length > 0) {

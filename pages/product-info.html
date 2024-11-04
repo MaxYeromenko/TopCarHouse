@@ -33,53 +33,11 @@
         <section id="modal-window" class="modal-window-dark-bg-template">
             <i class="fa-solid fa-xmark"></i>
 
-            <div id="consultation-container" class="modal-window-element">
-                <h2>Заява на отримання консультації</h2>
-                <form id="consultation-form">
-                    <input id="consultation-name" type="text" placeholder="Як до Вас звертатись">
-                    <input id="consultation-phone" type="tel" placeholder="Номер телефону">
-                    <input id="consultation-date" type="date">
-                    <input id="consultation-time" type="time">
-                    <button type="submit">Подати заяву</button>
-                    <p class="consultation-alert"><span>*</span> Зверніть увагу: обраний час не є точним часом
-                        дзвінка. Можливі затримки, якщо всі оператори будуть зайняті.</p>
-                </form>
-            </div>
+            <div id="consultation-container" class="modal-window-element"></div>
 
-            <div id="compare-container" class="modal-window-element">
-            </div>
+            <div id="compare-container" class="modal-window-element"></div>
 
-            <div id="calculator-container" class="modal-window-element">
-                <div id="credit-box">
-                    <h2>Кредитний калькулятор</h2>
-                    <form>
-                        <input type="number" id="creditAmount" placeholder="Сума кредиту (грн)">
-                        <input type="number" id="creditTerm" placeholder="Термін (місяці)">
-                        <input type="number" id="creditRate" placeholder="Відсоткова ставка (%)">
-                        <select id="paymentType">
-                            <option value="annuity">Аннуїтетний</option>
-                            <option value="differentiated">Диференційований</option>
-                        </select>
-                        <button type="submit">Розрахувати кредит</button>
-                    </form>
-                    <p>Калькулятор <a id="toggle-leasing">лізингу</a></p>
-                </div>
-
-                <div id="leasing-box">
-                    <h2>Лізинговий калькулятор</h2>
-                    <form>
-                        <input type="number" id="contractAmount" placeholder="Вартість авто (грн)">
-                        <input type="number" id="interestRate" placeholder="Відсоток за кредитом (%)">
-                        <input type="number" id="advance" placeholder="Аванс (%)">
-                        <input type="number" id="leaseTerm" placeholder="Термін (місяці)">
-                        <input type="number" id="insurance" placeholder="Страхування на місяць (грн)">
-                        <button type="submit">Розрахувати лізинг</button>
-                    </form>
-                    <p>Калькулятор <a id="toggle-credit">кредиту</a></p>
-                </div>
-
-                <result></result>
-            </div>
+            <div id="calculator-container" class="modal-window-element"></div>
 
             <div id="services-container" class="modal-window-element">
                 <div class="service">

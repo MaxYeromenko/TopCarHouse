@@ -51,16 +51,16 @@ function openAdminPanel() {
                 <input type="text" id="brand" name="brand" placeholder="Бренд" required>
                 <input type="text" id="model" name="model" placeholder="Модель" required>
                 <input type="number" id="year" name="year" min="1886" max="2024" placeholder="Рік випуску" required>
-                <input type="number" id="price" name="price" placeholder="Ціна (дол. США)" required>
+                <input type="number" min="0" id="price" name="price" placeholder="Ціна (дол. США)" step="0.1" required>
                 <input type="text" id="color" name="color" placeholder="Колір" required>
                 <textarea id="description" name="description" placeholder="Опис" required></textarea>
                 <input type="text" id="country" name="country" placeholder="Країна-виробник" required>
                 <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple required>
                 <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" required>
-                <input type="text" id="engine" name="engine" placeholder="Об'єм двигуна (л)" required>
+                <input type="number" min="0" id="engine" name="engine" placeholder="Об'єм двигуна (л)" step="0.1" required>
                 <input type="text" id="fuel_type" name="fuel_type" placeholder="Тип пального" required>
-                <input type="number" id="horsepower" name="horsepower" placeholder="Потужність (к. с.)" required>
-                <input type="number" id="fuel_consumption" name="fuel_consumption" placeholder="Споживання пального (л/100км)" required>
+                <input type="number" min="0" id="horsepower" name="horsepower" placeholder="Потужність (к. с.)" required>
+                <input type="number" min="0" id="fuel_consumption" name="fuel_consumption" placeholder="Споживання пального (л/100км)" step="0.1" required>
                 <input type="text" id="body_type" name="body_type" placeholder="Тип кузова" required>
                 <button type="submit">Зберегти автомобіль</button>
             </form>
@@ -106,24 +106,24 @@ function initializeFormSubmission() {
             }
         };
 
-        // const carData = {
-        //     brand: formData.get('brand'),
-        //     model: formData.get('model'),
-        //     year: formData.get('year'),
-        //     price: formData.get('price'),
-        //     color: formData.get('color'),
-        //     description: formData.get('description'),
-        //     country: formData.get('country'),
-        //     images: imageUrls,
-        //     features: {
-        //         transmission: formData.get('transmission'),
-        //         engine: formData.get('engine'),
-        //         fuel_type: formData.get('fuel_type'),
-        //         horsepower: formData.get('horsepower'),
-        //         fuel_consumption: formData.get('fuel_consumption'),
-        //         body_type: formData.get('body_type')
-        //     }
-        // };
+        const carData = {
+            brand: formData.get('brand').trim(),
+            model: formData.get('model').trim(),
+            year: formData.get('year').trim(),
+            price: Math.abs(formData.get('price').trim()),
+            color: formData.get('color').trim(),
+            description: formData.get('description').trim(),
+            country: formData.get('country').trim(),
+            images: imageUrls,
+            features: {
+                transmission: formData.get('transmission').trim(),
+                engine: Math.abs(formData.get('engine').trim()),
+                fuel_type: formData.get('fuel_type').trim(),
+                horsepower: Math.abs(formData.get('horsepower').trim()),
+                fuel_consumption: formData.get('fuel_consumption').trim(),
+                body_type: formData.get('body_type').trim()
+            }
+        };
 
         // await fetch('/api/cars', {
         //     method: 'POST',

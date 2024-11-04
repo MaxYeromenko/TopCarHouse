@@ -227,7 +227,7 @@ export function compareCarsIntegration() {
 
             for (const carId of carsToCompare) {
                 try {
-                    const result = await fetchWithRetry(`/api/get-cars-filter?id=${carId}`, retriesLimit);
+                    const result = await fetchWithRetry(`/api/api-cars-control?id=${carId}`, retriesLimit);
 
                     if (result) {
                         const carCard = createCompareCarCard(result[0]);
@@ -259,22 +259,22 @@ export function compareCarsIntegration() {
         carCardToCompare.classList.add('carToCompare');
 
         carCardToCompare.innerHTML = `
-    <div class="compare-item">
-        <button><i class="fa-solid fa-trash-can"></i></button>
-        <h2 id="compare-product-title">${car.brand} ${car.model}</h2>
-        <div class="compare-product-info">
-            <div>Рік: <span>${car.year}</span></div>
-            <div>Потужність: <span>${car.features.horsepower} к.с.</span></div>
-            <div>Ціна: <span>$${car.price}</span></div>
-            <div>Колір: <span>${car.color}</span></div>
-            <div>Країна: <span>${car.country}</span></div>
-            <div>Коробка передач: <span>${car.features.transmission}</span></div>
-            <div>Двигун: <span>${car.features.engine} л</span></div>
-            <div>Споживання палива: <span>${car.features.fuel_consumption} л / 100 км</span></div>
-            <div>Тип палива: <span>${car.features.fuel_type}</span></div>
-            <div>Тип кузова: <span>${car.features.body_type}</span></div>
-        </div>
-    </div>`;
+            <div class="compare-item">
+                <button><i class="fa-solid fa-trash-can"></i></button>
+                <h2 id="compare-product-title">${car.brand} ${car.model}</h2>
+                <div class="compare-product-info">
+                    <div>Рік: <span>${car.year}</span></div>
+                    <div>Потужність: <span>${car.features.horsepower} к.с.</span></div>
+                    <div>Ціна: <span>$${car.price}</span></div>
+                    <div>Колір: <span>${car.color}</span></div>
+                    <div>Країна: <span>${car.country}</span></div>
+                    <div>Коробка передач: <span>${car.features.transmission}</span></div>
+                    <div>Двигун: <span>${isNaN(car.features.engine) ? car.features.engine : `${car.features.engine} л`}</span></div>
+                    <div>Споживання палива: <span>${car.features.fuel_consumption} л / 100 км</span></div>
+                    <div>Тип палива: <span>${car.features.fuel_type}</span></div>
+                    <div>Тип кузова: <span>${car.features.body_type}</span></div>
+                </div>
+            </div>`;
 
         carCardToCompare.querySelector('button').addEventListener('click', () => {
             removeCarFromCompare(car._id);

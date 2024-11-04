@@ -66,62 +66,115 @@ const messageMarkUp = `<div class="info-message">
     </div>`;
 mainBlock.insertAdjacentHTML('afterbegin', messageMarkUp);
 
-document.getElementById('theme-container').insertAdjacentHTML('afterbegin', `
-    <div class="theme-block">
-        <span>Стандартна тема</span>
-        <container data-theme="default-theme">
-            <button>Застосувати</button>
-            <div class="colors">
-                <main-color>Головний</main-color>
-                <secondary-color>Другорядний</secondary-color>
-                <background-color>Фоновий</background-color>
-            </div>
-        </container>
-    </div>
-    <div class="theme-block">
-        <span>Золотий акцент</span>
-        <container data-theme="golden-accent-theme">
-            <button>Застосувати</button>
-            <div class="colors">
-                <main-color>Головний</main-color>
-                <secondary-color>Другорядний</secondary-color>
-                <background-color>Фоновий</background-color>
-            </div>
-        </container>
-    </div>
-    <div class="theme-block">
-        <span>Червоний акцент</span>
-        <container data-theme="red-accent-theme">
-            <button>Застосувати</button>
-            <div class="colors">
-                <main-color>Головний</main-color>
-                <secondary-color>Другорядний</secondary-color>
-                <background-color>Фоновий</background-color>
-            </div>
-        </container>
-    </div>
-    <div class="theme-block">
-        <span>Фіолетово-жовта</span>
-        <container data-theme="vibrant-purple-yellow-theme">
-            <button>Застосувати</button>
-            <div class="colors">
-                <main-color>Головний</main-color>
-                <secondary-color>Другорядний</secondary-color>
-                <background-color>Фоновий</background-color>
-            </div>
-        </container>
-    </div>
-    <div class="theme-block">
-        <span>Сіра тема</span>
-        <container data-theme="gray-tone-theme">
-            <button>Застосувати</button>
-            <div class="colors">
-                <main-color>Головний</main-color>
-                <secondary-color>Другорядний</secondary-color>
-                <background-color>Фоновий</background-color>
-            </div>
-        </container>
-    </div>`);
+const consultationСontainer = document.getElementById('consultation-container');
+if (consultationСontainer)
+    consultationСontainer.insertAdjacentHTML('afterbegin', `
+        <h2>Заява на отримання консультації</h2>
+        <form id="consultation-form">
+            <input id="consultation-name" type="text" placeholder="Як до Вас звертатись" title="Ім'я" required>
+            <input id="consultation-phone" type="tel" placeholder="Номер телефону" title="Номер телефону"
+                required>
+            <input id="consultation-date" type="date" required>
+            <input id="consultation-time" type="time" required>
+            <button type="submit">Подати заяву</button>
+            <p class="consultation-alert"><span>*</span> Зверніть увагу: обраний час не є точним часом
+                дзвінка. Можливі затримки, якщо всі оператори будуть зайняті.
+            </p>
+        </form>`);
+
+const calculatorContainer = document.getElementById('calculator-container');
+if (calculatorContainer)
+    calculatorContainer.insertAdjacentHTML('afterbegin', `
+        <div id="credit-box">
+            <h2>Кредитний калькулятор</h2>
+            <form>
+                <input type="number" min="0" id="creditAmount" placeholder="Сума кредиту (грн)" step="0.1" required>
+                <input type="number" min="0" id="creditTerm" placeholder="Термін (місяці)" required>
+                <input type="number" min="0" id="creditRate" placeholder="Відсоткова ставка (%)" step="0.1" required>
+                <select id="paymentType">
+                    <option value="annuity">Аннуїтетний</option>
+                    <option value="differentiated">Диференційований</option>
+                </select>
+                <button type="submit">Розрахувати кредит</button>
+            </form>
+            <p>Калькулятор <a id="toggle-leasing">лізингу</a></p>
+        </div>
+
+        <div id="leasing-box">
+            <h2>Лізинговий калькулятор</h2>
+            <form>
+                <input type="number" min="0" id="contractAmount" placeholder="Вартість авто (грн)" step="0.1" required>
+                <input type="number" min="0" id="interestRate" placeholder="Відсоток за кредитом (%)" step="0.1"
+                    required>
+                <input type="number" min="0" id="advance" placeholder="Аванс (%)" step="0.1" required>
+                <input type="number" min="0" id="leaseTerm" placeholder="Термін (місяці)" required>
+                <input type="number" min="0" id="insurance" placeholder="Страхування на місяць (грн)" step="0.1"
+                    required>
+                <button type="submit">Розрахувати лізинг</button>
+            </form>
+            <p>Калькулятор <a id="toggle-credit">кредиту</a></p>
+        </div>
+
+        <result></result>`);
+
+const themeContainer = document.getElementById('theme-container');
+if (themeContainer)
+    themeContainer.insertAdjacentHTML('afterbegin', `
+        <div class="theme-block">
+            <span>Стандартна тема</span>
+            <container data-theme="default-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
+        </div>
+        <div class="theme-block">
+            <span>Золотий акцент</span>
+            <container data-theme="golden-accent-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
+        </div>
+        <div class="theme-block">
+            <span>Червоний акцент</span>
+            <container data-theme="red-accent-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
+        </div>
+        <div class="theme-block">
+            <span>Фіолетово-жовта</span>
+            <container data-theme="vibrant-purple-yellow-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
+        </div>
+        <div class="theme-block">
+            <span>Сіра тема</span>
+            <container data-theme="gray-tone-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
+        </div>`);
 
 const pageFooter = `<footer id="bottom">
         <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>

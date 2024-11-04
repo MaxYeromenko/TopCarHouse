@@ -20,7 +20,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "5.0",
+            engine: 5.0,
             fuel_type: "Бензин",
             horsepower: 518,
             fuel_consumption: 15,
@@ -44,7 +44,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.3",
+            engine: 2.3,
             fuel_type: "Бензин",
             horsepower: 300,
             fuel_consumption: 10,
@@ -68,7 +68,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "3.0",
+            engine: 3.0,
             fuel_type: "Бензин",
             horsepower: 335,
             fuel_consumption: 10,
@@ -92,7 +92,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "3.0",
+            engine: 3.0,
             fuel_type: "Дизель",
             horsepower: 333,
             fuel_consumption: 8,
@@ -116,7 +116,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.9",
+            engine: 2.9,
             fuel_type: "Дизель",
             horsepower: 362,
             fuel_consumption: 9,
@@ -164,7 +164,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "3.5",
+            engine: 3.5,
             fuel_type: "Бензин",
             horsepower: 295,
             fuel_consumption: 11,
@@ -188,7 +188,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.0",
+            engine: 2.0,
             fuel_type: "Гібрид",
             horsepower: 400,
             fuel_consumption: 7,
@@ -212,7 +212,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "3.0",
+            engine: 3.0,
             fuel_type: "Бензин",
             horsepower: 335,
             fuel_consumption: 12,
@@ -236,7 +236,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "3.6",
+            engine: 3.6,
             fuel_type: "Бензин",
             horsepower: 295,
             fuel_consumption: 13,
@@ -260,7 +260,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 203,
             fuel_consumption: 7,
@@ -284,7 +284,7 @@ const cars = [
         ],
         features: {
             transmission: "Механічна",
-            engine: "1.5",
+            engine: 1.5,
             fuel_type: "Бензин",
             horsepower: 180,
             fuel_consumption: 6,
@@ -308,7 +308,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "6.2",
+            engine: 6.2,
             fuel_type: "Бензин",
             horsepower: 420,
             fuel_consumption: 14,
@@ -332,7 +332,7 @@ const cars = [
         ],
         features: {
             transmission: "Механічна",
-            engine: "1.4",
+            engine: 1.4,
             fuel_type: "Бензин",
             horsepower: 147,
             fuel_consumption: 5,
@@ -356,7 +356,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 187,
             fuel_consumption: 8,
@@ -380,7 +380,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 191,
             fuel_consumption: 7,
@@ -404,7 +404,7 @@ const cars = [
         ],
         features: {
             transmission: "Варіатор",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 182,
             fuel_consumption: 8,
@@ -428,7 +428,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 281,
             fuel_consumption: 9,
@@ -452,7 +452,7 @@ const cars = [
         ],
         features: {
             transmission: "Варіатор",
-            engine: "2.5",
+            engine: 2.5,
             fuel_type: "Бензин",
             horsepower: 188,
             fuel_consumption: 8,

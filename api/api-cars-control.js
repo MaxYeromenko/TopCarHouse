@@ -1,10 +1,35 @@
 const { CarModel } = require('../server/db');
 
 module.exports = async (req, res) => {
-    const { id, ...query } = req.query;
-
-    if (req.method === 'GET') {
+    if (req.method === 'POST') {
         try {
+            const { brand, model, year, price, color, description, country, images, features } = req.body;
+
+            if (!brand || !model || !year || !price || !color || !description || !country || !features) {
+                return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
+            }
+
+            const car = new CarModel({
+                brand,
+                model,
+                year,
+                price,
+                color,
+                description,
+                country,
+                images,
+                features
+            });
+
+            await car.save();
+            res.status(201).json({ success: true, message: 'Авто успішно додано!' });
+        } catch (err) {
+            res.status(500).json({ success: false, message: 'Помилка сервера під час публікації!' });
+        }
+    }
+    else if (req.method === 'GET') {
+        try {
+            const { id, ...query } = req.query;
             let filter = {};
 
             if (id) {
