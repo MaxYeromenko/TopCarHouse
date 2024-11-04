@@ -1,4 +1,5 @@
 const cloudinaryURL = 'https://res.cloudinary.com/dukwtlvte/image/upload/';
+const cloudinaryName = 'dukwtlvte';
 const default_car_URL = 'https://res.cloudinary.com/dukwtlvte/image/upload/v1725616540/default_car.jpg';
 
 function applySavedTheme() {

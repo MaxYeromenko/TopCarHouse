@@ -90,8 +90,9 @@ function initializeFormSubmission() {
             formDataCloudinary.append('folder', 'cars');
 
             try {
-                const result = await fetchWithRetryPost(`https://api.cloudinary.com/v1_1/dukwtlvte/upload`, {
-                    formDataCloudinary
+                const result = await handleRequest(`https://api.cloudinary.com/v1_1/${cloudinaryName}/upload`, {
+                    method: "POST",
+                    body: formDataCloudinary
                 }, retriesLimit);
 
                 if (result.secure_url) {
