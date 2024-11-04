@@ -90,23 +90,20 @@ function initializeFormSubmission() {
             formDataCloudinary.append('folder', 'cars');
 
             try {
-                const response = await fetch(`https://api.cloudinary.com/v1_1/dukwtlvte/upload`, {
-                    method: 'POST',
-                    body: formDataCloudinary
-                });
+                const result = await fetchWithRetryPost(`https://api.cloudinary.com/v1_1/dukwtlvte/upload`, {
+                    formDataCloudinary
+                }, retriesLimit);
 
-                const data = await response.json();
-                if (data.secure_url) {
+                if (result.secure_url) {
                     imageUrls.push(data.secure_url);
-                    console.log(imageUrls);
+                    showMessage(`Фото ${image.name} успішно відправлено!`, true);
                 }
             }
             catch (error) {
                 console.log(error);
-                showMessage(error.message, false);
+                showMessage(`Фото ${image.name} не вдалося відправити!`, false);
             }
-        }
-        showMessage('Дані успішно відправлено!', true);
+        };
 
         // const carData = {
         //     brand: formData.get('brand'),
