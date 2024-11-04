@@ -90,7 +90,7 @@ function initializeFormSubmission() {
             formDataCloudinary.append('folder', 'cars');
 
             try {
-                const response = await fetch(`https://api.cloudinary.com/v1_1/dukwtlvte/image/upload`, {
+                const response = await fetch(`https://api.cloudinary.com/v1_1/dukwtlvte/upload`, {
                     method: 'POST',
                     body: formDataCloudinary
                 });
