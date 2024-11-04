@@ -278,12 +278,15 @@ filterSectionOpen.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
+    showMessage('Завантаження...', true);
+
     try {
         const cacheKey = 'blogTypesCache';
         const result = await fetchWithCache('/api/get-blog-types', cacheKey, cacheExpiration, retriesLimit);
 
         if (result) {
             inputHints(result);
+            showMessage('Дані успішно завантажені!', true);
         }
     } catch (error) {
         showMessage(error.message, false);
