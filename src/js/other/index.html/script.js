@@ -96,7 +96,7 @@ function initializeFormSubmission() {
                 }, retriesLimit);
 
                 if (result.secure_url) {
-                    imageUrls.push(data.secure_url);
+                    imageUrls.push(result.secure_url);
                     showMessage(`Фото ${image.name} успішно відправлено!`, true);
                 }
             }
