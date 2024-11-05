@@ -74,8 +74,8 @@ if (consultationСontainer)
             <input id="consultation-name" type="text" placeholder="Як до Вас звертатись" title="Ім'я" required>
             <input id="consultation-phone" type="tel" placeholder="Номер телефону" title="Номер телефону"
                 required>
-            <input id="consultation-date" type="date" required>
-            <input id="consultation-time" type="time" required>
+            <input id="consultation-date" type="date" title="Дата проведення консультації" required>
+            <input id="consultation-time" type="time" title="Час проведення консультації" required>
             <button type="submit">Подати заяву</button>
             <p class="consultation-alert"><span>*</span> Зверніть увагу: обраний час не є точним часом
                 дзвінка. Можливі затримки, якщо всі оператори будуть зайняті.
