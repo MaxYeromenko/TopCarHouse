@@ -25,13 +25,13 @@ function openAdminPanel() {
         <div id="admin-container" class="modal-window-element">
             <h2>Конструктор статті</h2>
             <form>
-                <input type="text" id="post-title" placeholder="Заголовок статті" required>
+                <input type="text" id="post-title" placeholder="Заголовок статті" title="Заголовок статті" required>
                 <button id="add-element-btn"></button>
                 <button id="remove-element-btn"></button>
-                <input type="text" id="post-author" placeholder="Автор" required>
-                <input type="text" id="post-tags" placeholder="Теги через кому">
+                <input type="text" id="post-author" placeholder="Автор" title="Автор" required>
+                <input type="text" id="post-tags" placeholder="Теги через кому" title="Теги">
                 <label>
-                    <input type="checkbox" id="post-comments-enabled">
+                    <input type="checkbox" id="post-comments-enabled" title="Увімкнути коментарі">
                     <span class="checkbox-button"></span>
                     Увімкнути коментарі
                 </label>
@@ -74,13 +74,13 @@ function addPostElement(type) {
 
     switch (type) {
         case 'title':
-            elementHtml = '<input class="post-element" type="text" data-post-element-type="title" placeholder="Заголовок">';
+            elementHtml = '<input class="post-element" type="text" data-post-element-type="title" placeholder="Заголовок"> title="Заголовок"';
             break;
         case 'text':
-            elementHtml = '<textarea class="post-element" data-post-element-type="text" placeholder="Текст"></textarea>';
+            elementHtml = '<textarea class="post-element" data-post-element-type="text" placeholder="Текст" title="Текст"></textarea>';
             break;
         case 'image':
-            elementHtml = '<input class="post-element" type="text" data-post-element-type="image" placeholder="Посилання на зображення">';
+            elementHtml = '<input class="post-element" type="text" data-post-element-type="image" placeholder="Посилання на зображення" title="Посилання на зображення">';
             break;
     }
 

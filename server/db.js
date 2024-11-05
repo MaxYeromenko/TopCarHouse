@@ -36,7 +36,7 @@ const CarSchema = new mongoose.Schema({
     images: [String],
     features: {
         transmission: String,
-        engine: String,
+        engine: Number,
         fuel_type: String,
         horsepower: Number,
         fuel_consumption: Number,

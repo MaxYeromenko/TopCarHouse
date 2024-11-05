@@ -88,9 +88,9 @@ if (calculatorContainer)
         <div id="credit-box">
             <h2>Кредитний калькулятор</h2>
             <form>
-                <input type="number" min="0" id="creditAmount" placeholder="Сума кредиту (грн)" step="0.1" required>
-                <input type="number" min="0" id="creditTerm" placeholder="Термін (місяці)" required>
-                <input type="number" min="0" id="creditRate" placeholder="Відсоткова ставка (%)" step="0.1" required>
+                <input type="number" min="0" id="creditAmount" placeholder="Сума кредиту (грн)" title="Сума кредиту" step="0.1" required>
+                <input type="number" min="0" id="creditTerm" placeholder="Термін (місяці)" title="Термін" required>
+                <input type="number" min="0" id="creditRate" placeholder="Відсоткова ставка (%)" step="0.1" title="Відсоткова ставка" required>
                 <select id="paymentType">
                     <option value="annuity">Аннуїтетний</option>
                     <option value="differentiated">Диференційований</option>
@@ -103,12 +103,12 @@ if (calculatorContainer)
         <div id="leasing-box">
             <h2>Лізинговий калькулятор</h2>
             <form>
-                <input type="number" min="0" id="contractAmount" placeholder="Вартість авто (грн)" step="0.1" required>
-                <input type="number" min="0" id="interestRate" placeholder="Відсоток за кредитом (%)" step="0.1"
+                <input type="number" min="0" id="contractAmount" placeholder="Вартість авто (грн)" title="Вартість авто" step="0.1" required>
+                <input type="number" min="0" id="interestRate" placeholder="Відсоток за кредитом (%)" title="Відсоток за кредитом" step="0.1"
                     required>
-                <input type="number" min="0" id="advance" placeholder="Аванс (%)" step="0.1" required>
-                <input type="number" min="0" id="leaseTerm" placeholder="Термін (місяці)" required>
-                <input type="number" min="0" id="insurance" placeholder="Страхування на місяць (грн)" step="0.1"
+                <input type="number" min="0" id="advance" placeholder="Аванс (%)" title="Аванс" step="0.1" required>
+                <input type="number" min="0" id="leaseTerm" placeholder="Термін (місяці)" title="Термін" required>
+                <input type="number" min="0" id="insurance" placeholder="Страхування на місяць (грн)" title="Страхування на місяць" step="0.1"
                     required>
                 <button type="submit">Розрахувати лізинг</button>
             </form>

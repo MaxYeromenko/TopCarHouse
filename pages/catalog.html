@@ -69,27 +69,31 @@
             <div id="filter-container" class="modal-window-element">
                 <h2>Фільтри авто</h2>
                 <form>
-                    <input type="text" id="brand" name="brand" placeholder="Бренд" list="brand-options">
+                    <input type="text" id="brand" name="brand" placeholder="Бренд" title="Бренд" list="brand-options">
                     <datalist id="brand-options"></datalist>
-                    <input type="text" id="model" name="model" placeholder="Модель" list="model-options">
+                    <input type="text" id="model" name="model" placeholder="Модель" title="Модель" list="model-options">
                     <datalist id="model-options"></datalist>
-                    <input type="number" min="1886" max="2024" id="year" name="year" placeholder="Рік випуску">
-                    <input type="number" min="0" id="price" name="price" placeholder="Вартість до" step="0.1">
-                    <input type="text" id="color" name="color" placeholder="Колір" list="color-options">
+                    <input type="number" min="1886" max="2024" id="year" name="year" placeholder="Рік випуску"
+                        title="Рік випуску">
+                    <input type="number" min="0" id="price" name="price" placeholder="Вартість до" title="Вартість до"
+                        step="0.1">
+                    <input type="text" id="color" name="color" placeholder="Колір" title="Колір" list="color-options">
                     <datalist id="color-options"></datalist>
-                    <input type="text" id="country" name="country" placeholder="Країна-виробник" list="country-options">
+                    <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник"
+                        list="country-options">
                     <datalist id="country-options"></datalist>
                     <input type="text" id="transmission" name="features.transmission" placeholder="Коробка передач"
-                        list="transmission-options">
+                        title="Коробка передач" list="transmission-options">
                     <datalist id="transmission-options"></datalist>
                     <input type="number" min="0" id="engine" name="features.engine" placeholder="Об'єм двигуна до"
-                        step="0.1">
+                        title="Об'єм двигуна до" step="0.1">
                     <input type="text" id="fuel_type" name="features.fuel_type" placeholder="Тип палива"
-                        list="fuel-type-options">
+                        title="Тип палива" list="fuel-type-options">
                     <datalist id="fuel-type-options"></datalist>
-                    <input type="number" min="0" id="horsepower" name="features.horsepower" placeholder="Потужність до">
+                    <input type="number" min="0" id="horsepower" name="features.horsepower" placeholder="Потужність до"
+                        title="Потужність до">
                     <input type="text" id="body_type" name="features.body_type" placeholder="Тип кузова"
-                        list="body-type-options">
+                        title="Тип кузова" list="body-type-options">
                     <datalist id="body-type-options"></datalist>
                     <button type="submit">Використати фільтри</button>
                 </form>

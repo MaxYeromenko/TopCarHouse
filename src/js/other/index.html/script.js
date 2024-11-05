@@ -48,20 +48,20 @@ function openAdminPanel() {
         <div id="admin-container" class="modal-window-element">
             <h2>Додавання автомобіля</h2>
             <form>
-                <input type="text" id="brand" name="brand" placeholder="Бренд" required>
-                <input type="text" id="model" name="model" placeholder="Модель" required>
-                <input type="number" id="year" name="year" min="1886" max="2024" placeholder="Рік випуску" required>
-                <input type="number" min="0" id="price" name="price" placeholder="Ціна (дол. США)" step="0.1" required>
-                <input type="text" id="color" name="color" placeholder="Колір" required>
-                <textarea id="description" name="description" placeholder="Опис" required></textarea>
-                <input type="text" id="country" name="country" placeholder="Країна-виробник" required>
+                <input type="text" id="brand" name="brand" placeholder="Бренд" title="Бренд" required>
+                <input type="text" id="model" name="model" placeholder="Модель" title="Модель" required>
+                <input type="number" id="year" name="year" min="1886" max="2024" placeholder="Рік випуску" title="Рік випуску" required>
+                <input type="number" min="0" id="price" name="price" placeholder="Ціна (дол. США)" title="Ціна" step="0.1" required>
+                <input type="text" id="color" name="color" placeholder="Колір" title="Колір" required>
+                <textarea id="description" name="description" placeholder="Опис" title="Опис" required></textarea>
+                <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник" required>
                 <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple required>
-                <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" required>
-                <input type="number" min="0" id="engine" name="engine" placeholder="Об'єм двигуна (л)" step="0.1" required>
-                <input type="text" id="fuel_type" name="fuel_type" placeholder="Тип пального" required>
-                <input type="number" min="0" id="horsepower" name="horsepower" placeholder="Потужність (к. с.)" required>
-                <input type="number" min="0" id="fuel_consumption" name="fuel_consumption" placeholder="Споживання пального (л/100км)" step="0.1" required>
-                <input type="text" id="body_type" name="body_type" placeholder="Тип кузова" required>
+                <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" title="Коробка передач" required>
+                <input type="number" min="0" id="engine" name="engine" placeholder="Об'єм двигуна (л)" title="Об'єм двигуна" step="0.1" required>
+                <input type="text" id="fuel_type" name="fuel_type" placeholder="Тип пального" title="Тип пального" required>
+                <input type="number" min="0" id="horsepower" name="horsepower" placeholder="Потужність (к. с.)" title="Потужність" required>
+                <input type="number" min="0" id="fuel_consumption" name="fuel_consumption" placeholder="Споживання пального (л/100км)" title="Споживання пального" step="0.1" required>
+                <input type="text" id="body_type" name="body_type" placeholder="Тип кузова" title="Тип кузова" required>
                 <button type="submit">Зберегти автомобіль</button>
             </form>
         </div>`;
@@ -131,7 +131,7 @@ function initializeFormSubmission() {
 
             if (result) {
                 removeToken('bestCarDealsCache');
-                showMessage('Авто успішно додано!',true);
+                showMessage('Авто успішно додано!', true);
             }
         }
         catch (error) {

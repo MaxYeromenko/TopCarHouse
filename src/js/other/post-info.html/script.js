@@ -90,7 +90,7 @@ function loadPostInfo() {
         commentsSection.appendChild(commentsTitle);
 
         const addCommentSection = `<div id="add-comment-section">
-                <textarea id="comment-text" placeholder="Напишіть свій коментар..." required></textarea>
+                <textarea id="comment-text" placeholder="Напишіть свій коментар..." title="Коментар" required></textarea>
                 <button id="submit-comment">Додати коментар</button>
             </div>`;
         commentsSection.insertAdjacentHTML('beforeend', addCommentSection);
@@ -180,7 +180,7 @@ async function formatLinks() {
         link.setAttribute('target', '_blank');
 
         const linkLogo = document.createElement('img');
-        linkLogo.alt = 'logo';
+        linkLogo.alt = 'Логотип сайту';
         link.insertAdjacentElement('afterbegin', linkLogo);
 
         const domain = new URL(link.getAttribute('href')).hostname;

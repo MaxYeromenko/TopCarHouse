@@ -140,7 +140,7 @@ const cars = [
         ],
         features: {
             transmission: "Автоматична",
-            engine: "Електричний",
+            engine: 0,
             fuel_type: "Електро",
             horsepower: 670,
             fuel_consumption: 0,

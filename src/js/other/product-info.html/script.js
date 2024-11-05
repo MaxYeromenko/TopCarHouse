@@ -14,6 +14,7 @@ compareCarsIntegration();
 
 const imageToView = document.getElementById('product-image');
 const viewedImage = document.createElement('img');
+viewedImage.alt = "Збільшене зображення авто";
 viewedImage.classList.add('viewed-img');
 viewedImage.classList.add('modal-window-element');
 modalWindow.appendChild(viewedImage);
@@ -145,16 +146,14 @@ function loadProductInfo() {
         });
     });
 
-    document.getElementById('product-description').textContent = `${productData.description}`;
+    document.getElementById('product-description').textContent = productData.description;
     document.getElementById('product-brand').textContent = productData.brand;
     document.getElementById('product-model').textContent = productData.model;
     document.getElementById('product-year').textContent = productData.year;
     document.getElementById('product-color').textContent = productData.color;
     document.getElementById('product-country').textContent = productData.country;
     document.getElementById('product-transmission').textContent = productData.features.transmission;
-    const engine = productData.features.engine;
-    document.getElementById('product-engine').textContent =
-        (typeof engine === 'number' && !isNaN(engine)) ? `${engine} л` : engine;
+    document.getElementById('product-engine').textContent = productData.features.engine > 0 ? `${productData.features.engine} л` : '-';
     document.getElementById('product-horsepower').textContent = `${productData.features.horsepower} к. с.`;
     document.getElementById('product-fuel-consumption').textContent =
         productData.features.fuel_consumption > 0 ? `${productData.features.fuel_consumption} л / 100 км` : '-';

@@ -41,6 +41,7 @@ function hideAllElementsInModalWindow(modalWindow) {
 function checkImageValidity(imageUrl) {
     return new Promise((resolve, reject) => {
         const img = new Image();
+        img.alt = "Валідне зображення";
         img.src = imageUrl;
         img.onload = () => resolve(imageUrl);
         img.onerror = () => reject(imageUrl);

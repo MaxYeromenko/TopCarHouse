@@ -56,13 +56,16 @@
             <div id="filter-container" class="modal-window-element">
                 <h2>Фільтри постів</h2>
                 <form>
-                    <input type="text" id="author" name="author" placeholder="Автор" list="author-options">
+                    <input type="text" id="author" name="author" placeholder="Автор" title="Автор"
+                        list="author-options">
                     <datalist id="author-options"></datalist>
-                    <input type="text" id="tags" name="tags" placeholder="Теги через кому" list="tags-options">
+                    <input type="text" id="tags" name="tags" placeholder="Теги через кому" title="Теги"
+                        list="tags-options">
                     <datalist id="tags-options"></datalist>
-                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Ключові слова">
+                    <input type="text" id="searchQuery" name="searchQuery" title="Ключові слова"
+                        placeholder="Ключові слова">
                     <label>
-                        <input type="checkbox" id="date-sort-enabled">
+                        <input type="checkbox" id="date-sort-enabled" title="Сортувати за датою">
                         <span class="checkbox-button"></span>
                         Сортувати за датою
                     </label>
