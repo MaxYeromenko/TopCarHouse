@@ -101,7 +101,7 @@ function initializeFormSubmission() {
                 }
             }
             catch (error) {
-                console.log(error);
+                console.error(error);
                 showMessage(`Фото ${image.name} не вдалося відправити!`, false);
             }
         };
@@ -125,13 +125,19 @@ function initializeFormSubmission() {
             }
         };
 
-        // await fetch('/api/cars', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(carData)
-        // });
+        try {
+            const result = await fetchWithRetryPost(`api/api-cars-control`,
+                carData, retriesLimit);
+
+            if (result) {
+                removeToken('bestCarDealsCache');
+                showMessage('Авто успішно додано!',true);
+            }
+        }
+        catch (error) {
+            console.error(error);
+            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        }
     });
 }
 
