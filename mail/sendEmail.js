@@ -10,7 +10,7 @@ async function sendEmail(to, subject, text, html) {
     });
 
     await transporter.sendMail({
-        from: '"Підтримка" <topcarhouse313@gmail.com>',
+        from: '"TopCarHouse підтримка" <topcarhouse313@gmail.com>',
         to,
         subject,
         text,
