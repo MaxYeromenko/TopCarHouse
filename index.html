@@ -40,20 +40,33 @@
                         <input type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
                         <input type="password" placeholder="Пароль" title="Пароль" required>
                         <button type="submit">Увійти</button>
+                        <p>Забули пароль? <a id="toggle-reset-password">Скинути пароль</a></p>
                     </form>
                     <p>Немає облікового запису? <a id="toggle-register">Реєстрація</a></p>
+                </div>
+
+                <div id="reset-password-box">
+                    <h2>Скидання пароля</h2>
+                    <form>
+                        <input type="text" placeholder="Логін вказаний під час реєстрації" title="Логін" required>
+                        <input type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
+                        <input type="password" placeholder="Новий пароль" title="Новий пароль" required>
+                        <input type="password" name="password-guess" placeholder="Попередній пароль"
+                            title="Попередній пароль" required>
+                        <button type="submit">Встановити новий пароль</button>
+                    </form>
+                    <p>Повернутися до <a class="toggle-login">Форми входу</a></p>
                 </div>
 
                 <div id="register-box">
                     <h2>Реєстрація</h2>
                     <form>
-                        <input id="register-name" type="text" placeholder="Логін" title="Логін" required>
-                        <input id="register-email" type="email" placeholder="Електронна пошта" title="Електронна пошта"
-                            required>
-                        <input id="register-password" type="password" placeholder="Пароль" title="Пароль" required>
+                        <input type="text" placeholder="Логін" title="Логін" required>
+                        <input type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
+                        <input type="password" placeholder="Пароль" title="Пароль" required>
                         <button type="submit">Зареєструватися</button>
                     </form>
-                    <p>Вже є обліковий запис? <a id="toggle-login">Увійти</a></p>
+                    <p>Вже є обліковий запис? <a class="toggle-login">Увійти</a></p>
                 </div>
             </div>
 

@@ -15,6 +15,7 @@ compareCarsIntegration();
 const logButtons = document.querySelectorAll('.log-button');
 const logOutButtons = document.querySelectorAll('.log-out-button');
 const registerBox = document.getElementById('register-box');
+const resetPasswordBox = document.getElementById('reset-password-box');
 const loginBox = document.getElementById('login-box');
 const authContainer = document.getElementById('auth-container');
 
@@ -162,23 +163,29 @@ document.getElementById('toggle-register').addEventListener('click', () => {
     toggleElementVisibility(registerBox, 'block');
 });
 
-document.getElementById('toggle-login').addEventListener('click', () => {
-    toggleElementVisibility(registerBox, 'none');
-    toggleElementVisibility(loginBox, 'block');
+document.querySelectorAll('.toggle-login').forEach(element => {
+    element.addEventListener('click', () => {
+        toggleElementVisibility(registerBox, 'none');
+        toggleElementVisibility(resetPasswordBox, 'none');
+        toggleElementVisibility(loginBox, 'block');
+    });
+});
+
+document.getElementById('toggle-reset-password').addEventListener('click', () => {
+    toggleElementVisibility(loginBox, 'none');
+    toggleElementVisibility(resetPasswordBox, 'block');
 });
 
 const loginRegex = /^[a-zA-Z0-9]{5,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-const form = document.querySelector('#register-box form');
-
-form.addEventListener('submit', async (e) => {
+document.querySelector('#register-box form').addEventListener('submit', async (event) => {
     e.preventDefault();
 
-    const name = document.getElementById('register-name').value;
-    const email = String(document.getElementById('register-email').value).toLowerCase();
-    const password = document.getElementById('register-password').value;
+    const name = String(event.target.querySelector('input[type="text"]').value).trim();
+    const email = String(event.target.querySelector('input[type="email"]').value).trim().toLowerCase();
+    const password = String(event.target.querySelector('input[type="password"]').value).trim();
 
     if (!loginRegex.test(name)) {
         showMessage('Логін має складатися з 5 цифр або літер!', false);
@@ -202,8 +209,8 @@ form.addEventListener('submit', async (e) => {
             { name, email, password }, retriesLimit);
 
         if (result.success) {
+            event.target.reset();
             showMessage(result.message, result.success);
-            form.reset();
             toggleElementVisibility(registerBox, 'none');
             toggleElementVisibility(loginBox, 'block');
         }
@@ -213,18 +220,59 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
+document.querySelector('#reset-password-box form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = String(event.target.querySelector('input[type="text"]').value).trim();
+    const email = String(event.target.querySelector('input[type="email"]').value).trim().toLowerCase();
+    const password = String(event.target.querySelector('input[type="password"]').value).trim();
+    const passwordGuess = String(event.target.querySelector('input[type="password"][name="password-guess"]').value).trim();
+
+    if (!loginRegex.test(name)) {
+        showMessage('Логін має складатися з 5 цифр або літер!', false);
+        return;
+    }
+
+    if (!emailRegex.test(email)) {
+        showMessage('Неправильний формат електронної пошти!', false);
+        return;
+    }
+
+    if (!passwordRegex.test(password) || !passwordRegex.test(passwordGuess)) {
+        showMessage('Пароль має містити 8 символів, щонайменше 1 велику та маленьку літери та 1 цифру!', false);
+        return;
+    }
+
+    showMessage('Завантаження...', true);
+
+    try {
+        const result = await fetchWithRetryPost(`/api/api-change-password`,
+            { name, email, password, passwordGuess }, retriesLimit);
+
+        if (result.success) {
+            event.target.reset();
+            showMessage(result.message, result.success);
+            toggleElementVisibility(resetPasswordBox, 'none');
+            toggleElementVisibility(loginBox, 'block');
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+});
 
 document.querySelector('#login-box form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const email = event.target.querySelector('input[type="email"]').value;
-    const password = event.target.querySelector('input[type="password"]').value;
+    const email = String(event.target.querySelector('input[type="email"]').value).trim();
+    const password = String(event.target.querySelector('input[type="password"]').value).trim();
     showMessage('Завантаження...', true);
 
     try {
         const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
         if (result.success) {
+            event.target.reset();
             localStorage.setItem(authTokenName, result.token);
             toggleButtonsVisibility(false);
             showMessage(result.message, true);

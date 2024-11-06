@@ -346,9 +346,14 @@ header .consultation-button-bg {
   }
 }
 
-#auth-container #register-box {
+#auth-container #register-box,
+#auth-container #reset-password-box {
   display: none;
 }
+#auth-container form p {
+  line-height: 0;
+}
+
 body {
   margin: 0;
   padding: 0;

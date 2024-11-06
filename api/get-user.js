@@ -3,7 +3,6 @@ const { UserModel } = require('../server/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-
 const secret = process.env.JWT_SECRET;
 
 module.exports = async (req, res) => {

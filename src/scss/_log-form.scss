@@ -1,11 +1,16 @@
 #auth-container {
     @extend .form-container;
 
-    #register-box {
+    #register-box,
+    #reset-password-box {
         display: none;
     }
 
     form {
         @extend .form-template;
+
+        p {
+            line-height: 0;
+        }
     }
 }
