@@ -246,13 +246,8 @@ document.querySelector('#reset-password-box form').addEventListener('submit', as
     showMessage('Завантаження...', true);
 
     try {
-        const result = await handleRequest('/api/api-change-password', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, password, passwordGuess })
-        }, retriesLimit);
+        const result = await fetchWithRetryPost(`/api/api-change-password`,
+            { name, email, password, passwordGuess }, retriesLimit);
 
         if (result.success) {
             event.target.reset();
