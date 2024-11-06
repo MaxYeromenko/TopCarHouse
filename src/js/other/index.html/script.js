@@ -238,7 +238,6 @@ loginBox.querySelector('form').addEventListener('submit', async (event) => {
         }
     } catch (error) {
         console.error('Error fetching data:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });
 
