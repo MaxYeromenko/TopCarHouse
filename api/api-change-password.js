@@ -18,6 +18,7 @@ module.exports = async (req, res) => {
     
     if (req.method === 'POST') {
         const { name, email, password, passwordGuess } = req.body;
+        console.log(req.body);
 
         try {
             const existingUser = await UserModel.findOne({ email });
