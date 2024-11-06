@@ -15,9 +15,9 @@ compareCarsIntegration();
 const logButtons = document.querySelectorAll('.log-button');
 const logOutButtons = document.querySelectorAll('.log-out-button');
 const registerBox = document.getElementById('register-box');
-const resetPasswordBox = document.getElementById('reset-password-box');
 const loginBox = document.getElementById('login-box');
 const authContainer = document.getElementById('auth-container');
+const requestResetBox = document.getElementById('request-reset-box');
 
 const toggleButtonsVisibility = (showLogin) => {
     toggleElementsVisibility(logButtons, showLogin ? 'inline' : 'none');
@@ -166,21 +166,21 @@ document.getElementById('toggle-register').addEventListener('click', () => {
 document.querySelectorAll('.toggle-login').forEach(element => {
     element.addEventListener('click', () => {
         toggleElementVisibility(registerBox, 'none');
-        toggleElementVisibility(resetPasswordBox, 'none');
+        toggleElementVisibility(requestResetBox, 'none');
         toggleElementVisibility(loginBox, 'block');
     });
 });
 
 document.getElementById('toggle-reset-password').addEventListener('click', () => {
     toggleElementVisibility(loginBox, 'none');
-    toggleElementVisibility(resetPasswordBox, 'block');
+    toggleElementVisibility(requestResetBox, 'block');
 });
 
 const loginRegex = /^[a-zA-Z0-9]{5,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-document.querySelector('#register-box form').addEventListener('submit', async (event) => {
+registerBox.querySelector('form').addEventListener('submit', async (event) => {
     e.preventDefault();
 
     const name = String(event.target.querySelector('input[type="text"]').value).trim();
@@ -220,48 +220,7 @@ document.querySelector('#register-box form').addEventListener('submit', async (e
     }
 });
 
-document.querySelector('#reset-password-box form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const name = String(event.target.querySelector('input[type="text"]').value).trim();
-    const email = String(event.target.querySelector('input[type="email"]').value).trim().toLowerCase();
-    const password = String(event.target.querySelector('input[type="password"]').value).trim();
-    const passwordGuess = String(event.target.querySelector('input[type="password"][name="password-guess"]').value).trim();
-
-    if (!loginRegex.test(name)) {
-        showMessage('Логін має складатися з 5 цифр або літер!', false);
-        return;
-    }
-
-    if (!emailRegex.test(email)) {
-        showMessage('Неправильний формат електронної пошти!', false);
-        return;
-    }
-
-    if (!passwordRegex.test(password) || !passwordRegex.test(passwordGuess)) {
-        showMessage('Пароль має містити 8 символів, щонайменше 1 велику та маленьку літери та 1 цифру!', false);
-        return;
-    }
-
-    showMessage('Завантаження...', true);
-
-    try {
-        const result = await fetchWithRetryPost(`/api/api-change-password`,
-            { name, email, password, passwordGuess }, retriesLimit);
-
-        if (result.success) {
-            event.target.reset();
-            showMessage(result.message, result.success);
-            toggleElementVisibility(resetPasswordBox, 'none');
-            toggleElementVisibility(loginBox, 'block');
-        }
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-    }
-});
-
-document.querySelector('#login-box form').addEventListener('submit', async (event) => {
+loginBox.querySelector('form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = String(event.target.querySelector('input[type="email"]').value).trim();
@@ -276,6 +235,33 @@ document.querySelector('#login-box form').addEventListener('submit', async (even
             localStorage.setItem(authTokenName, result.token);
             toggleButtonsVisibility(false);
             showMessage(result.message, true);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+});
+
+requestResetBox.querySelector('form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const email = String(event.target.querySelector('input[type="email"]').value).trim().toLowerCase();
+
+    if (!emailRegex.test(email)) {
+        showMessage('Неправильний формат електронної пошти!', false);
+        return;
+    }
+
+    showMessage('Надсилаємо листа з інструкціями...', true);
+
+    try {
+        const result = await fetchWithRetryPost('/api/request-password-reset', { email }, retriesLimit);
+
+        if (result.success) {
+            showMessage('Лист надіслано! Перевірте електронну пошту.', true);
+            event.target.reset();
+        } else {
+            showMessage(result.message, false);
         }
     } catch (error) {
         console.error('Error fetching data:', error);
