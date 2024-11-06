@@ -15,7 +15,14 @@ module.exports = async (req, res) => {
             const resetToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '10m' });
             const resetLink = `https://top-car-house.vercel.app/pages/reset-password?token=${resetToken}`;
 
-            await sendEmail(email, 'Скидання пароля', `Для скидання пароля перейдіть за посиланням: ${resetLink}`);
+            await sendEmail(
+                email,
+                'Скидання пароля',
+                `Привіт!<br><br>
+                Для скидання пароля перейдіть за посиланням: <a href="${resetLink}">${resetLink}</a>. Воно буде активним протягом 10 хвилин. Якщо ви не запитували скидання пароля, просто проігноруйте цей лист.<br><br>
+                Якщо у вас виникли питання, звертайтесь до нашої підтримки: topcarhouse313@gmail.com.<br><br>
+                Дякуємо!`
+            );
 
             res.status(200).json({ success: true, message: 'Листа для скидання пароля відправлено!' });
         } catch (err) {
