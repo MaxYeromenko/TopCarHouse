@@ -347,7 +347,7 @@ header .consultation-button-bg {
 }
 
 #auth-container #register-box,
-#auth-container #reset-password-box {
+#auth-container #request-reset-box {
   display: none;
 }
 #auth-container form p {
