@@ -14,14 +14,14 @@ function getMatchPercentage(str1, str2) {
 }
 
 module.exports = async (req, res) => {
+    console.log(req.method);
+    
     if (req.method === 'POST') {
         const { name, email, password, passwordGuess } = req.body;
 
         try {
             const existingUser = await UserModel.findOne({ email });
             console.log(`${passwordGuess} AAA ${existingUser.password}`);
-            
-            return res.status(200).json({ success: true, message: `${passwordGuess} AAA ${existingUser.password}` });
 
             if (existingUser) {
                 if (existingUser.name === name) {
