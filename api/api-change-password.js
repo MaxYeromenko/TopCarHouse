@@ -21,8 +21,7 @@ module.exports = async (req, res) => {
             const existingUser = await UserModel.findOne({ email });
             if (existingUser) {
                 if (existingUser.name === name) {
-                    console.log(passwordGuess);
-                    console.log(existingUser.password);
+                    return res.status(200).json({ success: true, message: `${passwordGuess} ${existingUser.password}` });
                     const passwordMatchPercentage = getMatchPercentage(passwordGuess, existingUser.password);
 
                     if (passwordMatchPercentage >= 50) {
