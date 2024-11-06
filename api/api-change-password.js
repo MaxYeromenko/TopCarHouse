@@ -1,3 +1,4 @@
+const { UserModel } = require('../server/db');
 const bcrypt = require('bcryptjs');
 
 function getMatchPercentage(str1, str2) {
@@ -14,12 +15,9 @@ function getMatchPercentage(str1, str2) {
 }
 
 module.exports = async (req, res) => {
-    console.log(req.method);
-    
     if (req.method === 'POST') {
         const { name, email, password, passwordGuess } = req.body;
-        console.log(req.body);
-
+        
         try {
             const existingUser = await UserModel.findOne({ email });
             console.log(`${passwordGuess} AAA ${existingUser.password}`);
