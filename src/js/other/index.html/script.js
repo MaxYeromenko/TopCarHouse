@@ -257,6 +257,7 @@ document.querySelector('#reset-password-box form').addEventListener('submit', as
         }
     } catch (error) {
         console.error('Error fetching data:', error);
+        console.log('Error fetching data:', error.message);
         showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });
