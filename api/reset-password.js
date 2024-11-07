@@ -11,18 +11,18 @@ module.exports = async (req, res) => {
 
         const user = await UserModel.findOne({ email });
         if (!user) {
-            return res.status(404).json({ success: false, message: 'Пользователь не найден!' });
+            return res.status(404).json({ success: false, message: 'Користувач з такою поштою не існує!' });
         }
 
         const hashedPassword = await bcrypt.hash(newPassword, 10);
         user.password = hashedPassword;
         
         await user.save();
-        res.status(200).json({ success: true, message: 'Пароль успешно сброшен!' });
+        res.status(200).json({ success: true, message: 'Пароль успішно змінено!' });
     } catch (err) {
         if (err.name === 'TokenExpiredError') {
-            return res.status(400).json({ success: false, message: 'Токен истек! Пожалуйста, запросите сброс пароля снова.' });
+            return res.status(400).json({ success: false, message: 'Термін дії токена скінчився! Будь ласка, запитайте дозвіл на скидання пароля ще раз.' });
         }
-        res.status(500).json({ success: false, message: 'Ошибка сервера при сбросе пароля!' });
+        res.status(500).json({ success: false, message: 'Помилка сервера під час заміни пароля!' });
     }
 };

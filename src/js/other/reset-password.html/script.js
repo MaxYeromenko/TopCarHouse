@@ -10,29 +10,30 @@ resetPasswordBox.querySelector('form').addEventListener('submit', async (event) 
     const confirmPassword = String(event.target.querySelector('input[name="confirm-password"]').value).trim();
 
     if (newPassword !== confirmPassword) {
-        showMessage('Пароли не совпадают!', false);
-        return;
-    }
-    if (!passwordRegex.test(newPassword)) {
-        showMessage('Пароль должен содержать минимум 8 символов, включая заглавную и строчную буквы и цифру!', false);
+        showMessage('Паролі не співпадають!', false);
         return;
     }
 
-    showMessage('Сброс пароля...', true);
+    if (!passwordRegex.test(newPassword)) {
+        showMessage('Пароль має містити 8 символів, щонайменше 1 велику та маленьку літери та 1 цифру!', false);
+        return;
+    }
+
+    showMessage('Скидання пароля...', true);
 
     try {
         const result = await fetchWithRetryPost('/api/reset-password', { token, newPassword }, retriesLimit);
 
         if (result.success) {
             event.target.reset();
-            showMessage('Пароль успешно сброшен! Теперь вы можете войти.', true);
+            showMessage('Пароль успішно змінений! Тепер ви можете увійти.', true);
             // Опционально перенаправить пользователя на страницу входа
-            // window.location.href = '/login';
+            window.location.href = '/';
         } else {
             showMessage(result.message, false);
         }
     } catch (error) {
-        console.error('Ошибка при отправке данных:', error);
-        showMessage('Ошибка сервера, попробуйте снова позже.', false);
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
     }
 });
