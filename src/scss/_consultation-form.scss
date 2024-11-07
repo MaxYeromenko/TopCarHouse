@@ -1,7 +1,3 @@
 #consultation-container {
     @extend .form-container;
-
-    form {
-        @extend .form-template;
-    }
 }

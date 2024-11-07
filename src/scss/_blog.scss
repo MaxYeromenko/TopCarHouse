@@ -64,7 +64,6 @@
 
 form {
     position: relative;
-    @extend .form-template;
 
     label {
         @extend .flex-align-to-center;

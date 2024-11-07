@@ -9,10 +9,6 @@
         display: none;
     }
 
-    form {
-        @extend .form-template;
-    }
-
     result {
         width: 100%;
         max-height: 50px;
