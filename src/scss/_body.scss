@@ -91,6 +91,12 @@ body {
             color: rgb(var(--background-color));
             background-color: rgb(var(--main-color));
             border-top: solid 2px rgb(var(--secondary-color));
+            border-bottom: solid 2px rgb(var(--secondary-color));
+
+            @media (max-width: 420px) {
+                padding: 5% 1%;
+                font-size: small;
+            }
 
             i {
                 font-size: 2em;
@@ -98,13 +104,6 @@ body {
 
             .feature {
                 text-align: center;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .features {
-                padding: 5% 1%;
-                font-size: small;
             }
         }
 

@@ -1,6 +1,7 @@
 footer {
-    background-color: rgb(var(--main-color));
     color: rgb(var(--background-color));
+    background-color: rgb(var(--main-color));
+    border-top: solid 2px rgb(var(--secondary-color));
     padding: 20px;
     text-align: center;
     width: 100%;

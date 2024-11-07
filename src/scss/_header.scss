@@ -1,14 +1,15 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(var(--main-color));
+    border-bottom: solid 2px rgb(var(--secondary-color));
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 20px;
-    background-color: rgb(var(--main-color));
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 5;
-    width: 100%;
 
     nav {
         display: flex;
