@@ -2,35 +2,35 @@
     --main-color: 55, 55, 55;
     --secondary-color: 255, 102, 0;
     --background-color: 255, 255, 255;
-    --hero-image: url('/src/images/car_pink.webp');
+    --hero-image: url('/src/images/car_pink.jpg');
 }
 
 [data-theme="golden-accent-theme"] {
     --main-color: 33, 37, 41;
     --secondary-color: 218, 185, 100;
     --background-color: 255, 255, 255;
-    --hero-image: url('/src/images/car_yellow.webp');
+    --hero-image: url('/src/images/car_yellow.jpg');
 }
 
 [data-theme="red-accent-theme"] {
     --main-color: 33, 37, 41;
     --secondary-color: 220, 53, 69;
     --background-color: 248, 249, 250;
-    --hero-image: url('/src/images/car_pink.webp');
+    --hero-image: url('/src/images/car_pink.jpg');
 }
 
 [data-theme="vibrant-purple-yellow-theme"] {
     --main-color: 111, 66, 193;
     --secondary-color: 255, 193, 7;
     --background-color: 248, 249, 250;
-    --hero-image: url('/src/images/car_yellow.webp');
+    --hero-image: url('/src/images/car_yellow.jpg');
 }
 
 [data-theme="gray-tone-theme"] {
     --main-color: 75, 75, 75;
     --secondary-color: 140, 140, 140;
     --background-color: 255, 255, 255;
-    --hero-image: url('/src/images/car_gray.webp');
+    --hero-image: url('/src/images/car_gray.jpg');
 }
 
 * {
