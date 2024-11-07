@@ -12,6 +12,20 @@ createConsultationRequest();
 calculatorIntegration();
 compareCarsIntegration();
 
+const contentToSlide = document.getElementById('content-to-slide');
+const content = contentToSlide.querySelectorAll('.content');
+let currentIndex = 0;
+
+function updateSlider() {
+    content.forEach((element) => element.classList.remove('top-slider-position'));
+
+    content[currentIndex].classList.add('top-slider-position');
+
+    currentIndex = (currentIndex + 1) % content.length;
+}
+
+setInterval(updateSlider, 5000);
+
 const logButtons = document.querySelectorAll('.log-button');
 const logOutButtons = document.querySelectorAll('.log-out-button');
 const registerBox = document.getElementById('register-box');

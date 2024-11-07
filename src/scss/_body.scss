@@ -25,6 +25,11 @@ body {
             opacity: 0;
             z-index: 6;
 
+            @media (max-width: 810px) {
+                padding: 1%;
+                gap: 0;
+            }
+
             .fa-xmark {
                 font-size: 14px;
                 color: rgba(var(--main-color), .7);
@@ -56,34 +61,56 @@ body {
             opacity: 0;
         }
 
-        /* Стилі для слайдера */
-        .hero {
+        #slider {
             @extend .flex-align-to-center;
             text-align: center;
             color: rgb(var(--background-color));
-            background-image: var(--hero-image);
+            background-image: var(--slider-image);
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
-            overflow: hidden;
             padding: 10%;
 
             h1 {
+                text-shadow: black 2px 2px 2px;
                 font-size: 48px;
                 margin: 0;
             }
 
-            p {
-                font-size: 24px;
-            }
+            #content-to-slide {
+                overflow: hidden;
+                position: relative;
+                height: 20vh;
+                width: 100%;
 
-            a {
-                @extend .default-button-light-bg;
-                font-size: 18px;
+                .content {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    transition: opacity .5s, transform 1s;
+                    opacity: 0;
+                    transform: translateY(50px);
+
+                    p {
+                        font-size: 24px;
+                        text-shadow: black 2px 2px 2px;
+                    }
+
+                    a {
+                        @extend .default-button-light-bg;
+                        font-size: 18px;
+                    }
+                }
+
+                .top-slider-position {
+                    opacity: 1;
+                    transform: translateY(0);
+                    z-index: 1;
+                }
             }
         }
 
-        /* Стилі для переваг */
         .features {
             display: flex;
             justify-content: space-around;
@@ -104,13 +131,6 @@ body {
 
             .feature {
                 text-align: center;
-            }
-        }
-
-        @media (max-width: 810px) {
-            .info-message {
-                padding: 1%;
-                gap: 0;
             }
         }
     }

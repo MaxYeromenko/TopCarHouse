@@ -1,37 +1,36 @@
-@charset "UTF-8";
 [data-theme=default-theme] {
   --main-color: 55, 55, 55;
   --secondary-color: 255, 102, 0;
   --background-color: 255, 255, 255;
-  --hero-image: url("/src/images/car_pink.jpg");
+  --slider-image: url("/src/images/car_pink.jpg");
 }
 
 [data-theme=golden-accent-theme] {
   --main-color: 33, 37, 41;
   --secondary-color: 218, 185, 100;
   --background-color: 255, 255, 255;
-  --hero-image: url("/src/images/car_yellow.jpg");
+  --slider-image: url("/src/images/car_yellow.jpg");
 }
 
 [data-theme=red-accent-theme] {
   --main-color: 33, 37, 41;
   --secondary-color: 220, 53, 69;
   --background-color: 248, 249, 250;
-  --hero-image: url("/src/images/car_pink.jpg");
+  --slider-image: url("/src/images/car_pink.jpg");
 }
 
 [data-theme=vibrant-purple-yellow-theme] {
   --main-color: 111, 66, 193;
   --secondary-color: 255, 193, 7;
   --background-color: 248, 249, 250;
-  --hero-image: url("/src/images/car_yellow.jpg");
+  --slider-image: url("/src/images/car_yellow.jpg");
 }
 
 [data-theme=gray-tone-theme] {
   --main-color: 75, 75, 75;
   --secondary-color: 140, 140, 140;
   --background-color: 255, 255, 255;
-  --hero-image: url("/src/images/car_gray.jpg");
+  --slider-image: url("/src/images/car_gray.jpg");
 }
 
 * {
@@ -82,7 +81,7 @@ textarea {
   resize: vertical;
 }
 
-.flex-align-to-center, .password-reset, .blog-section .cards-section-buttons, .blog-section, form label, #admin-container #element-type-select .element-type-list .element-type, .post-container .comments-section #add-comment-section, .post-container .comments-section, .post-container .post-content-container, .post-container, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main .hero, header .icon-wrapper .vertical-nav, .form-container form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, .password-reset, .blog-section .cards-section-buttons, .blog-section, form label, #admin-container #element-type-select .element-type-list .element-type, .post-container .comments-section #add-comment-section, .post-container .comments-section, .post-container .post-content-container, .post-container, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main #slider, header .icon-wrapper .vertical-nav, .form-container form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,7 +97,7 @@ textarea {
           justify-content: center;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main .hero a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .blog-section .cards-section-buttons a,
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main #slider #content-to-slide .content a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .blog-section .cards-section-buttons a,
 .blog-section .cards-section-buttons button, #admin-container #element-type-select button, .post-container .comments-section #add-comment-section button, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
 .cards-section .cards-section-buttons button, #theme-container .theme-block container button, .form-container form button, .password-reset #reset-password-box form button, #admin-container form button, #filter-container form button, #services-container form button, #calculator-container form button, #theme-container form button, #consultation-container form button, #auth-container form button {
   background-color: rgb(var(--secondary-color));
@@ -109,7 +108,7 @@ textarea {
   font-size: 16px;
   text-align: center;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .blog-section .cards-section-buttons a:hover,
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main #slider #content-to-slide .content a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .blog-section .cards-section-buttons a:hover,
 .blog-section .cards-section-buttons button:hover, #admin-container #element-type-select button:hover, .post-container .comments-section #add-comment-section button:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
 .cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container form button:hover, .password-reset #reset-password-box form button:hover, #admin-container form button:hover, #filter-container form button:hover, #services-container form button:hover, #calculator-container form button:hover, #theme-container form button:hover, #consultation-container form button:hover, #auth-container form button:hover {
   color: rgb(var(--secondary-color));
@@ -121,7 +120,7 @@ textarea {
   background-color: rgb(var(--main-color));
 }
 
-.default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main .hero a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
+.default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main #slider #content-to-slide .content a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover {
   background-color: rgb(var(--background-color));
 }
 
@@ -373,8 +372,6 @@ body main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  /* Стилі для слайдера */
-  /* Стилі для переваг */
 }
 body main .info-message {
   position: fixed;
@@ -397,6 +394,12 @@ body main .info-message {
   gap: 5px;
   opacity: 0;
   z-index: 6;
+}
+@media (max-width: 810px) {
+  body main .info-message {
+    padding: 1%;
+    gap: 0;
+  }
 }
 body main .info-message .fa-xmark {
   font-size: 14px;
@@ -425,25 +428,53 @@ body main .success-message {
 body main .invisible {
   opacity: 0;
 }
-body main .hero {
+body main #slider {
   text-align: center;
   color: rgb(var(--background-color));
-  background-image: var(--hero-image);
+  background-image: var(--slider-image);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  overflow: hidden;
   padding: 10%;
 }
-body main .hero h1 {
+body main #slider h1 {
+  text-shadow: black 2px 2px 2px;
   font-size: 48px;
   margin: 0;
 }
-body main .hero p {
-  font-size: 24px;
+body main #slider #content-to-slide {
+  overflow: hidden;
+  position: relative;
+  height: 20vh;
+  width: 100%;
 }
-body main .hero a {
+body main #slider #content-to-slide .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.5s, -webkit-transform 1s;
+  transition: opacity 0.5s, -webkit-transform 1s;
+  transition: opacity 0.5s, transform 1s;
+  transition: opacity 0.5s, transform 1s, -webkit-transform 1s;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
+}
+body main #slider #content-to-slide .content p {
+  font-size: 24px;
+  text-shadow: black 2px 2px 2px;
+}
+body main #slider #content-to-slide .content a {
   font-size: 18px;
+}
+body main #slider #content-to-slide .top-slider-position {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  z-index: 1;
 }
 body main .features {
   display: -webkit-box;
@@ -468,12 +499,6 @@ body main .features i {
 }
 body main .features .feature {
   text-align: center;
-}
-@media (max-width: 810px) {
-  body main .info-message {
-    padding: 1%;
-    gap: 0;
-  }
 }
 
 #theme-container {
