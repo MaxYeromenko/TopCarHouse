@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
             }
 
             const resetToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '10m' });
-            const resetLink = `https://top-car-house.vercel.app/pages/reset-password?token=${resetToken}`;
+            const resetLink = `https://top-car-house.vercel.app/pages/reset-password.html?token=${resetToken}`;
 
             await sendEmail(
                 email,

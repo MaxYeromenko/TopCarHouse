@@ -27,7 +27,6 @@ resetPasswordBox.querySelector('form').addEventListener('submit', async (event) 
         if (result.success) {
             event.target.reset();
             showMessage('Пароль успішно змінений! Тепер ви можете увійти.', true);
-            // Опционально перенаправить пользователя на страницу входа
             window.location.href = '/';
         } else {
             showMessage(result.message, false);
