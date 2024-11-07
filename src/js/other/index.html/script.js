@@ -181,7 +181,7 @@ const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 registerBox.querySelector('form').addEventListener('submit', async (event) => {
-    e.preventDefault();
+    event.preventDefault();
 
     const name = String(event.target.querySelector('input[type="text"]').value).trim();
     const email = String(event.target.querySelector('input[type="email"]').value).trim().toLowerCase();
