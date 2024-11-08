@@ -13,3 +13,7 @@
         }
     }
 }
+
+#confirmation-container {
+    @extend .form-container;
+}

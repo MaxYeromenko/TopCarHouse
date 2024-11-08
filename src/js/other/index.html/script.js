@@ -40,7 +40,7 @@ const toggleButtonsVisibility = (showLogin) => {
 };
 
 if (isAuthTokenExpired()) {
-    removeToken(authTokenName);
+    removeTokens([authTokenName]);
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
     toggleButtonsVisibility(true);
 } else {
@@ -94,6 +94,10 @@ async function openAdminPanel() {
         initializeFormSubmission();
     }
 
+    const adminPanel = modalWindow.querySelector('#admin-container');
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(adminPanel, 'block');
+
     const cacheKey = 'indexTypesCache';
     try {
         const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
@@ -105,10 +109,6 @@ async function openAdminPanel() {
         console.error('Error fetching data:', error);
         showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
     }
-
-    const adminPanel = modalWindow.querySelector('#admin-container');
-    toggleElementVisibility(modalWindow, 'flex');
-    toggleElementVisibility(adminPanel, 'block');
 };
 
 function placeIndexTypes(indexTypes) {
@@ -232,9 +232,7 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
-                removeToken('indexTypesCache');
-                removeToken('bestCarDealsCache');
-                removeToken('catalogTypesCache');
+                removeTokens(['indexTypesCache', 'bestCarDealsCache', 'catalogTypesCache']);
                 showMessage('Авто успішно додано!', true);
             }
         }
@@ -252,13 +250,31 @@ logButtons.forEach(button => {
     });
 });
 
+const confirmationContainer = modalWindow.querySelector('#confirmation-container');
+const confirmationForm = confirmationContainer.querySelector('form');
+const yesButton = confirmationContainer.querySelector('button[name="yes"]');
+const noButton = confirmationContainer.querySelector('button[name="no"]');
+
 logOutButtons.forEach(button => {
     button.addEventListener('click', () => {
-        removeToken(authTokenName);
-        localStorage.removeItem('carsToCompare');
-        toggleButtonsVisibility(true);
-        showMessage('Ви вийшли з облікового запису.', true);
-    });
+        toggleElementVisibility(modalWindow, 'flex');
+        toggleElementVisibility(confirmationContainer, 'block');
+    })
+});
+
+confirmationForm.addEventListener('submit', event => {
+    event.preventDefault()
+});
+
+yesButton.addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
+    removeTokens([authTokenName, 'carsToCompare']);
+    toggleButtonsVisibility(true);
+    showMessage('Ви вийшли з облікового запису.', true);
+});
+
+noButton.addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
 });
 
 document.getElementById('toggle-register').addEventListener('click', () => {

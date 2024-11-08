@@ -172,8 +172,19 @@ function getUserIdRoleFromToken() {
     return null;
 }
 
-function removeToken(name) {
-    localStorage.removeItem(name);
+/**
+ * Removes a list of tokens from localStorage.
+ * @param {string[]} tokens - An array of token keys to remove from localStorage.
+ * @throws Will throw an error if the argument is not an array.
+ */
+function removeTokens(tokens) {
+    if (!Array.isArray(tokens)) {
+        throw new Error(`An array was expected, but received ${typeof tokens}.`);
+    }
+
+    for (const token of tokens) {
+        localStorage.removeItem(token);
+    }
 }
 
 function addToCarToLocalStorage(carId) {
