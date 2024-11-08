@@ -63,20 +63,27 @@ function openAdminPanel() {
         <div id="admin-container" class="modal-window-element">
             <h2>Додавання автомобіля</h2>
             <form>
-                <input type="text" id="brand" name="brand" placeholder="Бренд" title="Бренд" required>
-                <input type="text" id="model" name="model" placeholder="Модель" title="Модель" required>
+                <input type="text" id="brand" name="brand" placeholder="Бренд" title="Бренд" list="brand-options" required>
+                    <datalist id="brand-options"></datalist>
+                <input type="text" id="model" name="model" placeholder="Модель" title="Модель" list="model-options" required>
+                    <datalist id="model-options"></datalist>
                 <input type="number" id="year" name="year" min="1886" max="2024" placeholder="Рік випуску" title="Рік випуску" required>
                 <input type="number" min="0" id="price" name="price" placeholder="Ціна (дол. США)" title="Ціна" step="0.1" required>
-                <input type="text" id="color" name="color" placeholder="Колір" title="Колір" required>
+                <input type="text" id="color" name="color" placeholder="Колір" title="Колір" list="color-options" required>
+                    <datalist id="color-options"></datalist>
                 <textarea id="description" name="description" placeholder="Опис" title="Опис" required></textarea>
-                <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник" required>
+                <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник" list="country-options" required>
+                    <datalist id="country-options"></datalist>
                 <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple required>
-                <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" title="Коробка передач" required>
+                <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" title="Коробка передач" list="transmission-options" required>
+                    <datalist id="transmission-options"></datalist>
                 <input type="number" min="0" id="engine" name="engine" placeholder="Об'єм двигуна (л)" title="Об'єм двигуна" step="0.1" required>
-                <input type="text" id="fuel_type" name="fuel_type" placeholder="Тип пального" title="Тип пального" required>
+                <input type="text" id="fuel_type" name="fuel_type" placeholder="Тип пального" title="Тип пального" list="fuel-type-options" required>
+                    <datalist id="fuel-type-options"></datalist>
                 <input type="number" min="0" id="horsepower" name="horsepower" placeholder="Потужність (к. с.)" title="Потужність" required>
                 <input type="number" min="0" id="fuel_consumption" name="fuel_consumption" placeholder="Споживання пального (л/100км)" title="Споживання пального" step="0.1" required>
-                <input type="text" id="body_type" name="body_type" placeholder="Тип кузова" title="Тип кузова" required>
+                <input type="text" id="body_type" name="body_type" placeholder="Тип кузова" title="Тип кузова" list="body-type-options" required>
+                    <datalist id="body-type-options"></datalist>
                 <button type="submit">Зберегти автомобіль</button>
             </form>
         </div>`;
@@ -85,10 +92,91 @@ function openAdminPanel() {
         initializeFormSubmission();
     }
 
+    document.addEventListener("DOMContentLoaded", async () => {
+
+        const cacheKey = 'indexTypesCache';
+        try {
+            const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
+            if (result) {
+                indexTypes = result;
+                placeIndexTypes(indexTypes);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
+        }
+    });
+
     const adminPanel = modalWindow.querySelector('#admin-container');
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(adminPanel, 'block');
 };
+
+function placeIndexTypes(catalogTypes) {
+    const sortedBrands = [...catalogTypes.brands].sort();
+    const sortedModels = [...catalogTypes.models].sort();
+    const sortedColors = [...catalogTypes.colors].sort();
+    const sortedCountries = [...catalogTypes.countries].sort();
+    const sortedTransmissions = [...catalogTypes.transmissions].sort();
+    const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
+    const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
+
+    const brandOptions = document.getElementById('brand-options');
+    brandOptions.innerHTML = '';
+    sortedBrands.forEach(brandType => {
+        const option = document.createElement('option');
+        option.value = brandType;
+        brandOptions.appendChild(option);
+    });
+
+    const modelOptions = document.getElementById('model-options');
+    modelOptions.innerHTML = '';
+    sortedModels.forEach(modelType => {
+        const option = document.createElement('option');
+        option.value = modelType;
+        modelOptions.appendChild(option);
+    });
+
+    const colorOptions = document.getElementById('color-options');
+    colorOptions.innerHTML = '';
+    sortedColors.forEach(colorType => {
+        const option = document.createElement('option');
+        option.value = colorType;
+        colorOptions.appendChild(option);
+    });
+
+    const countryOptions = document.getElementById('country-options');
+    countryOptions.innerHTML = '';
+    sortedCountries.forEach(countryType => {
+        const option = document.createElement('option');
+        option.value = countryType;
+        countryOptions.appendChild(option);
+    });
+
+    const transmissionOptions = document.getElementById('transmission-options');
+    transmissionOptions.innerHTML = '';
+    sortedTransmissions.forEach(transmissionType => {
+        const option = document.createElement('option');
+        option.value = transmissionType;
+        transmissionOptions.appendChild(option);
+    });
+
+    const fuelTypeOptions = document.getElementById('fuel-type-options');
+    fuelTypeOptions.innerHTML = '';
+    sortedFuelTypes.forEach(fuelType => {
+        const option = document.createElement('option');
+        option.value = fuelType;
+        fuelTypeOptions.appendChild(option);
+    });
+
+    const bodyTypeOptions = document.getElementById('body-type-options');
+    bodyTypeOptions.innerHTML = '';
+    sortedBodyTypes.forEach(bodyType => {
+        const option = document.createElement('option');
+        option.value = bodyType;
+        bodyTypeOptions.appendChild(option);
+    });
+}
 
 function initializeFormSubmission() {
     modalWindow.querySelector('#admin-container form').addEventListener('submit', async (event) => {
@@ -145,6 +233,7 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
+                removeToken('indexTypesCache');
                 removeToken('bestCarDealsCache');
                 removeToken('catalogTypesCache');
                 showMessage('Авто успішно додано!', true);
@@ -281,3 +370,4 @@ requestResetBox.querySelector('form').addEventListener('submit', async (event) =
         console.error('Error fetching data:', error);
     }
 });
+
