@@ -113,7 +113,6 @@ async function openAdminPanel() {
 
 function placeIndexTypes(indexTypes) {
     const sortedBrands = [...indexTypes.brands].sort();
-    console.log(sortedBrands);
     const sortedModels = [...indexTypes.models].sort();
     const sortedColors = [...indexTypes.colors].sort();
     const sortedCountries = [...indexTypes.countries].sort();
