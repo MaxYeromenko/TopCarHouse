@@ -112,14 +112,15 @@ function openAdminPanel() {
     toggleElementVisibility(adminPanel, 'block');
 };
 
-function placeIndexTypes(catalogTypes) {
-    const sortedBrands = [...catalogTypes.brands].sort();
-    const sortedModels = [...catalogTypes.models].sort();
-    const sortedColors = [...catalogTypes.colors].sort();
-    const sortedCountries = [...catalogTypes.countries].sort();
-    const sortedTransmissions = [...catalogTypes.transmissions].sort();
-    const sortedFuelTypes = [...catalogTypes.fuelTypes].sort();
-    const sortedBodyTypes = [...catalogTypes.bodyTypes].sort();
+function placeIndexTypes(indexTypes) {
+    const sortedBrands = [...indexTypes.brands].sort();
+    console.log(sortedBrands);
+    const sortedModels = [...indexTypes.models].sort();
+    const sortedColors = [...indexTypes.colors].sort();
+    const sortedCountries = [...indexTypes.countries].sort();
+    const sortedTransmissions = [...indexTypes.transmissions].sort();
+    const sortedFuelTypes = [...indexTypes.fuelTypes].sort();
+    const sortedBodyTypes = [...indexTypes.bodyTypes].sort();
 
     const brandOptions = document.getElementById('brand-options');
     brandOptions.innerHTML = '';
