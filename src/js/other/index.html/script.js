@@ -57,6 +57,8 @@ if (isAuthTokenExpired()) {
     }
 }
 
+let indexTypes = [];
+
 async function openAdminPanel() {
     if (!document.getElementById('admin-container')) {
         const adminPanelContent = `
