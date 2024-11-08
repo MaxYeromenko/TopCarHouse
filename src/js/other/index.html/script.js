@@ -14,6 +14,24 @@ compareCarsIntegration();
 
 const contentToSlide = document.getElementById('content-to-slide');
 const content = contentToSlide.querySelectorAll('.content');
+const contentLinks = contentToSlide.querySelectorAll('a');
+
+function setLinks() {
+    contentLinks[0]?.setAttribute('href', '#pre-order');
+    contentLinks[1]?.setAttribute('href', '#test-drive');
+}
+
+if (isAuthTokenExpired()) {
+    contentLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            showMessage('Для отримання доступу до функції, необхідно увійти до облікового запису!', false);
+        });
+    });
+} else {
+    setLinks();
+}
+
 let currentIndex = 0;
 
 function updateSlider() {
