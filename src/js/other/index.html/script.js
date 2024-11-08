@@ -57,7 +57,7 @@ if (isAuthTokenExpired()) {
     }
 }
 
-function openAdminPanel() {
+async function openAdminPanel() {
     if (!document.getElementById('admin-container')) {
         const adminPanelContent = `
         <div id="admin-container" class="modal-window-element">
@@ -92,20 +92,17 @@ function openAdminPanel() {
         initializeFormSubmission();
     }
 
-    document.addEventListener("DOMContentLoaded", async () => {
-
-        const cacheKey = 'indexTypesCache';
-        try {
-            const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
-            if (result) {
-                indexTypes = result;
-                placeIndexTypes(indexTypes);
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
+    const cacheKey = 'indexTypesCache';
+    try {
+        const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
+        if (result) {
+            indexTypes = result;
+            placeIndexTypes(indexTypes);
         }
-    });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        showMessage('Помилка сервера, будь ласка, перезавантажте сторінку!', false);
+    }
 
     const adminPanel = modalWindow.querySelector('#admin-container');
     toggleElementVisibility(modalWindow, 'flex');
