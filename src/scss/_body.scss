@@ -95,6 +95,9 @@ body {
                     p {
                         font-size: 24px;
                         text-shadow: black 2px 2px 2px;
+                        @media (max-width:613px) {
+                            font-size: 20px;
+                        }
                     }
 
                     a {

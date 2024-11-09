@@ -467,6 +467,11 @@ body main #slider #content-to-slide .content p {
   font-size: 24px;
   text-shadow: black 2px 2px 2px;
 }
+@media (max-width: 613px) {
+  body main #slider #content-to-slide .content p {
+    font-size: 20px;
+  }
+}
 body main #slider #content-to-slide .content a {
   font-size: 18px;
 }
