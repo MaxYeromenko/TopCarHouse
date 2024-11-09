@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
                     $replaceRoot: { newRoot: "$car" }
                 },
                 {
-                    $sort: { brand: 1, year: -1 }
+                    $sort: { year: -1, "features.fuel_consumption": 1 }
                 }
             ]);
             res.status(200).json(data);
