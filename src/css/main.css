@@ -1351,6 +1351,7 @@ main.product-main {
   padding: 0px 5px;
   position: relative;
   top: 3px;
+  text-indent: 0;
 }
 .post-container .post-content-container p .link-box:hover {
   color: rgb(var(--secondary-color));
