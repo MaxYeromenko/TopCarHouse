@@ -5,7 +5,7 @@ themeApplication();
 createConsultationRequest();
 
 if (isAuthTokenExpired()) {
-    removeToken(authTokenName);
+    removeTokens([authTokenName]);
 } else {
     const { role } = getUserIdRoleFromToken();
     if (role === 'admin') {
