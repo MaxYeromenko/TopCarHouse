@@ -1,4 +1,7 @@
-import { createConsultationRequest, themeApplication, showServicesModalWindow } from '../_utils/script.js';
+import {
+    createConsultationRequest,
+    themeApplication, showServicesModalWindow
+} from '../_utils/script.js';
 
 showServicesModalWindow();
 themeApplication();
@@ -14,7 +17,7 @@ const carMarkUp =
         </div>
     </div>`;
 
-document.querySelector('footer').insertAdjacentHTML('beforebegin', carMarkUp);
+document.querySelector('main').insertAdjacentHTML('beforeend', carMarkUp);
 
 const car_icon = document.getElementById('car');
 

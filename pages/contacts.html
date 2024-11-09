@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас | TopCarHouse</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+
+<body>
+    <main>
+        <div class="burger-instruments-wrapper">
+            <div class="open-section-button-container">
+                <button id="theme-section-open" title="Змінити тему">
+                    <i class="fa-solid fa-brush"></i>
+                </button>
+            </div>
+
+            <button class="burger-open-section-container-buttons" title="Інструменти">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </div>
+
+        <section id="modal-window" class="modal-window-dark-bg-template">
+            <i class="fa-solid fa-xmark"></i>
+
+            <div id="consultation-container" class="modal-window-element"></div>
+
+            <div id="services-container" class="modal-window-element">
+                <div class="service">
+                    <h2>Сервіс</h2>
+                    <p>Технічне обслуговування, ремонт, продаж запчастин.</p>
+                </div>
+
+                <div class="service">
+                    <h2>Фінансові послуги</h2>
+                    <p>Лізинг, кредитування, страхування.</p>
+                </div>
+
+                <div class="service">
+                    <h2>Трейд-ін</h2>
+                    <p>Обмін старого авто на нове.</p>
+                </div>
+
+                <div>
+                    <a href="/pages/services.html">Дізнатися більше</a>
+                </div>
+            </div>
+
+            <div id="theme-container" class="modal-window-element"></div>
+        </section>
+
+        <section class="contacts">
+            <div class="stage about-container">
+                <h3>Коротко про нас</h3>
+                <p>Ласкаво просимо до TopCarHouse! Ми спеціалізуємось на підборі найкращих автомобілів для наших
+                    клієнтів та забезпечуємо високоякісне обслуговування. Наша команда експертів завжди готова допомогти
+                    вам із вибором авто та відповісти на всі ваші
+                    запитання, для цього потрібно лише подати заяву на консультацію.</p>
+            </div>
+
+            <div class="stage address-container">
+                <div class="text-content">
+                    <div class="schedule">
+                        <h3>Графік роботи</h3>
+                        <p>Понеділок - П’ятниця: 9:00 - 18:00</p>
+                        <p>Субота: 10:00 - 15:00</p>
+                        <p>Неділя: вихідний</p>
+                    </div>
+                    <address>
+                        <h3>Наше розташування</h3>
+                        <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
+                        <a href="tel:+380571234567">+38 (057) 123-45-67</a><br>
+                        <a href="mailto:topcarhouse313@gmail.com">TopCarHouse313@gmail.com</a>
+                    </address>
+                </div>
+
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5133.404889364494!2d36.08434173708297!3d49.96068399736793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41279f34285c0599%3A0x378358e42198b689!2z0LLRg9C70LjRhtGPINCQ0LLRgtC-0LzQvtCx0ZbQu9GM0L3QsCwgMSwg0J_RltGB0L7Rh9C40L0sINCl0LDRgNC60ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA2MjQxNg!5e0!3m2!1sru!2sua!4v1731163519306!5m2!1sru!2sua"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
+    <script src="/src/js/other/general-page-markup.js"></script>
+    <script src="/src/js/other/general-variables-functions.js" onload="applySavedTheme()"></script>
+    <script type="module" src="/src/js/other/contacts.html/script.js"></script>
+</body>
+
+</html>

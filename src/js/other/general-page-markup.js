@@ -7,7 +7,7 @@ const indexHeader = `<header>
             <a class="services-button">Послуги</a>
             <a href="/pages/about.html">Про нас</a>
             <a href="/pages/blog.html">Блог</a>
-            <a href="#bottom">Контакти</a>
+            <a href="/pages/contacts.html">Контакти</a>
             <a class="log-button">Увійти</a>
             <a class="log-out-button">Вийти</a>
         </nav>
@@ -19,7 +19,7 @@ const indexHeader = `<header>
                 <a class="services-button">Послуги</a>
                 <a href="/pages/about.html">Про нас</a>
                 <a href="/pages/blog.html">Блог</a>
-                <a href="#bottom">Контакти</a>
+                <a href="/pages/contacts.html">Контакти</a>
                 <a class="log-button">Увійти</a>
                 <a class="log-out-button">Вийти</a>
             </nav>
@@ -38,7 +38,7 @@ const pageHeader = `<header>
             <a class="services-button">Послуги</a>
             <a href="/pages/about.html">Про нас</a>
             <a href="/pages/blog.html">Блог</a>
-            <a href="#bottom">Контакти</a>
+            <a href="/pages/contacts.html">Контакти</a>
         </nav>
         <div class="icon-wrapper">
             <i class="fa-solid fa-angles-down"></i>
@@ -49,7 +49,7 @@ const pageHeader = `<header>
                 <a class="services-button">Послуги</a>
                 <a href="/pages/about.html">Про нас</a>
                 <a href="/pages/blog.html">Блог</a>
-                <a href="#bottom">Контакти</a>
+                <a href="/pages/contacts.html">Контакти</a>
             </nav>
         </div>
         <div class="consultation-button-bg">
@@ -176,8 +176,8 @@ if (themeContainer)
             </container>
         </div>`);
 
-const pageFooter = `<footer id="bottom">
-        <p>Контакти: +38 (044) 123-45-67 | TopCarHouse313@gmail.com</p>
+const pageFooter = `<footer>
+        <p>Контакти: +38 (057) 123-45-67 | TopCarHouse313@gmail.com</p>
         <p>Адреса: м. Харків, вул. Автомобільна, 1</p>
         <p>&copy; 2024 TopCarHouse. Усі права захищені.</p>
         <p>
