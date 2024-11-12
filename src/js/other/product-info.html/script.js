@@ -48,15 +48,19 @@ viewedImage.addEventListener('wheel', (event) => {
     event.preventDefault();
     if (event.deltaY < 0) {
         currentScale = Math.min(maxScale, currentScale + zoomStep);
+        viewedImage.style.cursor = 'zoom-in';
     } else {
         currentScale = Math.max(minScale, currentScale - zoomStep);
+        viewedImage.style.cursor = 'zoom-out';
     }
+    // viewedImage.style.cursor = '';
     viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
 });
 
 viewedImage.addEventListener('mousedown', (event) => {
     if (event.button !== 0) return;
     isDragging = true;
+    viewedImage.style.cursor = 'grabbing';
     startX = event.clientX - currentX;
     startY = event.clientY - currentY;
     event.preventDefault();
@@ -72,6 +76,7 @@ document.addEventListener('mousemove', (event) => {
 
 document.addEventListener('mouseup', () => {
     isDragging = false;
+    viewedImage.style.cursor = '';
 });
 
 document.addEventListener('keydown', (event) => {
