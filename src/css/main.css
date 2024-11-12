@@ -192,6 +192,7 @@ textarea {
   right: 0;
   padding: 25px;
   z-index: 1;
+  cursor: pointer;
 }
 .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover {
   background-color: rgb(var(--background-color));

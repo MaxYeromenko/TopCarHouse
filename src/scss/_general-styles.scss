@@ -194,6 +194,7 @@ textarea {
         right: 0;
         padding: 25px;
         z-index: 1;
+        cursor: pointer;
 
         &:hover {
             background-color: rgb(var(--background-color));
