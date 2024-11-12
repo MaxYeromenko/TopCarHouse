@@ -53,7 +53,7 @@ viewedImage.addEventListener('wheel', (event) => {
         currentScale = Math.max(minScale, currentScale - zoomStep);
         viewedImage.style.cursor = 'zoom-out';
     }
-    // viewedImage.style.cursor = '';
+    viewedImage.style.cursor = '';
     viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
 });
 
