@@ -53,7 +53,6 @@ viewedImage.addEventListener('wheel', (event) => {
         currentScale = Math.max(minScale, currentScale - zoomStep);
         viewedImage.style.cursor = 'zoom-out';
     }
-    viewedImage.style.cursor = '';
     viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
 });
 
@@ -68,6 +67,7 @@ viewedImage.addEventListener('mousedown', (event) => {
 
 document.addEventListener('mousemove', (event) => {
     if (isDragging) {
+        viewedImage.style.cursor = 'grabbing';
         currentX = event.clientX - startX;
         currentY = event.clientY - startY;
         viewedImage.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
