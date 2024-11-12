@@ -1303,6 +1303,10 @@ main.product-main {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-transition: 0s;
+  transition: 0s;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 @media (max-width: 450px) {
