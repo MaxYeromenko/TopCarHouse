@@ -17,7 +17,7 @@ const content = contentToSlide.querySelectorAll('.content');
 const contentLinks = contentToSlide.querySelectorAll('a');
 
 function setLinks() {
-    contentLinks[0]?.setAttribute('href', '#pre-order');
+    contentLinks[0]?.setAttribute('href', '/pages/pre-order.html');
     contentLinks[1]?.setAttribute('href', '#test-drive');
 }
 
