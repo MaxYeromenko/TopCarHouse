@@ -1,0 +1,10 @@
+.pre-order {
+    @extend .flex-align-to-center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+
+    #pre-order-box {
+        @extend .form-container;
+    }
+}

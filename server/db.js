@@ -56,7 +56,12 @@ const UserModel = mongoose.model('User', UserSchema);
 const ConsultationSchema = new mongoose.Schema({
     name: { type: String, required: true },
     phone: { type: String, required: true },
-    datetime: { type: Date, required: true }
+    datetime: { type: Date, required: true },
+    status: {
+        type: String,
+        enum: ['new', 'in-progress', 'completed', 'cancelled'],
+        default: 'new',
+    },
 });
 const ConsultationModel = mongoose.model('Consultation', ConsultationSchema);
 
@@ -80,5 +85,20 @@ const BlogPostSchema = new mongoose.Schema({
 });
 const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
 
+const PreOrderSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    car: { type: mongoose.Schema.Types.ObjectId, ref: 'Car' },
+    commentText: { type: String, default: '' },
+    datetime: { type: Date, default: Date.now, required: true },
+    status: {
+        type: String,
+        enum: ["new", "in_process", "completed", "canceled"],
+        default: "new",
+        required: true
+    }
+});
+const PreOrderModel = mongoose.model('PreOrder', PreOrderSchema);
 
-module.exports = { mongoose, CarModel, UserModel, ConsultationModel, BlogPostModel };
+module.exports = { mongoose, CarModel, UserModel, ConsultationModel, BlogPostModel, PreOrderModel };

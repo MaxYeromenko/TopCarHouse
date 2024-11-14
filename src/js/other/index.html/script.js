@@ -18,7 +18,9 @@ const contentLinks = contentToSlide.querySelectorAll('a');
 
 function setLinks() {
     contentLinks[0]?.setAttribute('href', '/pages/pre-order.html');
-    contentLinks[1]?.setAttribute('href', '#test-drive');
+    contentLinks[0]?.setAttribute('target', '_blank');
+    contentLinks[1]?.setAttribute('href', '/pages/test-drive.html');
+    contentLinks[1]?.setAttribute('target', '_blank');
 }
 
 if (isAuthTokenExpired()) {

@@ -74,7 +74,7 @@ function addPostElement(type) {
 
     switch (type) {
         case 'title':
-            elementHtml = '<input class="post-element" type="text" data-post-element-type="title" placeholder="Заголовок"> title="Заголовок"';
+            elementHtml = '<input class="post-element" type="text" data-post-element-type="title" placeholder="Заголовок" title="Заголовок">';
             break;
         case 'text':
             elementHtml = '<textarea class="post-element" data-post-element-type="text" placeholder="Текст" title="Текст"></textarea>';
