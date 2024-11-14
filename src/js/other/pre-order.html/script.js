@@ -28,9 +28,9 @@ function inputHints(preOrderTypes) {
 
     const carOptions = document.getElementById('car-options');
     carOptions.innerHTML = '';
-    sortedCars.forEach(carType => {
+    sortedCars.forEach(car => {
         const option = document.createElement('option');
-        option.value = carType;
+        option.value = `${car.brand} ${car.model}, $${car.price}`;
         option.dataset.id = car.id;
         carOptions.appendChild(option);
     });
@@ -96,5 +96,5 @@ preOrderBox.querySelector('form').addEventListener('submit', event => {
         return;
     }
 
-    
+
 });
