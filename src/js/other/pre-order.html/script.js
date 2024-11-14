@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     showMessage('Завантаження...', true);
 
     try {
-        const cacheKey = 'preOrderTypes';
-        const result = await fetchWithCache('/api/get-pre-order-types', cacheKey, cacheExpiration, retriesLimit);
+        const cacheKey = 'carsTypesCache';
+        const result = await fetchWithCache('/api/get-car-types', cacheKey, cacheExpiration, retriesLimit);
 
         if (result) {
             inputHints(result);

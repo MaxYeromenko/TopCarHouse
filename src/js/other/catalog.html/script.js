@@ -149,9 +149,9 @@ else {
     document.addEventListener("DOMContentLoaded", async () => {
         showMessage('Завантаження...', true);
 
-        const cacheKey = 'catalogTypesCache';
+        const cacheKey = 'carsTypesCache';
         try {
-            const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
+            const result = await fetchWithCache('/api/get-car-types', cacheKey, cacheExpiration, retriesLimit);
             if (result) {
                 catalogTypes = result;
                 placeCatalogTypes(catalogTypes);

@@ -118,9 +118,9 @@ async function openAdminPanel() {
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(adminPanel, 'block');
 
-    const cacheKey = 'indexTypesCache';
+    const cacheKey = 'carsTypesCache';
     try {
-        const result = await fetchWithCache('/api/get-catalog-types', cacheKey, cacheExpiration, retriesLimit);
+        const result = await fetchWithCache('/api/get-car-types', cacheKey, cacheExpiration, retriesLimit);
         if (result) {
             indexTypes = result;
             placeIndexTypes(indexTypes);
@@ -252,7 +252,7 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
-                removeTokens(['indexTypesCache', 'bestCarDealsCache', 'catalogTypesCache']);
+                removeTokens(['carsTypesCache', 'bestCarDealsCache', 'carsTypesCache']);
                 showMessage('Авто успішно додано!', true);
             }
         }
@@ -367,7 +367,7 @@ loginBox.querySelector('form').addEventListener('submit', async (event) => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetryPost('/api/2get-user', { email, password }, retriesLimit);
+        const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
 
         if (result.success) {
             event.target.reset();
