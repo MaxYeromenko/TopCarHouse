@@ -55,23 +55,19 @@
             <div id="pre-order-box">
                 <h2>Оформлення передзамовлення</h2>
                 <p>Заповніть форму, щоб забронювати бажане авто вже зараз!</p>
-                <form action="/submit-preorder" method="POST">
-                    <input type="text" placeholder="Ваше ім'я" title="Ім'я" required>
+                <form>
+                    <input name="name" type="text" placeholder="Ваше ім'я" title="Ім'я" required>
+                    <input name="email" type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
+                    <input name="phone" type="tel" placeholder="Номер телефону" title="Номер телефону" required>
 
-                    <input type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
+                    <input name="carDisplay" type="text" placeholder="Автомобіль" title="Автомобіль" list="car-options"
+                        required />
+                    <datalist id="car-options"></datalist>
+                    <input type="hidden" name="car" id="carId">
 
-                    <input type="tel" placeholder="Номер телефону" title="Номер телефону" required>
+                    <textarea name="commentText" placeholder="Ваші побажання чи питання" title="Коментар"></textarea>
 
-                    <select placeholder="Автомобіль" title="Автомобіль" required>
-                        <option value="CarID">Brand Model, Price</option>
-                        <option value="CarID">Brand Model, Price</option>
-                        <option value="CarID">Brand Model, Price</option>
-                    </select>
-
-                    <textarea id="additional-notes" placeholder="Ваші побажання чи питання"
-                        title="Коментар"></textarea>
-
-                    <button type="submit" class="submit-button">Забронювати авто</button>
+                    <button type="submit">Забронювати авто</button>
                 </form>
             </div>
         </section>

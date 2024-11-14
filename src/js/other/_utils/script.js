@@ -9,7 +9,7 @@ export function createConsultationRequest() {
         toggleElementVisibility(consultationContainer, 'block');
     });
 
-    document.getElementById('consultation-phone').addEventListener('input', function (e) {
+    document.getElementById('consultation-phone').addEventListener('input', function () {
         this.value = this.value.replace(/[^0-9+]/g, '');
         if (this.value.indexOf('+') > 0) {
             this.value = this.value.replace(/\+/g, '');
