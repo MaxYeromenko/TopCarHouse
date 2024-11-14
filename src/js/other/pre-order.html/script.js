@@ -24,13 +24,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function inputHints(preOrderTypes) {
-    const sortedCars = [...preOrderTypes.preOrderCars].sort();
+    const sortedCars = [...preOrderTypes.preOrderCars];
 
     const carOptions = document.getElementById('car-options');
     carOptions.innerHTML = '';
     sortedCars.forEach(carType => {
         const option = document.createElement('option');
         option.value = carType;
+        option.dataset.id = car.id;
         carOptions.appendChild(option);
     });
 }
