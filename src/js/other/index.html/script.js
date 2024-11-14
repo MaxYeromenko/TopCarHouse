@@ -367,7 +367,7 @@ loginBox.querySelector('form').addEventListener('submit', async (event) => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
+        const result = await fetchWithRetryPost('/api/2get-user', { email, password }, retriesLimit);
 
         if (result.success) {
             event.target.reset();
