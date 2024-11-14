@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
             const transmissions = [...new Set(cars.map(car => car.features.transmission))];
             const fuelTypes = [...new Set(cars.map(car => car.features.fuel_type))];
 
-            const preOrderCars = carsList.map(car => `${car.brand} ${car.model}, ${car.price}`);
+            const preOrderCars = cars.map(car => `${car.brand} ${car.model}, ${car.price}`);
 
             res.status(200).json({
                 brands,
