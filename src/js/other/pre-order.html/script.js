@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function inputHints(preOrderTypes) {
-    const sortedCars = [...preOrderTypes.cars].sort();
+    const sortedCars = [...preOrderTypes.preOrderCars].sort();
 
     const carOptions = document.getElementById('car-options');
     carOptions.innerHTML = '';
