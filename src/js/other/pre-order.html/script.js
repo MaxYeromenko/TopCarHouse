@@ -82,6 +82,8 @@ function fillOrderColumns(orders) {
 
     [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
 
+    console.log([newOrders, inProcessOrders, completedOrders, canceledOrders]);
+
     orders.forEach(order => {
         const orderMarkup = `
             <div class="order">
@@ -91,19 +93,19 @@ function fillOrderColumns(orders) {
                 <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
             </div>
         `;
-
+        console.log(order);
         switch (order.status) {
             case 'new':
-                newOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
             case 'in_process':
-                inProcessOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
             case 'completed':
-                completedOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
             case 'canceled':
-                canceledOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
         }
     });
@@ -113,7 +115,7 @@ async function cancelOrder(orderId) {
     try {
         const result = await fetchWithRetryPost(`/api/api-pre-order-control`, { orderId }, retriesLimit);
 
-        if (result.success) { 
+        if (result.success) {
             showMessage(result.message, true);
             document.querySelector(`.order button[onclick="cancelOrder('${orderId}')"]`).parentElement.remove();
         } else {
