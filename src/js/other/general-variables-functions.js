@@ -166,10 +166,10 @@ function getUserIdRoleFromToken() {
         } catch (error) {
             console.error('Помилка під час декодування токену:', error);
             showMessage('Помилка, перезайдіть до облікового запису!', false);
-            return null;
+            return { id: null, role: null };
         }
     }
-    return null;
+    return { id: null, role: null };
 }
 
 /**
