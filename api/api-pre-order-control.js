@@ -2,7 +2,7 @@ const { PreOrderModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { orderId, name, email, phone, car, commentText } = req.body;
+        const { orderId, id, name, email, phone, car, commentText } = req.body;
 
         try {
             if (orderId) {
