@@ -95,5 +95,10 @@ preOrderBox.querySelector('form').addEventListener('submit', event => {
         return;
     }
 
+    const { id } = getUserIdRoleFromToken();
+    if (!id) {
+        showMessage('Помилка, перезайдіть до облікового запису!', false);
+        return;
+    }
 
 });

@@ -5,7 +5,7 @@ export function createConsultationRequest() {
     const phoneRegex = /^\+380\d{9}$/;
 
     document.getElementById('consultation-button').addEventListener('click', () => {
-        if (isAuthTokenExpired()){
+        if (isAuthTokenExpired()) {
             showMessage('Для отримання доступу до функції, необхідно увійти до облікового запису!', false);
             return;
         }
@@ -53,12 +53,18 @@ export function createConsultationRequest() {
             return;
         }
 
+        const { id } = getUserIdRoleFromToken();
+        if (!id) {
+            showMessage('Помилка, перезайдіть до облікового запису!', false);
+            return;
+        }
+
         showMessage('Завантаження...', true);
 
         try {
             const result = await fetchWithRetryPost(`/api/post-consultation-request`,
                 {
-                    name, phone, datetime: selectedDateTime.toISOString()
+                    id, name, phone, datetime: selectedDateTime.toISOString()
                 }, retriesLimit);
 
             if (result.success) {

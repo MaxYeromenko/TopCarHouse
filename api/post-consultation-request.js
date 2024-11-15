@@ -2,10 +2,11 @@ const { ConsultationModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { name, phone, datetime } = req.body;
+        const { id, name, phone, datetime } = req.body;
 
         try {
             const newUser = new ConsultationModel({
+                userId: id,
                 name,
                 phone,
                 datetime
