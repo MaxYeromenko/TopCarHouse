@@ -20,6 +20,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         showMessage(error.message, false);
     }
+
+    try {
+        const { id } = getUserIdRoleFromToken();
+        if (!id) {
+            showMessage('Помилка, перезайдіть до облікового запису!', false);
+            return;
+        }
+
+        const cacheKey = 'preOrdersCache';
+        const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+
+        if (result.success) {
+            console.log(1);
+            
+            fillOrderColumns(result);
+        }
+    } catch (error) {
+        showMessage(error.message, false);
+    }
 });
 
 function inputHints(preOrderTypes) {
@@ -53,25 +72,6 @@ const preOrdersContainer = modalWindow.querySelector('#pre-orders-container');
 document.getElementById('view-all-pre-orders').addEventListener('click', () => {
     toggleElementVisibility(modalWindow, 'flex');
     toggleElementVisibility(preOrdersContainer, 'block');
-});
-
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        const { id } = getUserIdRoleFromToken();
-        if (!id) {
-            showMessage('Помилка, перезайдіть до облікового запису!', false);
-            return;
-        }
-
-        const cacheKey = 'preOrdersCache';
-        const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
-
-        if (result.success) {
-            fillOrderColumns(result);
-        }
-    } catch (error) {
-        showMessage(error.message, false);
-    }
 });
 
 function fillOrderColumns(orders) {
