@@ -5,6 +5,10 @@ export function createConsultationRequest() {
     const phoneRegex = /^\+380\d{9}$/;
 
     document.getElementById('consultation-button').addEventListener('click', () => {
+        if (isAuthTokenExpired()){
+            showMessage('Для отримання доступу до функції, необхідно увійти до облікового запису!', false);
+            return;
+        }
         toggleElementVisibility(modalWindow, 'flex');
         toggleElementVisibility(consultationContainer, 'block');
     });
