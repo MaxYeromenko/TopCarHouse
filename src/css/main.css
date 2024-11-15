@@ -81,7 +81,7 @@ textarea {
   resize: vertical;
 }
 
-.flex-align-to-center, .pre-order, .contacts .stage, .password-reset, .blog-section .cards-section-buttons, .blog-section, form label, #admin-container #element-type-select .element-type-list .element-type, .post-container .comments-section #add-comment-section, .post-container .comments-section, .post-container .post-content-container, .post-container, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main #slider, header .icon-wrapper .vertical-nav, .form-container form, .pre-order #pre-order-box form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #confirmation-container form, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
+.flex-align-to-center, .pre-order, .contacts .stage, .password-reset, .blog-section .cards-section-buttons, .blog-section, form label, #admin-container #element-type-select .element-type-list .element-type, .post-container .comments-section #add-comment-section, .post-container .comments-section, .post-container .post-content-container, .post-container, .catalog .catalog-grid .column, #thank-you-message-bg #thank-you-message, .about .title-about, .about .stage, #services-container .service, #services-container, .services .title-services, .services .stage, .cards-section .cards-section-buttons, .cards-section, body main #slider, header .icon-wrapper .vertical-nav, .form-container form, .pre-order #pre-order-box form, #pre-orders-container form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #confirmation-container form, #auth-container form, .modal-window-dark-bg-template, #thank-you-message-bg, .burger-instruments-wrapper .open-section-button-container, .burger-instruments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,9 +97,9 @@ textarea {
           justify-content: center;
 }
 
-.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main #slider #content-to-slide .content a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, .blog-section .cards-section-buttons a,
+.default-button-template, .modal-window-dark-bg-template i.fa-xmark, #thank-you-message-bg i.fa-xmark, .default-button-light-bg, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more, .about .title-about #go-to-description, .services .title-services #go-to-description, .cards-section .cars-container .product-card .product-info a, #compare-container .compare-item button, body main #slider #content-to-slide .content a, header .consultation-button-bg button, .burger-instruments-wrapper .open-section-button-template, .burger-instruments-wrapper .open-section-button-container .section-open-button-template, .burger-instruments-wrapper .open-section-button-container #admin-section-open, .burger-instruments-wrapper .open-section-button-container #filter-section-open, .burger-instruments-wrapper .open-section-button-container #compare-section-open, .burger-instruments-wrapper .open-section-button-container #calculator-section-open, .burger-instruments-wrapper .open-section-button-container #theme-section-open, .burger-instruments-wrapper .burger-open-section-container-buttons, .default-button-dark-bg, #pre-orders-container .pre-orders-grid .column .order button, .blog-section .cards-section-buttons a,
 .blog-section .cards-section-buttons button, #admin-container #element-type-select button, .post-container .comments-section #add-comment-section button, .product-container #add-to-compare-button, .product-container .slider-container .slider-button, #services-container a, .cards-section .cards-section-buttons a,
-.cards-section .cards-section-buttons button, #theme-container .theme-block container button, .form-container form button, .pre-order #pre-order-box form button, .password-reset #reset-password-box form button, #admin-container form button, #filter-container form button, #services-container form button, #calculator-container form button, #theme-container form button, #consultation-container form button, #confirmation-container form button, #auth-container form button {
+.cards-section .cards-section-buttons button, #theme-container .theme-block container button, .form-container form button, .pre-order #pre-order-box form button, #pre-orders-container form button, .password-reset #reset-password-box form button, #admin-container form button, #filter-container form button, #services-container form button, #calculator-container form button, #theme-container form button, #consultation-container form button, #confirmation-container form button, #auth-container form button {
   background-color: rgb(var(--secondary-color));
   color: rgb(var(--background-color));
   padding: 10px;
@@ -108,15 +108,15 @@ textarea {
   font-size: 16px;
   text-align: center;
 }
-.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main #slider #content-to-slide .content a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, .blog-section .cards-section-buttons a:hover,
+.default-button-template:hover, .modal-window-dark-bg-template i.fa-xmark:hover, #thank-you-message-bg i.fa-xmark:hover, .default-button-light-bg:hover, .blog-section .posts-container .blog-post-card .blog-post-info .blog-post-read-more:hover, .about .title-about #go-to-description:hover, .services .title-services #go-to-description:hover, .cards-section .cars-container .product-card .product-info a:hover, #compare-container .compare-item button:hover, body main #slider #content-to-slide .content a:hover, header .consultation-button-bg button:hover, .burger-instruments-wrapper .open-section-button-template:hover, .burger-instruments-wrapper .open-section-button-container .section-open-button-template:hover, .burger-instruments-wrapper .open-section-button-container #admin-section-open:hover, .burger-instruments-wrapper .open-section-button-container #filter-section-open:hover, .burger-instruments-wrapper .open-section-button-container #compare-section-open:hover, .burger-instruments-wrapper .open-section-button-container #calculator-section-open:hover, .burger-instruments-wrapper .open-section-button-container #theme-section-open:hover, .burger-instruments-wrapper .burger-open-section-container-buttons:hover, .default-button-dark-bg:hover, #pre-orders-container .pre-orders-grid .column .order button:hover, .blog-section .cards-section-buttons a:hover,
 .blog-section .cards-section-buttons button:hover, #admin-container #element-type-select button:hover, .post-container .comments-section #add-comment-section button:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container form button:hover, .pre-order #pre-order-box form button:hover, .password-reset #reset-password-box form button:hover, #admin-container form button:hover, #filter-container form button:hover, #services-container form button:hover, #calculator-container form button:hover, #theme-container form button:hover, #consultation-container form button:hover, #confirmation-container form button:hover, #auth-container form button:hover {
+.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container form button:hover, .pre-order #pre-order-box form button:hover, #pre-orders-container form button:hover, .password-reset #reset-password-box form button:hover, #admin-container form button:hover, #filter-container form button:hover, #services-container form button:hover, #calculator-container form button:hover, #theme-container form button:hover, #consultation-container form button:hover, #confirmation-container form button:hover, #auth-container form button:hover {
   color: rgb(var(--secondary-color));
 }
 
-.default-button-dark-bg:hover, .blog-section .cards-section-buttons a:hover,
+.default-button-dark-bg:hover, #pre-orders-container .pre-orders-grid .column .order button:hover, .blog-section .cards-section-buttons a:hover,
 .blog-section .cards-section-buttons button:hover, #admin-container #element-type-select button:hover, .post-container .comments-section #add-comment-section button:hover, .product-container #add-to-compare-button:hover, .product-container .slider-container .slider-button:hover, #services-container a:hover, .cards-section .cards-section-buttons a:hover,
-.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container form button:hover, .pre-order #pre-order-box form button:hover, .password-reset #reset-password-box form button:hover, #admin-container form button:hover, #filter-container form button:hover, #services-container form button:hover, #calculator-container form button:hover, #theme-container form button:hover, #consultation-container form button:hover, #confirmation-container form button:hover, #auth-container form button:hover {
+.cards-section .cards-section-buttons button:hover, #theme-container .theme-block container button:hover, .form-container form button:hover, .pre-order #pre-order-box form button:hover, #pre-orders-container form button:hover, .password-reset #reset-password-box form button:hover, #admin-container form button:hover, #filter-container form button:hover, #services-container form button:hover, #calculator-container form button:hover, #theme-container form button:hover, #consultation-container form button:hover, #confirmation-container form button:hover, #auth-container form button:hover {
   background-color: rgb(var(--main-color));
 }
 
@@ -201,7 +201,7 @@ textarea {
   display: none;
 }
 
-.form-container, .pre-order #pre-order-box, .password-reset #reset-password-box, #admin-container, #filter-container, #services-container, #calculator-container, #theme-container, #consultation-container, #confirmation-container, #auth-container {
+.form-container, .pre-order #pre-order-box, #pre-orders-container, .password-reset #reset-password-box, #admin-container, #filter-container, #services-container, #calculator-container, #theme-container, #consultation-container, #confirmation-container, #auth-container {
   background-color: rgb(var(--background-color));
   border: 1px solid rgb(var(--main-color));
   border-radius: 5px;
@@ -210,35 +210,35 @@ textarea {
   height: auto;
   padding: 20px;
 }
-.form-container h2, .pre-order #pre-order-box h2, .password-reset #reset-password-box h2, #admin-container h2, #filter-container h2, #services-container h2, #calculator-container h2, #theme-container h2, #consultation-container h2, #confirmation-container h2, #auth-container h2 {
+.form-container h2, .pre-order #pre-order-box h2, #pre-orders-container h2, .password-reset #reset-password-box h2, #admin-container h2, #filter-container h2, #services-container h2, #calculator-container h2, #theme-container h2, #consultation-container h2, #confirmation-container h2, #auth-container h2 {
   color: rgb(var(--main-color));
   margin-bottom: 20px;
   text-align: center;
 }
-.form-container p, .pre-order #pre-order-box p, .password-reset #reset-password-box p, #admin-container p, #filter-container p, #services-container p, #calculator-container p, #theme-container p, #consultation-container p, #confirmation-container p, #auth-container p {
+.form-container p, .pre-order #pre-order-box p, #pre-orders-container p, .password-reset #reset-password-box p, #admin-container p, #filter-container p, #services-container p, #calculator-container p, #theme-container p, #consultation-container p, #confirmation-container p, #auth-container p {
   text-align: center;
   margin-top: 10px;
   font-size: small;
   opacity: 0.7;
 }
-.form-container p span, .pre-order #pre-order-box p span, .password-reset #reset-password-box p span, #admin-container p span, #filter-container p span, #services-container p span, #calculator-container p span, #theme-container p span, #consultation-container p span, #confirmation-container p span, #auth-container p span {
+.form-container p span, .pre-order #pre-order-box p span, #pre-orders-container p span, .password-reset #reset-password-box p span, #admin-container p span, #filter-container p span, #services-container p span, #calculator-container p span, #theme-container p span, #consultation-container p span, #confirmation-container p span, #auth-container p span {
   color: rgb(var(--secondary-color));
   font-size: larger;
   font-weight: bold;
 }
-.form-container p a, .pre-order #pre-order-box p a, .password-reset #reset-password-box p a, #admin-container p a, #filter-container p a, #services-container p a, #calculator-container p a, #theme-container p a, #consultation-container p a, #confirmation-container p a, #auth-container p a {
+.form-container p a, .pre-order #pre-order-box p a, #pre-orders-container p a, .password-reset #reset-password-box p a, #admin-container p a, #filter-container p a, #services-container p a, #calculator-container p a, #theme-container p a, #consultation-container p a, #confirmation-container p a, #auth-container p a {
   color: rgb(var(--secondary-color));
 }
-.form-container form, .pre-order #pre-order-box form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #confirmation-container form, #auth-container form {
+.form-container form, .pre-order #pre-order-box form, #pre-orders-container form, .password-reset #reset-password-box form, #admin-container form, #filter-container form, #services-container form, #calculator-container form, #theme-container form, #consultation-container form, #confirmation-container form, #auth-container form {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
   gap: 15px;
 }
-.form-container form button, .pre-order #pre-order-box form button, .password-reset #reset-password-box form button, #admin-container form button, #filter-container form button, #services-container form button, #calculator-container form button, #theme-container form button, #consultation-container form button, #confirmation-container form button, #auth-container form button {
+.form-container form button, .pre-order #pre-order-box form button, #pre-orders-container form button, .password-reset #reset-password-box form button, #admin-container form button, #filter-container form button, #services-container form button, #calculator-container form button, #theme-container form button, #consultation-container form button, #confirmation-container form button, #auth-container form button {
   font-weight: bold;
 }
-.form-container form button:disabled, .pre-order #pre-order-box form button:disabled, .password-reset #reset-password-box form button:disabled, #admin-container form button:disabled, #filter-container form button:disabled, #services-container form button:disabled, #calculator-container form button:disabled, #theme-container form button:disabled, #consultation-container form button:disabled, #confirmation-container form button:disabled, #auth-container form button:disabled {
+.form-container form button:disabled, .pre-order #pre-order-box form button:disabled, #pre-orders-container form button:disabled, .password-reset #reset-password-box form button:disabled, #admin-container form button:disabled, #filter-container form button:disabled, #services-container form button:disabled, #calculator-container form button:disabled, #theme-container form button:disabled, #consultation-container form button:disabled, #confirmation-container form button:disabled, #auth-container form button:disabled {
   color: rgba(var(--secondary-color), 0.7);
   background-color: rgba(var(--main-color), 0.7);
 }
@@ -1759,6 +1759,44 @@ form label .checkbox-button::before {
   border: 0;
 }
 
+#pre-orders-container {
+  width: 90%;
+  height: 80%;
+}
+#pre-orders-container .pre-orders-grid {
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+@media (max-width: 380px) {
+  #pre-orders-container .pre-orders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+#pre-orders-container .pre-orders-grid .column {
+  padding: 0 10px;
+  overflow-y: auto;
+  text-align: center;
+  border-bottom: solid 3px rgb(var(--secondary-color));
+}
+#pre-orders-container .pre-orders-grid .column::-webkit-scrollbar {
+  display: none;
+}
+#pre-orders-container .pre-orders-grid .column .order {
+  height: 150px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-top: solid 1px rgb(var(--secondary-color));
+}
 .pre-order {
   -webkit-box-align: center;
       -ms-flex-align: center;

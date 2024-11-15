@@ -48,6 +48,83 @@ carDisplayInput.addEventListener('change', () => {
     }
 });
 
+const preOrdersContainer = modalWindow.querySelector('#pre-orders-container');
+
+document.getElementById('view-all-pre-orders').addEventListener('click', () => {
+    toggleElementVisibility(modalWindow, 'flex');
+    toggleElementVisibility(preOrdersContainer, 'block');
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const { id } = getUserIdRoleFromToken();
+        if (!id) {
+            showMessage('Помилка, перезайдіть до облікового запису!', false);
+            return;
+        }
+
+        const cacheKey = 'preOrdersCache';
+        const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+
+        if (result.success) {
+            fillOrderColumns(result);
+        }
+    } catch (error) {
+        showMessage(error.message, false);
+    }
+});
+
+function fillOrderColumns(orders) {
+    const newOrders = document.getElementById('new-orders');
+    const inProcessOrders = document.getElementById('in-process-orders');
+    const completedOrders = document.getElementById('completed-orders');
+    const canceledOrders = document.getElementById('canceled-orders');
+
+    [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
+
+    orders.forEach(order => {
+        const orderMarkup = `
+            <div class="order">
+                <span>${order.name}</span>
+                <span>${order.phone}</span>
+                <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
+                <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
+            </div>
+        `;
+
+        switch (order.status) {
+            case 'new':
+                newOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                break;
+            case 'in_process':
+                inProcessOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                break;
+            case 'completed':
+                completedOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                break;
+            case 'canceled':
+                canceledOrders.insertAdjacentHTML('beforeend', orderMarkup);
+                break;
+        }
+    });
+};
+
+async function cancelOrder(orderId) {
+    try {
+        const result = await fetchWithRetryPost(`/api/api-pre-order-control`, { orderId }, retriesLimit);
+
+        if (result.success) { 
+            showMessage(result.message, true);
+            document.querySelector(`.order button[onclick="cancelOrder('${orderId}')"]`).parentElement.remove();
+        } else {
+            showMessage(result.message, false);
+        }
+    } catch (error) {
+        console.error('Error canceling order:', error);
+        showMessage('Помилка при скасуванні замовлення!', false);
+    }
+}
+
 const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
 const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 const phoneRegex = /^\+380\d{9}$/;
@@ -102,7 +179,7 @@ preOrderBox.querySelector('form').addEventListener('submit', async event => {
     }
 
     showMessage('Завантаження...', true);
-    
+
     try {
         const result = await fetchWithRetryPost(`/api/api-pre-order-control`, formObject, retriesLimit);
 
