@@ -101,6 +101,8 @@ preOrderBox.querySelector('form').addEventListener('submit', async event => {
         return;
     }
 
+    showMessage('Завантаження...', true);
+    
     try {
         const result = await fetchWithRetryPost(`/api/api-pre-order-control`, formObject, retriesLimit);
 
