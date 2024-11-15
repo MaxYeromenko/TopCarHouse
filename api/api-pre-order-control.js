@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
                 order.status = 'canceled';
                 await order.save();
 
-                return res.status(200).json({ success: true, message: 'Статус замовлення успішно змінено на "Скасовано"!' });
+                return res.status(201).json({ success: true, message: 'Статус замовлення успішно змінено на "Скасовано"!' });
             }
 
             const newPreOrder = new PreOrderModel({
