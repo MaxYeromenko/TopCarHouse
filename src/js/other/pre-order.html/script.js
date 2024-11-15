@@ -1,3 +1,5 @@
+if (isAuthTokenExpired()) window.location.href = '/';
+
 import {
     createConsultationRequest,
     themeApplication, showServicesModalWindow
@@ -8,15 +10,12 @@ themeApplication();
 createConsultationRequest();
 
 document.addEventListener('DOMContentLoaded', async () => {
-    showMessage('Завантаження...', true);
-
     try {
         const cacheKey = 'carsTypesCache';
         const result = await fetchWithCache('/api/get-car-types', cacheKey, cacheExpiration, retriesLimit);
 
         if (result) {
             inputHints(result);
-            showMessage('Дані успішно завантажені!', true);
         }
     } catch (error) {
         showMessage(error.message, false);
