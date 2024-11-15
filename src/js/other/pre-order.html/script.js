@@ -67,9 +67,16 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
 preOrderBox.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    const { id } = getUserIdRoleFromToken();
+    if (!id) {
+        showMessage('Помилка, перезайдіть до облікового запису!', false);
+        return;
+    }
 
+    const formData = new FormData(event.target);
     const formObject = {};
+
+    formObject.id = id;
     formData.forEach((value, key) => formObject[key] = value.trim());
     console.log(formObject);
 
@@ -92,12 +99,6 @@ preOrderBox.querySelector('form').addEventListener('submit', event => {
 
     if (!car) {
         showMessage('Оберіть автомобіль!', false);
-        return;
-    }
-
-    const { id } = getUserIdRoleFromToken();
-    if (!id) {
-        showMessage('Помилка, перезайдіть до облікового запису!', false);
         return;
     }
 
