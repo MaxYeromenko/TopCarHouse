@@ -64,7 +64,7 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
     }
 });
 
-preOrderBox.querySelector('form').addEventListener('submit', event => {
+preOrderBox.querySelector('form').addEventListener('submit', async event => {
     event.preventDefault();
 
     const { id } = getUserIdRoleFromToken();
@@ -78,7 +78,6 @@ preOrderBox.querySelector('form').addEventListener('submit', event => {
 
     formObject.id = id;
     formData.forEach((value, key) => formObject[key] = value.trim());
-    console.log(formObject);
 
     const { name, email, phone, car } = formObject;
 
@@ -102,4 +101,15 @@ preOrderBox.querySelector('form').addEventListener('submit', event => {
         return;
     }
 
+    try {
+        const result = await fetchWithRetryPost(`/api/api-pre-order-control`, formObject, retriesLimit);
+
+        if (result.success) {
+            showMessage(result.message, result.success);
+            event.target.reset();
+        }
+    } catch (error) {
+        console.error('Error fetching product data:', error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
 });
