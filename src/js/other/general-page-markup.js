@@ -67,7 +67,7 @@ const messageMarkUp = `<div class="info-message">
 mainBlock.insertAdjacentHTML('afterbegin', messageMarkUp);
 
 const consultationСontainer = document.getElementById('consultation-container');
-if (consultationСontainer)
+if (consultationСontainer) {
     consultationСontainer.insertAdjacentHTML('afterbegin', `
         <h2>Заява на отримання консультації</h2>
         <form id="consultation-form">
@@ -81,6 +81,7 @@ if (consultationСontainer)
                 дзвінка. Можливі затримки, якщо всі оператори будуть зайняті.
             </p>
         </form>`);
+}
 
 const calculatorContainer = document.getElementById('calculator-container');
 if (calculatorContainer)
@@ -212,6 +213,24 @@ document.addEventListener('DOMContentLoaded', () => {
     faviconPng.setAttribute('href', '/favicon.png');
     faviconPng.setAttribute('type', 'image/png');
     head.appendChild(faviconPng);
+
+    const consultationDate = document.getElementById('consultation-date');
+    const consultationTime = document.getElementById('consultation-time');
+
+    if (consultationDate && consultationTime) {
+        const today = new Date();
+        const nextMonth = new Date();
+        nextMonth.setMonth(today.getMonth() + 1);
+
+        const hours = today.getHours().toString().padStart(2, '0');
+        const minutes = today.getMinutes().toString().padStart(2, '0');
+        const currentTime = `${hours}:${minutes}`;
+
+        consultationDate.min = today.toISOString().split('T')[0];
+        consultationDate.max = nextMonth.toISOString().split('T')[0];
+
+        consultationTime.min = currentTime;
+    }
 });
 
 const headerBlock = document.querySelector('header');
