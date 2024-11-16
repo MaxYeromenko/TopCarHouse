@@ -150,7 +150,6 @@ export function createConsultationRequest() {
     };
 
     async function cancelConsultation(consultationId) {
-        console.log(consultationId);
         try {
             const result = await fetchWithRetryPost(`/api/api-consultation-control`, { consultationId }, retriesLimit);
 
