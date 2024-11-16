@@ -93,7 +93,7 @@ function fillOrderColumns(orders) {
                 <span>${order.name}</span>
                 <span>${order.phone}</span>
                 <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
-                <button class="cancel-order" data-id="${order._id}"><i class="fa-solid fa-ban"></i></button>
+                ${order.status === 'new' ? `<button class="cancel-order" data-id="${order._id}"><i class="fa-solid fa-ban"></i></button>` : ''}
             </div>`;
 
         switch (order.status) {
@@ -117,7 +117,6 @@ function fillOrderColumns(orders) {
                 element.setAttribute('listener-attached', 'true');
             }
         });
-
     });
 };
 
