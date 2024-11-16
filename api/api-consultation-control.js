@@ -2,9 +2,21 @@ const { ConsultationModel } = require('../server/db');
 
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
-        const { id, name, phone, datetime } = req.body;
+        const { consultationId, id, name, phone, datetime } = req.body;
 
         try {
+            if (consultationId) {
+                const consultation = await ConsultationModel.findById(consultationId);
+                if (!consultation) {
+                    return res.status(404).json({ success: false, message: 'Консультацію не знайдено!' });
+                }
+
+                consultation.status = 'canceled';
+                await consultation.save();
+
+                return res.status(201).json({ success: true, message: 'Статус консультації успішно змінено на "Скасовано"!' });
+            }
+
             const newUser = new ConsultationModel({
                 userId: id,
                 name,

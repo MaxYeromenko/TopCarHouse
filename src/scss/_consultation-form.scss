@@ -1,3 +1,43 @@
 #consultation-container {
     @extend .form-container;
 }
+
+#consultations-container {
+    @extend .form-container;
+    width: 90%;
+    height: 80%;
+
+    .consultations-grid {
+        height: 80%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+        @media (max-width:380px) {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        .column {
+            padding: 0 10px;
+            overflow-y: auto;
+            text-align: center;
+            border-bottom: solid 3px rgb(var(--secondary-color));
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .consultation {
+                height: 150px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                border-top: solid 1px rgb(var(--secondary-color));
+
+                button {
+                    @extend.default-button-dark-bg;
+                }
+            }
+        }
+    }
+}

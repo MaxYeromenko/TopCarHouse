@@ -66,9 +66,9 @@ const messageMarkUp = `<div class="info-message">
     </div>`;
 mainBlock.insertAdjacentHTML('afterbegin', messageMarkUp);
 
-const consultationСontainer = document.getElementById('consultation-container');
-if (consultationСontainer) {
-    consultationСontainer.insertAdjacentHTML('afterbegin', `
+const consultationContainer = document.getElementById('consultation-container');
+if (consultationContainer) {
+    consultationContainer.insertAdjacentHTML('afterbegin', `
         <h2>Заява на отримання консультації</h2>
         <form id="consultation-form">
             <input id="consultation-name" type="text" placeholder="Як до Вас звертатись" title="Ім'я" required>
@@ -82,6 +82,31 @@ if (consultationСontainer) {
             </p>
         </form>
         <p>Переглянути всі <a id="view-all-consultation-requests">консультації</a></p>
+        `);
+}
+
+const consultationsContainer = document.getElementById('consultations-container');
+if(consultationsContainer){
+    consultationsContainer.insertAdjacentHTML('afterbegin', `
+        <h2>Консультації</h2>
+        <div class="consultations-grid">
+            <div class="column">
+                <h3>Нові</h3>
+                <div id="new-consultations"></div>
+            </div>
+            <div class="column">
+                <h3>Зараз відбуваються</h3>
+                <div id="in-progress-consultations"></div>
+            </div>
+            <div class="column">
+                <h3>Завершені</h3>
+                <div id="completed-consultations"></div>
+            </div>
+            <div class="column">
+                <h3>Скасовані</h3>
+                <div id="canceled-consultations"></div>
+            </div>
+        </div>
         `);
 }
 

@@ -1,6 +1,7 @@
 export function createConsultationRequest() {
     const consultationContainer = document.getElementById('consultation-container');
     const consultationForm = consultationContainer.querySelector('form');
+    const consultationsContainer = document.getElementById('consultations-container');
     const nameRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ\s]{3,}$/;
     const phoneRegex = /^\+380\d{9}$/;
 
@@ -70,12 +71,99 @@ export function createConsultationRequest() {
             if (result.success) {
                 showMessage(result.message, result.success);
                 consultationForm.reset();
+                removeTokens(['consultationsCache']);
+                updateConsultations();
             }
         } catch (error) {
             console.error('Error fetching product data:', error);
             showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
         }
     });
+
+    document.getElementById('view-all-consultation-requests').addEventListener('click', () => {
+        toggleElementVisibility(consultationsContainer, 'block');
+        toggleElementVisibility(consultationContainer, '');
+    });
+
+    async function updateConsultations() {
+        showMessage('Завантаження консультацій...', true);
+        try {
+            const { id } = getUserIdRoleFromToken();
+            if (!id) {
+                showMessage('Помилка, перезайдіть до облікового запису!', false);
+                return;
+            }
+
+            const cacheKey = 'consultationsCache';
+            const result = await fetchWithCache(`/api/api-consultation-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+
+            if (result) {
+                fillConsultationColumns(result);
+                showMessage('Запити на консультації успішно завантажені!', true);
+            }
+        } catch (error) {
+            showMessage(error.message, false);
+        }
+    };
+
+    function fillConsultationColumns(consultations) {
+        const newConsultations = document.getElementById('new-consultation');
+        const inProcessConsultations = document.getElementById('in-progress-consultation');
+        const completedConsultations = document.getElementById('completed-consultation');
+        const canceledConsultations = document.getElementById('canceled-consultation');
+
+        [newConsultations, inProcessConsultations, completedConsultations, canceledConsultations].forEach(column => column.innerHTML = '');
+
+        consultations.forEach(consultation => {
+            const consultationMarkup = `
+                <div class="consultation">
+                    <span>${consultation.name}</span>
+                    <span>${consultation.phone}</span>
+                    <span>${new Date(consultation.datetime).toLocaleDateString('uk-UA', { year: 'numeric', month: 'long', day: 'numeric' })} ${new Date(consultation.datetime).toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit' })}</span>
+                    ${consultation.status === 'new' ? `<button class="cancel-consultation" data-id="${consultation._id}"><i class="fa-solid fa-ban"></i></button>` : ''}
+                    </div>`;
+
+            switch (consultation.status) {
+                case 'new':
+                    newConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
+                    break;
+                case 'in-progress':
+                    inProcessConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
+                    break;
+                case 'completed':
+                    completedConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
+                    break;
+                case 'canceled':
+                    canceledConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
+                    break;
+            };
+
+            document.querySelectorAll('.cancel-consultation').forEach(element => {
+                if (!element.hasAttribute('listener-attached')) {
+                    element.addEventListener('click', event => cancelConsultation(event.target.dataset.id));
+                    element.setAttribute('listener-attached', 'true');
+                }
+            });
+        });
+    };
+
+    async function cancelConsultation(consultationId) {
+        try {
+            const result = await fetchWithRetryPost(`/api/api-consultation-control`, { consultationId }, retriesLimit);
+
+            if (result.success) {
+                showMessage(result.message, true);
+                document.querySelector(`.consultation button[data-id="${consultationId}"]`).parentElement.remove();
+                removeTokens(['consultationsCache']);
+                updateConsultations();
+            } else {
+                showMessage(result.message, false);
+            }
+        } catch (error) {
+            console.error('Error canceling consultation:', error);
+            showMessage('Помилка при скасуванні замовлення!', false);
+        }
+    }
 };
 
 export function themeApplication() {

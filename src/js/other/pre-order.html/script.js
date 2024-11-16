@@ -80,7 +80,7 @@ async function updatePreOrders() {
 
 function fillOrderColumns(orders) {
     const newOrders = document.getElementById('new-orders');
-    const inProcessOrders = document.getElementById('in-process-orders');
+    const inProcessOrders = document.getElementById('in-progress-orders');
     const completedOrders = document.getElementById('completed-orders');
     const canceledOrders = document.getElementById('canceled-orders');
 
@@ -99,7 +99,7 @@ function fillOrderColumns(orders) {
             case 'new':
                 newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
-            case 'in_process':
+            case 'in-progress':
                 inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
             case 'completed':
