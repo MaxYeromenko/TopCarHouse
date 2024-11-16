@@ -88,7 +88,7 @@ function fillOrderColumns(orders) {
                 <span>${order.name}</span>
                 <span>${order.phone}</span>
                 <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
-                <button id="cancel-order" data-id="${order._id}"><i class="fa-solid fa-ban"></i></button>
+                <button class="cancel-order" data-id="${order._id}"><i class="fa-solid fa-ban"></i></button>
             </div>`;
 
         switch (order.status) {
@@ -106,7 +106,9 @@ function fillOrderColumns(orders) {
                 break;
         };
 
-        document.getElementById('cancel-order').addEventListener('click', event => cancelOrder(event.target.dataset.id));
+        document.querySelectorAll('.cancel-order').forEach(element => {
+            element.addEventListener('click', event => cancelOrder(event.target.dataset.id));
+        });
     });
 };
 
@@ -116,7 +118,9 @@ async function cancelOrder(orderId) {
 
         if (result.success) {
             showMessage(result.message, true);
-            document.querySelector(`.order button[onclick="cancelOrder('${orderId}')"]`).parentElement.remove();
+            document.querySelector(`.order button[data-id="${orderId}"]`).parentElement.remove();
+            removeTokens(['removeTokens']);
+            window.location.reload();
         } else {
             showMessage(result.message, false);
         }
@@ -187,6 +191,8 @@ preOrderBox.querySelector('form').addEventListener('submit', async event => {
         if (result.success) {
             showMessage(result.message, result.success);
             event.target.reset();
+            removeTokens(['removeTokens']);
+            window.location.reload();
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
