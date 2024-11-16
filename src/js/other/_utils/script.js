@@ -1,4 +1,8 @@
 export function createConsultationRequest() {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateConsultations();
+    });
+
     const consultationContainer = document.getElementById('consultation-container');
     const consultationForm = consultationContainer.querySelector('form');
     const consultationsContainer = document.getElementById('consultations-container');
