@@ -96,7 +96,7 @@ const PreOrderSchema = new mongoose.Schema({
     datetime: { type: Date, default: Date.now, required: true },
     status: {
         type: String,
-        enum: ["new", "in-progress", "completed", "canceled"],
+        enum: ["new", "in-progress", "completed", "cancelled"],
         default: "new",
         required: true
     }

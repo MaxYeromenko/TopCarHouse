@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
                     return res.status(404).json({ success: false, message: 'Замовлення не знайдено!' });
                 }
 
-                order.status = 'canceled';
+                order.status = 'cancelled';
                 await order.save();
 
                 return res.status(201).json({ success: true, message: 'Статус замовлення успішно змінено на "Скасовано"!' });

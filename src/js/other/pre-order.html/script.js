@@ -82,9 +82,9 @@ function fillOrderColumns(orders) {
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-progress-orders');
     const completedOrders = document.getElementById('completed-orders');
-    const canceledOrders = document.getElementById('canceled-orders');
+    const cancelledOrders = document.getElementById('cancelled-orders');
 
-    [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
+    [newOrders, inProcessOrders, completedOrders, cancelledOrders].forEach(column => column.innerHTML = '');
 
     orders.forEach(order => {
         const orderMarkup = `
@@ -105,8 +105,8 @@ function fillOrderColumns(orders) {
             case 'completed':
                 completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
-            case 'canceled':
-                canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+            case 'cancelled':
+                cancelledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
         };
 

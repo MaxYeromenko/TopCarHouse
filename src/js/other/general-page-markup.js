@@ -104,7 +104,7 @@ if(consultationsContainer){
             </div>
             <div class="column">
                 <h3>Скасовані</h3>
-                <div id="canceled-consultations"></div>
+                <div id="cancelled-consultations"></div>
             </div>
         </div>
         `);

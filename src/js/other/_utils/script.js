@@ -112,9 +112,9 @@ export function createConsultationRequest() {
         const newConsultations = document.getElementById('new-consultations');
         const inProcessConsultations = document.getElementById('in-progress-consultations');
         const completedConsultations = document.getElementById('completed-consultations');
-        const canceledConsultations = document.getElementById('canceled-consultations');
+        const cancelledConsultations = document.getElementById('cancelled-consultations');
 
-        [newConsultations, inProcessConsultations, completedConsultations, canceledConsultations].forEach(column => column.innerHTML = '');
+        [newConsultations, inProcessConsultations, completedConsultations, cancelledConsultations].forEach(column => column.innerHTML = '');
 
         consultations.forEach(consultation => {
             const consultationMarkup = `
@@ -135,8 +135,8 @@ export function createConsultationRequest() {
                 case 'completed':
                     completedConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
                     break;
-                case 'canceled':
-                    canceledConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
+                case 'cancelled':
+                    cancelledConsultations.insertAdjacentHTML('afterbegin', consultationMarkup);
                     break;
             };
 
