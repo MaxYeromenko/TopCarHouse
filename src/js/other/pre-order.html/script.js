@@ -30,10 +30,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const cacheKey = 'preOrdersCache';
         const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
-        console.log(result);
 
         if (result.success) {
-            fillOrderColumns(result);
+            for (const o of result) {
+                fillOrderColumns(o);
+            }
         }
     } catch (error) {
         showMessage(error.message, false);
@@ -73,7 +74,7 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
     toggleElementVisibility(preOrdersContainer, 'block');
 });
 
-function fillOrderColumns(array) {
+function fillOrderColumns(order) {
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
@@ -81,32 +82,29 @@ function fillOrderColumns(array) {
 
     [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
 
-    for (const o of array) {
-        console.log(o);
-
-        const orderMarkup = `
+    const orderMarkup = `
             <div class="order">
-                <span>${o.name}</span>
-                <span>${o.phone}</span>
-                <span>${o.car ? `${o.car.brand} ${o.car.model}, $${o.car.price}` : 'Автомобіль не вказаний'}</span>
-                <button onclick="cancelOrder('${o._id}')"><i class="fa-solid fa-ban"></i></button>
+                <span>${order.name}</span>
+                <span>${order.phone}</span>
+                <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
+                <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
             </div>
         `;
-        switch (o.status) {
-            case 'new':
-                newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-                break;
-            case 'in_process':
-                inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-                break;
-            case 'completed':
-                completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-                break;
-            case 'canceled':
-                canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-                break;
-        }
-    };
+    console.log(order);
+    switch (order.status) {
+        case 'new':
+            newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+            break;
+        case 'in_process':
+            inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+            break;
+        case 'completed':
+            completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+            break;
+        case 'canceled':
+            canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+            break;
+    }
 };
 
 async function cancelOrder(orderId) {
