@@ -119,7 +119,7 @@ async function cancelOrder(orderId) {
         if (result.success) {
             showMessage(result.message, true);
             document.querySelector(`.order button[data-id="${orderId}"]`).parentElement.remove();
-            removeTokens(['removeTokens']);
+            removeTokens(['preOrdersCache']);
             window.location.reload();
         } else {
             showMessage(result.message, false);
@@ -191,7 +191,7 @@ preOrderBox.querySelector('form').addEventListener('submit', async event => {
         if (result.success) {
             showMessage(result.message, result.success);
             event.target.reset();
-            removeTokens(['removeTokens']);
+            removeTokens(['preOrdersCache']);
             window.location.reload();
         }
     } catch (error) {
