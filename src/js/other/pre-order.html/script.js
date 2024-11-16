@@ -30,11 +30,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const cacheKey = 'preOrdersCache';
         const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+        console.log(result);
 
         if (result.success) {
-            for (const o of result) {
-                fillOrderColumns(o);
-            }
+            fillOrderColumns(result);
         }
     } catch (error) {
         showMessage(error.message, false);
@@ -74,7 +73,7 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
     toggleElementVisibility(preOrdersContainer, 'block');
 });
 
-function fillOrderColumns(order) {
+function fillOrderColumns(orders) {
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
@@ -82,7 +81,8 @@ function fillOrderColumns(order) {
 
     [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
 
-    const orderMarkup = `
+    orders.forEach(order => {
+        const orderMarkup = `
             <div class="order">
                 <span>${order.name}</span>
                 <span>${order.phone}</span>
@@ -90,21 +90,22 @@ function fillOrderColumns(order) {
                 <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
             </div>
         `;
-    console.log(order);
-    switch (order.status) {
-        case 'new':
-            newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-            break;
-        case 'in_process':
-            inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-            break;
-        case 'completed':
-            completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-            break;
-        case 'canceled':
-            canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
-            break;
-    }
+        
+        switch (order.status) {
+            case 'new':
+                newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+                break;
+            case 'in_process':
+                inProcessOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+                break;
+            case 'completed':
+                completedOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+                break;
+            case 'canceled':
+                canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
+                break;
+        }
+    });
 };
 
 async function cancelOrder(orderId) {
