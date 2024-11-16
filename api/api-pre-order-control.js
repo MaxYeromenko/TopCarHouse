@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
         }
 
         try {
-            const preOrders = await PreOrderModel.find({ userId: id });
+            const preOrders = await PreOrderModel.find({ userId: id }).populate('car', 'brand model price');
             res.status(200).json(preOrders);
         } catch (err) {
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних!' });
