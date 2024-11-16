@@ -111,10 +111,10 @@ export function createConsultationRequest() {
     };
 
     function fillConsultationColumns(consultations) {
-        const newConsultations = document.getElementById('new-consultation');
-        const inProcessConsultations = document.getElementById('in-progress-consultation');
-        const completedConsultations = document.getElementById('completed-consultation');
-        const canceledConsultations = document.getElementById('canceled-consultation');
+        const newConsultations = document.getElementById('new-consultations');
+        const inProcessConsultations = document.getElementById('in-progress-consultations');
+        const completedConsultations = document.getElementById('completed-consultations');
+        const canceledConsultations = document.getElementById('canceled-consultations');
 
         [newConsultations, inProcessConsultations, completedConsultations, canceledConsultations].forEach(column => column.innerHTML = '');
 
