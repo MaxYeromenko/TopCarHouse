@@ -90,7 +90,6 @@ export function createConsultationRequest() {
     });
 
     async function updateConsultations() {
-        showMessage('Завантаження консультацій...', true);
         try {
             const { id } = getUserIdRoleFromToken();
             if (!id) {
@@ -103,7 +102,6 @@ export function createConsultationRequest() {
 
             if (result) {
                 fillConsultationColumns(result);
-                showMessage('Запити на консультації успішно завантажені!', true);
             }
         } catch (error) {
             showMessage(error.message, false);
