@@ -5,10 +5,8 @@ module.exports = async (req, res) => {
         const { consultationId, id, name, phone, datetime } = req.body;
 
         try {
-            console.log(consultationId);
             if (consultationId) {
                 const consultation = await ConsultationModel.findById(consultationId);
-                console.log(consultation);
                 if (!consultation) {
                     return res.status(404).json({ success: false, message: 'Консультацію не знайдено!' });
                 }
@@ -29,7 +27,7 @@ module.exports = async (req, res) => {
             await newUser.save();
             res.status(201).json({ success: true, message: 'Заява на консультацію успішно відправлена!' });
         } catch (err) {
-            res.status(500).json({ success: false, message: 'Помилка сервера під час реєстрації!' });
+            res.status(500).json({ success: false, message: `Помилка сервера під час реєстрації! ${err.message}` });
         }
     } else if (req.method === 'GET') {
         const { id } = req.query;
