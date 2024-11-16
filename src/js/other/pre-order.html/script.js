@@ -79,7 +79,6 @@ async function updatePreOrders() {
 };
 
 function fillOrderColumns(orders) {
-    console.log(orders);
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
