@@ -74,6 +74,7 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
 });
 
 function fillOrderColumns(orders) {
+    fillOrderColumns(orders);
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
@@ -90,7 +91,7 @@ function fillOrderColumns(orders) {
                 <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
             </div>
         `;
-        
+
         switch (order.status) {
             case 'new':
                 newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
