@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(result);
 
         if (result.success) {
-            fillOrderColumns(result);
+            for (const r of result) {
+                fillOrderColumns(r);
+            }
         }
     } catch (error) {
         showMessage(error.message, false);
