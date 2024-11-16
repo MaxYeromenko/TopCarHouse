@@ -74,7 +74,7 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
 });
 
 function fillOrderColumns(orders) {
-    fillOrderColumns(orders);
+    console.log(orders);
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
