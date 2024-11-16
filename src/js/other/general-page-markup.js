@@ -80,7 +80,9 @@ if (consultationСontainer) {
             <p class="consultation-alert"><span>*</span> Зверніть увагу: обраний час не є точним часом
                 дзвінка. Можливі затримки, якщо всі оператори будуть зайняті.
             </p>
-        </form>`);
+        </form>
+        <p>Переглянути всі <a id="view-all-consultation-requests">консультації</a></p>
+        `);
 }
 
 const calculatorContainer = document.getElementById('calculator-container');

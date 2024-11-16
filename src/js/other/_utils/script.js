@@ -62,7 +62,7 @@ export function createConsultationRequest() {
         showMessage('Завантаження...', true);
 
         try {
-            const result = await fetchWithRetryPost(`/api/post-consultation-request`,
+            const result = await fetchWithRetryPost(`/api/api-consultation-control`,
                 {
                     id, name, phone, datetime: selectedDateTime.toISOString()
                 }, retriesLimit);
