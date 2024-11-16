@@ -30,10 +30,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const cacheKey = 'preOrdersCache';
         const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+        console.log(result);
 
         if (result.success) {
-            console.log(1);
-            
             fillOrderColumns(result);
         }
     } catch (error) {
