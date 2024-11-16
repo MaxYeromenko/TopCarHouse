@@ -33,9 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(result);
 
         if (result.success) {
-            for (const r of result) {
-                fillOrderColumns(r);
-            }
+            fillOrderColumns(result);
         }
     } catch (error) {
         showMessage(error.message, false);
@@ -75,7 +73,7 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
     toggleElementVisibility(preOrdersContainer, 'block');
 });
 
-function fillOrderColumns(orders) {
+function fillOrderColumns(array) {
     const newOrders = document.getElementById('new-orders');
     const inProcessOrders = document.getElementById('in-process-orders');
     const completedOrders = document.getElementById('completed-orders');
@@ -83,19 +81,18 @@ function fillOrderColumns(orders) {
 
     [newOrders, inProcessOrders, completedOrders, canceledOrders].forEach(column => column.innerHTML = '');
 
-    console.log([newOrders, inProcessOrders, completedOrders, canceledOrders]);
+    for (const o of array) {
+        console.log(o);
 
-    orders.forEach(order => {
         const orderMarkup = `
             <div class="order">
-                <span>${order.name}</span>
-                <span>${order.phone}</span>
-                <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
-                <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
+                <span>${o.name}</span>
+                <span>${o.phone}</span>
+                <span>${o.car ? `${o.car.brand} ${o.car.model}, $${o.car.price}` : 'Автомобіль не вказаний'}</span>
+                <button onclick="cancelOrder('${o._id}')"><i class="fa-solid fa-ban"></i></button>
             </div>
         `;
-        console.log(order);
-        switch (order.status) {
+        switch (o.status) {
             case 'new':
                 newOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
@@ -109,7 +106,7 @@ function fillOrderColumns(orders) {
                 canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
         }
-    });
+    };
 };
 
 async function cancelOrder(orderId) {
