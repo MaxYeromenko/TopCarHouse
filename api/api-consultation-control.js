@@ -5,8 +5,10 @@ module.exports = async (req, res) => {
         const { consultationId, id, name, phone, datetime } = req.body;
 
         try {
+            console.log(consultationId);
             if (consultationId) {
                 const consultation = await ConsultationModel.findById(consultationId);
+                console.log(consultation);
                 if (!consultation) {
                     return res.status(404).json({ success: false, message: 'Консультацію не знайдено!' });
                 }
