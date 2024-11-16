@@ -21,23 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         showMessage(error.message, false);
     }
 
-    try {
-        const { id } = getUserIdRoleFromToken();
-        if (!id) {
-            showMessage('Помилка, перезайдіть до облікового запису!', false);
-            return;
-        }
-
-        const cacheKey = 'preOrdersCache';
-        const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
-        console.log(result);
-
-        if (result) {
-            fillOrderColumns(result);
-        }
-    } catch (error) {
-        showMessage(error.message, false);
-    }
+    updatePreOrders();
 });
 
 function inputHints(preOrderTypes) {
@@ -73,6 +57,27 @@ document.getElementById('view-all-pre-orders').addEventListener('click', () => {
     toggleElementVisibility(preOrdersContainer, 'block');
 });
 
+async function updatePreOrders() {
+    showMessage('Завантаження передзамовлень...', true);
+    try {
+        const { id } = getUserIdRoleFromToken();
+        if (!id) {
+            showMessage('Помилка, перезайдіть до облікового запису!', false);
+            return;
+        }
+
+        const cacheKey = 'preOrdersCache';
+        const result = await fetchWithCache(`/api/api-pre-order-control?id=${id}`, cacheKey, cacheExpiration, retriesLimit);
+
+        if (result) {
+            fillOrderColumns(result);
+            showMessage('Передзамовлення успішно завантажені!', true);
+        }
+    } catch (error) {
+        showMessage(error.message, false);
+    }
+};
+
 function fillOrderColumns(orders) {
     console.log(orders);
     const newOrders = document.getElementById('new-orders');
@@ -107,8 +112,12 @@ function fillOrderColumns(orders) {
         };
 
         document.querySelectorAll('.cancel-order').forEach(element => {
-            element.addEventListener('click', event => cancelOrder(event.target.dataset.id));
+            if (!element.hasAttribute('listener-attached')) {
+                element.addEventListener('click', event => cancelOrder(event.target.dataset.id));
+                element.setAttribute('listener-attached', 'true');
+            }
         });
+
     });
 };
 
@@ -120,7 +129,7 @@ async function cancelOrder(orderId) {
             showMessage(result.message, true);
             document.querySelector(`.order button[data-id="${orderId}"]`).parentElement.remove();
             removeTokens(['preOrdersCache']);
-            window.location.reload();
+            updatePreOrders();
         } else {
             showMessage(result.message, false);
         }
@@ -189,10 +198,10 @@ preOrderBox.querySelector('form').addEventListener('submit', async event => {
         const result = await fetchWithRetryPost(`/api/api-pre-order-control`, formObject, retriesLimit);
 
         if (result.success) {
-            showMessage(result.message, result.success);
+            showMessage(result.message, true);
             event.target.reset();
             removeTokens(['preOrdersCache']);
-            window.location.reload();
+            updatePreOrders();
         }
     } catch (error) {
         console.error('Error fetching product data:', error);
