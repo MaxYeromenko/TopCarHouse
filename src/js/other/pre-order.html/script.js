@@ -88,9 +88,8 @@ function fillOrderColumns(orders) {
                 <span>${order.name}</span>
                 <span>${order.phone}</span>
                 <span>${order.car ? `${order.car.brand} ${order.car.model}, $${order.car.price}` : 'Автомобіль не вказаний'}</span>
-                <button onclick="cancelOrder('${order._id}')"><i class="fa-solid fa-ban"></i></button>
-            </div>
-        `;
+                <button id="cancel-order" data-order-id="${order._id}"><i class="fa-solid fa-ban"></i></button>
+            </div>`;
 
         switch (order.status) {
             case 'new':
@@ -105,7 +104,9 @@ function fillOrderColumns(orders) {
             case 'canceled':
                 canceledOrders.insertAdjacentHTML('afterbegin', orderMarkup);
                 break;
-        }
+        };
+
+        document.getElementById('cancel-order').addEventListener('click', event => cancelOrder(event.target.dataset.id));
     });
 };
 
