@@ -249,14 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextMonth = new Date();
         nextMonth.setMonth(today.getMonth() + 1);
 
-        const hours = today.getHours().toString().padStart(2, '0');
-        const minutes = today.getMinutes().toString().padStart(2, '0');
-        const currentTime = `${hours}:${minutes}`;
-
         consultationDate.min = today.toISOString().split('T')[0];
         consultationDate.max = nextMonth.toISOString().split('T')[0];
 
-        consultationTime.min = currentTime;
+        // const hours = today.getHours().toString().padStart(2, '0');
+        // const minutes = today.getMinutes().toString().padStart(2, '0');
+        // const currentTime = `${hours}:${minutes}`;
+        // consultationTime.min = currentTime;
     }
 });
 
