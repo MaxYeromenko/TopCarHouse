@@ -150,6 +150,8 @@ export function createConsultationRequest() {
     };
 
     async function cancelConsultation(consultationId) {
+        showMessage('Змінюємо статус ...', true);
+
         try {
             const result = await fetchWithRetryPost(`/api/api-consultation-control`, { consultationId }, retriesLimit);
 

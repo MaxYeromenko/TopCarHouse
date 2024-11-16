@@ -120,6 +120,8 @@ function fillOrderColumns(orders) {
 };
 
 async function cancelOrder(orderId) {
+    showMessage('Змінюємо статус ...', true);
+
     try {
         const result = await fetchWithRetryPost(`/api/api-pre-order-control`, { orderId }, retriesLimit);
 
