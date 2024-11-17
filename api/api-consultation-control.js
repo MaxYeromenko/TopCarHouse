@@ -27,7 +27,8 @@ module.exports = async (req, res) => {
             await newUser.save();
             res.status(201).json({ success: true, message: 'Заява на консультацію успішно відправлена!' });
         } catch (err) {
-            res.status(500).json({ success: false, message: `Помилка сервера під час реєстрації! ${err.message}` });
+            console.log(err.message);
+            res.status(500).json({ success: false, message: `Помилка сервера під час реєстрації!` });
         }
     } else if (req.method === 'GET') {
         const { id } = req.query;
