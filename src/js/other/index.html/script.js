@@ -252,7 +252,7 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
-                removeTokens(['carsTypesCache', 'bestCarDealsCache', 'carsTypesCache']);
+                removeTokens(['carsTypesCache', 'bestCarDealsCache']);
                 showMessage('Авто успішно додано!', true);
             }
         }
@@ -288,7 +288,10 @@ confirmationForm.addEventListener('submit', event => {
 
 yesButton.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
-    removeTokens([authTokenName, 'carsToCompare']);
+    removeTokens([
+        authTokenName, 'carsToCompare', 'bestCarDealsCache', 'blogTypesCache',
+        'consultationsCache', 'carsTypesCache', 'preOrdersCache'
+    ]);
     toggleButtonsVisibility(true);
     showMessage('Ви вийшли з облікового запису.', true);
 });
