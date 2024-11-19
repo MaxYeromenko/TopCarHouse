@@ -9,10 +9,10 @@ module.exports = async (req, res) => {
         return res.status(405).json({ success: false, message: 'Метод не дозволений!' });
     }
 
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     try {
-        if (name && email && password && role) {
+        if (name && email && password) {
             const existingUser = await UserModel.findOne({ email });
             if (existingUser) {
                 return res.status(400).json({ success: false, message: 'Користувач з такою поштою вже існує!' });
@@ -23,7 +23,6 @@ module.exports = async (req, res) => {
                 name,
                 email,
                 password: hashedPassword,
-                role,
             });
 
             await newUser.save();
