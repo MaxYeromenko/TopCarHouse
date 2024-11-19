@@ -91,7 +91,7 @@ function fillTestDriveColumns(testDrives) {
             <div class="test-drive">
                 <span>${testDrive.name}</span>
                 <span>${testDrive.phone}</span>
-                <span>${testDrive.car ? `${testDrive.car.brand} ${testDrive.car.model}, $${testDrive.car.price}` : 'Автомобіль не вказаний'}</span>
+                <span>${testDrive.car ? `${testDrive.car.brand} ${testDrive.car.model}` : 'Автомобіль не вказаний'}</span>
                 ${testDrive.status === 'new' ? `<button class="cancel-test-drive" data-id="${testDrive._id}"><i class="fa-solid fa-ban"></i></button>` : ''}
             </div>`;
 
