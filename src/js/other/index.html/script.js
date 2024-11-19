@@ -347,7 +347,7 @@ registerBox.querySelector('form').addEventListener('submit', async (event) => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetryPost(`/api/post-user`,
+        const result = await fetchWithRetryPost(`/api/api-user-authorization`,
             { name, email, password }, retriesLimit);
 
         if (result.success) {
@@ -370,7 +370,8 @@ loginBox.querySelector('form').addEventListener('submit', async (event) => {
     showMessage('Завантаження...', true);
 
     try {
-        const result = await fetchWithRetryPost('/api/get-user', { email, password }, retriesLimit);
+        const result = await fetchWithRetryPost('/api/api-user-authorization',
+            { email, password }, retriesLimit);
 
         if (result.success) {
             event.target.reset();
