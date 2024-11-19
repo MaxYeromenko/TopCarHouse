@@ -290,7 +290,7 @@ yesButton.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
     removeTokens([
         authTokenName, 'carsToCompare', 'bestCarDealsCache', 'blogTypesCache',
-        'consultationsCache', 'carsTypesCache', 'preOrdersCache'
+        'consultationsCache', 'carsTypesCache', 'preOrdersCache', 'testDrivesCache'
     ]);
     toggleButtonsVisibility(true);
     showMessage('Ви вийшли з облікового запису.', true);

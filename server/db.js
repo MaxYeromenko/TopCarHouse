@@ -103,4 +103,21 @@ const PreOrderSchema = new mongoose.Schema({
 });
 const PreOrderModel = mongoose.model('PreOrder', PreOrderSchema);
 
-module.exports = { mongoose, CarModel, UserModel, ConsultationModel, BlogPostModel, PreOrderModel };
+const TestDriveSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    car: { type: mongoose.Schema.Types.ObjectId, ref: 'Car' },
+    commentText: { type: String, default: '' },
+    datetime: { type: Date, default: Date.now, required: true },
+    status: {
+        type: String,
+        enum: ["new", "in-progress", "completed", "cancelled"],
+        default: "new",
+        required: true
+    }
+});
+const TestDriveModel = mongoose.model('TestDrive', TestDriveSchema);
+
+module.exports = { mongoose, CarModel, UserModel, ConsultationModel, BlogPostModel, PreOrderModel, TestDriveModel };

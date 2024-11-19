@@ -1,9 +1,9 @@
-#pre-orders-container {
+#test-drives-container {
     @extend .form-container;
     width: 90%;
     height: 80%;
 
-    .pre-orders-grid {
+    .test-drives-grid {
         height: 80%;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -22,7 +22,7 @@
                 display: none;
             }
 
-            .order {
+            .test-drive {
                 height: 150px;
                 padding: 10px;
                 display: flex;
@@ -38,7 +38,7 @@
     }
 }
 
-.pre-order {
+.test-drive {
     @extend .flex-align-to-center;
     align-items: center;
     height: 100%;
@@ -80,7 +80,7 @@
         }
     }
 
-    #pre-order-box {
+    #test-drive-box {
         @extend .form-container;
     }
 }

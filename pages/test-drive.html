@@ -51,9 +51,61 @@
             </div>
 
             <div id="theme-container" class="modal-window-element"></div>
+
+            <div id="test-drives-container" class="modal-window-element">
+                <h2>Тест-драйви</h2>
+                <div class="test-drives-grid">
+                    <div class="column">
+                        <h3>Нові</h3>
+                        <div id="new-test-drives"></div>
+                    </div>
+                    <div class="column">
+                        <h3>В обробці</h3>
+                        <div id="in-progress-test-drives"></div>
+                    </div>
+                    <div class="column">
+                        <h3>Завершені</h3>
+                        <div id="completed-test-drives"></div>
+                    </div>
+                    <div class="column">
+                        <h3>Скасовані</h3>
+                        <div id="cancelled-test-drives"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- <section class="contacts"></section> -->
+        <section class="test-drive">
+            <div class="stage">
+                <h1>Про сторінку</h1>
+                <div class="image-container">
+                    <img src="/src/images/testdrive/topcarhouse_testdrive.webp" alt="Команда">
+                </div>
+                <p>На цій сторінці ви зможете записатися на тест-драйв вашого майбутнього автомобіля. Оберіть модель,
+                    яка вас цікавить. Залиште свої контактні дані та побажання. Наш менеджер зв’яжеться з вами
+                    для підтвердження запису та уточнення деталей (зручна дата та час). Випробуйте авто в реальних
+                    умовах, щоб відчути його комфорт, динаміку та технічні переваги.
+                </p>
+            </div>
+            <div id="test-drive-box">
+                <h2>Запис на тест-драйв</h2>
+                <form>
+                    <input name="name" type="text" placeholder="Ваше ім'я" title="Ім'я" required>
+                    <input name="email" type="email" placeholder="Електронна пошта" title="Електронна пошта" required>
+                    <input name="phone" type="tel" placeholder="Номер телефону" title="Номер телефону" required>
+
+                    <input name="carDisplay" type="text" placeholder="Автомобіль" title="Автомобіль" list="car-options"
+                        required>
+                    <datalist id="car-options"></datalist>
+                    <input type="hidden" name="car" id="carId">
+
+                    <textarea name="commentText" placeholder="Ваші побажання чи питання" title="Коментар"></textarea>
+
+                    <button type="submit">Записатися</button>
+                </form>
+                <p>Переглянути всі <a id="view-all-test-drives">записи</a></p>
+            </div>
+        </section>
     </main>
 
     <script src="https://kit.fontawesome.com/8fbd545149.js" crossorigin="anonymous"></script>
