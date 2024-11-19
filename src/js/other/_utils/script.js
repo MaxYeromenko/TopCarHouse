@@ -93,7 +93,6 @@ export function createConsultationRequest() {
         try {
             const { id } = getUserIdRoleFromToken();
             if (!id) {
-                showMessage('Помилка, перезайдіть до облікового запису!', false);
                 return;
             }
 
