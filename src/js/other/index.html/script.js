@@ -205,6 +205,11 @@ function initializeFormSubmission() {
         const images = formData.getAll('images');
         const imageUrls = [];
 
+        if (images.length > 5) {
+            showMessage('Можна завантажити не більше 5 зображень!', false);
+            return;
+        }
+
         for (const image of images) {
             const formDataCloudinary = new FormData();
             formDataCloudinary.append('file', image);
