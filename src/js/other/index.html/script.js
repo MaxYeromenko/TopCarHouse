@@ -205,6 +205,10 @@ function initializeFormSubmission() {
         const images = formData.getAll('images');
         const imageUrls = [];
 
+        console.log(images);
+        console.log(images.length);
+        return;
+
         if (images.length > 5) {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
