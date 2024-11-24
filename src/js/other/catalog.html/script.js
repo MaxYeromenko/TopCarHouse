@@ -485,9 +485,7 @@ function createCarCard(car) {
             const result = await fetchWithRetry(`/api/api-cars-control?id=${car._id}`, retriesLimit);
 
             if (result && result.length > 0) {
-                console.log(result);
                 const carObject = result[0];
-                console.log(carObject);
                 openAdminPanel();
 
                 const editCarForm = document.querySelector('#admin-container form');
@@ -499,12 +497,12 @@ function createCarCard(car) {
                 formData.set('color', carObject.color);
                 formData.set('description', carObject.description);
                 formData.set('country', carObject.country);
-                formData.set('transmission', carObject.transmission);
-                formData.set('engine', carObject.engine);
-                formData.set('fuel_type', carObject.fuel_type);
-                formData.set('horsepower', carObject.horsepower);
-                formData.set('fuel_consumption', carObject.fuel_consumption);
-                formData.set('body_type', carObject.body_type);
+                formData.set('transmission', carObject.features.transmission);
+                formData.set('engine', carObject.features.engine);
+                formData.set('fuel_type', carObject.features.fuel_type);
+                formData.set('horsepower', carObject.features.horsepower);
+                formData.set('fuel_consumption', carObject.features.fuel_consumption);
+                formData.set('body_type', carObject.features.body_type);
 
                 showMessage('Дані успішно завантажені!', true);
             } else {
