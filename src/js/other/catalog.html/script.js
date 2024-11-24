@@ -196,7 +196,7 @@ async function openAdminPanel() {
                 <textarea id="description" name="description" placeholder="Опис" title="Опис" required></textarea>
                 <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник" list="country-options" required>
                     <datalist id="country-options"></datalist>
-                <textarea name="imageUrls" placeholder="Введіть URL-адреси зображень через кому" title="URL-адреси зображень"></textarea>
+                <textarea id="imageUrls" name="imageUrls" placeholder="Введіть URL-адреси зображень через кому" title="URL-адреси зображень"></textarea>
                 <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple>
                 <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" title="Коробка передач" list="transmission-options" required>
                     <datalist id="transmission-options"></datalist>
@@ -489,26 +489,21 @@ function createCarCard(car) {
                 openAdminPanel();
 
                 const editCarForm = document.querySelector('#admin-container form');
-                const formData = new FormData(editCarForm);
-                console.log(editCarForm);
-                console.log(formData);
-                
-                console.log(carObject.brand);
-                console.log(carObject.features.transmission);
-                
-                formData.set('brand', carObject.brand);
-                formData.set('model', carObject.model);
-                formData.set('year', carObject.year);
-                formData.set('price', carObject.price);
-                formData.set('color', carObject.color);
-                formData.set('description', carObject.description);
-                formData.set('country', carObject.country);
-                formData.set('transmission', carObject.features.transmission);
-                formData.set('engine', carObject.features.engine);
-                formData.set('fuel_type', carObject.features.fuel_type);
-                formData.set('horsepower', carObject.features.horsepower);
-                formData.set('fuel_consumption', carObject.features.fuel_consumption);
-                formData.set('body_type', carObject.features.body_type);
+
+                editCarForm.querySelector('#brand').value = carObject.brand || '';
+                editCarForm.querySelector('#model').value = carObject.model || '';
+                editCarForm.querySelector('#year').value = carObject.year || '';
+                editCarForm.querySelector('#price').value = carObject.price || '';
+                editCarForm.querySelector('#color').value = carObject.color || '';
+                editCarForm.querySelector('#description').value = carObject.description || '';
+                editCarForm.querySelector('#country').value = carObject.country || '';
+                editCarForm.querySelector('#imageUrls').value = carObject.images.join(', ') || '';
+                editCarForm.querySelector('#transmission').value = carObject.features.transmission || '';
+                editCarForm.querySelector('#engine').value = carObject.features.engine || '';
+                editCarForm.querySelector('#fuel_type').value = carObject.features.fuel_type || '';
+                editCarForm.querySelector('#horsepower').value = carObject.features.horsepower || '';
+                editCarForm.querySelector('#fuel_consumption').value = carObject.features.fuel_consumption || '';
+                editCarForm.querySelector('#body_type').value = carObject.features.body_type || '';
 
                 showMessage('Дані успішно завантажені!', true);
             } else {
