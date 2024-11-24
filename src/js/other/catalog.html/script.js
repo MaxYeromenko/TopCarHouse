@@ -481,8 +481,9 @@ function createCarCard(car) {
     carCard.querySelector('.edit-car-info').addEventListener('click', editCarInfo);
 
     async function editCarInfo() {
+        const id = car._id;
         try {
-            const result = await fetchWithRetry(`/api/api-cars-control?${car._id}`, retriesLimit);
+            const result = await fetchWithRetry(`/api/api-cars-control?${id}`, retriesLimit);
 
             if (result && result.length > 0) {
                 console.log(result);
