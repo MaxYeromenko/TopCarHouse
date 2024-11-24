@@ -355,19 +355,19 @@ function initializeFormSubmission() {
         console.log('Ответ сервера:', imageUrls);
         console.log('Отправка данных:', carData);
 
-        // try {
-        //     const result = await fetchWithRetryPost(`api/api-cars-control`,
-        //         carData, retriesLimit);
+        try {
+            const result = await fetchWithRetryPost(`api/api-cars-control`,
+                carData, retriesLimit);
 
-        //     if (result) {
-        //         removeTokens(['carsTypesCache', 'bestCarDealsCache']);
-        //         showMessage('Авто успішно додано!', true);
-        //     }
-        // }
-        // catch (error) {
-        //     console.error(error);
-        //     showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-        // }
+            if (result) {
+                removeTokens(['carsTypesCache', 'bestCarDealsCache']);
+                showMessage('Авто успішно додано!', true);
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        }
     });
 }
 
