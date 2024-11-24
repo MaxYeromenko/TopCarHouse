@@ -382,6 +382,7 @@ function initializeFormSubmission() {
             if (result) {
                 removeTokens(['carsTypesCache', 'bestCarDealsCache']);
                 showMessage('Авто успішно додано!', true);
+                event.target.reset();
             }
         }
         catch (error) {
