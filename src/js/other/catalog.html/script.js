@@ -487,6 +487,7 @@ function createCarCard(car) {
             if (result && result.length > 0) {
                 console.log(result);
                 const carObject = result[0];
+                console.log(carObject);
                 openAdminPanel();
 
                 const editCarForm = document.querySelector('#admin-container form');
