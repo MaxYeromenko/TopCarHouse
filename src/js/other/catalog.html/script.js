@@ -318,7 +318,7 @@ function initializeFormSubmission() {
 
         for (const image of fileImages) {
             if (!image.name || image.size === 0) continue;
-            
+
             const formDataCloudinary = new FormData();
             formDataCloudinary.append('file', image);
             formDataCloudinary.append('upload_preset', 'ml_default');
@@ -485,13 +485,10 @@ function createCarCard(car) {
             const result = await fetchWithRetry(`/api/api-cars-control?${car._id}`, retriesLimit);
 
             if (result && result.length > 0) {
-                carsData = result;
-                carsDisplayed = 0;
-                loadMoreCars();
-                toggleElementVisibility(catalogGrid, 'none');
+                console.log(result);
                 showMessage('Дані успішно завантажені!', true);
             } else {
-                showMessage('Авто за обраними фільтрами не знайдено.', false);
+                showMessage('Авто не знайдено.', false);
                 toggleElementVisibility(loadMoreCarsButton, 'none');
             }
         } catch (error) {
