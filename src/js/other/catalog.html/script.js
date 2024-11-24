@@ -298,6 +298,8 @@ function placeIndexTypes(indexTypes) {
     });
 }
 
+let carIdToEdit = null;
+
 function initializeFormSubmission() {
     modalWindow.querySelector('#admin-container form').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -367,6 +369,11 @@ function initializeFormSubmission() {
                 body_type: formData.get('body_type').trim()
             }
         };
+
+        if (carIdToEdit) {
+            carData.id = carIdToEdit;
+            carIdToEdit = null;
+        }
 
         try {
             const result = await fetchWithRetryPost(`/api/api-cars-control`,
@@ -478,7 +485,10 @@ function createCarCard(car) {
             </div>
         </div>`;
 
-    carCard.querySelector('.edit-car-info').addEventListener('click', editCarInfo);
+    carCard.querySelector('.edit-car-info').addEventListener('click', (event) => {
+        carIdToEdit = event.target.dataset.id;
+        editCarInfo();
+    });
 
     async function editCarInfo() {
         try {

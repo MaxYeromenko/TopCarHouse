@@ -3,12 +3,25 @@ const { CarModel } = require('../server/db');
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
         try {
-            const { brand, model, year, price, color, description, country, images, features } = req.body;
+            const { id, brand, model, year, price, color, description, country, images, features } = req.body;
 
             if (!brand || !model || !year || !price || !color || !description || !country || !features) {
                 return res.status(400).json({ success: false, message: 'Будь ласка, заповніть всі обов\'язкові поля.' });
             }
-            console.log(1);
+
+            if (id) {
+                const updatedCar = await CarModel.findByIdAndUpdate(
+                    id,
+                    { brand, model, year, price, color, description, country, images, features },
+                    { new: true, runValidators: true }
+                );
+
+                if (!updatedCar) {
+                    return res.status(404).json({ success: false, message: 'Автомобіль не знайдено.' });
+                }
+
+                return res.status(200).json({ success: true, message: 'Автомобіль успішно оновлено!' });
+            }
 
             const car = new CarModel({
                 brand,
@@ -21,12 +34,11 @@ module.exports = async (req, res) => {
                 images,
                 features
             });
-            console.log(2);
-            
+
             await car.save();
-            console.log(3);
-            res.status(201).json({ success: true, message: 'Авто успішно додано!' });
+            res.status(201).json({ success: true, message: 'Автомобіль успішно додано!', data: car });
         } catch (err) {
+            console.error('Error handling car:', err);
             res.status(500).json({ success: false, message: 'Помилка сервера під час публікації!' });
         }
     }
