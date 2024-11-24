@@ -304,10 +304,10 @@ function initializeFormSubmission() {
 
         const formData = new FormData(event.target);
         const fileImages = formData.getAll('images') || [];
-        const urlImages = formData.get('imageUrls')
+        const urlImages = (formData.get('imageUrls') || '')
             .split(',')
             .map(url => url.trim())
-            .filter(url => url) || [];
+            .filter(url => url);
 
         const imageUrls = [];
 
