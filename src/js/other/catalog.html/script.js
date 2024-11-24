@@ -313,7 +313,7 @@ function initializeFormSubmission() {
 
         const imageUrls = [];
 
-        if (fileImages.length + urlImages.length > 5) {
+        if (fileImages.length + urlImages.length > 6) {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
         }
