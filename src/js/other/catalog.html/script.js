@@ -486,23 +486,24 @@ function createCarCard(car) {
 
             if (result && result.length > 0) {
                 console.log(result);
+                const carObject = result[0];
                 openAdminPanel();
 
                 const editCarForm = document.querySelector('#admin-container form');
                 const formData = new FormData(editCarForm);
-                formData.set('brand', result.brand);
-                formData.set('model', result.model);
-                formData.set('year', result.year);
-                formData.set('price', result.price);
-                formData.set('color', result.color);
-                formData.set('description', result.description);
-                formData.set('country', result.country);
-                formData.set('transmission', result.transmission);
-                formData.set('engine', result.engine);
-                formData.set('fuel_type', result.fuel_type);
-                formData.set('horsepower', result.horsepower);
-                formData.set('fuel_consumption', result.fuel_consumption);
-                formData.set('body_type', result.body_type);
+                formData.set('brand', carObject.brand);
+                formData.set('model', carObject.model);
+                formData.set('year', carObject.year);
+                formData.set('price', carObject.price);
+                formData.set('color', carObject.color);
+                formData.set('description', carObject.description);
+                formData.set('country', carObject.country);
+                formData.set('transmission', carObject.transmission);
+                formData.set('engine', carObject.engine);
+                formData.set('fuel_type', carObject.fuel_type);
+                formData.set('horsepower', carObject.horsepower);
+                formData.set('fuel_consumption', carObject.fuel_consumption);
+                formData.set('body_type', carObject.body_type);
 
                 showMessage('Дані успішно завантажені!', true);
             } else {
