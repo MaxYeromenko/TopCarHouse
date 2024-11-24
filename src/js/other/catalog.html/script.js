@@ -486,46 +486,48 @@ function createCarCard(car) {
             </div>
         </div>`;
 
-    carCard.querySelector('.edit-car-info').addEventListener('click', (event) => {
-        carIdToEdit = event.target.dataset.id;
-        editCarInfo();
-    });
+    if (role === 'admin') {
+        carCard.querySelector('.edit-car-info').addEventListener('click', (event) => {
+            carIdToEdit = event.target.dataset.id;
+            editCarInfo();
+        });
 
-    async function editCarInfo() {
-        try {
-            const result = await fetchWithRetry(`/api/api-cars-control?id=${car._id}`, retriesLimit);
+        async function editCarInfo() {
+            try {
+                const result = await fetchWithRetry(`/api/api-cars-control?id=${car._id}`, retriesLimit);
 
-            if (result && result.length > 0) {
-                const carObject = result[0];
-                openAdminPanel();
+                if (result && result.length > 0) {
+                    const carObject = result[0];
+                    openAdminPanel();
 
-                const editCarForm = document.querySelector('#admin-container form');
+                    const editCarForm = document.querySelector('#admin-container form');
 
-                editCarForm.querySelector('#brand').value = carObject.brand || '';
-                editCarForm.querySelector('#model').value = carObject.model || '';
-                editCarForm.querySelector('#year').value = carObject.year || '';
-                editCarForm.querySelector('#price').value = carObject.price || '';
-                editCarForm.querySelector('#color').value = carObject.color || '';
-                editCarForm.querySelector('#description').value = carObject.description || '';
-                editCarForm.querySelector('#country').value = carObject.country || '';
-                editCarForm.querySelector('#imageUrls').value = carObject.images.join(', ') || '';
-                editCarForm.querySelector('#transmission').value = carObject.features.transmission || '';
-                editCarForm.querySelector('#engine').value = carObject.features.engine || '';
-                editCarForm.querySelector('#fuel_type').value = carObject.features.fuel_type || '';
-                editCarForm.querySelector('#horsepower').value = carObject.features.horsepower || '';
-                editCarForm.querySelector('#fuel_consumption').value = carObject.features.fuel_consumption || '';
-                editCarForm.querySelector('#body_type').value = carObject.features.body_type || '';
+                    editCarForm.querySelector('#brand').value = carObject.brand || '';
+                    editCarForm.querySelector('#model').value = carObject.model || '';
+                    editCarForm.querySelector('#year').value = carObject.year || '';
+                    editCarForm.querySelector('#price').value = carObject.price || '';
+                    editCarForm.querySelector('#color').value = carObject.color || '';
+                    editCarForm.querySelector('#description').value = carObject.description || '';
+                    editCarForm.querySelector('#country').value = carObject.country || '';
+                    editCarForm.querySelector('#imageUrls').value = carObject.images.join(', ') || '';
+                    editCarForm.querySelector('#transmission').value = carObject.features.transmission || '';
+                    editCarForm.querySelector('#engine').value = carObject.features.engine || '';
+                    editCarForm.querySelector('#fuel_type').value = carObject.features.fuel_type || '';
+                    editCarForm.querySelector('#horsepower').value = carObject.features.horsepower || '';
+                    editCarForm.querySelector('#fuel_consumption').value = carObject.features.fuel_consumption || '';
+                    editCarForm.querySelector('#body_type').value = carObject.features.body_type || '';
 
-                showMessage('Дані успішно завантажені!', true);
-            } else {
-                showMessage('Авто не знайдено.', false);
-                toggleElementVisibility(loadMoreCarsButton, 'none');
+                    showMessage('Дані успішно завантажені!', true);
+                } else {
+                    showMessage('Авто не знайдено.', false);
+                    toggleElementVisibility(loadMoreCarsButton, 'none');
+                }
+            } catch (error) {
+                console.error('Error fetching cars:', error);
+                showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
             }
-        } catch (error) {
-            console.error('Error fetching cars:', error);
-            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-        }
-    }
+        };
+    };
 
     carImages.forEach(imageUrl => {
         checkImageValidity(imageUrl)
