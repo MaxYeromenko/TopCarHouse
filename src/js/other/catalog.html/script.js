@@ -352,11 +352,8 @@ function initializeFormSubmission() {
             }
         };
 
-        console.log('Ответ сервера:', imageUrls);
-        console.log('Отправка данных:', carData);
-
         try {
-            const result = await fetchWithRetryPost(`api/api-cars-control`,
+            const result = await fetchWithRetryPost(`/api/api-cars-control`,
                 carData, retriesLimit);
 
             if (result) {
@@ -365,7 +362,7 @@ function initializeFormSubmission() {
             }
         }
         catch (error) {
-            console.log(error.message);
+            console.log(error);
             showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
         }
     });
