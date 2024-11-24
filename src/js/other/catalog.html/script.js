@@ -196,7 +196,8 @@ async function openAdminPanel() {
                 <textarea id="description" name="description" placeholder="Опис" title="Опис" required></textarea>
                 <input type="text" id="country" name="country" placeholder="Країна-виробник" title="Країна-виробник" list="country-options" required>
                     <datalist id="country-options"></datalist>
-                <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple required>
+                <textarea name="imageUrls" placeholder="Введіть URL-адреси зображень через кому" title="URL-адреси зображень"></textarea>
+                <input type="file" id="images" name="images" accept="image/*" title="Завантажте до 5 зображень авто" multiple>
                 <input type="text" id="transmission" name="transmission" placeholder="Коробка передач" title="Коробка передач" list="transmission-options" required>
                     <datalist id="transmission-options"></datalist>
                 <input type="number" min="0" id="engine" name="engine" placeholder="Об'єм двигуна (л)" title="Об'єм двигуна" step="0.1" required>
@@ -302,15 +303,20 @@ function initializeFormSubmission() {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const images = formData.getAll('images');
+        const fileImages = formData.getAll('images');
+        const urlImages = formData.get('imageUrls')
+            .split(',')
+            .map(url => url.trim())
+            .filter(url => url);
+
         const imageUrls = [];
 
-        if (images.length > 5) {
+        if (fileImages.length + urlImages.length > 5) {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
         }
 
-        for (const image of images) {
+        for (const image of fileImages) {
             const formDataCloudinary = new FormData();
             formDataCloudinary.append('file', image);
             formDataCloudinary.append('upload_preset', 'ml_default');
@@ -330,6 +336,14 @@ function initializeFormSubmission() {
             catch (error) {
                 console.error(error);
                 showMessage(`Фото ${image.name} не вдалося відправити!`, false);
+            }
+        };
+
+        for (const url of urlImages) {
+            if (/^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(url)) {
+                imageUrls.push(url);
+            } else {
+                showMessage(`URL ${url} не є дійсним зображенням! Зверніть увагу, формат зображення має бути одним із: jpg, jpeg, png, webp.`, false);
             }
         };
 
