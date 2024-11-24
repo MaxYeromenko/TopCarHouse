@@ -352,19 +352,22 @@ function initializeFormSubmission() {
             }
         };
 
-        try {
-            const result = await fetchWithRetryPost(`api/api-cars-control`,
-                carData, retriesLimit);
+        console.log('Ответ сервера:', imageUrls);
+        console.log('Отправка данных:', carData);
 
-            if (result) {
-                removeTokens(['carsTypesCache', 'bestCarDealsCache']);
-                showMessage('Авто успішно додано!', true);
-            }
-        }
-        catch (error) {
-            console.error(error);
-            showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
-        }
+        // try {
+        //     const result = await fetchWithRetryPost(`api/api-cars-control`,
+        //         carData, retriesLimit);
+
+        //     if (result) {
+        //         removeTokens(['carsTypesCache', 'bestCarDealsCache']);
+        //         showMessage('Авто успішно додано!', true);
+        //     }
+        // }
+        // catch (error) {
+        //     console.error(error);
+        //     showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+        // }
     });
 }
 
