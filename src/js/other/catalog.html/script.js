@@ -486,6 +486,7 @@ function createCarCard(car) {
 
             if (result && result.length > 0) {
                 console.log(result);
+                openAdminPanel();
                 showMessage('Дані успішно завантажені!', true);
             } else {
                 showMessage('Авто не знайдено.', false);
