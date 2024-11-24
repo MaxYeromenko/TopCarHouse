@@ -345,7 +345,7 @@ function initializeFormSubmission() {
             if (/^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(url)) {
                 imageUrls.push(url);
             } else {
-                showMessage(`URL ${url} не є дійсним зображенням! Зверніть увагу, формат зображення має бути одним із: jpg, jpeg, png, webp.`, false);
+                showMessage(`Фото з посиланням ${url} не вдалося відправити!`, false);
             }
         };
 
