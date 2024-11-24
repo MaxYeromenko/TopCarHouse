@@ -487,6 +487,23 @@ function createCarCard(car) {
             if (result && result.length > 0) {
                 console.log(result);
                 openAdminPanel();
+
+                const editCarForm = document.querySelector('#admin-container form');
+                const formData = new FormData(editCarForm);
+                formData.set('brand', result.brand);
+                formData.set('model', result.model);
+                formData.set('year', result.year);
+                formData.set('price', result.price);
+                formData.set('color', result.color);
+                formData.set('description', result.description);
+                formData.set('country', result.country);
+                formData.set('transmission', result.transmission);
+                formData.set('engine', result.engine);
+                formData.set('fuel_type', result.fuel_type);
+                formData.set('horsepower', result.horsepower);
+                formData.set('fuel_consumption', result.fuel_consumption);
+                formData.set('body_type', result.body_type);
+
                 showMessage('Дані успішно завантажені!', true);
             } else {
                 showMessage('Авто не знайдено.', false);
