@@ -303,11 +303,11 @@ function initializeFormSubmission() {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const fileImages = formData.getAll('images');
+        const fileImages = formData.getAll('images') || [];
         const urlImages = formData.get('imageUrls')
             .split(',')
             .map(url => url.trim())
-            .filter(url => url);
+            .filter(url => url) || [];
 
         const imageUrls = [];
 
@@ -315,7 +315,7 @@ function initializeFormSubmission() {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
         }
-        
+
         if (fileImages.length > 0) {
             for (const image of fileImages) {
                 const formDataCloudinary = new FormData();
