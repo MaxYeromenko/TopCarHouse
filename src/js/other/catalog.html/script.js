@@ -490,6 +490,9 @@ function createCarCard(car) {
 
                 const editCarForm = document.querySelector('#admin-container form');
                 const formData = new FormData(editCarForm);
+                console.log(editCarForm);
+                console.log(formData);
+                
                 console.log(carObject.brand);
                 console.log(carObject.features.transmission);
                 
