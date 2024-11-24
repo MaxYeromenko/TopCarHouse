@@ -125,9 +125,12 @@
                     margin: 10px;
                 }
 
-                a {
+                a,
+                b {
                     @extend .default-button-light-bg;
+                }
 
+                a {
                     .fa-arrow-up-right-from-square {
                         font-size: small;
                     }

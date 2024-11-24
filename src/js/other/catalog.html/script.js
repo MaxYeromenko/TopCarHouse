@@ -240,6 +240,8 @@ function createCarCard(car) {
         addToCarToLocalStorage(carId);
     });
 
+    const { role } = getUserIdRoleFromToken();
+
     carCard.innerHTML = `
         <div class="product-card">
             <div class="product-info">
@@ -254,6 +256,7 @@ function createCarCard(car) {
                 </div>
                 <div class="product-price">Ціна: $${car.price}</div>
                 <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                ${role === 'admin' ? `<button class="edit-car-info" data-id="${car._id}">Відредагувати</button>` : ''}
             </div>
         </div>`;
 
