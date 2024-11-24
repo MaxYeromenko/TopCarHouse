@@ -315,29 +315,31 @@ function initializeFormSubmission() {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
         }
+        
+        if (fileImages.length > 0) {
+            for (const image of fileImages) {
+                const formDataCloudinary = new FormData();
+                formDataCloudinary.append('file', image);
+                formDataCloudinary.append('upload_preset', 'ml_default');
+                formDataCloudinary.append('folder', 'cars');
 
-        for (const image of fileImages) {
-            const formDataCloudinary = new FormData();
-            formDataCloudinary.append('file', image);
-            formDataCloudinary.append('upload_preset', 'ml_default');
-            formDataCloudinary.append('folder', 'cars');
+                try {
+                    const result = await handleRequest(`https://api.cloudinary.com/v1_1/${cloudinaryName}/upload`, {
+                        method: "POST",
+                        body: formDataCloudinary
+                    }, retriesLimit);
 
-            try {
-                const result = await handleRequest(`https://api.cloudinary.com/v1_1/${cloudinaryName}/upload`, {
-                    method: "POST",
-                    body: formDataCloudinary
-                }, retriesLimit);
-
-                if (result.secure_url) {
-                    imageUrls.push(result.secure_url);
-                    showMessage(`Фото ${image.name} успішно відправлено!`, true);
+                    if (result.secure_url) {
+                        imageUrls.push(result.secure_url);
+                        showMessage(`Фото ${image.name} успішно відправлено!`, true);
+                    }
                 }
-            }
-            catch (error) {
-                console.error(error);
-                showMessage(`Фото ${image.name} не вдалося відправити!`, false);
-            }
-        };
+                catch (error) {
+                    console.error(error);
+                    showMessage(`Фото ${image.name} не вдалося відправити!`, false);
+                }
+            };
+        }
 
         for (const url of urlImages) {
             if (/^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(url)) {
