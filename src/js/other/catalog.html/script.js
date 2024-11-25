@@ -305,7 +305,9 @@ function initializeFormSubmission() {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const fileImages = formData.getAll('images');
+        const fileImages = formData.getAll('images').filter(image => {
+            return image.name && image.size > 0;
+        });
         const urlImages = formData.get('imageUrls')
             .split(',')
             .map(url => url.trim())
@@ -313,14 +315,12 @@ function initializeFormSubmission() {
 
         const imageUrls = [];
 
-        if (fileImages.length + urlImages.length > 6) {
+        if (fileImages.length + urlImages.length > 5) {
             showMessage('Можна завантажити не більше 5 зображень!', false);
             return;
         }
 
         for (const image of fileImages) {
-            if (!image.name || image.size === 0) continue;
-
             const formDataCloudinary = new FormData();
             formDataCloudinary.append('file', image);
             formDataCloudinary.append('upload_preset', 'ml_default');
