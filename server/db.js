@@ -19,6 +19,14 @@ const connectDB = async () => {
         console.log("Connected to MongoDB Atlas!");
     } catch (err) {
         console.error("Error connecting to MongoDB Atlas:", err);
+        if (mongoose.connection.readyState) {
+            try {
+                await mongoose.connection.close();
+                console.log("Connection closed due to error.");
+            } catch (closeErr) {
+                console.error("Error closing the connection:", closeErr);
+            }
+        }
         process.exit(1);
     }
 };
