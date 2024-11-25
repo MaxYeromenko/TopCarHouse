@@ -344,7 +344,7 @@ function initializeFormSubmission() {
         };
 
         for (const url of urlImages) {
-            if (/^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(url)) {
+            if (/^https?:\/\/.+\.(avif|heif|heic|jpg|jpeg|jpe|jif|jfif|jfi|png|webp)$/i.test(url)) {
                 imageUrls.push(url);
             } else {
                 showMessage(`Фото з посиланням ${url} не вдалося відправити!`, false);
