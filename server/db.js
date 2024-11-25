@@ -14,8 +14,6 @@ const connectDB = async () => {
             socketTimeoutMS: 15000,
             serverSelectionTimeoutMS: 10000,
             maxPoolSize: 10,
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             retryWrites: true
         });
         isConnected = true;
