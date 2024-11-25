@@ -202,6 +202,17 @@ if (themeContainer)
                     <background-color>Фоновий</background-color>
                 </div>
             </container>
+        </div>
+        <div class="theme-block">
+            <span>М'ятно-зелена тема</span>
+            <container data-theme="mint-green-theme">
+                <button>Застосувати</button>
+                <div class="colors">
+                    <main-color>Головний</main-color>
+                    <secondary-color>Другорядний</secondary-color>
+                    <background-color>Фоновий</background-color>
+                </div>
+            </container>
         </div>`);
 
 const pageFooter = `<footer>
