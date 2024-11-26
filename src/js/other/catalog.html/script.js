@@ -379,7 +379,7 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
-                removeTokens(['carsTypesCache', 'bestCarDealsCache', 'catalogCarsCache', `car${carIdToEdit}`]);
+                removeTokens(['carsTypesCache', 'bestCarDealsCache', `car${carIdToEdit}`]);
                 carIdToEdit = null;
                 showMessage('Авто успішно додано!', true);
                 event.target.reset();
@@ -417,8 +417,7 @@ async function loadCars(filter) {
                     .map(([key, value]) => [key, value.trim()])
             )).toString();
 
-        const cacheKey = 'catalogCarsCache';
-        const result = await fetchWithCache(`/api/api-cars-control?${queryParams}`, cacheKey, cacheExpiration, retriesLimit);
+        const result = await fetchWithRetry(`/api/api-cars-control?${queryParams}`, retriesLimit);
 
         carsContainer.innerHTML = '';
         if (result && result.length > 0) {
