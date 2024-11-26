@@ -92,10 +92,13 @@ confirmationForm.addEventListener('submit', event => {
 
 yesButton.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
-    removeTokens([
-        authTokenName, 'carsToCompare', 'bestCarDealsCache', 'blogTypesCache',
-        'consultationsCache', 'carsTypesCache', 'preOrdersCache', 'testDrivesCache'
-    ]);
+    
+    Object.keys(localStorage).forEach(key => {
+        if (key !== 'selected-theme') {
+            removeTokens([key]);
+        }
+    });
+
     toggleButtonsVisibility(true);
     showMessage('Ви вийшли з облікового запису.', true);
 });

@@ -372,7 +372,6 @@ function initializeFormSubmission() {
 
         if (carIdToEdit) {
             carData.id = carIdToEdit;
-            carIdToEdit = null;
         }
 
         try {
@@ -380,7 +379,8 @@ function initializeFormSubmission() {
                 carData, retriesLimit);
 
             if (result) {
-                removeTokens(['carsTypesCache', 'bestCarDealsCache']);
+                removeTokens(['carsTypesCache', 'bestCarDealsCache', 'catalogCarsCache', `car${carIdToEdit}`]);
+                carIdToEdit = null;
                 showMessage('Авто успішно додано!', true);
                 event.target.reset();
             }
@@ -416,7 +416,9 @@ async function loadCars(filter) {
                 Object.entries(filter)
                     .map(([key, value]) => [key, value.trim()])
             )).toString();
-        const result = await fetchWithRetry(`/api/api-cars-control?${queryParams}`, retriesLimit);
+
+        const cacheKey = 'catalogCarsCache';
+        const result = await fetchWithCache(`/api/api-cars-control?${queryParams}`, cacheKey, cacheExpiration, retriesLimit);
 
         carsContainer.innerHTML = '';
         if (result && result.length > 0) {
@@ -494,7 +496,8 @@ function createCarCard(car) {
 
         async function editCarInfo() {
             try {
-                const result = await fetchWithRetry(`/api/api-cars-control?id=${car._id}`, retriesLimit);
+                const cacheKey = `car${car._id}`;
+                const result = await fetchWithCache(`/api/api-cars-control?id=${car._id}`, cacheKey, cacheExpiration, retriesLimit);
 
                 if (result && result.length > 0) {
                     const carObject = result[0];
