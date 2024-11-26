@@ -328,7 +328,8 @@ export function compareCarsIntegration() {
 
             for (const carId of carsToCompare) {
                 try {
-                    const result = await fetchWithRetry(`/api/api-cars-control?id=${carId}`, retriesLimit);
+                    const cacheKey = `car${carId}`;
+                    const result = await fetchWithCache(`/api/api-cars-control?id=${carId}`, cacheKey, cacheExpiration, retriesLimit);
 
                     if (result) {
                         const carCard = createCompareCarCard(result[0]);
