@@ -33,13 +33,12 @@
     --slider-image: url('/src/images/car_gray.jpg');
 }
 
-[data-theme="mint-green-theme"] {
-    --main-color: 180, 230, 200;
-    --secondary-color: 200, 240, 220;
-    --background-color: 250, 250, 245;
-    --slider-image: url('/src/images/car_yellow.jpg');
+[data-theme="olive-green-theme"] {
+    --main-color: 61, 82, 32;
+    --secondary-color: 172, 152, 50;
+    --background-color: 183, 203, 153;
+    --slider-image: url('/src/images/car_gray.jpg');
 }
-
 
 * {
     box-sizing: border-box;
