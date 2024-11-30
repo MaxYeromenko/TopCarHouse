@@ -42,6 +42,7 @@ goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
 
 let carIdToEdit = null;
+let carIdToDelete = null;
 
 let catalogTypes = [];
 let carsData = [];
@@ -437,6 +438,36 @@ async function loadCars(filter) {
     }
 }
 
+const confirmationContainer = modalWindow.querySelector('#confirmation-container');
+const confirmationForm = confirmationContainer.querySelector('form');
+const yesButton = confirmationContainer.querySelector('button[name="yes"]');
+const noButton = confirmationContainer.querySelector('button[name="no"]');
+
+confirmationForm.addEventListener('submit', event => {
+    event.preventDefault()
+});
+
+yesButton.addEventListener('click', async () => {
+    showMessage('Видалення...', true);
+    try {
+        const result = await fetchWithRetryDelete(`/api/api-cars-control?id=${carIdToDelete}`, retriesLimit);
+
+        if (result) {
+            removeTokens(['carsTypesCache', 'bestCarDealsCache', `car${carIdToDelete}`]);
+            carIdToDelete = null;
+            showMessage('Авто успішно видалено!', true);
+        }
+    }
+    catch (error) {
+        console.log(error);
+        showMessage('Помилка сервера, будь ласка, відправте дані ще раз або перезавантажте сторінку!', false);
+    }
+});
+
+noButton.addEventListener('click', () => {
+    hideAllElementsInModalWindow(modalWindow);
+});
+
 function createCarCard(car) {
     const carCard = document.createElement('div');
 
@@ -485,6 +516,7 @@ function createCarCard(car) {
                 <div class="product-price">Ціна: $${car.price}</div>
                 <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 ${role === 'admin' ? `<button class="edit-car-info" data-id="${car._id}">Відредагувати</button>` : ''}
+                ${carIdToEdit !== null && role === 'admin' ? `<button class="delet-car" data-id="${car._id}">Видалити</button>` : ''}
             </div>
         </div>`;
 
@@ -492,6 +524,10 @@ function createCarCard(car) {
         carCard.querySelector('.edit-car-info').addEventListener('click', (event) => {
             carIdToEdit = event.target.dataset.id;
             editCarInfo();
+        });
+
+        carCard.querySelector('.delet-car').addEventListener('click', (event) => {
+            carIdToDelete = event.target.dataset.id;
         });
 
         async function editCarInfo() {

@@ -121,6 +121,15 @@ async function fetchWithRetryPost(url, data, retries) {
     }, retries);
 }
 
+async function fetchWithRetryDelete(url, retries) {
+    return handleRequest(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }, retries);
+}
+
 async function fetchWithCache(url, cacheKey, cacheExpiration, retries) {
     const cachedData = JSON.parse(localStorage.getItem(cacheKey));
     const isCacheValid = cachedData && (Date.now() - cachedData.timestamp < cacheExpiration);

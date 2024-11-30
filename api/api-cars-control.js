@@ -70,6 +70,25 @@ module.exports = async (req, res) => {
         } catch (err) {
             res.status(500).json({ success: false, message: 'Помилка сервера під час отримання даних авто!' });
         }
+    } else if (req.method === 'DELETE') {
+        try {
+            const { id } = req.query;
+
+            if (!id) {
+                return res.status(400).json({ success: false, message: 'ID автомобіля обов\'язковий для видалення.' });
+            }
+
+            const deletedCar = await CarModel.findByIdAndDelete(id);
+
+            if (!deletedCar) {
+                return res.status(404).json({ success: false, message: 'Автомобіль не знайдено.' });
+            }
+
+            res.status(200).json({ success: true, message: 'Автомобіль успішно видалено!' });
+        } catch (err) {
+            console.error('Error deleting car:', err);
+            res.status(500).json({ success: false, message: 'Помилка сервера під час видалення авто!' });
+        }
     } else {
         res.status(405).json({ success: false, message: 'Метод не дозволений!' });
     }
