@@ -63,6 +63,7 @@ if (isAuthTokenExpired()) {
     removeTokens([authTokenName]);
     showMessage('Приєднуйтесь до нашої спільноти, увійшовши до облікового запису або зареєструвавшись на головній сторінці.', true);
     toggleButtonsVisibility(true);
+    removeAllTokens();
 } else {
     toggleButtonsVisibility(false);
 }
@@ -92,13 +93,7 @@ confirmationForm.addEventListener('submit', event => {
 
 yesButton.addEventListener('click', () => {
     hideAllElementsInModalWindow(modalWindow);
-    
-    Object.keys(localStorage).forEach(key => {
-        if (key !== 'selected-theme') {
-            removeTokens([key]);
-        }
-    });
-
+    removeAllTokens();
     toggleButtonsVisibility(true);
     showMessage('Ви вийшли з облікового запису.', true);
 });

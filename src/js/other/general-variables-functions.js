@@ -187,6 +187,14 @@ function removeTokens(tokens) {
     }
 }
 
+function removeAllTokens() {
+    Object.keys(localStorage).forEach(key => {
+        if (key !== 'selected-theme') {
+            removeTokens([key]);
+        }
+    });
+}
+
 function addToCarToLocalStorage(carId) {
     const maxCarsToCompare = isAuthTokenExpired() ? 2 : 8;
     let carsToCompare = JSON.parse(localStorage.getItem('carsToCompare')) || [];
