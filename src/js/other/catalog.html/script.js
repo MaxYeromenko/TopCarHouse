@@ -151,7 +151,7 @@ else {
     const { role } = getUserIdRoleFromToken();
     if (role === 'admin') {
         const adminButton = document.createElement('button');
-        adminButton.addEventListener('click', carIdToEdit = null)
+        adminButton.addEventListener('click', () => { carIdToEdit = null })
         adminButton.id = 'admin-section-open';
         adminButton.title = 'Відкрити адмін панель';
         adminButton.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
