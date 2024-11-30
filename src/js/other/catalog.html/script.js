@@ -41,6 +41,8 @@ goToHomePage.href = '/';
 goToHomePage.textContent = 'На головну';
 cardsSectionButtons.appendChild(goToHomePage);
 
+let carIdToEdit = null;
+
 let catalogTypes = [];
 let carsData = [];
 let carsDisplayed = 0;
@@ -298,8 +300,6 @@ function placeIndexTypes(indexTypes) {
         bodyTypeOptions.appendChild(option);
     });
 }
-
-let carIdToEdit = null;
 
 function initializeFormSubmission() {
     modalWindow.querySelector('#admin-container form').addEventListener('submit', async (event) => {
