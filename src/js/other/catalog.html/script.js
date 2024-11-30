@@ -528,6 +528,8 @@ function createCarCard(car) {
 
         carCard.querySelector('.delete-car').addEventListener('click', (event) => {
             carIdToDelete = event.target.dataset.id;
+            toggleElementVisibility(modalWindow, 'flex');
+            toggleElementVisibility(confirmationContainer, 'block');
         });
 
         async function editCarInfo() {
