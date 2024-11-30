@@ -515,8 +515,8 @@ function createCarCard(car) {
                 </div>
                 <div class="product-price">Ціна: $${car.price}</div>
                 <a href="/pages/product-info.html?id=${car._id}" target="_blank">Детальніше <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                ${role === 'admin' ? `<button class="edit-car-info" data-id="${car._id}">Відредагувати</button>` : ''}
-                ${carIdToEdit !== null && role === 'admin' ? `<button class="delet-car" data-id="${car._id}">Видалити</button>` : ''}
+                ${role === 'admin' ? `<button class="edit-car-info" data-id="${car._id}">Відредагувати</button>\n
+                <button class="delete-car" data-id="${car._id}">Видалити</button>` : ''}
             </div>
         </div>`;
 
@@ -526,7 +526,7 @@ function createCarCard(car) {
             editCarInfo();
         });
 
-        carCard.querySelector('.delet-car').addEventListener('click', (event) => {
+        carCard.querySelector('.delete-car').addEventListener('click', (event) => {
             carIdToDelete = event.target.dataset.id;
         });
 
