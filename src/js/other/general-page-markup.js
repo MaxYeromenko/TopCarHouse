@@ -95,7 +95,7 @@ if(consultationsContainer){
                 <div id="new-consultations"></div>
             </div>
             <div class="column">
-                <h3>Зараз відбуваються</h3>
+                <h3>Поточні</h3>
                 <div id="in-progress-consultations"></div>
             </div>
             <div class="column">
